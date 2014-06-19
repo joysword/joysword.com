@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title>CS 424 Project 2</title>
+  </head>
+  <body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+    vlink="#00aaff">
+    <h1 style="font-family: Helvetica,Arial,sans-serif;">Project 2<br>
+    </h1>
+    <h2 style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);"><span style="font-weight: bold;">Monster Mash</span></h2>
+    <p style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);"> </p>
+    <span style="font-family: Helvetica,Arial,sans-serif;">Project due
+      Wednesday 10/17 at 9 pm Chicago time</span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">Project 2 will be the first group
+      project and will focus on converting data into a form for
+      visualization using processing on the touchscreen wall in the
+      classroom.<br>
+      <br>
+      Group size will be 3 people per group. You can chose who you want
+      to be in a group with, but you will be working with different
+      people in each project. I will create groups for people that do
+      not form groups on their own by Friday.<br>
+      <br>
+      You should very quickly set up a web page for your group project
+      and send the URL to andy along with the names of the members of
+      your group. The final webpage for the project will be public; the
+      in-process web pages do not need to be public as long as Andy and
+      Arthur have access. Each Friday of the project each team member
+      should post on the project web site an overview of what he/she did
+      on the project that week. This comes in handy when assigning
+      ratings to your collaborators and making sure that everyone is
+      contributing.<br>
+      <br>
+      Note that the due date for project 2 is on a Wednesday, rather
+      than the normal Monday. The classroom (and its wall) will be
+      reconfigured as demo space for a conference the week of 10/9 and
+      10/11, and will not be available for testing. <br>
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">In this project we are going to
+      investigate the popularity of different kinds of monsters over the
+      years in movies.<br>
+      <br>
+      We will make use of the internet movie database (www.imdb.com).
+      The raw data is available at http://www.imdb.com/interfaces#plain<br>
+      <br>
+      The keywords that people have applied to various films will let
+      you see which films involve vampires, werewolves, aliens, robots,
+      giant monsters, witches, zombies (voodoo kind), zombies (ghoul
+      kind), Dr. Frankenstein's monster, sea monster / lake monster,
+      giant insects, mutants, demons, monster plants, Bigfoot /
+      Sasquatch / yeti, ghosts, and the various subcategories of each.
+      You are encouraged to add other categories here, and you should
+      look at the variations in each of the keywords to make sure you
+      are getting the most accurate data.<br>
+      <br>
+      The application should help the user investigate various things,
+      e.g.<br>
+      <ul>
+        <li> what is the relative popularity of a particular monster
+          type over the years?</li>
+        <li> are the number of monster films generally stable or does
+          the number ebb and flow in a pattern?</li>
+        <li>how common are different monsters in the films made in
+          different countries?</li>
+        <li> which monsters tend to hang out with which other types of
+          monsters?</li>
+        <li> does the success of a popular film with a particular type
+          of monster inspire a glut of films with the same kind of
+          monster in the following years?</li>
+        <li> are there particular world events that trigger interest in
+          particular kinds of monsters (e.g. the atomic bomb, first
+          satellite / man in space / man on moon, the environmental
+          movement, computers, nano-technology, etc)? </li>
+      </ul>
+      <hr size="2" width="100%"><br>
+      Much of your work will involve the keyword information but you
+      will also need other information such as genres, rating, business,
+      country of origin, and certificates.<br>
+      <br>
+      We will not include any video games (VG) or TV episodes or any
+      films that have 'Adult' or 'Documentary' as a genre, but TV movies
+      (TV) and direct to video releases (V) should be included in the
+      visualization. <br>
+      <br>
+      You should first download a copy of the various data files and
+      take a look at them to try and understand their structure. Then
+      you need to decide how you want to integrate these various files
+      together into a form that you can visualize. This may involve
+      writing shell scripts or programs to process the files, or loading
+      the information into a database you can access via processing.
+      Note that there are a lot of TV episodes in the IMDB so I would
+      suggest filtering those out of your database / files ASAP. If you
+      do choose to use a database make sure that it will work on the
+      computer driving the classroom wall.<br>
+      <br>
+      We will deal with films from 1890 through 2012<br>
+      <br>
+      You should convert the budgets (available from the business data)
+      to 2012 dollars by taking inflation, and currency conversion if
+      necessary, into account so they can be compared more accurately.
+      This will allow you to cluster the films into big budget, low
+      budget, and no budget films, based on a criteria that you create.<br>
+      <br>
+      Data may not be available in all categories so you need an
+      effective way of showing which information is missing. Missing
+      data does not mean that you toss out the film; it means you find a
+      way to show that particular pieces of information are missing
+      (e.g. a film has an unknown genre or an unknown budget)<br>
+      <br>
+      The current US MPAA rating system (G, PG, PG-13, R, NC-17) began
+      in 1968 and has changed a few times since then (e.g. PG was
+      originally M and then became GP before becoming PG, and NC-17 was
+      formerly X). Some earlier films have been re-rated, but many are
+      not rated, though they would be equivalent to G or PG. Wikipedia
+      has a nice article with all the details.<br>
+      <br>
+      There will be two visualizations<br>
+      <br>
+      The main visualization will be a timeline. The timeline should be
+      dynamic so the user can see all the data at once, or a subset of
+      years in more detail, or cluster the data by decade. For each year
+      the user should be able to see the total number of monster films,
+      and how that compares to the total number of films for that year,
+      or look at details for just the monster films that year. The data
+      for each year can further be broken down and visualized by
+      categories.<br>
+      <br>
+      You should come up with a good color coding scheme allowing the
+      user to color the timeline graph by:<br>
+      <ul>
+        <li>type of monster (vampire, werewolf, ghost, etc)<br>
+        </li>
+        <li>country of origin (US, UK, Japan, France, etc)<br>
+        </li>
+        <li>genre (Horror, comedy, drama, musical)<br>
+        </li>
+        <li>budget level (high / low / no)</li>
+        <li>format (movie, video, TV movie)<br>
+        </li>
+        <li>certificates (G / GP / PG / R, etc)</li>
+        <li>quality ratings (ranges in the IMDB ratings)</li>
+        <li>popularity (ranges in # votes)</li>
+      </ul>
+      <br>
+      You should come up with an intuitive interface to let people
+      filter the data by the above categories, and combinations of those
+      categories e.g. I want to see only high budget vampire musicals
+      from 1930 to 1960, or I want to see what genres are the most
+      common in the 1970s for ghost stories, or I want to look at all
+      the monster movies but colour code them into high-budget,
+      low-budget, and no-budget films, or I want to compare the number
+      of ghost stories to giant monsters over all the decades, allowing
+      the user to show all the data or subsets of the data. <br>
+      <br>
+      The user should be able to select their options from menus of
+      choices<br>
+      <br>
+      The user should be able to select a year or range of years and see
+      a tabular version of the data in the timeline. The user should
+      also be able to bring up data on the individual films.<br>
+      <br>
+      Note that a single film may have multiple monster keywords and/or
+      multiple genres so you will need to decide, and defend your
+      decision, how you will integrate that data with a film that has a
+      single monster keyword and genre. Note that picking one keyword or
+      one genre from the set is not a valid solution.<br>
+      <br>
+      <br>
+      Aside from the timeline, another visualization will show the most
+      common genres, countries of origin, budget level, certificates,
+      quality level, and other keywords for a given monster or
+      combination of monsters.<br>
+      <font color="#ffff00"><br>
+        There are various data processing steps necessary to get the
+        data ready for visualization. You can do this processing in your
+        main application, or with a separate application, or through
+        scripts or database commands. You need to document this process,
+        and to as great an extent as possible automate this process, so
+        that it would be easy for a person to take the current version
+        of the IMDB data and update the data that your program makes use
+        of. <br>
+        <br>
+        Your program should be interactive and respond quickly when the
+        user changes the data he/she is viewing. This means you may need
+        to create a set of pre-processed data files that are designed to
+        be visualized quickly, rather than running complex queries or
+        matching algorithms each time the user touches a button. These
+        are also things that should be documented.</font><br>
+      <br>
+      <div style="text-align: justify; color: rgb(255, 255, 255);"><br>
+        <span style="font-weight: bold; text-decoration: underline;">For
+          a C you need ...</span><br>
+        <br>
+        <ul>
+          <li>overall timeline with good color coding scheme and
+            intuitive interface menu allowing the user to query type of
+            monster, genre, format, quality, and popularity data,
+            showing one set of data at a time</li>
+          <li>tabular version of data shown in the timeline<br>
+          </li>
+          <li>help screen and author credits screen</li>
+          <li>fully functional with intuitive touch interface running on
+            the full classroom wall<br>
+          </li>
+        </ul>
+        <ul>
+        </ul>
+        <br style="font-weight: bold;">
+        <span style="font-weight: bold; text-decoration: underline;">For
+          a B you need to add ...</span><br>
+        <br>
+        <ul>
+          <li>interactive timeline (being able to choose a range of
+            dates)</li>
+          <li>cluster timeline data by decade</li>
+          <li>cluster monsters by some intelligent scheme that your
+            group comes up with<br>
+          </li>
+          <li>ability to compare multiple combinations of data
+            simultaneously</li>
+          <li>integrate country of origin data into the timeline
+            allowing visualization and filtering</li>
+          <li>start with sample interesting/fun/useful starter queries
+            for the user</li>
+          <li>show top 10 monster types per decade and overall<br>
+          </li>
+          <li>ability to search for a particular film by name with
+            intelligent help (filtering, auto-complete)<br>
+          </li>
+        </ul>
+        <br>
+        <span style="font-weight: bold; text-decoration: underline;">For
+          an A you need to add ...</span><br>
+        <br>
+        <ul>
+          <li>common keyword, genre, country of origin, budget level,
+            format, certificates, quality, visualization for a given
+            monster or combination of monsters<br>
+          </li>
+          <li>be able to get information on particular films that make
+            up the current graph (e.g. name plus all of the information
+            you can search on)<br>
+          </li>
+          <li>integrate inflation and currency adjusted budget data into
+            the timeline allowing visualization and filtering</li>
+          <li>integrate US certificates (G, PG etc) into the timeline
+            allowing visualization and filtering</li>
+          <li>add a second language to the interface (UI elements,
+            monster types, genres, country of origin). You do not need
+            to translate the movie titles. If no one in your group knows
+            another language you can use Swedish Chef speak, or Klingon,
+            or some other language with translators on the web<br>
+          </li>
+          <li>integrate events that may affect this data to look for
+            correlations</li>
+          <li>discuss five interesting findings or evidence to support
+            conclusions using the interface</li>
+        </ul>
+        <br>
+      </div>
+      <span style="font-weight: bold; text-decoration: underline;"></span>
+      <hr style="width: 100%; height: 2px;"><br>
+      <div style="text-align: justify;"><span style="font-family:
+          Helvetica,Arial,sans-serif;">You should create a set of web
+          pages that describe your work on the project. This should
+          include:</span><br>
+        <span style="font-family: Helvetica,Arial,sans-serif;"> </span>
+      </div>
+      <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">
+        <li>1 page on how to use your application and the things you can
+          do with it. </li>
+        <li>1 page on the data you used including where you got it, what
+          you did to it.<br>
+        </li>
+        <li>1 page with links to the source code and any instructions
+          necessary to instal l and run it. These instructions should
+          start from the assumption that the reader has a web browser on
+          their computer and tell the user everything else he/she needs
+          to know to get the code and get it running.<br>
+        </li>
+        <li>1 page on what interesting things you found using your
+          application.</li>
+        <li>1 page on the roles of the different team members<br>
+        </li>
+      </ul>
+      <span style="font-family: Helvetica,Arial,sans-serif;">all of
+        which should have plenty of screenshots with meaningful
+        captions. </span><span style="font-family:
+        Helvetica,Arial,sans-serif;">Web pages like this can be very
+        helpful later on in helping you build up a portfolio of your
+        work when you start looking for a job so please put some effort
+        into it.</span><br>
+      <br>
+      Be sure to document any external libraries or tools that you make
+      use of - give credit where credit is due.<br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><font
+        face="Helvetica, Arial, sans-serif"><br>
+        <span style="font-family: Helvetica,Arial,sans-serif;"> You
+          should also create a 2-3 minute YouTube video showing the use
+          of your application including narration with decent audio
+          quality. That video should be in a very obvious place on your
+          main project web page. The easiest way to do this is to use a
+          screen-capture tool while interacting with a scaled-down
+          version of the application, though you will most likely find
+          its useful to do some editing afterwards to tighten the video
+          up. Its also a good idea to have a video like this available
+          as a backup during your presentation just in case of gremlins.</span></font>
+      <font face="Helvetica, Arial, sans-serif">You may want to shoot
+        this video on the wall itself.</font><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">The web
+        page including screen snapshots and video need to be done by the
+        deadline so be sure to leave enough time to get that work done.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"> I will be
+        linking your web page to the course notes so please send me a
+        nice 1280 x 361 jpg image of your visualization for the web.
+        This should be named
+        p2.&lt;someone_in_your_groups_last_name&gt;.jpg.&nbsp; </span><span
+        style="font-family: Helvetica,Arial,sans-serif;"><br>
+      </span><br>
+      When the project is done, each person in the group should also
+      send me a private email with no one else cc'd ranking your
+      coworkers on the project on a scale from 1 (low) to 5 (high) in
+      terms of how good a coworker they were on the project. If you
+      never want to work with them again, give them a 1. If this person
+      would be a first choice for a partner on a future project then
+      give them a 5. If they did what was expected but nothing
+      particularly good or bad then give them a 3. By default your score
+      should be 3 unless you have a particular reason to increase or
+      decrease the number. Please confine your responses to 1, 2, 3, 4,
+      5 and no 1/3ds or .5s please. I will average out all these scores
+      for projects 2 through 4 and keep them in mind when assigning
+      final grades to projects 2 through 4.<br>
+      <br>
+      <font color="#ffffff"><span style="font-family:
+          Helvetica,Arial,sans-serif;">Each group will show their
+          visualization to the class on the wall and describe its
+          features. This allows everyone to see a variety of solutions
+          to the problem, and a variety of implementations.</span> </font><font
+        face="Helvetica, Arial, sans-serif">Rehearse your presentation
+        ... several times. </font><font color="#ffffff">All team
+        members are expected to participate equally in that
+        presentation. <font color="#ffff00">The length of the
+          presentations will be 5 minutes.</font> During each talk each
+        group in the audience should write one question for the speaking
+        group, and hand it to them at the end of their presentation. The
+        speaking group should add a page to their website by Friday
+        10/19 giving the questions (and the group who asked it) and an
+        answer to the question.<br>
+      </font></div>
+    <font color="#ffffff"> <span style="font-family:
+        Helvetica,Arial,sans-serif;"><br>
+      </span>
+      <hr style="width: 100%; height: 2px; font-family:
+        Helvetica,Arial,sans-serif;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"></span>
+      <hr style="font-family: Helvetica,Arial,sans-serif;"><span
+        style="font-family: Helvetica,Arial,sans-serif;">last revision
+        10/12/12 -integrated the notes on data processing fromt he email
+        I sent out<span style="color: rgb(255, 255, 0);"></span></span>
+    </font>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Electronic Avenue - Visualization Project 1</title>
+	<meta http-equiv="refresh" content="3600">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/content.css">
+</head>
+
+<body>
+<!--============================= header area ==============================-->
+<div id="header">
+<h1>Electric Avenue</h1>
+<p>CS 424 Visualization and Visual Analytics Project 1</p>
+</div>
+<!--=========================== end of header area ==========================-->
+
+<!--============================= navigation bar ============================-->
+<div id="nav_ver">
+<p><a href="index.html">introduction</a></p>
+<p><a href="demo.html">demonstration</a></p>
+<p><a href="install.html">installation</a></p>
+<br>
+<p><a href="function.html">features</a></p>
+<p><a href="data.html">data source</a></p>
+<p><a href="findings.html">interesting findings</a></p>
+</div>
+<!--========================  end of navigation bar ========================-->
+
+<!--============================= main area =================================-->
+<div id="main">
+<p><br><br>
+I would like to introduce the features of this app from left to right.<br><br>
+<img src="image/2.png"><br>
+Fig.2 Layout of the interface
+
+<h2>1. Title</h2>
+<p>Top-left area of the interface is displaying the title of current status. There are 3 statuses, <i>Display Mode</i>, which toggles between <i>One Country Mode</i> and <i>Multi Countries Mode</i>, <i>Year Mode</i>, which toggles between <i>Year by Year</i> and <i>Decade Cluster</i>, and Which country (in One Country Mode) or data (Multi Countries Mode) is being displayed.<br><br>
+<img src="image/3.png"><br>
+Fig.3 One Country Mode<br><br>
+<img src="image/4.png"><br>
+Fig.4 Multi Countries Mode</p>
+
+<h2>2. Left Panel</h2>
+
+<p>There are 3 buttons in the very left area:
+<ul>
+<li>click <i>SEARCH</i> will oepn search window, which consists of a text box and a virtual keyboard. User can type a series of letters here then click ENTER, updating <i>Country List</i> to only displays only countries whose name initiates with the string user just typed.</li>
+<li>click <i>MAP</i> will open a world map, with different regions in different colors. User can click a region to update <i>Country List</i> to only displaying countries in that regions.</li>
+<li>click <i>CREDITS</i> will open a window that contains instruction and author credits.</li></ul></p>
+
+<p>To their right, are <i>Country List</i> and the <i>Page Buttons</i> for it.<br>
+*I put different colors to adjacent row to distinguish them.<br>
+*Regions and countries can be distinguished with no effort.</p>
+
+<p>To it's right, are <i>Legend</i>, indicating which data or country are in which color in <i>Plot</i>.<br>
+*In <i>One Country Mode</i>, all 7 colors (i.e. data sets) will always be displayed; While in <i>Multi Country Mode</i>, user can delete countries from <i>Plot</i> by clicking it's name in <i>Legend</i><br><br>
+<img src="image/5.png"><br>
+Fig.5 SEARCH window<br><br>
+<img src="image/6.png"><br>
+Fig.6 MAP window<br><br>
+<img src="image/7.png"><br>
+Fig.7 CREDITS window
+</p>
+
+<h2>3. Main Controls</h2>
+
+<p>In this area, lying <i>Country Mode Selector</i> and <i>Data Selector</i><br><br>
+As mentioned before, only one data set will be displayed in <i>Multi Countries Mode</i> so that user can focus on it and not be overwhelmed.</p>
+
+<p>Below <i>Country Mode Selector</i>, there is a button <i>RAW DATA</i> which can be used to show <i>Table</i> of the data instead of <i>Plot</i>. This tabular form allows user who need accurate values to do more research on them.</p>
+<p>Another button here is <i>EVENT</i>. This is for showing some international events and interesting findings I found using this application.<br>
+This is primarily integrated for this course. More information about this findings and events are at <a href="findings.html">interesting findings</a> section.<br><br>
+<img src="image/8.png"><br>
+Fig.8 show RAW DATA in Table<br><br>
+<img src="image/9.png"><br>
+Fig.9 show EVENT in Plot</p>
+
+<h2>4. Main Display</h2>
+
+<p>In this major area of the interface, is either <i>Plot</i> or <i>Table</i>.<br>
+*I used the maximum data value (excluding data for World) as the default maximum value for Y axis. If user drag their mouse (or finger) up and down, Y axis will be zoomed in or out. For this feature, many thanks to classmates who tested their project on the Wall on Thursday, September 20th, 2012. I watched and I learned.<br>
+*Another feature here is that in <i>One Country Mode</i>, there probably will be more than one data set in <i>Plot</i> simultaneously. By clicking the color square in <i>Legend</i>, user can choose to display Y values of which data sets.</p>
+
+<p>Below it, is <i>Time Line</i> which is used to control which range of years to show in <i>Plot</i><br>
+*This doesn't work in tabular form. In tabular form, user use <i>Page Buttons</i> to the right of <i>Table</i> to switch between decades.<br></p>
+
+<p>User can also choose to see data in <i>Decade Cluster</i> mode which shows <u>average data of whole decade</u> as a <i>Bar</i>.<br>
+*Unfortunately, I separated data for 3 decades of the same data set and put data of different data sets for the same decade together, instead putting data for 3 decades of the same data set toghther, which, as I think now, would be better than what it looks like now.<br>
+*Note that in <i>Decade Mode</i>, some features may not be activated such as <i>Event</i> button and <i>RAW DATA</i> button. (<i>Table</i> will still show data <i>Year by Year</i><br><br>
+<img src="image/10.png"><br>
+Fig.10 cluster the data by decade</p>
+
+<h2>5. Comparison</h2>
+<p>In the right-most side of the interface, are some pie charts. Here, user can compare data of a country or region to <i>Region</i> or <i>World</i> in <i>One Country Mode</i>.<br>
+*Only one pie chart will be displayed, showing the relative amount of current data set for all countries that are showing in <i>Plot</i> or <i>Table</i>.
+*For per capita data, color in <i>Pie</i> represents the country, white represents <i>Region</i> or <i>World</i>. For other data, color represents the country, <u>whole <i>Pie</i></u> represents total amount of <i>Region</i> or <i>World</i>.<br>
+
+<p>There also are <i>Comparison Selector</i> for switching between <i>Region</i> or <i>World</i> and another <i>Page Button</i> to select different year of data to be used.<br>
+*For years in which some data of some country that is not available, 0 will be used instead giving N/A information.</p>
+
+<p>See Fig.3 and Fig.4</p>
+
+<h2>6. Other features</h2>
+
+<p>In <i>One Country Mode</i>, this app deals with countries that break up or form intelligently.
+*I only implement suck countries in Europe and Eurasia, other countries such as Namibia of Africa, Palestine of Middle East, Eritrea of Africa and East Timor of Asia & Oceania.<br>
+*If user choose a big country that breaks up or be formed, this app will show the sum of data of small countries for years in which the data of the big country is not available;<br>
+*If user choose a small country that merge with other country or is fromed by a collapsed big country, this app will show the data of the big country for year in which the small country is not the small country.<br><br>
+<img src="image/11.png"><br>
+Fig.11 Intelligently dealing with country that breaks up
+</p>
+
+
+</div>
+<!--======================== end of main area ===============================-->
+
+<!--============================== footer ===================================-->
+<div id="footer">
+<p>Last Updated: 2012-9-24 | &copy;copyright 2012 Shi Yin</p>
+</div>
+<!--============================= end of footer =============================-->
+
+
+</body></html>

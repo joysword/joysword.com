@@ -1,0 +1,2663 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title>CS 424 Week 2</title>
+  </head>
+  <body style="color: white; background-color: black;" alink="#ff2200"
+    link="yellow" vlink="#00aaff">
+    <h1 style="font-family: Helvetica,Arial,sans-serif;">Week 2<br>
+    </h1>
+    <h2 style="font-family: Helvetica,Arial,sans-serif;">Introduction to
+      Programming in Processing<br>
+    </h2>
+    <p style="font-family: Helvetica,Arial,sans-serif;"> </p>
+    <hr style="font-family: Helvetica,Arial,sans-serif;">
+    <hr style="font-family: Helvetica,Arial,sans-serif;"><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">Last week we looked at static
+      information graphics, and that's generally how information has
+      been displayed and distributed since paper has been relatively
+      inexpensive for the last several hundred years. Slide projectors,
+      film, and television have given people increasing access to
+      animation as a way to visualize data. <br>
+      <br>
+      Now with computer display screens we have new options. The screens
+      are becoming much higher resolution, approaching the resolution of
+      film or print with increasing color gamut and contrast levels. The
+      processing power behind the screens is increasing so we can
+      convert data into images faster and update the images on the
+      display faster. The ways we can interact with the screens are
+      becoming more direct. And these trends are going to continue.<br>
+      <br>
+      Having all this technology doesn't solve the problem of creating
+      meaningful, useful interactive visualizations.&nbsp; That still
+      falls to people writing good software.<br>
+      <br>
+      There are various pieces of software out there that can help
+      people create interactive visualizations of different kinds of
+      data, e.g. flare or paraview. <br>
+      <br>
+      In this course we are going to focus more on creating those kinds
+      of tools so we are going to use a more generic package -
+      processing, which can be downloaded from <a
+        href="http://www.processing.org/">http://www.processing.org/</a><br>
+      <br>
+      Processing is going through a revision to version 2.0 and
+      currently is at 2.0a8. <u>We will be using the 2.0 branch for
+        this class</u>. Some of the built in examples have not yet been
+      updated to 2.0 so you may also want to download a copy of
+      processing 1.5.1 to look at those examples (e.g. the zipcode
+      example.)<br>
+      <br>
+      First off we are going to look at a couple examples from the last
+      class to give you an idea what you can do with processing.<br>
+      <br>
+      <img style=" width: 324px; height: 200px;" alt="Febretti John Snow
+        viz" src="09p1/p1.febretti.jpg"> &nbsp; &nbsp; <img style="
+        width: 267px; height: 200px;" alt="Reda Mateevitsi OHare
+        Project" src="09p2/p2.reda.png"><br>
+      <br>
+      <br>
+      <br>
+      Chapters 3 and 4 of Visualizing Data are a very good place to
+      start looking at how to use processing to visualize data. Sample
+      code from each chapter is available at <a
+        href="http://benfry.com/writing/archives/3">http://benfry.com/writing/archives/3</a><br>
+      <br>
+      <br>
+      The programs that you will be writing will:<br>
+      <ul>
+        <li>grab data from one or more sources (text files, databases,
+          etc)</li>
+        <li>combine the data together and possibly generate derived data
+          sets from them</li>
+        <li>load subsets of that data into memory for visualization</li>
+        <li>encourage the user to explore the data by giving them a
+          powerful, responsive, and convenient user interface</li>
+      </ul>
+      The data sets that we use will start out small and focused on what
+      you want to visualize, but then they will grow and require more
+      integration to get the data you need to visualize. At first the
+      data will fit in memory but that will become less true as the
+      projects go on and the data sizes increase. Realistically the data
+      to create modern visualizations will not even fit on a local hard
+      drive, but we will leave that for the more advanced class.<br>
+      <br>
+      We are going to focus on creating and interacting with 2D displays
+      of data. 3D data (e.g. MRI data) are covered in the 500-level
+      version of this course - CS 524. This means we will lay out all
+      the data on a 2D canvas and not have to worry about virtual
+      cameras and viewports and all that CS 488 computer graphics kind
+      of stuff.<br>
+      <br>
+      We do need to worry about loading the data in, drawing it on the
+      screen based on the user's current settings and letting the user
+      make changes to those settings.<br>
+      <br>
+      Processing has its own development environment with a text editor
+      that holds all the files in your project and allows you to run the
+      current version and test it before exporting it out as a
+      stand-alone or web-based application. The application you write in
+      processing is called a 'sketch' and it can have multiple source
+      code files and data files sitting in the same folder.<br>
+      <br>
+      lets start with a simple example:<br>
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">// setup done once when the
+        sketch is first started</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">void setup() { </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; size(500, 400); //
+        automatically sets variables called width and height</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // do all drawing
+        with smooth edges</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; smooth(); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">// draw done repeatedly (by
+        default 60 times per second)</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">void draw() { </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // make the
+        background light blue</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // colours are red /
+        green / blue with amounts of each from 0 to 255</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; background(150, 180,
+        255); </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // draw a white box
+        with no outline</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; fill(255, 255, 255);
+      </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; noStroke(); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; rectMode(CORNERS); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; rect(50, 60,
+        width-50, height-60); </span><br style="font-family:
+        monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // draw a red line</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;
+        strokeWeight(2);&nbsp; // set the line width </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;
+        stroke(#FF0000);&nbsp; // can also set colours using hex
+        representation</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//
+where
+this
+is
+the
+same
+as
+
+
+
+
+
+
+
+
+        (255, 0, 0)</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; line(80, 90, 420,
+        110);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // draw a black point</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; strokeWeight(3); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; stroke(#000000); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; point(240, 150);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // draw an aqua
+        circle with a yellow center</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp; strokeWeight(3); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; fill(255, 255, 0); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; stroke(#008888); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; ellipse(240, 200, 18,
+        18);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">} </span><br>
+      <br>
+      The kinds of processing sketches you will be writing have two
+      parts: setup which is done once when the sketch is run, and draw
+      which is called repeatedly (be default 60 times per second.) <br>
+      <br>
+      Sketch sets up the overall size of the drawing area, loads in any
+      initial data, sets any overall drawing parameters, and then turns
+      over control to draw which repeatedly loops until the sketch is
+      closed.<br>
+      <br>
+      <img style="width: 500px; height: 422px;" alt="small processing
+        example" src="pics/processing/small_example.jpg"><br>
+      <br>
+      and here is a quick overview of the window coordinates - noting
+      that 0,0 is the upper left corner, and using the built in width
+      and height variables which are set by the application.<br>
+      <br>
+      <img src="pics/processing/window.jpg" alt=""><br>
+      <br>
+      Now lets look at a small visualization example from the beginning
+      of Chapter 4. This looks much more like a computer program with
+      variable declarations and functions, which reads data from a file
+      and displays it (minimally) on the screen. It also makes use of
+      the very helpful FloatTable class.<br>
+      <br>
+      // declare some variables.<br>
+      <span style="font-family: monospace;">FloatTable data; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">float dataMin, dataMax; </span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">float plotX1, plotY1; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">float plotX2, plotY2; </span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">int yearMin, yearMax; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">int[] years; </span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void setup() { </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; size(720, 405); </span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; data = new
+        FloatTable("milk-tea-coffee.tsv"); </span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; years =
+        int(data.getRowNames()); </span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp; yearMin = years[0]; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; yearMax =
+        years[years.length - 1]; </span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; dataMin = 0; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; dataMax =
+        data.getTableMax(); </span><br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // Corners of the
+        plotted time series </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; plotX1 = 50; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; plotX2 = width -
+        plotX1; </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; plotY1 = 60; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; plotY2 = height -
+        plotY1; </span><br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; smooth(); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void draw() { </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; background(224); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // Show the plot area
+        as a white box </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; fill(255); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; rectMode(CORNERS); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; noStroke(); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; rect(plotX1, plotY1,
+        plotX2, plotY2); </span><br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; strokeWeight(5); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // Draw the data for
+        the first column </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; stroke(#5679C1); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; drawDataPoints(0); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">} </span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">// Draw the data as a series
+        of points </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">void drawDataPoints(int col)
+        { </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; int rowCount =
+        data.getRowCount(); </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; for (int row = 0; row
+        &lt; rowCount; row++) { </span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; if
+        (data.isValid(row, col)) { </span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        value = data.getFloat(row, col); </span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        x = map(years[row], yearMin, yearMax, plotX1, plotX2); </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        y = map(value, dataMin, dataMax, plotY2, plotY1); </span><br>
+      <br>
+      &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; // map is a
+      nice processing function that takes numbers from one range and
+      maps them into another range<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //
+      map(value, low1, high1, low2, high2) given value in low1 to high1
+      return corresponding value in low2 to high2<br>
+      <span style="font-family: monospace;"></span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+point(x,
+
+
+
+
+
+
+
+
+        y); </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; } </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; } </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">} </span><br>
+      <br>
+      and the data file milk-tea-coffee.tsv looks like:<br>
+      <span style="font-family: monospace;">Year&nbsp;&nbsp;&nbsp;
+        Milk&nbsp;&nbsp;&nbsp; Tea&nbsp;&nbsp;&nbsp; Coffee</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">1910&nbsp;&nbsp;&nbsp;
+        32.2&nbsp;&nbsp;&nbsp; 9.6&nbsp;&nbsp;&nbsp; 21.7</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">1911&nbsp;&nbsp;&nbsp;
+        31.3&nbsp;&nbsp;&nbsp; 10.2&nbsp;&nbsp; 19.7</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">1912&nbsp;&nbsp;&nbsp;
+        34.4&nbsp;&nbsp;&nbsp; 9.6&nbsp;&nbsp;&nbsp; 25.5</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">1913&nbsp;&nbsp;&nbsp;
+        33.1&nbsp;&nbsp;&nbsp; 8.5&nbsp;&nbsp;&nbsp; 21.2</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">1914&nbsp;&nbsp;&nbsp;
+        31.1&nbsp;&nbsp;&nbsp; 8.9&nbsp;&nbsp;&nbsp; 21.8</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">1915&nbsp;&nbsp;&nbsp;
+        29&nbsp;&nbsp; &nbsp;&nbsp; 9.6&nbsp;&nbsp;&nbsp; 25</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">etc</span><br>
+      <br>
+      <img style="width: 720px; height: 427px;" alt="initial data
+        processing example" src="pics/processing/figure_01.jpg"><br>
+      <br>
+      You will note that this isn't particularly meaningful at this
+      point but it has read the data in and drawn it on the screen. By
+      the 6th version of the program given below there are labels, a
+      grid to make it easier to see the values, and the use of the [ and
+      ] keys to switch between the 3 datasets.<br>
+      <br>
+      <br>
+      <span style="font-family: monospace;">FloatTable data;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">float dataMin, dataMax;</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">float plotX1, plotY1;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">float plotX2, plotY2;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">float labelX, labelY;</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">int rowCount;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">int columnCount;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">int currentColumn = 0;</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">int yearMin, yearMax;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">int[] years;</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">int yearInterval = 10;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">int volumeInterval = 10;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">int volumeIntervalMinor = 5;</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">PFont plotFont; </span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void setup() {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; size(720, 405);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; data = new
+        FloatTable("milk-tea-coffee.tsv");</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp; rowCount =
+        data.getRowCount();</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; columnCount =
+        data.getColumnCount();</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; years =
+        int(data.getRowNames());</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp; yearMin = years[0];</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; yearMax =
+        years[years.length - 1];</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; dataMin = 0;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; dataMax =
+        ceil(data.getTableMax() / volumeInterval) * volumeInterval;</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // Corners of the
+        plotted time series</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; plotX1 = 120; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; plotX2 = width - 80;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; labelX = 50;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; plotY1 = 60;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; plotY2 = height - 70;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; labelY = height - 25;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; plotFont =
+        createFont("SansSerif", 20);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp; textFont(plotFont);</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; smooth();</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void draw() {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; background(224);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // Show the plot area
+        as a white box&nbsp; </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; fill(255);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; rectMode(CORNERS);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; noStroke();</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; rect(plotX1, plotY1,
+        plotX2, plotY2);</span><br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; drawTitle();</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; drawAxisLabels();</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; drawYearLabels();</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; drawVolumeLabels();</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; stroke(#5679C1);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; strokeWeight(5);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;
+        drawDataPoints(currentColumn);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">}</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void drawTitle() {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; fill(0);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; textSize(20);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; textAlign(LEFT);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; String title =
+        data.getColumnName(currentColumn);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp; text(title, plotX1,
+        plotY1 - 10);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void drawAxisLabels() {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; fill(0);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; textSize(13);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; textLeading(15);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; textAlign(CENTER,
+        CENTER);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // Use \n
+        (enter/linefeed) to break the text into separate lines</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;
+        text("Gallons\nconsumed\nper capita", labelX,
+        (plotY1+plotY2)/2);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; textAlign(CENTER);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; text("Year",
+        (plotX1+plotX2)/2, labelY);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">}</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void drawYearLabels() {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; fill(0);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; textSize(10);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; textAlign(CENTER,
+        TOP);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // Use thin, gray
+        lines to draw the grid</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; stroke(224);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; strokeWeight(1);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; for (int row = 0; row
+        &lt; rowCount; row++) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; if
+        (years[row] % yearInterval == 0) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        x = map(years[row], yearMin, yearMax, plotX1, plotX2);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+text(years[row],
+
+
+
+
+
+
+
+
+        x, plotY2 + 10);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+line(x,
+
+
+
+
+
+
+
+
+        plotY1, x, plotY2);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void drawVolumeLabels() {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; fill(0);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; textSize(10);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; stroke(128);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; strokeWeight(1);</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; for (float v =
+        dataMin; v &lt;= dataMax; v += volumeIntervalMinor) {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; if (v %
+        volumeIntervalMinor == 0) {&nbsp;&nbsp;&nbsp;&nbsp; // If a tick
+        mark</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        y = map(v, dataMin, dataMax, plotY2, plotY1);&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        if (v % volumeInterval == 0)
+        {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // If a major tick
+        mark</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        if (v == dataMin) {</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+textAlign(RIGHT);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        // Align by the bottom</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        } else if (v == dataMax) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        textAlign(RIGHT,
+        TOP);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        // Align by the top</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        } else {</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        textAlign(RIGHT,
+        CENTER);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+        Center vertically</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        }</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        text(floor(v), plotX1 - 10, y);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+line(plotX1
+-
+4,
+y,
+plotX1,
+y);&nbsp;&nbsp;&nbsp;&nbsp;
+//
+
+
+
+
+
+
+
+
+        Draw major tick</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        } else {</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        // Commented out, too distracting visually</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//line(plotX1
+-
+2,
+y,
+plotX1,
+y);&nbsp;&nbsp;
+//
+
+
+
+
+
+
+
+
+        Draw minor tick</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        }</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void drawDataPoints(int col)
+        {</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; for (int row = 0; row
+        &lt; rowCount; row++) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; if
+        (data.isValid(row, col)) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        value = data.getFloat(row, col);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        x = map(years[row], yearMin, yearMax, plotX1, plotX2);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        y = map(value, dataMin, dataMax, plotY2, plotY1);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+point(x,
+
+
+
+
+
+
+
+
+        y);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void keyPressed() {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; if (key == '[') {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+        currentColumn--;</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; if
+        (currentColumn &lt; 0) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+currentColumn
+
+
+
+
+
+
+
+
+        = columnCount - 1;</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; } else if (key ==
+        ']') {</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+        currentColumn++;</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; if
+        (currentColumn == columnCount) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+currentColumn
+
+
+
+
+
+
+
+
+        = 0;</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br>
+      <br>
+      <img src="pics/processing/figure_06.jpg" alt=""><br>
+      <br>
+      the 10th iteration shows the data as a line instead of discrete
+      points, and adds the ability for the user to move the mouse over
+      the line and see the actual data values at that point<br>
+      <br>
+      <span style="font-family: monospace;">void drawDataLine(int col)
+        {&nbsp; </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; beginShape();</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; for (int row = 0; row
+        &lt; rowCount; row++) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; if
+        (data.isValid(row, col)) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        value = data.getFloat(row, col);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        x = map(years[row], yearMin, yearMax, plotX1, plotX2);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        y = map(value, dataMin, dataMax, plotY2, plotY1);&nbsp; </span><span
+        style="font-family: monospace;">&nbsp;&nbsp;&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+vertex(x,
+
+
+
+
+
+
+
+
+        y);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; endShape();</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br>
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void drawDataHighlight(int
+        col) {</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; for (int row = 0; row
+        &lt; rowCount; row++) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; if
+        (data.isValid(row, col)) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        value = data.getFloat(row, col);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        x = map(years[row], yearMin, yearMax, plotX1, plotX2);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        y = map(value, dataMin, dataMax, plotY2, plotY1);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        if (dist(mouseX, mouseY, x, y) &lt; 3) {</span><br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // dist
+      returns the distance between two points<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //
+      dist(x1, y1, x2, y2);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //
+      dist(x1, y1, z1, x2, y2, z2);<br>
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        strokeWeight(10);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        point(x, y);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        fill(0);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        textSize(10);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        textAlign(CENTER);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+text(nf(value,
+0,
+2)
++
+"
+("
++
+
+
+
+
+
+
+
+
+        years[row] + ")", x, y-8);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        textAlign(LEFT);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        }</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br>
+      <br>
+      <br>
+      <img style="width: 721px; height: 428px;"
+        src="pics/processing/figure_10.jpg" alt="Chart with data on
+        mouse roll-over"><br>
+      <br>
+      the 15th version draws the data as a filled area and adds tabs so
+      the user can see the different data sets that are available and
+      click on the tabs to move between them<br>
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void drawDataArea(int col) {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; beginShape();</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; for (int row = 0; row
+        &lt; rowCount; row++) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; if
+        (data.isValid(row, col)) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        value = data.getFloat(row, col);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        x = map(years[row], yearMin, yearMax, plotX1, plotX2);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+float
+
+
+
+
+
+
+
+
+        y = map(value, dataMin, dataMax, plotY2, plotY1);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+vertex(x,
+
+
+
+
+
+
+
+
+        y);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // Draw the
+        lower-right and lower-left corners</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp; vertex(plotX2,
+        plotY2);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; vertex(plotX1,
+        plotY2);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; endShape(CLOSE);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br
+        style="font-family: monospace;">
+      <br>
+      <span style="font-family: monospace;">void drawTitleTabs() {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; rectMode(CORNERS);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; noStroke();</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; textSize(20);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; textAlign(LEFT);</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // On first use of
+        this method, allocate space for an array</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; // to store the
+        values for the left and right edges of the tabs</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; if (tabLeft == null)
+        {</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; tabLeft =
+        new float[columnCount];</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; tabRight
+        = new float[columnCount];</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; float runningX =
+        plotX1; </span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; tabTop = plotY1 -
+        textAscent() - 15;</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; tabBottom = plotY1;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; for (int col = 0; col
+        &lt; columnCount; col++) {</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; String
+        title = data.getColumnName(col);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+        tabLeft[col] = runningX; </span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; float
+        titleWidth = textWidth(title);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+        tabRight[col] = tabLeft[col] + tabPad + titleWidth + tabPad;</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; // If the
+        current tab, set its background white, otherwise use pale gray</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; fill(col
+        == currentColumn ? 255 : 224);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+        rect(tabLeft[col], tabTop, tabRight[col], tabBottom);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; // If the
+        current tab, use black for the text, otherwise use dark gray</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; fill(col
+        == currentColumn ? 0 : 64);</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+        text(title, runningX + tabPad, plotY1 - 10);</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; runningX
+        = tabRight[col];</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br
+        style="font-family: monospace;">
+      <br>
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">void mousePressed() {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; if (mouseY &gt;
+        tabTop &amp;&amp; mouseY &lt; tabBottom) {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; for (int
+        col = 0; col &lt; columnCount; col++) {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        if (mouseX &gt; tabLeft[col] &amp;&amp; mouseX &lt;
+        tabRight[col]) {</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        setCurrent(col);</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+        }</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;">}</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <br>
+      <br>
+      <img src="pics/processing/figure_%215.jpg" alt=""><br>
+      <br>
+      the 17th version adds interpolation making use of the useful
+      integrator so that when the user changes the current visualization
+      the display flows from one graph to the other rather than jumping.
+      This can make it easier to see the differences but requires a
+      different way of thinking about the display of the data. Instead
+      of displaying the actual data values the sketch displays the set
+      of current values which are moving closer to one data set or
+      another at any given time.<br>
+      <br>
+      <br>
+      The processing API reference page is a good place to see what
+      functions are available: <a
+        href="http://www.processing.org/reference/">http://www.processing.org/reference/</a><br>
+      <br>
+      <hr style="width: 100%; height: 2px;"><br>
+      In each of these examples there has been a single chart. Visual
+      Analytics tends to work better when you have multiple different
+      simultaneous representations of the same data so you just as the
+      above code sets locations relative to the height and width of the
+      canvas, you should think about setting locations relative to each
+      individual chart and the positions those charts in the coordinate
+      system of the canvas. This can also be important if you want the
+      user to be able to dynamically change the size of the application
+      window and have the components of the window automatically adjust,
+      or to allow the user to zoom in and out.<br>
+      <br>
+      You should start your project by drawing some sketches or
+      storyboards for how the canvas will be layed out and how the
+      interface will look. You may prefer to do this by hand on pieces
+      of paper, or using a drawing tool to lay out and more precisely
+      the different areas of the window. Its usually worth it to spend
+      more time at this stage so you will have to do less
+      re-organization later on. Once you take a quick look at the data
+      using excel or your favorite plotting program you will get an idea
+      of the rough size of the chart(s) that you will need and how much
+      space they will take up on the screen. Where will you put the
+      controls? Where will you put the text to tell the user how to
+      interact?<br>
+      <br>
+      <hr style="width: 100%; height: 2px;"><br>
+      Since we are going to be using the large touch-screen wall for the
+      projects you will need to write code that can run with a mouse /
+      trackpad on your laptop / desktop for testing but that can easily
+      adapt to the 8160 by 2304 touch-screen wall running Processing
+      under SUSE 12.1.<br>
+      <br>
+      Arthur has created a library that should make this pretty straight
+      forward. The code, including examples, is located at:<br>
+      <a href="http://code.google.com/p/omicron-sdk/downloads/list">http://code.google.com/p/omicron-sdk/downloads/list</a><br>
+      <br>
+      in particular the OmicronTouchExample should be useful. <br>
+      <br>
+      I also made a version of the Step_17_Interpolate.pde to show how
+      you the changes needed.<br>
+      <br>
+      The major issues are<br>
+      <ul>
+        <li>conecting to the touchserver when using touch on the
+          classroom wall</li>
+        <li>using touchDown, touchUp, touchMove instead of the built in
+          processing mouse calls - they will accept mouse input if touch
+          is not available<br>
+        </li>
+        <li>scaling text and graphics for the larger screen</li>
+        <li>making sure anything that needs to be touched can be reached
+          and is a big enough target</li>
+      </ul>
+      <tt><br>
+        <br>
+        <font color="#ffff00">//////////////////////////////////////////////////////////////////////////</font></tt><font
+        color="#ffff00"> </font><tt><font color="#ffff00"><br>
+          import processing.net.*;<br>
+          import omicronAPI.*;<br>
+          <br>
+          OmicronAPI omicronManager;<br>
+          TouchListener touchListener;<br>
+          <br>
+          // Link to this Processing applet - used for touchDown()
+          callback example<br>
+          PApplet applet;<br>
+          <br>
+          // Override of PApplet init() which is called before setup()<br>
+          public void init() {<br>
+          &nbsp; super.init();<br>
+          &nbsp; <br>
+          &nbsp; // Creates the OmicronAPI object. This is placed in
+          init() since we want to use fullscreen<br>
+          &nbsp; omicronManager = new OmicronAPI(this);<br>
+          &nbsp; <br>
+          &nbsp; // Removes the title bar for full screen mode (present
+          mode will not work on Cyber-commons wall)<br>
+          &nbsp; omicronManager.setFullscreen(true);<br>
+          }<br>
+          <br>
+          int scaleFactor = 5;<br>
+          // 5 for cyber-commons<br>
+          // 2 for full screen macbook<br>
+          <br>
+//////////////////////////////////////////////////////////////////////////</font><br>
+        <br>
+        <br>
+        FloatTable data;<br>
+        float dataMin, dataMax;<br>
+        <br>
+        float plotX1, plotY1;<br>
+        float plotX2, plotY2;<br>
+        float labelX, labelY;<br>
+        <br>
+        int rowCount;<br>
+        int columnCount;<br>
+        int currentColumn = 0;<br>
+        <br>
+        int yearMin, yearMax;<br>
+        int[] years;<br>
+        <br>
+        int yearInterval = 10;<br>
+        int volumeInterval = 10;<br>
+        int volumeIntervalMinor = 5;<br>
+        <br>
+        float[] tabLeft, tabRight;<br>
+        float tabTop, tabBottom;<br>
+        float tabPad = 10;<br>
+        <br>
+        Integrator[] interpolators;<br>
+        <br>
+        PFont plotFont; <br>
+        <br>
+        <br>
+        void setup() {<br>
+        <font color="#ffff00">&nbsp;// size(720, 405);<br>
+          &nbsp; <br>
+          &nbsp;
+//////////////////////////////////////////////////////////////////////////<br>
+          &nbsp;&nbsp;&nbsp; size( 8160, 2304, P3D ); // Cyber-Commons
+          wall<br>
+          &nbsp; //size( 1680, 1050, P3D ); // macbook fullscreen<br>
+          &nbsp; <br>
+          &nbsp;&nbsp;&nbsp; // Make the connection to the tracker
+          machine (uncomment this if testing with touch)<br>
+          &nbsp; //omicronManager.ConnectToTracker(7001, 7340,
+          "131.193.77.104");<br>
+          &nbsp; <br>
+          &nbsp; // Create a listener to get events<br>
+          &nbsp; touchListener = new TouchListener();<br>
+          &nbsp; <br>
+          &nbsp; // Register listener with OmicronAPI<br>
+          &nbsp; omicronManager.setTouchListener(touchListener);<br>
+          <br>
+          &nbsp; // Sets applet to this sketch<br>
+          &nbsp; applet = this;<br>
+          &nbsp;
+//////////////////////////////////////////////////////////////////////////</font><br>
+        &nbsp; <br>
+        &nbsp; <br>
+        &nbsp; data = new FloatTable("milk-tea-coffee.tsv");<br>
+        &nbsp; rowCount = data.getRowCount();<br>
+        &nbsp; columnCount = data.getColumnCount();<br>
+        &nbsp; <br>
+        &nbsp; years = int(data.getRowNames());<br>
+        &nbsp; yearMin = years[0];<br>
+        &nbsp; yearMax = years[years.length - 1];<br>
+        &nbsp; <br>
+        &nbsp; dataMin = 0;<br>
+        &nbsp; dataMax = ceil(data.getTableMax() / volumeInterval) *
+        volumeInterval;<br>
+        <br>
+        &nbsp; interpolators = new Integrator[rowCount];<br>
+        &nbsp; for (int row = 0; row &lt; rowCount; row++) {<br>
+        &nbsp;&nbsp;&nbsp; float initialValue = data.getFloat(row, 0);<br>
+        &nbsp;&nbsp;&nbsp; interpolators[row] = new
+        Integrator(initialValue);<br>
+        &nbsp;&nbsp;&nbsp; interpolators[row].attraction = 0.1;&nbsp; //
+        Set lower than the default<br>
+        &nbsp; }<br>
+        <font color="#ffff00"><br>
+          &nbsp; plotX1 = 60+70*scaleFactor; <br>
+          &nbsp; plotX2 = width - 80;<br>
+          &nbsp; labelX = 20+35*scaleFactor;<br>
+          &nbsp; plotY1 = 60+30*scaleFactor;<br>
+          &nbsp; plotY2 = height - 70 - 15*scaleFactor;<br>
+          &nbsp; labelY = height - 25 - 5*scaleFactor;<br>
+          &nbsp; <br>
+          &nbsp; plotFont = createFont("SansSerif", 20*scaleFactor);</font><br>
+        &nbsp; textFont(plotFont);<br>
+        <br>
+        &nbsp; smooth();<br>
+        }<br>
+        <br>
+        <br>
+        void draw() {<br>
+        &nbsp; background(224);<br>
+        &nbsp; <br>
+        &nbsp;
+//////////////////////////////////////////////////////////////////////////<br>
+        &nbsp; // For event and fullscreen processing, this must be
+        called in draw()<br>
+        &nbsp; omicronManager.process();&nbsp; <br>
+        &nbsp;
+//////////////////////////////////////////////////////////////////////////<br>
+        &nbsp; <br>
+        &nbsp; // Show the plot area as a white box&nbsp; <br>
+        &nbsp; fill(255);<br>
+        &nbsp; rectMode(CORNERS);<br>
+        &nbsp; noStroke();<br>
+        &nbsp; rect(plotX1, plotY1, plotX2, plotY2);<br>
+        <br>
+        &nbsp; drawTitleTabs();<br>
+        &nbsp; drawAxisLabels();<br>
+        <br>
+        &nbsp;&nbsp; for (int row = 0; row &lt; rowCount; row++) {<br>
+        &nbsp;&nbsp;&nbsp; interpolators[row].update();<br>
+        &nbsp; }<br>
+        <br>
+        &nbsp; drawYearLabels();<br>
+        &nbsp; drawVolumeLabels();<br>
+        <br>
+        &nbsp; noStroke();<br>
+        &nbsp; fill(#5679C1);<br>
+        &nbsp; drawDataArea(currentColumn);<br>
+        }<br>
+        <br>
+        <br>
+        void drawTitleTabs() {<br>
+        &nbsp; rectMode(CORNERS);<br>
+        &nbsp; noStroke();<br>
+        &nbsp; textSize(20*scaleFactor);<br>
+        &nbsp; textAlign(LEFT);<br>
+        <br>
+        &nbsp; // On first use of this method, allocate space for an
+        array<br>
+        &nbsp; // to store the values for the left and right edges of
+        the tabs<br>
+        &nbsp; if (tabLeft == null) {<br>
+        &nbsp;&nbsp;&nbsp; tabLeft = new float[columnCount];<br>
+        &nbsp;&nbsp;&nbsp; tabRight = new float[columnCount];<br>
+        &nbsp; }<br>
+        &nbsp; <br>
+        &nbsp; float runningX = plotX1; <br>
+        &nbsp; tabTop = plotY1 - textAscent() - 15;<br>
+        &nbsp; tabBottom = plotY1;<br>
+        &nbsp; <br>
+        &nbsp; for (int col = 0; col &lt; columnCount; col++) {<br>
+        &nbsp;&nbsp;&nbsp; String title = data.getColumnName(col);<br>
+        &nbsp;&nbsp;&nbsp; tabLeft[col] = runningX; <br>
+        &nbsp;&nbsp;&nbsp; float titleWidth = textWidth(title);<br>
+        &nbsp;&nbsp;&nbsp; tabRight[col] = tabLeft[col] + tabPad +
+        titleWidth + tabPad;<br>
+        &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; // If the current tab, set its background
+        white, otherwise use pale gray<br>
+        &nbsp;&nbsp;&nbsp; fill(col == currentColumn ? 255 : 224);<br>
+        &nbsp;&nbsp;&nbsp; rect(tabLeft[col], tabTop, tabRight[col],
+        tabBottom);<br>
+        &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; // If the current tab, use black for the
+        text, otherwise use dark gray<br>
+        &nbsp;&nbsp;&nbsp; fill(col == currentColumn ? 0 : 64);<br>
+        &nbsp;&nbsp;&nbsp; text(title, runningX + tabPad, plotY1 - 10);<br>
+        &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; runningX = tabRight[col];<br>
+        &nbsp; }<br>
+        }<br>
+        <font color="#ffff00"><br>
+//////////////////////////////////////////////////////////////////////////<br>
+          //void mousePressed() {<br>
+          //&nbsp; if (mouseY &gt; tabTop &amp;&amp; mouseY &lt;
+          tabBottom) {<br>
+          //&nbsp;&nbsp;&nbsp; for (int col = 0; col &lt; columnCount;
+          col++) {<br>
+          //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (mouseX &gt; tabLeft[col]
+          &amp;&amp; mouseX &lt; tabRight[col]) {<br>
+          //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setCurrent(col);<br>
+          //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+          //&nbsp;&nbsp;&nbsp; }<br>
+          //&nbsp; }<br>
+          //}<br>
+//////////////////////////////////////////////////////////////////////////<br>
+          void touchDown(int ID, float xPos, float yPos, float xWidth,
+          float yWidth){<br>
+          //&nbsp; noFill();<br>
+          //&nbsp; stroke(255,0,0);<br>
+          //&nbsp; ellipse( xPos, yPos, xWidth * 2, yWidth * 2 );<br>
+          &nbsp; <br>
+          &nbsp; if (yPos &gt; tabTop &amp;&amp; yPos &lt; tabBottom) {<br>
+          &nbsp;&nbsp;&nbsp; for (int col = 0; col &lt; columnCount;
+          col++) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xPos &gt; tabLeft[col]
+          &amp;&amp; xPos &lt; tabRight[col]) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setCurrent(col);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+          &nbsp;&nbsp;&nbsp; }<br>
+          &nbsp; }<br>
+          <br>
+          <br>
+          }// touchDown</font><br>
+        <br>
+        <br>
+        <br>
+        void setCurrent(int col) {<br>
+        &nbsp; currentColumn = col;<br>
+        &nbsp; <br>
+        &nbsp; for (int row = 0; row &lt; rowCount; row++) {<br>
+        &nbsp;&nbsp;&nbsp; interpolators[row].target(data.getFloat(row,
+        col));<br>
+        &nbsp; }<br>
+        }<br>
+        <br>
+        <br>
+        void drawAxisLabels() {<br>
+        &nbsp; fill(0);<br>
+        &nbsp; textSize(13*scaleFactor);<br>
+        &nbsp; textLeading(15*scaleFactor);<br>
+        &nbsp; <br>
+        &nbsp; textAlign(CENTER, CENTER);<br>
+        &nbsp; text("Gallons\nconsumed\nper capita", labelX,
+        (plotY1+plotY2)/2);<br>
+        &nbsp; textAlign(CENTER);<br>
+        &nbsp; text("Year", (plotX1+plotX2)/2, labelY);<br>
+        }<br>
+        <br>
+        <br>
+        void drawYearLabels() {<br>
+        &nbsp; fill(0);<br>
+        &nbsp; textSize(10*scaleFactor);<br>
+        &nbsp; textAlign(CENTER);<br>
+        &nbsp; <br>
+        &nbsp; // Use thin, gray lines to draw the grid<br>
+        &nbsp; stroke(224);<br>
+        &nbsp; strokeWeight(1);<br>
+        &nbsp; <br>
+        &nbsp; for (int row = 0; row &lt; rowCount; row++) {<br>
+        &nbsp;&nbsp;&nbsp; if (years[row] % yearInterval == 0) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float x = map(years[row],
+        yearMin, yearMax, plotX1, plotX2);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text(years[row], x, plotY2 +
+        textAscent() + 10);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line(x, plotY1, x, plotY2);<br>
+        &nbsp;&nbsp;&nbsp; }<br>
+        &nbsp; }<br>
+        }<br>
+        <br>
+        <br>
+        void drawVolumeLabels() {<br>
+        &nbsp; fill(0);<br>
+        &nbsp; textSize(10*scaleFactor);<br>
+        &nbsp; textAlign(RIGHT);<br>
+        &nbsp; <br>
+        &nbsp; stroke(128);<br>
+        &nbsp; strokeWeight(1);<br>
+        <br>
+        &nbsp; for (float v = dataMin; v &lt;= dataMax; v +=
+        volumeIntervalMinor) {<br>
+        &nbsp;&nbsp;&nbsp; if (v % volumeIntervalMinor == 0)
+        {&nbsp;&nbsp;&nbsp;&nbsp; // If a tick mark<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float y = map(v, dataMin,
+        dataMax, plotY2, plotY1);&nbsp; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (v % volumeInterval == 0)
+        {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // If a major tick
+        mark<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float textOffset =
+        textAscent()/2;&nbsp; // Center vertically<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (v == dataMin) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        textOffset =
+        0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+        // Align by the bottom<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (v ==
+        dataMax) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        textOffset =
+        textAscent();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Align
+        by the top<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text(floor(v), plotX1
+        - 10, y + textOffset);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line(plotX1 - 4, y,
+        plotX1, y);&nbsp;&nbsp;&nbsp;&nbsp; // Draw major tick<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //line(plotX1 - 2, y,
+        plotX1, y);&nbsp;&nbsp; // Draw minor tick<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+        &nbsp;&nbsp;&nbsp; }<br>
+        &nbsp; }<br>
+        }<br>
+        <br>
+        <br>
+        void drawDataArea(int col) {<br>
+        &nbsp; beginShape();<br>
+        &nbsp; for (int row = 0; row &lt; rowCount; row++) {<br>
+        &nbsp;&nbsp;&nbsp; if (data.isValid(row, col)) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float value =
+        interpolators[row].value;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float x = map(years[row],
+        yearMin, yearMax, plotX1, plotX2);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float y = map(value, dataMin,
+        dataMax, plotY2, plotY1);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vertex(x, y);<br>
+        &nbsp;&nbsp;&nbsp; }<br>
+        &nbsp; }<br>
+        &nbsp; vertex(plotX2, plotY2);<br>
+        &nbsp; vertex(plotX1, plotY2);<br>
+        &nbsp; endShape(CLOSE);<br>
+        }<br>
+        <br>
+        <font color="#ffff00">//////////////////////////////////////////////////////////////////////////<br>
+          void touchMove(int ID, float xPos, float yPos, float xWidth,
+          float yWidth){<br>
+          &nbsp; noFill();<br>
+          &nbsp; stroke(0,255,0);<br>
+          &nbsp; ellipse( xPos, yPos, xWidth * 2, yWidth * 2 );<br>
+          }// touchMove<br>
+          <br>
+          void touchUp(int ID, float xPos, float yPos, float xWidth,
+          float yWidth){<br>
+          &nbsp; noFill();<br>
+          &nbsp; stroke(0,0,255);<br>
+          &nbsp; ellipse( xPos, yPos, xWidth * 2, yWidth * 2 );<br>
+          }// touchUp<br>
+//////////////////////////////////////////////////////////////////////////</font><br>
+      </tt><br>
+      <hr style="width: 100%; height: 2px;"><br>
+      <br>
+      Last time we took a quick look at the zip code app in processing.
+      Lets look at the data side of that application in more detail. <a
+        href="http://benfry.com/zipdecode/">http://benfry.com/zipdecode/</a><br>
+      <br>
+      The data comes from <a
+        href="http://www.census.gov/geo/www/tiger/zip1999.html">h</a><a
+        href="http://www.census.gov/geo/www/tiger/zip1999.html">ttp://www.census.gov/geo/www/tiger/zip1999.html</a>
+      as a .doc file with metadata and .dbf dBase file with the data. <br>
+      <br>
+      Metadata files are very very very helpful, especially as the years
+      go by and 'common' formats change, technology changes, and the
+      world around us changes. It gives information on when the data was
+      made available, where the data came from, who processed it, how to
+      make sense of it, and what the current format is. This meta data
+      file includes this information:<br>
+      <br>
+      <meta name="Title" content="">
+      <h1 style="text-align:center" align="center"><i
+          style="mso-bidi-font-style:normal"><span
+            style="font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+
+            New Roman&quot;; color:red">LandView&reg; IV Help</span></i><span
+          style="font-family:&quot;Times New Roman&quot;; color:blue"><o:p></o:p></span></h1>
+      <h1 style="text-align:center" align="center"><b
+          style="mso-bidi-font-weight:normal"><span
+            style="font-family:&quot;Times New Roman&quot;;color:blue">Zip
+
+            Codes<font color="#999999"><o:p></o:p></font></span></b></h1>
+      <p class="MsoNormal"><font color="#999999"><span
+            style="font-family:
+            &quot;TimesNewRoman&quot;,&quot;serif&quot;;"><o:p>&nbsp;</o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">The Zip Code file in LandView IV was prepared by the
+            Bureau of Census from the U.S. Postal Service (USPS)
+            City-State file (November, 1999). This file contains all
+            5-digit ZIP codes defined as of November 1, 1999, the state
+            and county FIPS codes and the Post Office names associated
+            with them. (Note &#8211; For ZIP codes that cross county
+            boundaries, the Post Office file assigns that ZIP code to
+            just one of the counties rather than to each county.)<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;"><o:p>&nbsp;</o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">The Census Bureau then determined a geographic
+            coordinate (latitude and longitude) for each ZIP code in the
+            City-State file by processing it against the Bureau&#8217;s
+            internal TIGER database for the state and county specified
+            for the ZIP code. (Before processing the file against TIGER,
+            the Census Bureau excluded overseas military APO/FPO records
+            from the file). For those records where the ZIP code could
+            not be located in the TIGER database, the county internal
+            point (in many cases the geographic centroid) was assigned
+            to the ZIP code. This typically occurred on records
+            containing either a &#8220;P&#8221; or &#8220;U&#8221; in the ZIP_CLASS field.<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;"><o:p>&nbsp;</o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">The database structure, including field names, data
+            types, field lengths, number of decimal places, and field
+            descriptions for file ZIPNOV99.DBF are as follows:<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;"><o:p>&nbsp;</o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">ZIP_CODE <span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>C <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>5<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">The 5-digit zip code.<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;"><o:p>&nbsp;</o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">LATITUDE <span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>C <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>10<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">Latitude expressed as a signed integer with six
+            decimal places. Negative numbers are in the southern
+            hemisphere.<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;"><o:p>&nbsp;</o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">LONGITUDE <span style="mso-tab-count:1"> </span>C <span
+              style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>11<o:p></o:p></span></font></p>
+      <p class="MsoBodyText"><font color="#999999"><span
+            style="font-size:11.0pt;mso-bidi-font-size:10.0pt">Longitude
+            expressed as a signed integer with six decimal places.
+            Negative numbers are in the eastern hemisphere.<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;"><o:p>&nbsp;</o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">ZIP_CLASS <span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>C <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>1<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">Zip Code classification. Values are:<o:p></o:p></span></font></p>
+      <p class="MsoNormal" style="text-indent:.5in"><font
+          color="#999999"><span style="font-size: 11pt;">M = APO/FPO
+            Military Zip<o:p></o:p></span></font></p>
+      <p class="MsoNormal" style="text-indent:.5in"><font
+          color="#999999"><span style="font-size: 11pt;">P = P.O. Box<o:p></o:p></span></font></p>
+      <p class="MsoNormal" style="text-indent:.5in"><font
+          color="#999999"><span style="font-size: 11pt;">U = Unique Zip,
+            assigned to large corporations or government agencies<o:p></o:p></span></font></p>
+      <p class="MsoNormal" style="text-indent:.5in"><font
+          color="#999999"><span style="font-size: 11pt;">Blank =
+            Non-unique Zip, shared by numerous residences and businesses<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;"><o:p>&nbsp;</o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">PONAME <span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>C <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>28<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">USPS Post Office name.<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;"><o:p>&nbsp;</o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">STATE<span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>C <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>2<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">Federal Information Processing Standards (FIPS) state
+            code.<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;"><o:p>&nbsp;</o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">COUNTY <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>C <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>3<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">FIPS</span><span style="font-size: 11pt; font-family:
+            Arial;"> </span><span style="font-size: 11pt;">county code.<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;"><o:p>&nbsp;</o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">IDMARPLOT<span style="mso-tab-count:1">&nbsp; </span>C<span
+              style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </span>16<o:p></o:p></span></font></p>
+      <p class="MsoNormal"><font color="#999999"><span style="font-size:
+            11pt;">Used by the LandView 4 program</span><span
+            style="font-size:11.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></font></p>
+      <meta name="Keywords" content="">
+      <meta http-equiv="Content-Type" content="text/html;
+        charset=ISO-8859-1">
+      <meta name="ProgId" content="Word.Document">
+      <meta name="Generator" content="Microsoft Word 14">
+      <meta name="Originator" content="Microsoft Word 14">
+      <link rel="File-List"
+href="file://localhost/Users/aej/Library/Caches/TemporaryItems/msoclip/0clip_filelist.xml">
+      <!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Revision>0</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Pages>1</o:Pages>
+  <o:Words>296</o:Words>
+  <o:Characters>1692</o:Characters>
+  <o:Company>Electronic Visualization Laboratory</o:Company>
+  <o:Lines>14</o:Lines>
+  <o:Paragraphs>3</o:Paragraphs>
+  <o:CharactersWithSpaces>1985</o:CharactersWithSpaces>
+  <o:Version>14.0</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+      <link rel="themeData"
+href="file://localhost/Users/aej/Library/Caches/TemporaryItems/msoclip/0clip_themedata.xml">
+      <!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="276">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="0" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="0" Name="Body Text"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+      <style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Arial;
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-536859905 -1073711037 9 0 511 0;}
+@font-face
+	{font-family:Arial;
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-536859905 -1073711037 9 0 511 0;}
+@font-face
+	{font-family:TimesNewRoman;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-alt:Cambria;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-font-kerning:0pt;
+	layout-grid-mode:line;
+	font-weight:normal;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-noshow:yes;
+	mso-style-unhide:no;
+	mso-style-link:"Body Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	layout-grid-mode:line;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:16.0pt;
+	font-family:Arial;
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	color:black;
+	layout-grid-mode:both;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-noshow:yes;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Body Text";
+	mso-ansi-font-size:12.0pt;
+	color:black;
+	layout-grid-mode:both;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--StartFragment--><!--EndFragment--><font color="#999999"><br>
+      </font><br>
+      The data itself is stored in the ZIPNOV99.DBF dBase file. dBase
+      was a very popular database system in the 1980s for computers like
+      the apple ][ or ibm pc with data stored on 5.25" floppy discs. It
+      is not a very convenient format to use today so we need to convert
+      it. Fortunately there are converters to move the data into an
+      excel spreadsheet or text. Keep in mind that any format you store
+      data in today will seem just as antiquated as 5.25" floppies in a
+      decade or two.<br>
+      <br>
+      Here are the first few lines from that file once its converted to
+      text.<br>
+      <br>
+      <img style="width: 650px; height: 262px;"
+        src="pics/processing/zipfile.jpg" alt="first few lines of the
+        zipcode data file"><br>
+      <br>
+      Several columns can be used as is: zip_code, latitude, and
+      longitude, though the zip code has lost its leading 0s for those
+      less than 5 digits. The state info is useful but needs to be
+      converted to a more readable format and poname (city name) would
+      be more readable if it wasn't SHOUTING AT US IN ALL CAPS. Names of
+      places are more readable in Mixed Case.<br>
+      <br>
+      If you aren't going to need to update the source data, or read it
+      live off the web / grid / cloud each time you launch your
+      application then you can convert the file manually into a more
+      useful format and use that converted file as the input to your
+      visualization. If you do need to regularly access updated data
+      then you will need to convert the source data in your program or
+      in an auxiliary program to a more convenient, compact, usable
+      representation. This may leave the data in a text file for better
+      readability, or a binary file for compact representation, or a
+      database to facilitate complex queries. After doing this
+      conversion you need to make sure that your conversion didn't
+      introduce any errors into the dataset. Keeping track of the
+      origins of the datasets, the modifications to them, and who made
+      those modifications, what we call Provenance, is very very
+      important for having confidence in the final visualization and
+      analysis.<br>
+      <br>
+      You will need another data file (<a
+        href="http://www.itl.nist.gov/fipspubs/fip5-2.htm">http://www.itl.nist.gov/fipspubs/fip5-2.htm</a>)
+      to convert the state numeric code into an alphabetic abbreviation.
+      The first 56 encode the current 50 states and the District of
+      Columbia (e.g. Alabama has FIPS State Numeric Code 01 and FIPS
+      State Alpha Code AL). The numbers above 56 encode territories like
+      Guam (66) or Puerto Rico (72). In order to make the visualization
+      more compact only the continental US is shown, so post offices in
+      Alaska, Hawaii, and the territories are removed based on their
+      state ID.<br>
+      <br>
+      Another important issue is how to draw the data points. Given
+      latitude and longitude values, which are a spherical coordinate
+      system, there are several ways to map those values to a flat 2D
+      coordinate system. All of these mappings have distortions. The
+      code uses an Albers Equal Area Conic projection (<a
+        href="http://en.wikipedia.org/wiki/Albers_projection">http://en.wikipedia.org/wiki/Albers_projection</a>).
+
+      Another alternative would be to plot the data on top of an
+      existing map, in which case you need to match the projection of
+      that map, e.g. with this example:<br>
+      &nbsp;<a
+href="http://www.tom-carden.co.uk/wp-content/uploads/2008/11/modest_maps_interactive.zip">http://www.tom-carden.co.uk/wp-content/uploads/2008/11/modest_maps_interactive.zip</a><br>
+      <br>
+      As we saw last week its good to start out giving an overview of
+      the data to give the user context and then let him or her start
+      filtering and zooming in on the details, so the app starts out
+      with all the dots for the various zip codes displayed showing the
+      entire continental US mostly filling the window in a common north
+      up orientation. This is a good point to look for obvious errors as
+      there may be data points in places that make no sense or the
+      overall distribution of the points might not look like the
+      continental US. <br>
+      <br>
+      <hr size="2" width="100%"><br>
+      another nice example to look at is the baseball performance vs
+      budget example from chapter 5 of Visualizing Data. It makes use of
+      severak data files<br>
+      <br>
+      http://benfry.com/writing/salaryper/salaries.tsv<br>
+      <tt>nyy&nbsp;&nbsp;&nbsp; 189639045</tt><tt><br>
+      </tt><tt>bos&nbsp;&nbsp;&nbsp; 143026214</tt><tt><br>
+      </tt><tt>nym&nbsp;&nbsp;&nbsp; 115231663</tt><tt><br>
+      </tt><tt>ana&nbsp;&nbsp;&nbsp; 109251333</tt><tt><br>
+      </tt><tt>cws&nbsp;&nbsp;&nbsp; 108671833</tt><tt><br>
+      </tt><tt>la&nbsp;&nbsp;&nbsp;&nbsp; 108454524</tt><tt><br>
+      </tt><tt>sea&nbsp;&nbsp;&nbsp; 106460833</tt><tt><br>
+      </tt><tt>chc&nbsp;&nbsp;&nbsp; 99670332</tt><tt><br>
+      </tt><tt>det&nbsp;&nbsp;&nbsp; 95180369</tt><tt><br>
+      </tt><tt>bal&nbsp;&nbsp;&nbsp; 93554808</tt><tt><br>
+      </tt><tt>stl&nbsp;&nbsp;&nbsp; 90286823</tt><tt><br>
+      </tt><tt>sf&nbsp;&nbsp; &nbsp; 90219056</tt><tt><br>
+      </tt><tt>phi&nbsp;&nbsp;&nbsp; 89428213</tt><tt><br>
+      </tt><tt>hou&nbsp;&nbsp;&nbsp; 87759000</tt><tt><br>
+      </tt><tt>atl&nbsp;&nbsp;&nbsp; 87290833</tt><tt><br>
+      </tt><tt>tor&nbsp;&nbsp;&nbsp; 81942800</tt><tt><br>
+      </tt><tt>oak&nbsp;&nbsp;&nbsp; 79366940</tt><tt><br>
+      </tt><tt>min&nbsp;&nbsp;&nbsp; 71439500</tt><tt><br>
+      </tt><tt>mil&nbsp;&nbsp;&nbsp; 70986500</tt><tt><br>
+      </tt><tt>cin&nbsp;&nbsp;&nbsp; 68904980</tt><tt><br>
+      </tt><tt>tex&nbsp;&nbsp;&nbsp; 68318675</tt><tt><br>
+      </tt><tt>kc&nbsp;&nbsp; &nbsp; 67116500</tt><tt><br>
+      </tt><tt>cle&nbsp;&nbsp;&nbsp; 61673267</tt><tt><br>
+      </tt><tt>sd&nbsp;&nbsp; &nbsp; 58110567</tt><tt><br>
+      </tt><tt>col&nbsp;&nbsp;&nbsp; 54424000</tt><tt><br>
+      </tt><tt>ari&nbsp;&nbsp;&nbsp; 52067546</tt><tt><br>
+      </tt><tt>pit&nbsp;&nbsp;&nbsp; 38537833</tt><tt><br>
+      </tt><tt>was&nbsp;&nbsp;&nbsp; 37347500</tt><tt><br>
+      </tt><tt>fla&nbsp;&nbsp;&nbsp; 30507000</tt><tt><br>
+      </tt><tt>tb&nbsp;&nbsp; &nbsp; 24123500</tt><br>
+      <br>
+      http://benfry.com/writing/salaryper/teams.tsv<br>
+      <font face="Courier New, Courier, monospace">nyy&nbsp;&nbsp;&nbsp;
+        NY Yankees<br>
+        bos&nbsp;&nbsp;&nbsp; Boston<br>
+        nym&nbsp;&nbsp;&nbsp; New York Mets<br>
+        ana&nbsp;&nbsp;&nbsp; LA Angels<br>
+        cws&nbsp;&nbsp;&nbsp; Chi White Sox<br>
+        la&nbsp;&nbsp; &nbsp; LA Dodgers<br>
+        sea&nbsp;&nbsp;&nbsp; Seattle<br>
+        chc&nbsp;&nbsp;&nbsp; Chi Cubs<br>
+        det&nbsp;&nbsp;&nbsp; Detroit<br>
+        bal&nbsp;&nbsp;&nbsp; Baltimore<br>
+        stl&nbsp;&nbsp;&nbsp; St. Louis<br>
+        sf&nbsp;&nbsp;&nbsp;&nbsp; San Francisco<br>
+        phi&nbsp;&nbsp;&nbsp; Philadelphia<br>
+        hou&nbsp;&nbsp;&nbsp; Houston<br>
+        atl&nbsp;&nbsp;&nbsp; Atlanta<br>
+        tor&nbsp;&nbsp;&nbsp; Toronto<br>
+        oak&nbsp;&nbsp;&nbsp; Oakland<br>
+        min&nbsp;&nbsp;&nbsp; Minnesota<br>
+        mil&nbsp;&nbsp;&nbsp; Milwaukee<br>
+        cin&nbsp;&nbsp;&nbsp; Cincinnati<br>
+        tex&nbsp;&nbsp;&nbsp; Texas<br>
+        kc&nbsp;&nbsp;&nbsp;&nbsp; Kansas City<br>
+        cle&nbsp;&nbsp;&nbsp; Cleveland<br>
+        sd&nbsp;&nbsp; &nbsp; San Diego<br>
+        col&nbsp;&nbsp;&nbsp; Colorado<br>
+        ari&nbsp;&nbsp;&nbsp; Arizona<br>
+        pit&nbsp;&nbsp;&nbsp; Pittsburgh<br>
+        was&nbsp;&nbsp;&nbsp; Washington<br>
+        fla&nbsp;&nbsp;&nbsp; Florida<br>
+        tb&nbsp;&nbsp;&nbsp;&nbsp; Tampa Bay</font><br>
+      <br>
+      and then a series of files giving the standings on each day of the
+      season<br>
+      http://benfry.com/writing/salaryper/individual/20070930.tsv<br>
+      <tt>bos&nbsp;&nbsp;&nbsp; 96&nbsp;&nbsp;&nbsp; 66</tt><tt><br>
+      </tt><tt>nyy&nbsp;&nbsp;&nbsp; 94&nbsp;&nbsp;&nbsp; 68</tt><tt><br>
+      </tt><tt>tor&nbsp;&nbsp;&nbsp; 83&nbsp;&nbsp;&nbsp; 79</tt><tt><br>
+      </tt><tt>bal&nbsp;&nbsp;&nbsp; 69&nbsp;&nbsp;&nbsp; 93</tt><tt><br>
+      </tt><tt>tb&nbsp;&nbsp;&nbsp;&nbsp; 66&nbsp;&nbsp;&nbsp; 96</tt><tt><br>
+      </tt><tt>ana&nbsp;&nbsp;&nbsp; 94&nbsp;&nbsp;&nbsp; 68</tt><tt><br>
+      </tt><tt>sea&nbsp;&nbsp;&nbsp; 88&nbsp;&nbsp;&nbsp; 74</tt><tt><br>
+      </tt><tt>oak&nbsp;&nbsp;&nbsp; 76&nbsp;&nbsp;&nbsp; 86</tt><tt><br>
+      </tt><tt>tex&nbsp;&nbsp;&nbsp; 75&nbsp;&nbsp;&nbsp; 87</tt><tt><br>
+      </tt><tt>cle&nbsp;&nbsp;&nbsp; 96&nbsp;&nbsp;&nbsp; 66</tt><tt><br>
+      </tt><tt>det&nbsp;&nbsp;&nbsp; 88&nbsp;&nbsp;&nbsp; 74</tt><tt><br>
+      </tt><tt>min&nbsp;&nbsp;&nbsp; 79&nbsp;&nbsp;&nbsp; 83</tt><tt><br>
+      </tt><tt>cws&nbsp;&nbsp;&nbsp; 72&nbsp;&nbsp;&nbsp; 90</tt><tt><br>
+      </tt><tt>kc&nbsp;&nbsp;&nbsp;&nbsp; 69&nbsp;&nbsp;&nbsp; 93</tt><tt><br>
+      </tt><tt>phi&nbsp;&nbsp;&nbsp; 89&nbsp;&nbsp;&nbsp; 73</tt><tt><br>
+      </tt><tt>nym&nbsp;&nbsp;&nbsp; 88&nbsp;&nbsp;&nbsp; 74</tt><tt><br>
+      </tt><tt>atl&nbsp;&nbsp;&nbsp; 84&nbsp;&nbsp;&nbsp; 78</tt><tt><br>
+      </tt><tt>was&nbsp;&nbsp;&nbsp; 73&nbsp;&nbsp;&nbsp; 89</tt><tt><br>
+      </tt><tt>fla&nbsp;&nbsp;&nbsp; 71&nbsp;&nbsp;&nbsp; 91</tt><tt><br>
+      </tt><tt>ari&nbsp;&nbsp;&nbsp; 90&nbsp;&nbsp;&nbsp; 72</tt><tt><br>
+      </tt><tt>col&nbsp;&nbsp;&nbsp; 89&nbsp;&nbsp;&nbsp; 73</tt><tt><br>
+      </tt><tt>sd&nbsp;&nbsp; &nbsp; 89&nbsp;&nbsp;&nbsp; 73</tt><tt><br>
+      </tt><tt>la&nbsp;&nbsp; &nbsp; 82&nbsp;&nbsp;&nbsp; 80</tt><tt><br>
+      </tt><tt>sf&nbsp;&nbsp; &nbsp; 71&nbsp;&nbsp;&nbsp; 91</tt><tt><br>
+      </tt><tt>chc&nbsp;&nbsp;&nbsp; 85&nbsp;&nbsp;&nbsp; 77</tt><tt><br>
+      </tt><tt>mil&nbsp;&nbsp;&nbsp; 83&nbsp;&nbsp;&nbsp; 79</tt><tt><br>
+      </tt><tt>stl&nbsp;&nbsp;&nbsp; 78&nbsp;&nbsp;&nbsp; 84</tt><tt><br>
+      </tt><tt>hou&nbsp;&nbsp;&nbsp; 73&nbsp;&nbsp;&nbsp; 89</tt><tt><br>
+      </tt><tt>cin&nbsp;&nbsp;&nbsp; 72&nbsp;&nbsp;&nbsp; 90</tt><tt><br>
+      </tt><tt>pit&nbsp;&nbsp;&nbsp; 68&nbsp;&nbsp;&nbsp; 94</tt><br>
+      <br>
+      <hr style="width: 100%; height: 2px;"><br>
+      ControlP5 has been popular in the last several classes for
+      creating user interface elements, but the default color scheme
+      really needs to be customized if you are going to use it. It is
+      regularly being updated.<br>
+      &nbsp;- <a href="http://www.sojamo.de/libraries/controlP5/">http://www.sojamo.de/libraries/controlP5/</a><br>
+      <br>
+      Here is another link to the modest maps example above - <a
+href="http://www.tom-carden.co.uk/wp-content/uploads/2008/11/modest_maps_interactive.zip">http://www.tom-carden.co.uk/wp-content/uploads/2008/11/modest_maps_interactive.zip</a><br>
+      <br>
+      If you prefer to use eclipse as your IDE there are instructions -
+      <a href="http://processing.org/learning/eclipse/">http://processing.org/learning/eclipse/</a><br>
+      <br>
+      Another nice place to look for ideas is <a
+        href="http://www.openprocessing.org/">http://www.openprocessing.org/</a><br>
+    </div>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">
+      <div style="text-align: justify;"><br>
+      </div>
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <h3 style="font-family: Helvetica,Arial,sans-serif;"> </h3>
+    <h3 style="font-family: Helvetica,Arial,sans-serif;">Coming Next
+      Time</h3>
+    <span style="font-family: Helvetica,Arial,sans-serif; font-weight:
+      bold;">The Basics</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;"><a
+        href="http://www-personal.umich.edu/%7Emejn/election/2008/"></a></span>
+    <hr style="font-family: Helvetica,Arial,sans-serif;"> <font
+      style="font-family: Helvetica,Arial,sans-serif;" face="Helvetica,
+      Geneva, Arial, SunSans-Regular, sans-serif">last revision
+      9/06/2012</font>
+  </body>
+</html>

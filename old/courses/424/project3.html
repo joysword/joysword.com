@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title>CS 424 Project 3</title>
+  </head>
+  <body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+    vlink="#00aaff">
+    <h1 style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);">Project 3</h1>
+    <h1 style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);">Objects in the Rear View Mirror<br>
+    </h1>
+    <span style="font-family: Helvetica,Arial,sans-serif; color:
+      rgb(255, 255, 255);">Project due 11/5 at 9 pm Chicago time</span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);"><span
+      style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);"><br>
+    </span>
+    <div style="text-align: justify; color: rgb(255, 255, 255);"><font
+        face="Helvetica, Arial, sans-serif"><span style="font-family:
+          Helvetica,Arial,sans-serif;">Project 3 will be the second
+          group project and the focus here will focus on geographic
+          data.<br>
+        </span><br>
+        We will again have 3 people per group. You can chose who you
+        want to be in a group with, but you must work with different
+        people in each project.<br>
+        <span style="font-family: Helvetica,Arial,sans-serif;"> <br>
+          As with Project 2 you should very quickly set up a web page
+          for your new group project and send the URL to andy. Each
+          Friday of the project each team member should post on the
+          project web site an overview of what he/she did on the project
+          that week.</span></font><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif; color:
+      rgb(255, 255, 255);"><br>
+    </span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);"><span
+      style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);"></span>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);"><br>
+      In this project we are going to take a look at data related to
+      highway deaths from the National Highway Traffic Safety
+      Administration, and in particular their Fatality Analysis
+      Reporting System at http://www-fars.nhtsa.dot.gov/Main/index.aspx<br>
+      <br>
+      There is a great deal of data available on the Query FARS Data
+      tab.<font color="#ffff00"> Data is available from 1994 through
+        2010. We will be using the data starting in 2001 when latitude
+        and longitude values appear. </font><br>
+      <br>
+      The goal of the project is to produce an application that lest the
+      user easily investigate this dataset to look for patterns, trends,
+      and interesting features. What are the most important factors that
+      affect highway fatalities? Are things getting better or worse and
+      why? Where are the most dangerous places, driving conditions,
+      driver impairments?<br>
+      <br>
+      The project will involve both graphs and maps as the major
+      visualization elements. Graphs will be good for showing the
+      numeric data and breakdowns of that data into categories (type of
+      vehicle, pedestrians / drivers / occupants, age, sex) as well as
+      looking at that data raw or per population, miles traveled, type
+      of roadway, whether alcohol was involved, etc, and organized by
+      year, month, time of day, weather. You should also be able to
+      graph the data by state but it will be important to correct for
+      population differences. Maps will be useful to mark the specific
+      locations of these incidents.<br>
+      <br>
+      We will be focusing on Illinois and how the Illinois data compares
+      to the national data.<br>
+      <br>
+      You will want to condense some of the data types (e.g. car body
+      type) and convert many of the numeric categories (e.g. car body
+      type, atmospheric conditions) into English names in the interface.
+      <br>
+      <br>
+      <br>
+      <span style="font-weight: bold; text-decoration: underline;">For a
+        C you need ...</span><br>
+      <br>
+      <ul>
+      </ul>
+      <ul>
+        <li>able to view a single variable over all years and see the
+          relative affect of different variables (weather, alcohol,
+          speed, type of vehicle, age of driver, day of week, month of
+          year, hour of day, etc) for Illinois<br>
+        </li>
+        <li>easily browse through the available data choosing different
+          years, and data to graph</li>
+        <li>map(s) should update to show the locations of the events
+          currently shown in the graph</li>
+        <li>the map should do all of the things you would expect - easy
+          panning and zooming, ability to change the map style, and
+          should initially show an appropriate region at an appropriate
+          zoom level<br>
+        </li>
+        <li>touch an event location on the map and get more data about
+          it<br>
+        </li>
+        <li>handle missing/unknown data well</li>
+        <li>interface should respond quickly to the user<br>
+        </li>
+      </ul>
+      <br>
+      <br style="font-weight: bold;">
+      <span style="font-weight: bold; text-decoration: underline;">For a
+        B you need to add ...</span><br>
+      <br>
+      <ul>
+        <li>view combinations of variables simultaneously (raining and
+          late at night) and/or multiple values for a given variable
+          (i.e. compare fatalities on the weekend to Mondays)</li>
+        <li>view trends in the data<br>
+        </li>
+        <li>glyphs on the map show the same data as in the graph in a
+          compact but effective way (i.e. not just showing the location
+          of an incident, but additional features about it)<br>
+        </li>
+        <li>be able to cluster the data on the map and graph (i.e. if I
+          zoom our or into the map or graph the data should form into
+          clusters or clusters should break apart into individual
+          instances)<br>
+        </li>
+        <li>add another state aside from Illinois for comparison
+          purposes</li>
+      </ul>
+      <ul>
+      </ul>
+      <br>
+      <span style="font-weight: bold; text-decoration: underline;">For
+        an A you need to add ...</span><br>
+      <br>
+      <ul>
+        <li>view data (maps and graphs) from any of the 50 US states</li>
+        <li>add several more interesting fields from the database<br>
+        </li>
+        <li>integrate other demographic information (e.g. how many
+          people are in a given age range, how many people live in that
+          state, to see if the crash statistics match or not)</li>
+        <li>discuss five interesting findings or evidence to support
+          conclusions using the interface</li>
+        <li>integrate events that may affect this data to look for
+          correlations (changes in speed limits, different kinds of cars
+          people are driving, drunk driving laws, etc, gas price changes
+          / gas shortages)<br>
+        </li>
+      </ul>
+      <ul>
+      </ul>
+      <br>
+      There are various map libraries available for processing. Modest
+      Maps seems like the best choice for the project.<br>
+      Unfolding maps (http://unfoldingmaps.org) is another popular map
+      library but doesn't seem stable with the current 2.0 beta versions
+      of processing.<br>
+      <br>
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif; color:
+      rgb(255, 255, 255);"> </span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);"><br
+      style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);">
+      <div style="text-align: justify;"><span style="font-family:
+          Helvetica,Arial,sans-serif;">You should create a set of web
+          pages that describe your work on the project. This should
+          include:</span><br>
+        <span style="font-family: Helvetica,Arial,sans-serif;"> </span>
+      </div>
+      <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">
+        <li>1 page on how to use your application and the things you can
+          do with it. </li>
+        <li>1 page on the data you used including where you got it, what
+          you did to it.<br>
+        </li>
+        <li>1 page with links to the source code and any instructions
+          necessary to install and run it. These instructions should
+          start from the assumption that the reader has a web browser on
+          their computer and tell the user everything else he/she needs
+          to know to get the code and get it running.<br>
+        </li>
+        <li>1 page on what interesting things you found using your
+          application.</li>
+        <li>1 page on the roles of the different team members<br>
+        </li>
+      </ul>
+      <span style="font-family: Helvetica,Arial,sans-serif;">all of
+        which should have plenty of screenshots with meaningful
+        captions. </span><span style="font-family:
+        Helvetica,Arial,sans-serif;">Web pages like this can be very
+        helpful later on in helping you build up a portfolio of your
+        work when you start looking for a job so please put some effort
+        into it.</span><br>
+      <br>
+      Be sure to document any external libraries or tools that you make
+      use of - give credit where credit is due.<br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><font
+        face="Helvetica, Arial, sans-serif"><br>
+        <span style="font-family: Helvetica,Arial,sans-serif;"> You
+          should also create a 2-3 minute YouTube video showing the use
+          of your application including narration with decent audio
+          quality. That video should be in a very obvious place on your
+          main project web page. The easiest way to do this is to use a
+          screen-capture tool while interacting with a scaled-down
+          version of the application, though you will most likely find
+          its useful to do some editing afterwards to tighten the video
+          up. Its also a good idea to have a video like this available
+          as a backup during your presentation just in case of gremlins.</span></font>
+      Y<font face="Helvetica, Arial, sans-serif">ou may want to shoot
+        this video on the wall itself from a phone with one of your team
+        members interacting.</font><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">The web
+        page including screen snapshots and video need to be done by the
+        deadline so be sure to leave enough time to get that work done.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"> I will be
+        linking your web page to the course notes so please send me a
+        nice 1280 x 361 jpg image of your visualization for the web.
+        This should be named
+        p3.&lt;someone_in_your_groups_last_name&gt;.jpg.&nbsp; </span><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+      <br>
+      When the project is done, each person in the group should also
+      send me a private email ranking your coworkers on the project on a
+      scale from 1 (low) to 5 (high) in terms of how good a coworker
+      they were on the project. If you never want to work with them
+      again, give them a 1. If this person would be a first choice for a
+      partner on a future project then give them a 5. If they did what
+      was expected but nothing particularly good or bad then give them a
+      3. By default your score should be 3 unless you have a particular
+      reason to increase or decrease the number. Please confine your
+      responses to 1, 2, 3, 4, 5 and no 1/3ds or .5s please. I will
+      average out all these scores for projects 2 through 4 and keep
+      them in mind when assigning final grades to projects 2 through 4.<br>
+      <br>
+      <font color="#ffffff">Each group will present their work to the
+        class and describe its features to the rest of the class. </font><font
+        face="Helvetica, Arial, sans-serif">Rehearse your presentation
+        ... several times. </font><font color="#ffffff">All team
+        members are expected to participate equally in that
+        presentation. The length of the presentations will be 5 minutes.
+        During each talk each group in the audience should write one
+        good question for the speaking group, and hand it to them at the
+        end of their presentation. The speaking group should add a page
+        to their website by Thursday 11/08 giving the questions (and the
+        group who asked it) and an answer to the question.</font><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      </span><br>
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif; color:
+      rgb(255, 255, 255);"> </span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);"><span
+      style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);"></span>
+    <hr style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);"><span style="font-family: Helvetica,Arial,sans-serif;
+      color: rgb(255, 255, 255);"><span style="font-family:
+        Helvetica,Arial,sans-serif;">last revision 10/22/12 - <font
+          color="#ffff00">changed dataset range to start at 2001</font></span></span>
+  </body>
+</html>

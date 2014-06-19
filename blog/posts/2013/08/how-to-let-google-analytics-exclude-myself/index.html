@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>joysword | 如何让Google Analytics不统计自己的访问</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="记录关于我所有的事情" />
+    <meta name="author" content="joysword" />
+    <meta name="keywords" content="joysword, 个人主页, 博客, 作品集, 游戏, 电子游戏, Jekyll, Bootstrap, Font Awesome" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet" media="screen">
+    <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div id="wrapper">
+      <div id="sidebar">
+  <a class="navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
+    <i class="fa fa-bars fa-fw"></i>
+  </a>
+        
+  <nav id="nav" class="navigation" role="navigation">
+    <div class="mynav">
+      <a href="/"><i class="fa fa-list-alt fa-fw"></i> <span>文&nbsp;&nbsp;章</span></a>
+      <a href="/archive/"><i class="fa fa-inbox fa-fw"></i> <span>存&nbsp;&nbsp;档</span></a>
+      <a href="/categories/"><i class="fa fa-folder fa-fw"></i> <span>分&nbsp;&nbsp;类</span></a>
+      <a href="/tags/"><i class="fa fa-tags fa-fw"></i> <span>标&nbsp;&nbsp;签</span></a>
+    </div>
+    <div class="mynav">
+      <a href="http://joysword.com"><i class="fa fa-home fa-fw"></i><span>主&nbsp;&nbsp;页</span></a>
+    </div>
+  </nav><!-- /nav -->
+
+</div><!-- /sidebar -->
+
+    <div class="container">
+        <section class="section">
+  <article>
+    <h1 class="post-title">
+      如何让Google Analytics不统计自己的访问
+    </h1>
+
+    	<section class="byline">
+      2013-08-30 | <i class="fa fa-folder"></i>
+        
+          <a href="/categories/#伪技术宅">伪技术宅</a>
+        
+        | <i class="fa fa-tags"></i>
+        
+          #<a href="/tags/#Google Analytics">Google Analytics</a>,
+        
+          #<a href="/tags/#网站">网站</a>
+        
+    </section>
+
+    <div class="post-content">
+      <p>上个星期给blog添加了Google Analytics代码玩玩。但是这种基本只有我自己看的博客，如果把自己统计到数据里，污染程度就太高了。</p>
+
+<p>看到每天都有几个人来访，手舞足蹈，然后发现其实都是自己来玩的。。这样的话就太蛋疼了。</p>
+
+<p>为了避免这种情况的发生，也本着实事求是的精神，决定研究一下如何把自己给大无畏地屏蔽掉。</p>
+
+<p>在网上找到两种方法，各有优劣，但是都只适用于Google Analytics</p>
+
+<!--more-->
+
+
+<h2>编写脚本</h2>
+
+<p>1) 在网站的任何一个位置新建<code>exclude-my-visit.html</code>文件，内容如下</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;body</span> <span class="na">onLoad=</span><span class="s">&quot;javascript:pageTracker._setVar(&#39;exclude-admin-visit&#39;);&quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
+
+
+<p>2) 在Google Analytics里添加过滤器，如下图设置：</p>
+
+<p><a href="/img/posts/google_analytics_0.png"><img src="/img/posts/google_analytics_0.png" alt="" /></a></p>
+
+<p>3) 在不想被统计的主机上登录到<code>exclude-my-visit.html</code>文件，如<code>www.mysite.com/exclude-my-visit.html</code>，就可以了</p>
+
+<h4>优点：</h4>
+
+<p>不限系统，不限浏览器，换系统换电脑前再进一次<code>exclude-my-visit.html</code>就行</p>
+
+<p>针对性强，只屏蔽自己，除非有人碰巧点开同样的页面</p>
+
+<h4>缺点：</h4>
+
+<p>配置不如下面一个方法简便</p>
+
+<p>效果不详，不过据说是google官方的方法</p>
+
+<h2>使用chrome插件</h2>
+
+<p>下载这个插件：<a href="https://chrome.google.com/webstore/detail/google-analytics-opt-out/fllaojicojecljbmefodhfapmkghcbnh">Google Analytics Opt Out</a></p>
+
+<p>安装完成后此工具会自动运行并阻断所有发给Google Analytics的统计数据。</p>
+
+<h4>优点：</h4>
+
+<p>简单方便，一劳永逸</p>
+
+<p>google官方出品，效果有保证</p>
+
+<h4>缺点：</h4>
+
+<p>只适用于chrome浏览器</p>
+
+<p>一杆子打死所有网站，以后不管你去哪里，都不会被计入那地儿的Google Analytics统计数据了</p>
+
+    </div>
+    <hr>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- below the article -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-9274627071963476"
+     data-ad-slot="6098520145"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <hr>
+    <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"joysword"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+  </article>
+</section>
+<div id="footer">
+    <hr>
+    <div class="row">
+        <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br> All articles are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br>Copyright &copy; 2012-2014 joysword.com
+        </p>
+    </div>
+</div>
+        
+    </div>
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43448447-1', 'joysword.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+    </div><!-- /wrapper -->
+  </body>
+
+  <!-- JAVASCRIPTS -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
+   <!-- MathJax Section -->
+<script type="text/javascript"
+ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+</html>

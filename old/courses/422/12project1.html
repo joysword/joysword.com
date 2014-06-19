@@ -1,0 +1,474 @@
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=UTF-8">
+    <title>CS 422: Project 1</title>
+  </head>
+  <body style="color: white; background-color: black;" alink="#ff2200"
+    link="yellow" vlink="#00aaff">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">
+      <center><span style="font-weight: bold;"></span><font size="6"><b>Project
+1
+
+
+
+
+
+
+
+
+
+
+            - Can't Buy Me Love&nbsp;&nbsp;&nbsp; <br>
+          </b></font></center>
+    </div>
+    <hr style="font-family: Helvetica,Arial,sans-serif; margin-left:
+      0px; margin-right: 0px;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Due - 2/6/12 at 8:59pm Chicago time<br>
+      <br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"> </div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Project 1 will give you a chance to program a small
+      interface and get used to qml before we break into groups and
+      proceed onto Project 2.</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"> There are quite a few vending
+      machines on campus serving a variety of 'edible' products. Right
+      now these tend to rely on putting money in slots but in the future
+      we will be able to communicate with these devices through our
+      phones or pads. In this project you will create a pad interface
+      for interacting with vending machines, allowing the user to see
+      what items are available, more information on those items, and
+      then select an item, pay for it, and pick it up. <br>
+      <br>
+      As an example we can think about the vending machine area on the
+      second floor of SEL near the CS department's computer labs.<br>
+      <br>
+      <img style=" width: 800px; height: 600px;" src="GIFs/vend.JPG"
+        alt=""><br>
+      <br>
+      &nbsp;As the user approaches this area (note there are machines on
+      3 sides), the vending machines would communicate with the user's
+      tablet and update their current list of available items and
+      prices. <br>
+      <ul>
+        <li>The user will be able to browse the available items and get
+          additional information on a particular item including an image
+          of the item, the price of the item, the ingredients, and
+          nutritional information about that item.<br>
+        </li>
+        <li>The user should be able to browse categories of items
+          (coffee, chips, gum, etc) to see what is available in that
+          category if they don't know exactly what they want. </li>
+        <li>The items should be independent of the machines they are
+          sold from - i.e. your application should give the user an
+          aggregate view of what is in the machines in a given area, not
+          a per-machine view.<br>
+        </li>
+        <li>Once the user finds what he/she wants he/she should be able
+          to buy it and have it appear in the vending machine's
+          dispenser, so the app will need some way to store and update
+          simulated credit card information. </li>
+        <li>When the user buys an item the app should direct them to the
+          correct machine, since multiple machines may have the same
+          item. </li>
+        <li>The app should remember the user's favorite things to make
+          it easy to buy another of those quickly. This may also depend
+          on the time of year.<br>
+        </li>
+        <li>The user should keep track of important personal preferences
+          like ingredients the user is allergic to and must avoid
+          (peanuts, milk, etc) and things they would prefer to avoid
+          (gluten, etc) and then give a warning if the user is going to
+          buy something dangerous or inappropriate.<br>
+        </li>
+        <li>There should be a button to complain if you don't get what
+          you asked for.</li>
+        <li>Your interface should also support multiple languages. It
+          should allow the user to choose from at least 10 languages,
+          but you only need to implement English and one other language.
+          That second language could be a real language but Swedish chef
+          or Klingon are acceptable as the second language, and there
+          are automatic translators for those available on line. </li>
+        <li>Your app should also support multiple currencies since we
+          may have some people from out of town visiting the university
+          and they would like to know what the price is in a currency
+          they are familiar with.</li>
+        <li>Your application should have some information on who made it
+          and will very likely want to include some instructions.<br>
+        </li>
+      </ul>
+      <br>
+      To make things realistic, your application should be able to
+      handle all of the different items in the 2nd floor SEL vending
+      machines, but you only need to give full details (photo, price,
+      nutritional information) on 20 of them, with all the various
+      categories of items represented. The others should be named but
+      could have placeholder images, prices, ingredients, and
+      nutritional information. You may want to break up the work of
+      finding all this information across the class and use the piazza
+      pages to distribute it.<br>
+      <br>
+      <span style="color: rgb(255, 255, 0);">Your project should be able
+        to run in the qml viewer application on windows / mac / linux.
+        It does not need to run on an actual pad, but the interface
+        should support the kind of interaction you would expect on a
+        pad. It does not need to connect to an external database with
+        information on the various food items, it could read that
+        information from a local file, but if you implement an external
+        web/cloud-based database it would be a bonus.</span><br>
+      <br>
+      <br>
+      <hr style="width: 100%; height: 2px;"><br>
+      <b>Implementing Project 1<br>
+      </b><br>
+      You should start by taking a look at what is available in the
+      vending machines by the CS computer labs (eg coffee, pop,
+      munchies, etc.) and very likely taking some photos of the
+      available products and prices so you can simulate them later, and
+      then start drawing some sketches for how to lay out that
+      information given the screen size and resolution.<br>
+      <br>
+      For this assignment everyone will use QML (qt.nokia.com/qtquick/)
+      so there is a common platform. Take a look at the QML examples for
+      some ideas on the kinds of layouts and interactions that it was
+      designed to develop.<br>
+      <br>
+      We will assume a display size of 7.75 inches x 5.75 inches at 1024
+      x 768 pixels (ie roughly iPad specs) and you should use landscape
+      orientation by default for your interface.<br>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Each person will work individually on this project.
+        This project is NOT a team project.</p>
+      <div style="text-align: justify; font-family:
+        Helvetica,Arial,sans-serif;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">It is expected that all of the code used in these
+        programs will be written by you. You can use code from the web
+        as examples and a guide to writing your code, but the code you
+        turn in for the project must be your own. <br>
+      </p>
+      <div style="text-align: justify; font-family:
+        Helvetica,Arial,sans-serif;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Any code, images, icons, or other elements borrowed
+        from others <u>must</u> be fully cited in your application
+        itself, in the README file along with your source code, and on
+        your webpages<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><span style="color: rgb(255, 255, 0);">If you
+          implement all of the functionality above with a serviceable
+          user interface then you get a C. The B and A grades depend on
+          the quality of the user interface that you create.</span><br>
+      </p>
+      <hr style="margin-left: 0px; margin-right: auto;">
+      <p style="text-align: left;"><b>Turning in Project 1</b></p>
+      <p style="text-align: left;">You should create a set of public
+        (available to anyone) web pages that describe your work on the
+        project. This should include:<br>
+      </p>
+      <ul>
+        <li>1 page containing a link to a gzipped file containing the
+          well-commented source code and all other necessary files to
+          make your application run locally. This page should include
+          instructions on how to install and run your app starting from
+          "I have a web browser on my computer." You should provide
+          links and clear instructions on everything needed to get your
+          application running. </li>
+        <li>1 page on how to use your application and the things you can
+          do with it.</li>
+        <li>1 page on why you think you have cteated a good interface.<br>
+        </li>
+      </ul>
+      <p style="text-align: left;">all of which should have plenty of
+        screenshots with meaningful captions. Web pages like this can be
+        very helpful later on in helping you build up a portfolio of
+        your work when you start looking for a job so please put some
+        effort into it.<br>
+        <br>
+        You should also create a 2-3 minute YouTube video showing the
+        use of your application including narration with decent audio
+        quality. That video should be in a very obvious place on your
+        main project web page. The easiest way to do this is to use a
+        screen-capture tool while interacting with the application,
+        though you will most likely find its useful to do some editing
+        afterwards to tighten the video up. Its also a good idea to have
+        a video like this available as a backup during your presentation
+        just in case of gremlins.<br>
+        <br>
+        The web page including screen snapshots and video need to be
+        done by the deadline so be sure to leave enough time to get that
+        work done. Once you have your webpage done, send the URL to the
+        TA before the deadline.<br>
+        <br>
+        I will be linking your web page to the course notes so please
+        send me a nice representative 1024 x 768 jpg image of your
+        application for the web. This should be named
+        p1.&lt;your_last_name&gt;.&lt;your_first_name&gt;.jpg.&nbsp; <br>
+      </p>
+      <br>
+      <div style="text-align: justify;"> </div>
+      <hr style="width: 100%; height: 2px; margin-left: 0px;
+        margin-right: 0px;">
+      <p style="text-align: justify;"><b>Presenting Project 1</b></p>
+      <div style="text-align: justify;"> </div>
+      <p style="text-align: justify;">An important part of creating user
+        interfaces is getting feedback and using it to improve your
+        design. Given the class size, this can be a bit of a challenge.
+        On 2/7 and 2/9, after the project has been turned in, we will
+        have some group discussions and presentations about the
+        solutions to Project 1.</p>
+      <div style="text-align: justify;"> </div>
+      <p style="text-align: justify;">On Tuesday 2/7 the class will
+        break into groups. Each group will compare notes on their
+        solutions to the problem and come to an agreement on a single
+        revised interface design, so bring printed screenshots of your
+        design to this class meeting (the web pages you created to turn
+        in the assignment should be able to do double-duty here.) This
+        revised design does not have to be implemented; it should be
+        presented as a series of screen snapshots/mockups for the major
+        functions.</p>
+      <div style="text-align: justify;"> </div>
+      <p style="text-align: justify;">Before Thursday's class on 2/9
+        each group should create a web page with the team members'
+        names, the screen snapshots for the revised design, and a
+        description of how the revised interface will be used. The
+        address of this page should be emailed to the TA before class
+        begins on Thursday.</p>
+      <div style="text-align: justify;"> </div>
+      <p style="text-align: justify;">On Thursday 2/9 each of the groups
+        will give a presentation on the revised interface that
+        their&nbsp;group came up with, using their web page, showing the
+        snapshots and giving a brief description of its functionality.
+        The length of the presentation will be determined once we know
+        the number of groups, but most likely around 5 minutes.<br>
+      </p>
+      <p style="text-align: justify;">Very likely later on in the term
+        the class will break into different groups and revise the
+        revised designs again.<br>
+      </p>
+      <hr style="width: 100%; height: 2px;">Here are the designs that
+      were turned in on 2/6/12<br>
+      <br>
+      <table style="text-align: left; width: 600px;" border="0"
+        cellpadding="2" cellspacing="5">
+        <tbody>
+          <tr>
+            <td style="text-align: center;"><a
+                href="http://paulgrenning.com/Vending-Application"><img
+                  src="12p1/p1.grenning.paul.jpg" alt="" style="border:
+                  0px solid; width: 320px; height: 240px;"></a> </td>
+            <td style="text-align: center;"><a
+                href="http://code.google.com/p/hwang207-uic-cs422-spring-2012/"><img
+                  src="12p1/p1.Wang.Hong.jpg" alt="" style="border: 0px
+                  solid; width: 320px; height: 188px;"></a> </td>
+            <td style="text-align: center;"><img style=" width: 320px;
+                height: 250px;" src="12p1/p1.morris.samone.jpg" alt="">
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 272px;" src="12p1/p1.anruo.wang.png" alt=""> </td>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 270px;" src="12p1/p1.spaulding.ian.jpg" alt="">
+            </td>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 270px;" src="12p1/p1.guerra.paulo.jpg" alt=""> </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 279px;" src="12p1/p1.wrzesinski.westin.jpg"
+                alt=""> </td>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 271px;" src="12p1/p1.sarumi.kamal.jpg" alt=""> </td>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 252px;" src="12p1/p1.jovanovic.pavle.jpg" alt="">
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 282px;" src="12p1/p1.Ahmed.Shaheer.jpg" alt="">
+            </td>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 271px;" src="12p1/p1.ty.cobb.jpg" alt=""> </td>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 211px;" src="12p1/p1.chen.xiangli.jpg" alt=""> </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 270px;" src="12p1/p1.snyder.peter.png" alt=""> </td>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 262px;" src="12p1/p1.Jrodri64.PNG" alt=""> </td>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 270px;" src="12p1/p1.yin.shi.jpg" alt=""> </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 270px;" src="12p1/p1.hanson.william.png" alt="">
+            </td>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 240px;" src="12p1/p1.young.jpg" alt=""> </td>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 278px;" src="12p1/p1.ramir.matthew.jpg" alt="">
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;"><img style=" width: 360px;
+                height: 268px;" src="12p1/p1.mszumi2.jpg" alt=""> </td>
+            <td style="text-align: center;"><br>
+            </td>
+            <td style="text-align: center;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;"><br>
+            </td>
+            <td style="text-align: center;"><br>
+            </td>
+            <td style="text-align: center;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;"><br>
+            </td>
+            <td style="text-align: center;"> <br>
+            </td>
+            <td style="text-align: center;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;"><br>
+            </td>
+            <td style="text-align: center;"><br>
+            </td>
+            <td style="text-align: center;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;"><br>
+            </td>
+            <td style="text-align: center;"><br>
+            </td>
+            <td style="text-align: center;"><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <hr style="width: 100%; height: 2px;"><br>
+      Here are the websites showing the group work done in class on 2/7
+      to compare their current designs and create an improved design.<br>
+      <br>
+      <table style="text-align: left; width: 100%;" border="1"
+        cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top; width: 300px;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <hr style="width: 100%; height: 2px;"><br>
+      Here are the websites showing the group work done in class with
+      new groupings to compare their current designs and create an
+      improved design.<br>
+      <br>
+      <table style="text-align: left; width: 100%;" border="1"
+        cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top; width: 300px;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <br>
+    </div>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; margin-left: 0px; margin-right: 0px;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">last updated 2/1012 - <span
+        style="color: rgb(255, 255, 255);">added screenshots from turned
+        in projects</span><br>
+    </div>
+  </body>
+</html>

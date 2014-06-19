@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>CS 424 Project 2</title>
+</head>
+<body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+ vlink="#00aaff">
+<h1 style="font-family: Helvetica,Arial,sans-serif;">Project 2<br>
+</h1>
+<p style="font-family: Helvetica,Arial,sans-serif;">Shaking Through</p>
+<p style="font-family: Helvetica,Arial,sans-serif;"><span
+ style="color: rgb(255, 255, 255);">Project due at 11:59pm Monday
+10/11/10
+Chicago time</span><br>
+</p>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">Project 2 will be the
+first group project and will focus more on represeting data
+simultaneously in multiple ways. Given the quick turnaround time
+on these projects you should get your team together quickly and decide
+on roles.<br>
+<br>
+You should also very quickly set up a web page for your project and
+send the URL to andy. Each Friday of the project each team member
+should post on the project web site an overview of what he/she did on
+the project that week.<br
+ style="font-family: Helvetica,Arial,sans-serif;">
+</span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+This project will look at data that can be visualized both in a graphs
+and in geospatial and temporal forms.<br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<br style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<div style="text-align: justify;"> <span
+ style="font-family: Helvetica,Arial,sans-serif;">As in Project 1 you
+will be
+creating a web page. The final data download may be a little heavy so
+you
+should also provide a downloadable version. The application should have
+obvious and intuitive
+controls.<br>
+<br>
+Unlike project 1, before you
+visualize this data you will need to convert it into appropriate
+form(s).</span> <br style="font-family: Helvetica,Arial,sans-serif;">
+<br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">The data we will
+use in this project comes from the US Geological Survey's Global
+Earthquake Search site at</span><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">http://earthquake.usgs.gov/earthquakes/eqarchives/epic/epic_global.php</span><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">If you ask for
+spreadsheet format data from the USGS/NEIC (PDE) from 1973 to present
+you will get a 30 megabyte comma separated list of quakes that starts
+with:</span><br>
+<br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">Year, Month,
+Day, Time(hhmmss.mm) UTC, Latitude, Longitude, Magnitude, Depth</span><br>
+<span style="font-family: Courier New,Courier,monospace;">&nbsp;
+1973,01,01,034609.80, -9.21, 150.63,5.3, 41</span><br
+ style="font-family: Courier New,Courier,monospace;">
+<span style="font-family: Courier New,Courier,monospace;">&nbsp;
+1973,01,01,052229.80,-15.01,-173.96,5.0, 33</span><br
+ style="font-family: Courier New,Courier,monospace;">
+<span style="font-family: Courier New,Courier,monospace;">&nbsp;
+1973,01,01,092857.20,-22.16, -65.79,4.8,205</span><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+</div>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+There are over 620,000 earthquakes in this file but some do not have a
+magnitude so you should filter out all of the lines that are not
+complete. This should leave you with about 500,000 lines of data.<br>
+<br>
+The tool you develop should help the user investigate questions about
+earthquakes. Is there a regular pattern in time between larger
+earthquakes? Is there a pattern to the aftershocks of a larger quake?
+Are there smaller quakes or an absence of quakes that precede a large
+quake?<br>
+</span><br>
+</div>
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;"><br>
+<span style="font-weight: bold; text-decoration: underline;">For a C
+you need ...</span><br>
+<br>
+<ul>
+  <li>plot a world map of the earthquakes with the different magnitudes
+colour and size coded (Note you <span
+ style="font-family: Helvetica,Arial,sans-serif;">may want to convert
+latitude and logitude to another representation, or look at the
+different possible representations for converting lat / lon to a flat
+map)</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">the world
+map of the earthquakes should include a map of the world.&nbsp;<span
+ style="font-family: Helvetica,Arial,sans-serif;">There are several map
+tools already integrated into processing so take advantage of one of
+those and credit them if you do.&nbsp;</span></span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">you need
+to come up with some appropriate colour and size coding for the quakes.
+You might want to start by looking at the Richter Scale page on
+wikipedia, but you should also start plotting a subset of the data
+quickly to see the distribution so big quakes are visible along with
+the much more common smaller ones.<br>
+    </span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">pick a
+city from a list of 10 quake-prone cities scattered around the world
+and show the locations and magnitudes of all the earthquakes within a
+100-km radius over the entire time period. The map tool above should be
+useful here as well.</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">show a
+graph of the number of earthquakes of different magnitudes over the
+time range from 1973 to the present, as well as the number of quakes vs
+depth, for the world and the chosen city</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">add
+another graph explaining the relative power and frequency of quakes of
+different magnitudes to help put the data into context</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">you should
+check your visualization with a colour blindness tool to
+see that its ok</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">everything
+should update quickly as you interact<br>
+    </span></li>
+</ul>
+<br>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">For a B
+you need to add ...</span><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+<br>
+</span>
+<ul>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">be able to
+'play back' time to see the earthquakes over time.</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">increase
+the number of cities to several hundred (take the most populous cities
+around the world) and allow the user to start typing and see the cities
+with matching names to pick from</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">be able to
+dynamically change the range of time displayed, eg instead of
+1973-present, be able to pick a decade, or a year, or several years to
+display</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">add to
+your graphs the ability to see quakes versus time of day where time is
+show both in UTC, local time, and Chicago time. (this doesnt need to be
+exactly precise for the local times, but should be within an hour or
+two)</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">allow the
+user to dynamically change the viewing radius around a particular city</span><br>
+  </li>
+</ul>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span><br
+ style="font-weight: bold;">
+<span style="font-weight: bold; text-decoration: underline;">For an A
+you need to add ...</span><br>
+<br>
+<ul>
+  <li>be able to interactively 'shuffle' through time&nbsp;</li>
+  <li>allow the user to mouse over a quake to bring up information on
+that quake</li>
+  <li>allow the user to bring up multiple cities simultaneously</li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">allow the
+user to select all quakes of a given magnitude and see them on all the
+maps currently visible</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">give the
+user a list of major earthquakes and allow the user to select one and
+see related data (highlight it on the global map, show all nearby
+quakes in the local area, update the related graphs)</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">find some
+interesting things in the data and highlight them on your webpage
+through screen snapshots</span></li>
+</ul>
+<hr style="width: 100%; height: 2px;"><br>
+There is code that integrates modest maps with processing here:
+http://www.tom-carden.co.uk/wp-content/uploads/2008/11/modest_maps_interactive.zip<br>
+<br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;">As
+with
+Project
+1
+you
+should
+create
+a
+web
+page
+describing your work on the
+application. This time instead of embedding the processing application
+you should have a link so people can download your application
+(and the necessary data files) to run your application. Please make
+sure that your application is Mac / Windows / Linux compatible. If you
+can get your app to run online through a browser then do include that
+version as well. The web page should describe the contribution of each
+team member (ie who worked on which interface elements, who worked on
+converting the data into a more usable form, etc.)<br>
+<br>
+Please send me a 1024 x 768 jpg image of your visualization for the
+web. This
+should be named p2.&lt;someone_in_your_groups_last_name&gt;.jpg. <br>
+<br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">When the project
+is done, each person in
+the group should also send me a private email ranking
+your coworkers on the project on a scale from 1 (low) to 5 (high) in
+terms of how good a coworker they were on the project. If you never
+want to work with them again, give them a 1. If this person would be a
+first choice for a partner on a future project then give them a 5. If
+they did what was expected but nothing particularly good or bad then
+give them a 3. By default your score should be 3 unless you have a
+particular reason to increase or decrease the number. Please confine
+your responses to 1, 2, 3, 4, 5 and no 1/3ds or .5s please. I will
+average out all these scores for projects 2 through 4 and keep them in
+mind when
+assigning
+final grades to projects 2 through 4.</span><br>
+<br>
+Each group
+will present their work to the class and describe
+its features to the rest of the
+class. This allows everyone to see a variety of solutions to the
+problem, and a variety of implementations. <br>
+<br>
+<span style="color: rgb(255, 255, 0);">Since we have six groups to go
+through in 75 minutes, each group will talk for 8 minutes plus 4
+minutes for questions from the other groups. The presentation time
+should be evenly split among all members of the group. Each group
+sitting in the audience will be allowed one question for the group
+currently presenting, so come up with a good one. In answering the
+questions the group presenting should be concise so all of the other
+groups have a chance to ask questions.</span><br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span>
+<hr style="font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">last revision
+10/10/10 - more info added on class presentations.</span>
+</body>
+</html>

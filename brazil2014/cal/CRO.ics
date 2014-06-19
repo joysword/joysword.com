@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Croatia
+X-WR-CALNAME:World Cup 2014: Croatia
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-1
+SUMMARY:Brazil v Croatia
+DESCRIPTION:Brazil v Croatia. Group A. Arena de São Paulo\, São Paulo\, B
+ razil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulato
+ r\, download the simulator for this summer's world cup at http://www.world
+ cupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140612T200000Z
+DTEND:20140612T214500Z
+LOCATION:Arena de São Paulo\, São Paulo\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-18
+SUMMARY:Cameroon v Croatia
+DESCRIPTION:Cameroon v Croatia. Group A. Arena Amazônia\, Manaus\, Brazil.
+  World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, do
+ wnload the simulator for this summer's world cup at http://www.worldcupbra
+ zilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140618T220000Z
+DTEND:20140618T234500Z
+LOCATION:Arena Amazônia\, Manaus\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-34
+SUMMARY:Croatia v Mexico
+DESCRIPTION:Croatia v Mexico. Group A. Arena Pernambuco\, Recife\, Brazil. 
+ World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, dow
+ nload the simulator for this summer's world cup at http://www.worldcupbraz
+ ilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140623T200000Z
+DTEND:20140623T214500Z
+LOCATION:Arena Pernambuco\, Recife\, Brazil
+END:VEVENT
+END:VCALENDAR

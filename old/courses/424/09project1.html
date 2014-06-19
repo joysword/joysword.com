@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>CS 424 Project 1</title>
+</head>
+<body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+ vlink="#00aaff">
+<h1 style="font-family: Helvetica,Arial,sans-serif;">Project 1<br>
+</h1>
+<p style="font-family: Helvetica,Arial,sans-serif;">Bridge over
+Troubled Water<br>
+</p>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">Project 1 will be an
+individual project to give people practice with writing an application
+in processing and get
+everyone ready to contribute to the group projects to come.</span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;">The project will
+focus on a recreation of the John Snow cholera map but this time
+focusing on an interactive version of the map with additional related
+dynamic data. In this case the data is already pre-processed to be an
+appropriate size and in an easily readable form. You also know what
+'the answer' is so you can concentrate on the visualization side of
+things. Those assumptions won't hold true for the later
+assignments. </span><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;"><br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">I will provide you
+with several datafiles. These include a vector map of the area and the
+locations of the dead and a set of randomized dates. <br>
+<br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">The datafiles
+are located at:</span><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+</span><a style="font-family: Helvetica,Arial,sans-serif;"
+ href="data/p1/deaths.age.mf">deaths.age.mf</a><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<a style="font-family: Helvetica,Arial,sans-serif;"
+ href="data/p1/deathdays">deathdays</a><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<a style="font-family: Helvetica,Arial,sans-serif;"
+ href="data/p1/streets">streets</a><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<a style="font-family: Helvetica,Arial,sans-serif;" href="data/p1/pumps">pumps</a><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<a style="font-family: Helvetica,Arial,sans-serif;" href="./data/p1/"></a><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+More data on the
+original versions of these files can be found&nbsp; here:<br>
+<a href="http://www.ncgia.ucsb.edu/pubs/snow/snow.html">&nbsp;http://www.ncgia.ucsb.edu/pubs/snow/snow.html</a><br>
+<br>
+I modified the format a bit and
+added in a randomized sex and age of the victims based on data from the
+Naples cholera outbreak in 1884.</span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+The data files include:<br>
+</span>
+<ul>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">streets -
+gives the coordinates of the streets as a series of line segments</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">pumps -
+gives the locations of the 13 nearby pumps</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">deathdays
+- gives the number of deaths for each day of the outbreak</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">deaths.age.mf
+-
+gives the location of each death in the deathdays file, in order,
+plus information on the age and sex of the victim. </span></li>
+</ul>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span><span
+ style="font-family: monospace;">&nbsp;&nbsp;&nbsp; age 0-10
+&nbsp;&nbsp;&nbsp; 0<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 11-20 &nbsp;&nbsp;&nbsp; 1<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 21-40 &nbsp;&nbsp;&nbsp; 2<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 41-60 &nbsp;&nbsp;&nbsp; 3<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 61-80 &nbsp;&nbsp;&nbsp; 4<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &gt; 80&nbsp; &nbsp;&nbsp; 5</span><br
+ style="font-family: monospace;">
+<br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; male 0, Female
+1</span><span style="font-family: Helvetica,Arial,sans-serif;"><br>
+<br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">another piece of
+potentially useful information is the percentage of
+people in each age group in general during that time as the percentages
+of people of different ages who died may not be the same as the general
+population. I haven't found any data for London at that time, but US
+census data from 1850 at</span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><a
+ href="http://www2.census.gov/prod2/decennial/documents/1850a-02.pdf">http://www2.census.gov/prod2/decennial/documents/1850a-02.pdf
+</a>gives the
+following breakdown, so we will assume the same breakdown for London:<br>
+</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;
+0-10&nbsp;&nbsp; &nbsp; 28%</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp; &nbsp;&nbsp;
+11-20&nbsp;&nbsp;&nbsp; 25%</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp; &nbsp;&nbsp;
+21-40&nbsp;&nbsp;&nbsp; 30%</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp; &nbsp;&nbsp;
+41-60&nbsp;&nbsp;&nbsp; 13%</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp; &nbsp;&nbsp;
+61-80&nbsp;&nbsp;&nbsp; &nbsp;4%</span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp; &nbsp; &nbsp; &gt;
+80&nbsp;&nbsp;&nbsp; &nbsp;1%</span><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+</span><br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">You will be creating
+a web page that embeds a processing window that lets a user investigate
+this data. This web page should be viewable under Explorer, Safari, and
+Firefox. The application should have obvious and intuitive controls.</span><br>
+</div>
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;"><br>
+<span style="font-weight: bold; text-decoration: underline;">For a C
+you need ...</span><br>
+<br>
+<ul>
+  <li>a well drawn map of the area including the locations of the deaths</li>
+  <li>a graph showing the number of deaths per day</li>
+  <li>ability to move the mouse over a given area to choose which day
+to visualize - this should afect the deaths visible on the map and in
+the graph - at minimum all cholera deaths prior to that date should be
+shown on the map and the graph</li>
+  <li>the graph and the map should be stable (ie they should not move
+when new data is added to it)</li>
+  <li>the graph and the map should be well labelled<br>
+  </li>
+  <li>the visualization itself should be well labelled (what, when,
+where, who made it, where the data came from, etc)</li>
+  <li>you should check your visualization with a colour blindness
+checking web page to see that its ok</li>
+  <li>the map and graph should update quickly when the user interacts<br>
+  </li>
+</ul>
+<br style="font-weight: bold;">
+<span style="font-weight: bold; text-decoration: underline;">For a B
+you need to add ...</span><br>
+<br>
+<ul>
+  <li>more data to the map -&nbsp; major street names and the location
+of the brewery and the work house</li>
+  <li>ability to easily see on the map whether a particular victim was
+male or female</li>
+  <li>ability to easily see on the map the age of a particular
+victim&nbsp;</li>
+  <li>a graph showing the distribution of deaths by sex and age while
+brushing</li>
+  <li>the graph should mark the day the pump handle was removed</li>
+  <li>the map should be able to show either deaths on this day or up to
+this day<br>
+  </li>
+</ul>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">For an A
+you need to add ...</span><br>
+<br>
+<ul>
+  <li>ability to cluster the data on the map into a grid that shows the
+number of dead in each grid cell (even with this small amount of data
+the points are starting to overwhelm) and the user should be able to
+vary the size of the clusters.<br>
+  </li>
+  <li>ability to zoom in/out and pan around the map</li>
+</ul>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;">You
+should
+start by getting processing installed and doing some initial
+tests to load in the data and start displaying it. The Visualizing Data
+texbook has some nice discussions and sample code.<br>
+<br>
+You should then
+start to draw some sketches of what the interface might&nbsp; look like
+and
+how you want to arrange and display the data. How are you going to make
+use of the screen real-estate. All of the different visualizations you
+use should be visible simultaneously. <br>
+<br>
+What kinds of charts are you going to use for the various data. One
+good starting point for that is:<br>
+&nbsp;<a
+ href="http://extremepresentation.typepad.com/blog/files/choosing_a_good_chart.pdf">http://extremepresentation.typepad.com/blog/files/choosing_a_good_chart.pdf</a><br>
+<br>
+You
+should
+create a web page that describes your work on
+the project including an
+embedded processing window (with a max size of 1280 by 700) and a link
+to a gzipped file containing the
+source code and all other necessary files to make it run locally. This
+well
+organized page should function as a README file and describe the
+featues that
+you implemented along with any special features that you added. It
+should include screenshots of all the major features. <br>
+<br>
+I will
+be
+linking this web page to the course notes
+so please send me a nice 1024 x 768 jpg image of your visualization for
+the
+web. This
+should be named p1.&lt;your_last_name&gt;.jpg. <br>
+<br>
+Web pages like this can
+be very helpful later on in helping you build up a portfolio of your
+work when you start looking for a job so please put some effort into it.<br>
+<br>
+We will take one class period to look through these visualizations so
+everyone can see a variety of solutions to the
+problem, and a variety of implementations. You will be expected to talk
+about your work.<br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span>
+<hr style="font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">last revision 8/31/09</span>
+</body>
+</html>

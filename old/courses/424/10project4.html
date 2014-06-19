@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>CS 424 Project 4</title>
+</head>
+<body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+ vlink="#00aaff">
+<h1
+ style="font-family: Helvetica,Arial,sans-serif; text-align: justify;">Project
+4<br>
+</h1>
+<div style="text-align: justify;"></div>
+<p style="font-family: Helvetica,Arial,sans-serif; text-align: justify;">Three
+Little
+Birds<br>
+</p>
+<p style="font-family: Helvetica,Arial,sans-serif; text-align: justify;"><span
+ style="color: rgb(255, 255, 255);">Project due at 11:59pm Monday
+11/22/10
+Chicago time</span>
+</p>
+<div style="text-align: justify;"></div>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif; margin-left: 0px; margin-right: 0px;">
+<div
+ style="font-family: Helvetica,Arial,sans-serif; text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+This will be the third group project. This project is going to make use
+of a larger base dataset (at over 50 gig) and supplement it with a
+dynamic real-time data stream. The data will consist of tweets. This
+project will focus more on the data
+processing side - how do you find meaning in the wide variety of
+tweets, and condense a large source dataset into something that can be
+used in an interactive visual analytics tool. <br>
+<br>
+This project will be more open-ended than the previous three giving
+each group more options in how you want to try to find meaning in this
+data.<br>
+</div>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span>
+</div>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif; margin-left: 0px; margin-right: 0px;">
+<div style="text-align: justify;"></div>
+<div
+ style="font-family: Helvetica,Arial,sans-serif; text-align: justify;"><br>
+The twitter7 dataset at stanford http://snap.stanford.edu/data/#twitter
+contains 475 million tweets from 17 million users from June through
+December 2009. Its broken up into seven files where each file is 1-3
+gig of compressed text and up to 8 gigs when uncompressed. At 26
+gigabytes the complete dataset starts to give you an idea of the kind
+of datasets that are common today. <br>
+<br>
+The files are composed of lines like the following:<br>
+<span style="font-family: monospace;">T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2009-12-01
+00:00:31</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">U&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+http://twitter.com/emilyrecord</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">W&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+I
+wonder
+how
+often
+you think of me, if ever. Today is not a happy day.</span><br>
+<br>
+</div>
+<div
+ style="font-family: Helvetica,Arial,sans-serif; text-align: justify;">This
+gives
+you
+the
+date
+and time of the tweet, the sender, and the tweet
+itself (which are mostly in English, but also in a variety of other
+languages and character sets). As you can see there are some easy ways
+to compress the data down, even in text ual form.<br>
+<br>
+There are
+lots of people talking about lots of different things using twitter so
+there is a lot of background noise and the popularity of different
+topics can change rapidly. You should use this seven months of data to
+better understand the signal to noise ratio in twitter - what were the
+most common topics, and how did they relate to events in the news? How
+did the number of tweets vary with time of day or day of the year? Can
+you categorize users by how often they tweet? Can you link @usernames
+and #hashtags into networks? <br>
+<br>
+Here is one starting point:
+http://blog.twitter.com/2009/12/top-twitter-trends-of-2009.html<br>
+<br>
+The first part of the project is to organize that data into a browsable
+form and give the user a visual overview of this seven months of data
+from different perspectives, and let the user interact to investigate
+the data in further detail.<br>
+<br>
+Given your experience with that dataset, the second part of the project
+will investigate at the stream of tweets flying by. The static dataset
+from 2009 only gives the time, user, and content of the tweet, but we
+can filter the dynamic stream in more ways.<br>
+<br>
+One
+of
+the
+libraries
+available for processing is tweet stream which lets
+you receive tweets based on location, or keywords, or sender. Given the
+large number of tweets being sent, you
+won't
+be able to deal with the entire data set but will only be able to look
+at a small sample of the stream. Filtering by keywords or locations
+allows you to focus on the tweets you are more likely to be interested
+in. In part two you are going to look at what people are talking about
+in different locations. We will look at tweets
+from New York, Chicago, and Los Angeles, or if you want a wider variety
+you could try London, Toronto, and Chicago. Sticking with predominantly
+English-speaking cities makes it easier to compare topics across
+different cities.<br>
+<br>
+As with part one you should also investigate changes related to the
+time of day and day of
+the week, and see how the topics&nbsp; in the dynamic stream relate to
+events in the news. In part 2 you should collect data on tweets coming
+from each of the three locations for at least a week. This way you have
+the general background knowledge from last year, current knowledge from
+the previous week, and be able to use that to help classify and compare
+the data currently flowing by. <br>
+<br>
+The visualizations and interfaces for Part 1 and 2 should be well
+integrated<br>
+<br>
+trendingtopics is a good place to look for topics which are currently
+gaining in popularity.<br>
+<br>
+http://tweetstats.com/ is also a nice place to
+look for some initial data and there is a list of other possible
+starting points at
+http://www.readwriteweb.com/archives/7_top_twitter_topic_trackers.php<br>
+<br>
+<br>
+<br>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">For a C
+you need to</span><br>
+<br>
+<ul>
+  <li>Visualize and allow the user to interact with and investigate the
+static dataset form Part 1<br>
+  </li>
+</ul>
+<br>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">For a B
+you need to add </span><br>
+<br>
+<ul>
+  <li>Enhance the interface from Part I to visualize and allow the user
+to interact with and investigate the dynamic dataset from Part 2 to
+compare the tweets from the three chosen cities, and relate them to the
+knowledge you gained from the static dataset.<br>
+  </li>
+</ul>
+<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold; text-decoration: underline;">For an A
+you need to add</span><br>
+<br>
+<ul>
+  <li>something that impresses me.&nbsp;</li>
+  <li>use your tool to do some analysis of the tweets. What do you find?<br>
+  </li>
+</ul>
+<hr
+ style="width: 100%; height: 2px; margin-left: 0px; margin-right: 0px;"><br>
+As with projects 2 and 3, each Friday each member of the team should
+post a
+description of what they did on the project to the project web site.<br>
+<br>
+This time your group should also produce a 2 minute youtube video
+showing off the capabilities of your tool. The easiest way to do this
+is to use a screen-capture tool while interacting with the
+application, though you will most likely find its useful to do some
+editing afterwards to tighten the video up. Its also a good idea to
+have a video like this available as a backup during your presentation.<br>
+<br>
+</div>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">
+</span></div>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif; margin-left: 0px; margin-right: 0px;">
+<div style="text-align: justify;"><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<span
+ style="font-family: Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);">As
+with
+Projects
+1-3
+you
+should
+create
+a
+web
+page describing your work on the
+application. This time instead of embedding the processing applicaiton
+you should have a link so people can download your application
+(and the necessary data files) to run your application. Please make
+sure that your application is Mac / Windows / Linux compatible. If you
+can get your app to run online through a browser then do include that
+version as well. The web page should describe the contribution of each
+team member (ie who worked on which interface elements, who worked on
+converting the data into a more usable form, etc.)</span><br
+ style="font-family: Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);">
+<br
+ style="font-family: Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);">
+<span
+ style="font-family: Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);">Please
+send
+me
+a
+1024
+x
+768
+jpg
+image of your visualization for the
+web.<br>
+This
+should be named p4.&lt;someone_in_your_groups_last_name&gt;.jpg. </span><br
+ style="font-family: Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);">
+<br
+ style="font-family: Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);">
+<span
+ style="font-family: Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);">Each
+person
+in
+the
+group
+should
+also
+send
+me a private email ranking
+your coworkers on the project on a scale from 1 (low) to 5 (high) in
+terms of how good a coworker they were on the project. If you never
+want to work with them again, give them a 1. If this person would be a
+first choice for a partner on a future project then give them a 5. If
+they did what was expected but nothing particularly good or bad then
+give them a 3. By default your score should be 3 unless you have a
+particular reason to increase or decrease the number. Please confine
+your responses to 1, 2, 3, 4, 5 and no 1/3ds or .5s please. I will
+average out all these scores for projects 2 through 4 and keep them in
+mind when
+assigning
+final grades.</span><br
+ style="font-family: Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);">
+<br
+ style="font-family: Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);">
+<span
+ style="color: rgb(255, 255, 255); font-family: Helvetica,Arial,sans-serif;">Each
+group
+will
+present
+their
+work
+to
+the
+class and describe
+its features to the rest of the
+class. This allows everyone to see a variety of solutions to the
+problem, and a variety of implementations.<br>
+<br>
+Since
+we have six groups to go through in 75 minutes, each group will talk
+for 8 minutes plus 4 minutes for questions from the other groups. The
+presentation time should be evenly split among all members of the
+group. Each group sitting in the audience will be allowed one question
+for the group currently presenting, so come up with a good one. In
+answering the questions the group presenting should be concise so all
+of the other groups have a chance to ask questions.</span><br
+ style="color: rgb(255, 255, 255); font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span><br>
+</div>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif; margin-left: 0px; margin-right: 0px;">
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<hr
+ style="font-family: Helvetica,Arial,sans-serif; margin-left: 0px; margin-right: 0px;">
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">last revision 11/3/10
+- corrected the file sizes</span>
+</div>
+</body>
+</html>

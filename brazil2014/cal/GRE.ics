@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Greece
+X-WR-CALNAME:World Cup 2014: Greece
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-5
+SUMMARY:Colombia v Greece
+DESCRIPTION:Colombia v Greece. Group C. Estádio Mineirão\, Belo Horizonte
+ \, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simu
+ lator\, download the simulator for this summer's world cup at http://www.w
+ orldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140614T160000Z
+DTEND:20140614T174500Z
+LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-22
+SUMMARY:Japan v Greece
+DESCRIPTION:Japan v Greece. Group C. Arena das Dunas\, Natal\, Brazil. Worl
+ d Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, downloa
+ d the simulator for this summer's world cup at http://www.worldcupbrazilap
+ p.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140619T220000Z
+DTEND:20140619T234500Z
+LOCATION:Arena das Dunas\, Natal\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-38
+SUMMARY:Greece v Ivory Coast
+DESCRIPTION:Greece v Ivory Coast. Group C. Estádio Castelão\, Fortaleza\,
+  Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simula
+ tor\, download the simulator for this summer's world cup at http://www.wor
+ ldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140624T200000Z
+DTEND:20140624T214500Z
+LOCATION:Estádio Castelão\, Fortaleza\, Brazil
+END:VEVENT
+END:VCALENDAR

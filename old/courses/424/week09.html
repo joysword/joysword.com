@@ -1,0 +1,768 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title>CS 424 Week 9</title>
+  </head>
+  <body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+    vlink="#00aaff">
+    <h1><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Week 9<br>
+      </font></h1>
+    <h2 style="font-family: Helvetica,Arial,sans-serif;"><font>Social
+        Network Visualization &amp; <font><font>Common Data Transforms</font></font></font></h2>
+    <h2><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"> </font></h2>
+    <p> </p>
+    <hr style="width: 100%; height: 2px;">
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      <big><big><span style="font-weight: bold;">Social Networks</span></big></big><br>
+      <br>
+      Very nice overview of the display side of this work at: <a
+        href="http://www.cmu.edu/joss/content/articles/volume1/Freeman.html">http://www.cmu.edu/joss/content/articles/volume1/Freeman.html</a><br>
+      <br>
+      and a nice general introduction here: <a
+        href="http://faculty.ucr.edu/%7Ehanneman/nettext/index.html">http://faculty.ucr.edu/~hanneman/nettext/index.html</a><br>
+      <br>
+      <br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;"> Goal<br>
+    </span>
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">reveal
+          clusters of strongly linked actors (the social groups)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">reveal
+          specialized actors who play special roles in the network (e.g.
+          people who link various social groups)</span></li>
+    </ul>
+    <br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif; font-weight:
+      bold; text-decoration: underline;">Two major representations:</span><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      Graphs (more common)<br>
+    </span>
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">nodes
+          (points) as actors</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">lines
+          between nodes represent social inter-connection (may be
+          directed or undirected)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">a
+          simple example from <a
+            href="http://faculty.ucr.edu/%7Ehanneman/nettext/C3_Graphs.html">http://faculty.ucr.edu/~hanneman/nettext/C3_Graphs.html</a><br>
+        </span></li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;">Matrix</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">rows
+          and columns are actors (so the matrix is usually square)<br>
+        </span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">numbers
+          or symbols in the cells represent social interaction</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">might
+          be symmetric or asymmetric (two entities may not feel same way
+          about each other)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">may
+          have 0 / 1 or -1 / - / +1 in the cells<br>
+        </span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">more
+          examples at <a
+            href="http://faculty.ucr.edu/%7Ehanneman/nettext/C5_%20Matrices.html">http://faculty.ucr.edu/~hanneman/nettext/C5_%20Matrices.html</a><br>
+        </span></li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;">(as an aside,
+      for mow info about Bob and friends, see:
+      http://www.imdb.com/title/tt0064100/ )<br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      <span style="font-weight: bold; text-decoration: underline;">5
+        phases in how these images have been generated</span><br>
+    </span>
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">1930s -
+        </span><span style="font-family: Helvetica,Arial,sans-serif;">images
+
+
+
+
+
+          drawn by hand</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">1950s -
+          computers used to algorithmically compute where the points and
+          lines should be<br>
+        </span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">1970s -
+          computers drawing images on plotters</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">1980s -
+          personal computers displaying images on monitors in colour</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">1990s -
+          interaction, spring systems (</span><span style="font-family:
+          Helvetica,Arial,sans-serif;">force directed placement)</span><span
+          style="font-family: Helvetica,Arial,sans-serif;">, common
+          platforms (eg java) on WWW <br>
+        </span></li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px;"><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">Jacob Moreno
+      1930s<br>
+      <br>
+    </span>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">"We have first to visualize . . . A
+        process of charting has been devised by the sociometrists, the
+        sociogram, which is more than merely a method of presentation.
+        It is first of all a method of exploration. It makes possible
+        the exploration of sociometric facts. The proper placement of
+        every individual and of all interrelations of individuals can be
+        shown on a sociogram. It is at present the only available scheme
+        which makes structural analysis of a community possible."</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      &nbsp;"The fewer the number of lines crossing, the better the
+      sociogram."<br>
+      <br>
+      The most famous of his graphs is the friendship networks among
+      elementary school students<br>
+      <br>
+    </span>
+    <div style="text-align: justify;"><img style="width: 500px; height:
+        473px;" src="pics/week10/fourthgraders.gif" alt=""><br>
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+    </div>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Boys are represented as Triangles,
+        girls as circles. The arrows show whether person A considers
+        person B to be a friend (there is a line from A to B.) If both
+        people consider the other to be a friend then there is a dash in
+        the middle of the line.</span><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">another
+        example shows both liking someone (red) and dislinking someone
+        (black) for the players on an American Football team. Note that
+        no-one likes 5RB and several people actively dislike him. How
+        well are they likely to block for him when he has the ball?</span><br>
+    </div>
+    <br>
+    <img style="width: 500px; height: 486px;"
+      src="pics/week10/football.gif" alt=""><br>
+    <br>
+    <div align="justify"><span style="font-family:
+        Helvetica,Arial,sans-serif;">He would often try to position the
+        points on the page in relation to their actual location in
+        physical space. If he had no particular reason to put the nodes
+        in particular locations he would default to a circle.</span><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+    </div>
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Moreno
+      introduced five important ideas about the proper construction of
+      images of social networks:</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">he drew
+          graphs</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">he drew
+          directed graphs</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">he used
+          colors to draw multigraphs</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">he
+          varied the shapes of points to communicate characteristics of
+          social actors</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">he
+          showed that variations in the locations of points could be
+          used to stress important structural features of the data.</span></li>
+    </ul>
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <hr style="width: 100%; height: 2px;"><br>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Lundberg and Steel 1930s emphasized
+        the sociometric status of each node by making nodes with high
+        status larger and placing them near the center of the graph</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Northway 1940s created the target
+        sociogram where nodes in the center are chosen more often than
+        nodes further out and all the points in the same ring are chosen
+        the same number of times. She emphasized that lines should be
+        short. Here is her target sociogram of a first grade class.<br>
+        <br>
+      </span><span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <img style="width: 500px; height: 530px;"
+      src="pics/week10/firstgrade.gif" alt=""><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      <br>
+    </span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Stanley Milgram 1967 - small-world
+        phenomenon - Networks that exhibit this property are composed of
+        a number of densely knit clusters of nodes, but at the same
+        time, these clusters are well connected in that the average path
+        length between any two randomly chosen nodes is 6 on average. <br>
+        <br>
+        More on the small world experiment:<br>
+        <a href="http://en.wikipedia.org/wiki/Small_world_experiment">http://en.wikipedia.org/wiki/Small_world_experiment</a><br>
+      </span><span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <hr style="width: 100%; height: 2px;"><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">These days
+      research involves looking at how these social networks change over
+      time</span><br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Clearly this is all pretty straight
+        forward when there aren't that many nodes, but as the number of
+        nodes and edges increases the visualizations get crowded and
+        confusing very quickly.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      Users should have the ability to move the nodes around, collapse
+      and unroll hierarchies<br>
+      <br>
+      <br>
+      several tools to look at Facebook friends - <a
+href="http://adherence-solutions.com/social-media/facebook-visualization-2034/">http://adherence-solutions.com/social-media/facebook-visualization-2034/</a><br>
+      <br>
+      Here is a nice look at Facebook connections across the US - <a
+href="http://petewarden.typepad.com/searchbrowser/2010/02/how-to-split-up-the-us.html">http://petewarden.typepad.com/searchbrowser/2010/02/how-to-split-up-the-us.html</a><br>
+    </span><img src="pics/week9/facebookUS.jpg" alt=""><br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      enron emails -<a
+        href="http://www.visualcomplexity.com/vc/project.cfm?id=393"><span
+          style="text-decoration: underline;">http://www.visualcomplexity.com/vc/project.cfm?id=393</span></a><br>
+      <br>
+      <br>
+      <span style="font-family: Helvetica,Arial,sans-serif;">nice
+        interactive java demo - vizster - </span><a style="font-family:
+        Helvetica,Arial,sans-serif;"
+        href="http://hci.stanford.edu/jheer/projects/vizster/">http://hci.stanford.edu/jheer/projects/vizster/</a><br>
+      <br>
+      here is an interesting one for countries (focusing on borders and
+      languages) from the CIA world factbook data - <a
+        href="http://moritz.stefaner.eu/projects/relation-browser/">http://moritz.stefaner.eu/projects/relation-browser/</a><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">twitter
+        visualization - </span><a
+href="http://twittertoolsbook.com/10-awesome-twitter-analytics-visualization-tools/">http://twittertoolsbook.com/10-awesome-twitter-analytics-visualization-tools/</a><br>
+      <br>
+      also <a href="http://trendsmap.com">http://trendsmap.com</a><br>
+      <br>
+    </span><img style="width: 800px; height: 397px;"
+      src="pics/week10/tweeterviz.jpg" alt=""><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      orgnet - <a href="http://www.orgnet.com/cases.html">http://www.orgnet.com/cases.html</a><br>
+      the steroids one is a nice example: <a
+        href="http://www.orgnet.com/steroids.html">http://www.orgnet.com/steroids.html</a><br>
+      and the twitter one: <a href="http://www.orgnet.com/twitter.html">http://www.orgnet.com/twitter.html</a><br>
+      and the co-authorship one: <a
+        href="http://www.orgnet.com/SN.html">http://www.orgnet.com/SN.html</a><br>
+      <br>
+    </span><img style="width: 800px; height: 541px;"
+      src="pics/week10/virus.jpg" alt=""><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;">big
+      list of analysis tools at <a
+        href="http://en.wikipedia.org/wiki/Social_network_analysis_software">http://en.wikipedia.org/wiki/Social_network_analysis_software</a><br>
+      <a href="http://www.kdnuggets.com/software/visualization.html">http://www.kdnuggets.com/software/visualization.html</a><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <a href="http://www.graphviz.org/">http://www.graphviz.org/</a>
+      graphviz - a nice example of a non-interactive tool </span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">a new piece
+      of software in 2010 is NODEXL - </span><a style="font-family:
+      Helvetica,Arial,sans-serif;" href="http://nodexl.codeplex.com/">http://nodexl.codeplex.com/</a><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+    </span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Here is a
+      good overview of dynamic social network visualization:</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">The Art and
+      Science of Dynamic Network Visualization</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Skye
+      Bender-deMoll, skyebend@stanford.edu, Daniel A. McFarland,
+      mcfarland@stanford.edu</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <a style="font-family: Helvetica,Arial,sans-serif;"
+      href="http://www.cmu.edu/joss/content/articles/volume7/deMollMcFarland/">http://www.cmu.edu/joss/content/articles/volume7/deMollMcFarland/</a><br>
+    <hr style="width: 100%; height: 2px;"><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">and here is
+      another diagram from the xkcd comic at http://xkcd.com/</span><br>
+    <img style="width: 600px; height: 379px;"
+      src="pics/week10/xkcd-movie_narrative_charts_large.png" alt="xkcd
+      character interaction maps - http://xkcd.com/"><br>
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">and some more
+      datasets at the Stanford Large Network Dataset Collection: </span><a
+      style="font-family: Helvetica,Arial,sans-serif;"
+      href="http://snap.stanford.edu/data/">http://snap.stanford.edu/data/</a><br>
+    <br>
+    <hr size="2" width="100%"><br>
+    <h2 style="font-family: Helvetica,Arial,sans-serif;"><font><font><font>Common
+
+
+
+
+
+
+            Data Transforms</font></font></font></h2>
+    <p> </p>
+    <hr style="width: 100%; height: 2px;">
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;"></span><span
+      style="font-family: Helvetica,Arial,sans-serif;">What should I do
+      when I get a new dataset</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">look at
+          the meta-data (ideally the rules for this dataset should have
+          been set up before the data was collected and written down
+          including the formats, bounds, null values)<br>
+        </span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">is the
+          data for each attribute within bounds?<br>
+        </span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">are
+          there values that are missing?</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">are
+          attributes that are supposed to be unique really unique?</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">look at
+          the data distribution of the good data - are there any odd
+          outliers?<br>
+        </span></li>
+    </ul>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">Data mining
+      By Jiawei Han, Micheline Kamber</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Data Cleaning<br>
+      </span>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">missing
+
+
+
+
+
+
+
+            values</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">values
+
+
+
+
+
+
+
+            out of range</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">inconsistent
+formats
+
+
+
+
+
+
+
+
+
+
+
+            <br>
+          </span></li>
+      </ul>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+        Data Integration - How can I combine different data sets from
+        different sources<br>
+      </span>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">different
+date
+formats
+
+
+
+
+
+
+
+          </span><span style="font-family: Helvetica,Arial,sans-serif;">(
+            e.g. Jan-10-90 or 01.10.90 or 10.01.90 or 01/10/1990 or ...)</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">different
+units
+
+
+
+
+
+
+
+            of measure (metric vs imperial, lat/lon vs UTM)<br>
+          </span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">different
+coverage
+
+
+
+
+
+
+
+            areas (some data at neighborhood level, county level, state
+            level, some collected per month and some per year)<br>
+          </span></li>
+      </ul>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+        Data Transformation<br>
+      </span>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="font-weight: bold;">smoothing</span> - emphasizes
+            longer trends over shorter duration changes<br>
+          </span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="font-weight: bold;">generalization</span> -
+            replaces detailed concept with a general one (e.g. for each
+            data value, replace a zip code with a state name, or a
+            specific age with an age range 20-30)</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="font-weight: bold;">normalization </span>-
+            depending how the data will be visualized you may need to
+            transform it to a given range (e.g. 0 .0 to 1.0)</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="font-weight: bold;">aggregation </span>- combines
+            / summarizes data (eg add up all data for M, T, W, Th, F and
+            store the weekly total, or the monthly total, or the yearly
+            total, or average the data for all zip codes in a state and
+            store the state average)</span></li>
+      </ul>
+      <span style="font-family: Helvetica,Arial,sans-serif;">aggregation
+        leads us into the more general concept of data reduction<br>
+        <br>
+        Miles and Huberman (1994):</span><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <div style="text-align: justify;"><span style="font-family:
+          Helvetica,Arial,sans-serif;">Data reduction is not something
+          separate from analysis. It is part of analysis. The
+          researcher&#8217;s decisions&#8212;which data chunks to code and which to
+          pull out, which evolving story to tell&#8212;are all analytic
+          choices. Data reduction is a form of analysis that sharpens,
+          sorts, focuses, discards, and organizes data in such a way
+          that &#8220;final&#8221; conclusions can be drawn and verified.<br>
+          <br>
+        </span></div>
+      <span style="font-family: Helvetica,Arial,sans-serif;">Data
+        Reduction - gives you a reduced dataset that gives you similar
+        analytical results</span><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+    </div>
+    <ul style="text-align: justify;">
+      <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+            style="font-weight: bold;">reduce the number of dimensions</span></span></li>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="font-weight: bold;">attribute subset selection</span>
+            - one attribute (e.g. age) may be derived from another or
+            directly correlated to another, or might be irrelevant in
+            the work you are doing so those attributes can be removed</span></li>
+      </ul>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"></span><span
+            style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="font-weight: bold;">data cube aggregation</span> -
+            if you think of all the data you collected as forming a
+            multidimensional cube which each attribute being an edge of
+            the cube then you can collapse various dimensions down by
+            aggregating the values (e.g. the example above taking data
+            for each day of the week and storing only the weekly total)<br>
+          </span></li>
+      </ul>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="font-weight: bold;">dimensionality reduction</span>
+            - encoding used to reduce dataset size - may be lossy or
+            lossless - e.g. using principal component analysis,
+            wavelets, math increases rapidly here.<br>
+            <br>
+          </span></li>
+      </ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+            style="font-weight: bold;">reduce the amount of
+            collected/generated data<br>
+          </span></span></li>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">replace
+data
+
+
+
+
+
+
+
+            by a model that generates the data values,</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">clustering
+(eg
+replace
+all
+of
+the
+attribute
+
+
+
+
+
+
+
+            values collected between depths 10 and 15 with the average
+            of those attribute values)</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">sampling
+(keep
+
+
+
+
+
+
+
+            every nth value, or one random value within each cluster)<br>
+          </span></li>
+      </ul>
+    </ul>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"><br>
+      </span>
+      <hr style="width: 100%; height: 2px;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"><br>
+        Data Discretization and Concept Hierarchy Generation - reduces
+        the number of possible values for a given attribute</span><span
+        style="font-family: Helvetica,Arial,sans-serif;"> by replace
+        data values with ranges or higher level concepts (e.g. numerical
+        age could become 0s, 10s, 20,s 30s, ... 80s, 90s, 100s or young,
+        middle-age, old, addresses could become city or state or
+        country.) </span><br>
+    </div>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Here is a nice clustering example
+        from thematic cartography on data of the percentage of the
+        population that was foreign-born in Florida in 1990. Here is the
+        original data:</span><br>
+    </div>
+    <img style="width: 600px; height: 436px;" src="pics/week6/list.jpg"
+      alt="Foreign Born in Florida Counties" height="791" width="1088"><br>
+    <br>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"> Start by ordering the data in
+        whatever order seems appropriate, in this case by increasing %
+        foreign-born,&nbsp; then there are several typical ways to try
+        and categorize the data.<br>
+        <br>
+        <span style="text-decoration: underline;">Equal Intervals</span>:
+        We take the range of data and divide it by the number of classes
+        (5 in this case.) This is really easy to compute but doesn't
+        take into account the distribution of the data.<br>
+        <br>
+        <span style="text-decoration: underline;">Quantiles</span>:
+        Starting with the number of classes, 5 in this case, an equal
+        number of data points are placed into each class. This is also
+        easy to compute, and lets you easily see the top n% of the data,
+        but again it fails to </span><span style="font-family:
+        Helvetica,Arial,sans-serif;">take into account the distribution
+        of the data.<br>
+        <br style="text-decoration: underline;">
+        <span style="text-decoration: underline;">Mean-Standard
+          Deviation</span>: Starting with the mean and standard
+        deviation of the data, data points are placed in appropriate
+        classes e.g. (less than mean - 2 standard deviations, </span><span
+        style="font-family: Helvetica,Arial,sans-serif;">mean -2 </span><span
+        style="font-family: Helvetica,Arial,sans-serif;"><span
+          style="font-family: Helvetica,Arial,sans-serif;">standard
+          deviations</span> to mean -1 </span><span style="font-family:
+        Helvetica,Arial,sans-serif;"><span style="font-family:
+          Helvetica,Arial,sans-serif;">standard deviation</span>, </span><span
+        style="font-family: Helvetica,Arial,sans-serif;">mean +/- 1 </span><span
+        style="font-family: Helvetica,Arial,sans-serif;"><span
+          style="font-family: Helvetica,Arial,sans-serif;">standard
+          deviations</span>, mean +1 </span><span style="font-family:
+        Helvetica,Arial,sans-serif;"><span style="font-family:
+          Helvetica,Arial,sans-serif;">standard deviation</span> to mean
+        +2 </span><span style="font-family:
+        Helvetica,Arial,sans-serif;"><span style="font-family:
+          Helvetica,Arial,sans-serif;">standard deviations</span>,
+        greater than mean + 2 </span><span style="font-family:
+        Helvetica,Arial,sans-serif;"><span style="font-family:
+          Helvetica,Arial,sans-serif;">standard deviations</span>). This
+        works well with data that follows a normal distribution, but not
+        in cases like the one shown above.<br>
+        <br>
+        and a quick refresher on standard deviation from Wikipedia:<br>
+        &nbsp;<a href="http://en.wikipedia.org/wiki/Standard_deviation">http://en.wikipedia.org/wiki/Standard_deviation</a><br>
+        for a normal distribution: 68% are within 1 </span><span
+        style="font-family: Helvetica,Arial,sans-serif;"><span
+          style="font-family: Helvetica,Arial,sans-serif;">standard
+          deviations</span>, 95% are within 2 </span><span
+        style="font-family: Helvetica,Arial,sans-serif;"><span
+          style="font-family: Helvetica,Arial,sans-serif;">standard
+          deviations<br>
+        </span>&nbsp;<br>
+        <span style="text-decoration: underline;">Maximum Breaks</span>:
+        Starting with the number of classes and the differences between
+        adjacent data points, the largest breaks are used to define the
+        classes. Maximum breaks is course in that it only takes into
+        account the breaks and not the distribution between the breaks.
+        <span style="text-decoration: underline;">Natural breaks</span>
+        tries to finesse this by making the classifications more
+        subjective.<br>
+      </span></div>
+    <br>
+    <img style="width: 600px; height: 756px;"
+      src="pics/week6/distribution.jpg" alt="Distribution of Foreign
+      Born in Florida Counties" height="1368" width="1086"><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">and here is
+      how each of those would be visualized:<br>
+    </span><img style="width: 600px; height: 757px;"
+      src="pics/week6/map.jpg" alt="Graphical Distribution of Foreign
+      Born in Florida Counties" height="1371" width="1086"><br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      Here is a table summarizing the benefits of each approach.<br>
+    </span><img style="width: 500px; height: 497px;"
+      src="pics/week6/table.jpg" alt="Benefits of different binning
+      strategies" height="1006" width="1012"><br>
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">and here is
+      the overview from Information Graphics - a Comprehensive
+      Illustrated Reference<br>
+      <br>
+    </span><img style="width: 600px; height: 861px;"
+      src="pics/week6/statisticalmap_inervals.jpg" alt="Examples of
+      Different Intervals" height="1529" width="1066"><br>
+    <br>
+    <hr style="width: 100%; height: 2px;"><br style="font-weight: bold;
+      text-decoration: underline;">
+    <div align="justify"><span style="font-family:
+        Helvetica,Arial,sans-serif;"><span style="font-weight: bold;
+          text-decoration: underline;">Provenance </span>- data moves
+        through several forms and filters on its way to being visualized
+        and analyzed. Its important to keep track of who has done what
+        to the data at each step so the validity of the final product
+        can be ascertained, and if any issues arise with the original
+        data collection or the intermediate steps then its easy to find
+        which data products are affected.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"> <br>
+      You wouldn't just grab data off the web and assume that its
+      correct, would you? would you?<br>
+      <br>
+      A nice overview is given in <a
+        href="http://www.cs.indiana.edu/pub/techreports/TR618.pdf">http://www.cs.indiana.edu/pub/techreports/TR618.pdf</a><br>
+      where they give this list of applications for provenance:<br>
+    </span>
+    <ul>
+      <li>
+        <div align="justify"><span style="font-family:
+            Helvetica,Arial,sans-serif;"><span style="font-weight:
+              bold;">Data Quality: </span>Lineage can be used to
+            estimate data quality and data reliability based on the
+            source data and transformations. It can also provide proof
+            statements on data derivation.</span></div>
+      </li>
+      <br>
+      <li>
+        <div align="justify"><span style="font-family:
+            Helvetica,Arial,sans-serif;"><span style="font-weight:
+              bold;">Audit Trail: </span>Provenance can be used to
+            trace the audit trail of data, determine resource usage,
+            detect errors in data generation, help determine who gets
+            the patent.</span><br>
+          <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+        <span style="font-family: Helvetica,Arial,sans-serif;"> <br>
+        </span></li>
+      <li>
+        <div align="justify"><span style="font-family:
+            Helvetica,Arial,sans-serif;"><span style="font-weight:
+              bold;">Replication Recipes:</span> Detailed provenance
+            information can allow repetition of data derivation, help
+            maintain its currency, and be a recipe for replication.</span><br>
+          <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+        <span style="font-family: Helvetica,Arial,sans-serif;"> <br>
+        </span></li>
+      <li>
+        <div align="justify"><span style="font-family:
+            Helvetica,Arial,sans-serif;"><span style="font-weight:
+              bold;">Attribution:</span> Pedigree can establish the
+            copyright and ownership of data, enable its citation, and
+            determine liability in case of erroneous data.</span><br>
+          <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+        <span style="font-family: Helvetica,Arial,sans-serif;"> <br>
+        </span></li>
+      <li>
+        <div align="justify"><span style="font-family:
+            Helvetica,Arial,sans-serif;"><span style="font-weight:
+              bold;">Informational:</span> A generic use of lineage is
+            to query based on lineage metadata for data discovery. It
+            can also be browsed to provide a context to interpret data.</span></div>
+      </li>
+    </ul>
+    <div align="justify"><span style="font-family:
+        Helvetica,Arial,sans-serif;">The meta data that moves along with
+        a dataset should give these details, and as the information
+        moves from raw data through various stages of processing the
+        meta data should be updated in sufficient detail.</span><br>
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span>
+    <h3> </h3>
+    <hr style="width: 100%; height: 2px;">
+    <h3><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Coming Next Time</font></h3>
+    <span style="font-family:
+      Helvetica,Geneva,Arial,SunSans-Regular,sans-serif; font-weight:
+      bold;">Medical Visualization and Scientific Visualization</span><br>
+    <br>
+    <span style="font-family:
+      Helvetica,Geneva,Arial,SunSans-Regular,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Geneva,Arial,SunSans-Regular,sans-serif;"></span><font
+      face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">last
+      revision: 10/23/12</font>
+  </body>
+</html>

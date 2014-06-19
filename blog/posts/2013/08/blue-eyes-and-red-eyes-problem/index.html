@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>joysword | “蓝眼睛和红眼睛”问题分析</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="记录关于我所有的事情" />
+    <meta name="author" content="joysword" />
+    <meta name="keywords" content="joysword, 个人主页, 博客, 作品集, 游戏, 电子游戏, Jekyll, Bootstrap, Font Awesome" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet" media="screen">
+    <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div id="wrapper">
+      <div id="sidebar">
+  <a class="navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
+    <i class="fa fa-bars fa-fw"></i>
+  </a>
+        
+  <nav id="nav" class="navigation" role="navigation">
+    <div class="mynav">
+      <a href="/"><i class="fa fa-list-alt fa-fw"></i> <span>文&nbsp;&nbsp;章</span></a>
+      <a href="/archive/"><i class="fa fa-inbox fa-fw"></i> <span>存&nbsp;&nbsp;档</span></a>
+      <a href="/categories/"><i class="fa fa-folder fa-fw"></i> <span>分&nbsp;&nbsp;类</span></a>
+      <a href="/tags/"><i class="fa fa-tags fa-fw"></i> <span>标&nbsp;&nbsp;签</span></a>
+    </div>
+    <div class="mynav">
+      <a href="http://joysword.com"><i class="fa fa-home fa-fw"></i><span>主&nbsp;&nbsp;页</span></a>
+    </div>
+  </nav><!-- /nav -->
+
+</div><!-- /sidebar -->
+
+    <div class="container">
+        <section class="section">
+  <article>
+    <h1 class="post-title">
+      “蓝眼睛和红眼睛”问题分析
+    </h1>
+
+    	<section class="byline">
+      2013-08-25 | <i class="fa fa-folder"></i>
+        
+          <a href="/categories/#伪思考控">伪思考控</a>
+        
+        | <i class="fa fa-tags"></i>
+        
+          #<a href="/tags/#归纳法">归纳法</a>,
+        
+          #<a href="/tags/#推理">推理</a>,
+        
+          #<a href="/tags/#智力题">智力题</a>
+        
+    </section>
+
+    <div class="post-content">
+      <p>前几天在网上看到一个趣题：</p>
+
+<blockquote><p>一个岛上有100个人，其中有5个红眼睛，95个蓝眼睛。这个岛有三个奇怪的宗教规则。</p>
+
+<p>&nbsp;&nbsp;1. 他们不能照镜子，不能看自己眼睛的颜色。</p>
+
+<p>&nbsp;&nbsp;2. 他们不能告诉别人对方的眼睛是什么颜色。</p>
+
+<p>&nbsp;&nbsp;3. 一旦有人知道了自己是红眼睛，他就必须在当天夜里自杀。</p>
+
+<p>某天，有个旅行者到了这个岛上。由于不知道这里的规矩，所以他在和全岛人一起狂欢的时候，不留神就说了一句话：【你们这里有红眼睛的人。】</p>
+
+<p>最后的问题是：假设这个岛上的人足够聪明，每个人都可以做出缜密的逻辑推理。请问这个岛上将会发生什么？</p></blockquote>
+
+<!--more-->
+
+
+<p>这题目网上有解答，理解起来也不难。答案是</p>
+
+<blockquote><p>如果有N个红眼睛，他们会在第N天集体自杀</p></blockquote>
+
+<p>下面我们来看一些有趣的推导过程和结论</p>
+
+<blockquote><p><strong>定理1</strong>：当红眼睛人数为1的时候，红眼睛会在第1天自杀</p></blockquote>
+
+<p><strong>解释1</strong>：红眼睛A从旅行者处了解到“这里有红眼睛”这个事实，并且观察到“其他人都是蓝眼睛”这个事实，据此可推断出自己是红眼睛。于是自杀。</p>
+
+<blockquote><p><strong>定理2</strong>：当红眼睛人数为2的时候，红眼睛会在第2天自杀</p></blockquote>
+
+<p><strong>解释2</strong>：红眼睛A和红眼睛B从旅行者处了解到“这里有红眼睛”这个事实；红眼睛B观察到“红眼睛A是红眼睛”和“其他人都是蓝眼睛”，并且了解定理1（足够聪明）；红眼睛A观察到“红眼睛B是红眼睛”和“其他人都是蓝眼睛”，并且了解定理1。据此他们一旦过完第一夜就可推断出“不止1个红眼睛”，因此自己只能是红眼睛。于是自杀。</p>
+
+<blockquote><p><strong>定理3</strong>：当红眼睛人数为3的时候，红眼睛会在第3天自杀</p></blockquote>
+
+<p><strong>解释3</strong>：同理，红眼睛C知道“红眼睛A和B是红眼睛”，“其他人都是蓝眼睛”，以及定理2；红眼睛A知道“B和C是红眼睛”，“其他人都是蓝眼睛”；红眼睛B知道的信息类似。据此他们在第二夜过完之后可推断出“不止2个红眼睛”，因此自己只能是红眼睛。于是自杀。</p>
+
+<blockquote><p><strong>定理4</strong>：当红眼睛人数为N的时候，红眼睛会在第N天自杀</p></blockquote>
+
+<p><strong>解释4</strong>：利用数学归纳法，结论显然</p>
+
+<p>但是网上有人提出质疑，旅行者带来的只是一个大家都知道的事实，为什么会对现状产生改变？
+其实旅行者带来的并非只是一个大家都知道的事实。网上有很多很复杂的解释，我们从简单的方向去解决这个问题。</p>
+
+<blockquote><p><strong>定理5</strong>：当红眼睛人数为1，如果没有旅行者，红眼睛不会自杀</p></blockquote>
+
+<p>不解释</p>
+
+<blockquote><p><strong>定理6</strong>：当红眼睛人数为2，如果没有旅行者，红眼睛不会自杀</p></blockquote>
+
+<p><strong>解释6</strong>：我们知道，只有确定自己是红眼睛，才会自杀。有旅行者的情况下，红眼睛B可以由红眼睛A没有自杀，推出自己是红眼睛，但是没有旅行者时则不行。每个人默认自己是蓝眼睛，此时对于红眼睛A没有自杀，红眼睛B能够找到一个合理的解释：“A没有看到红眼睛” 。只要有合理的解释，就不能够推出矛盾，就不会知道自己是红眼睛。</p>
+
+<blockquote><p><strong>定理7</strong>：当红眼睛人数为3，如果没有旅行者，红眼睛不会自杀</p></blockquote>
+
+<p><strong>解释7</strong>：我们可以发现，会自杀的关键在于能得出“不止N-1个红眼睛”这一结论。在此处N=3，即“不止2个红眼睛”。也就是说，如果红眼睛C能对于红眼睛AB不自杀有一个自圆其说的解释，他就不会自杀，否则就会。C假设只有AB是红眼睛，那么他可以把AB不自杀归结为A虽然看到了B是红眼睛，但是A假设B没有看到红眼睛（即定理6的解释部分）</p>
+
+<p><strong>定理8</strong>：当红眼睛人数为4，如果没有旅行者，红眼睛不会自杀</p>
+
+<p>在证明这个定理之前，我们先来看看流传在acfun的一个解释，说是如果有4个红眼睛的人，即使没有旅行者，他们也会自杀。那个帖子的解释如下：</p>
+
+<blockquote><p>之所以这里会自杀，是因为前面的论断不成立了。我们来看看红眼睛D能不能对于红眼睛ABC不自杀有一个自圆其说的解释。D假设只有ABC是红眼睛，那么这三位没有自杀的原因必然如定理7的解释中所述，C以为只有AB是红眼睛，并且把AB不自杀归结为A虽然看到了B是红眼睛，但是A假设B没有看到红眼睛。突然，D发现，这个假设不成立，A不可能假设B没有看到红眼睛，因为从D的角度看来，A是知道“C是红眼睛”的，也就是说A知道“B知道C是红眼睛”。因为A不能假设B没有看到红眼睛，所以推出矛盾。D的假设“只有ABC是红眼睛”是不成立的。</p></blockquote>
+
+<p>这个解释虽然第一眼看上去好像是对的，但是让我们再来关注一下3个红眼睛的情形。此时如果有一个蓝眼睛E，那么按照以上的推理，他完全可以得出定理8的解释中的结论。于是他也会自杀。同理，所有蓝眼睛都会因为看到了3个红眼睛而自杀。。</p>
+
+<p>所以，其实定理6,7,8的推理都是错的（并不是说他们的结论是错的）</p>
+
+<p>结论其实很简单，没旅行者来说话则不会自杀，有旅行者则第N天N个红眼睛集体自杀。</p>
+
+    </div>
+    <hr>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- below the article -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-9274627071963476"
+     data-ad-slot="6098520145"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <hr>
+    <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"joysword"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+  </article>
+</section>
+<div id="footer">
+    <hr>
+    <div class="row">
+        <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br> All articles are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br>Copyright &copy; 2012-2014 joysword.com
+        </p>
+    </div>
+</div>
+        
+    </div>
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43448447-1', 'joysword.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+    </div><!-- /wrapper -->
+  </body>
+
+  <!-- JAVASCRIPTS -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
+   <!-- MathJax Section -->
+<script type="text/javascript"
+ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+</html>

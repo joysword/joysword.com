@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Ghana
+X-WR-CALNAME:World Cup 2014: Ghana
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-14
+SUMMARY:Ghana v USA
+DESCRIPTION:Ghana v USA. Group G. Arena das Dunas\, Natal\, Brazil. World C
+ up 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download t
+ he simulator for this summer's world cup at http://www.worldcupbrazilapp.c
+ om/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140616T220000Z
+DTEND:20140616T234500Z
+LOCATION:Arena das Dunas\, Natal\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-29
+SUMMARY:Germany v Ghana
+DESCRIPTION:Germany v Ghana. Group G. Estádio Castelão\, Fortaleza\, Braz
+ il. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\,
+  download the simulator for this summer's world cup at http://www.worldcup
+ brazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140621T190000Z
+DTEND:20140621T204500Z
+LOCATION:Estádio Castelão\, Fortaleza\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-46
+SUMMARY:Portugal v Ghana
+DESCRIPTION:Portugal v Ghana. Group G. Estádio Nacional Mané Garrincha\, 
+ Brasília\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iP
+ hone Simulator\, download the simulator for this summer's world cup at htt
+ p://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140626T160000Z
+DTEND:20140626T174500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,1597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title>CS 424 Week 3</title>
+  </head>
+  <body style="color: white; background-color: black;" alink="#ff2200"
+    link="yellow" vlink="#00aaff">
+    <h1 style="font-family: Helvetica,Arial,sans-serif;">Week 3<br>
+    </h1>
+    <h2 style="font-family: Helvetica,Arial,sans-serif;">The Basics<br>
+    </h2>
+    <p style="font-family: Helvetica,Arial,sans-serif;"> </p>
+    <hr style="font-family: Helvetica,Arial,sans-serif;">
+    <hr style="font-family: Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">The purpose of visualization is to
+      make it easy for the user to see the patterns, the similarities,
+      the differences in the data. <br>
+      <br>
+      This involves the variation in the data itself, the variation in
+      the representation of that data,&nbsp; and the ability of a human
+      being to perceive variation.</div>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">In general you do not want to let the computer use its
+      default values. Unless you are using a specific program for a
+      specific field the default values will not be right for your work.
+      This is especially true of programs like Word and Excel (though
+      both have improved a lot in the last couple years in this regard).<br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Tables and simple graphs are going
+        to come up fairly often in visual analytics. Even with all the
+        fancy new visualization options we have there are still very
+        good reasons to use simple tables and charts when possible.</span><br>
+    </div>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><span
+        style="text-decoration: underline;">Lets start with tables</span>
+      - the format of a table can greatly enhance or reduce the
+      readability.<br>
+    </p>
+    <ul style="font-family: Helvetica,Arial,sans-serif;">
+      <li style="text-align: justify;">Similar numeric data should have
+        the same number of significant digits and be right justified if
+        a whole number, or aligned to the decimal point if a real number
+        - this makes it easier to see values getting bigger or smaller.
+        Either use scientific notation, or don't, but don't mix
+        scientific notation and standard notation. For big numbers in
+        standard notation (e.g. 123482656) it can help to use commas to
+        separate out the thousands, millions, billions places (e.g.
+        123,482,656).<br>
+        <br>
+      </li>
+      <li style="text-align: justify;">Row headings with multiple words
+        in multiple rows are easier to read if they are left justified<br>
+        &nbsp;<br>
+      </li>
+      <li style="text-align: justify;">Sans-serif fonts like Helvetica
+        are easier to read on a computer screen than serif fonts like <span
+          style="font-family: Times New Roman,Times,serif;">Times</span>.<br>
+        <br>
+      </li>
+      <li style="text-align: justify;">If you have a table with just Yes
+        / No values for every cell then only show the most appropriate
+        one (e.g. 'Y') and leave the other one blank or use a '-'. Its
+        hard to scan a table with entries of Yes / No or Y / N quickly
+        because the words/letters look too similar. Colour can also be
+        helpful in highlighting the values you want the viewer to pay
+        attention to.<br>
+        <br>
+      </li>
+      <li style="text-align: justify;">Have meaningful column headings
+        and row labels. If you need multiple rows for the heading then
+        break the words intelligently; don't let the program break up
+        words where it feels like it<br>
+        <br>
+      </li>
+      <li style="text-align: justify;">Standardize and use consistent
+        abbreviations that are familiar to your target audience<br>
+        <br>
+      </li>
+      <li style="text-align: justify;">Tables should not cross a page
+        boundary. If you have a really long table then replicate the
+        column headings at the top of the next page/slide. A reader
+        should not have to look to a previous page/slide to see what the
+        column headings are<br>
+        <br>
+      </li>
+      <li style="text-align: justify;">If you have a big table it can be
+        useful to alternate the background colour on adjacent rows with
+        slightly different colours. This makes it easier to trace across
+        a row.<br>
+        <br>
+      </li>
+      <li style="text-align: justify;">Leave enough space between the
+        table boundaries and the text<br>
+      </li>
+    </ul>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><br>
+      Here is a table from the US Environmental Protection Agency from a
+      few years ago - the Total Emissions column of data is centered
+      making it very hard to compare the values within. <br>
+    </p>
+    <table align="center" border="1" cellpadding="1" cellspacing="1"
+      width="100%">
+      <caption valign="TOP" align="CENTER">National Carbon_Monoxide
+        Emissions in 2002</caption> <tbody>
+        <tr>
+          <th align="center" valign="middle">Source Sector</th>
+          <th align="center" valign="middle">Total Emissions</th>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">Electricity Generation</td>
+          <td align="center" valign="middle"> 652,314</td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">Fires</td>
+          <td align="center" valign="middle"> 14,520,530</td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">Fossil Fuel Combustion</td>
+          <td align="center" valign="middle"> 1,499,367</td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">Industrial Processes</td>
+          <td align="center" valign="middle"> 2,414,055</td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">Miscellaneous</td>
+          <td align="center" valign="middle"> 33,786</td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">Non Road Equipment</td>
+          <td align="center" valign="middle"> 22,414,896</td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">On Road Vehicles</td>
+          <td align="center" valign="middle"> 62,957,908</td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">Residential Wood Combustion</td>
+          <td align="center" valign="middle"> 2,704,197</td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">Road Dust</td>
+          <td align="center" valign="middle"> 0</td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">Solvent Use</td>
+          <td align="center" valign="middle"> 3,294</td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">Waste Disposal</td>
+          <td align="center" valign="middle"> 2,018,496</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><br>
+      A better version of the table would be the following where both
+      the sources and the amount of emissions are easier to see and
+      quickly grasp:<br>
+    </p>
+    <div style="text-align: center;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">National Carbon_Monoxide Emissions
+        in 2002</span><br>
+    </div>
+    <table style="text-align: left; margin-left: auto; margin-right:
+      auto;" border="1" cellpadding="1" cellspacing="1">
+    </table>
+    <table style="text-align: left; margin-left: auto; margin-right:
+      auto;" border="1" cellpadding="1" cellspacing="1">
+      <tbody>
+        <tr>
+          <th style="font-family: Helvetica,Arial,sans-serif;
+            background-color: rgb(102, 102, 102);" align="center"
+            valign="middle">Source Sector</th>
+          <th style="vertical-align: middle; text-align: center;
+            font-family: Helvetica,Arial,sans-serif; background-color:
+            rgb(102, 102, 102);">&nbsp;Total Emissions <br>
+          </th>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: left;" valign="middle">&nbsp;Electricity
+            Generation</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;" valign="middle"> 652,314&nbsp; <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: left;" valign="middle">&nbsp;Fires</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;" valign="middle"> 14,520,530&nbsp; <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: left;" valign="middle">&nbsp;Fossil Fuel
+            Combustion</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;" valign="middle"> 1,499,367&nbsp; <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: left;" valign="middle">&nbsp;Industrial
+            Processes</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;" valign="middle"> 2,414,055&nbsp; <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: left;" valign="middle">&nbsp;Miscellaneous</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;" valign="middle"> 33,786&nbsp; <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: left;" valign="middle">&nbsp;Non Road Equipment</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;" valign="middle"> 22,414,896&nbsp; <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: left;" valign="middle">&nbsp;On Road Vehicles</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;" valign="middle"> 62,957,908&nbsp; <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: left;" valign="middle">&nbsp;Residential Wood
+            Combustion</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;" valign="middle"> 2,704,197&nbsp; <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: left;" valign="middle">&nbsp;Road Dust</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;" valign="middle"> 0&nbsp; <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: left;" valign="middle">&nbsp;Solvent Use</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;" valign="middle"> 3,294&nbsp; <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: left;" valign="middle">&nbsp;Waste Disposal</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;" valign="middle"> 2,018,496&nbsp; <br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><br>
+      Here is a made-up table - its hard to see any pattern in the
+      Yes/No Values. <br>
+    </p>
+    <br>
+    <table style="text-align: left; width: 300px; margin-left: auto;
+      margin-right: auto;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top; text-align: center;">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;">No<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;">Yes<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; text-align: center;">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;">No<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;">No<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; text-align: center;">No<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;">Yes<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; text-align: center;">No<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;">No<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;">No<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; text-align: center;">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;">No<br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><br>
+      A better version (if all of the cells are filled with one of two
+      values) would be:<br>
+    </p>
+    <table style="text-align: left; width: 300px; margin-left: auto;
+      margin-right: auto;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">-<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">Yes<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">-<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">-<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">-<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">Yes<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">-<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">-<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">-<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">-<br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><br>
+      A different better version of the table using colour to help
+      highlight the pattern would be: </p>
+    <table style="text-align: left; width: 300px; margin-left: auto;
+      margin-right: auto;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif; background-color:
+            rgb(0, 153, 0);">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">No<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif; background-color:
+            rgb(0, 153, 0);">Yes<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif; background-color:
+            rgb(0, 153, 0);">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">No<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">No<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">No<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif; background-color:
+            rgb(0, 153, 0);">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif; background-color:
+            rgb(0, 153, 0);">Yes<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">No<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">No<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">No<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif; background-color:
+            rgb(0, 153, 0);">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif; background-color:
+            rgb(0, 153, 0);">Yes<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;
+            font-family: Helvetica,Arial,sans-serif;">No<br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><br>
+      Here is a table from the Nielsen Games page:<br>
+      <a
+href="http://blog.nielsen.com/nielsenwire/media_entertainment/top-pc-game-titles-and-consoles-october-2008/">http://blog.nielsen.com/nielsenwire/media_entertainment/top-pc-game-titles-and-consoles-october-2008/</a><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif;">The Usage Min %
+      column is hard to read because its left justified. <br>
+      <span style="text-decoration: underline;"></span></p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><span
+        style="text-decoration: underline;"><img style="width: 453px;
+          height: 199px;" alt="Original table for game console usage"
+          src="pics/tablesandcharts/table1.jpg"></span></p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><br>
+      This version below is easier to read because the right column of
+      numbers is right justified. The decimal points aline and bigger
+      numbers look bigger. I also moved the text off the grid lines to
+      make them more readable.<br>
+      <span style="text-decoration: underline;"></span></p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><span
+        style="text-decoration: underline;"></span><span
+        style="text-decoration: underline;"><img style="width: 449px;
+          height: 200px;" alt="Revised table for game console usage"
+          src="pics/tablesandcharts/table2.jpg"></span></p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><span
+        style="text-decoration: underline;"></span><span
+        style="text-decoration: underline;"> Be careful of significant
+        digits</span><br>
+    </p>
+    <p style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">Your table should not show more
+      accuracy than the accuracy of the data collection. The computer
+      will happily compute an average out to an alarming number of
+      digits, but if you only took measurements to one decimal point
+      then that's as far as you should show any derived (average, min,
+      max, median, etc) values.<br>
+    </p>
+    <p style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">Programs may also reduce your
+      significant digits by eliminating trailing zeros (turning 4.20
+      into 4.2) so you will want to force all the data of the same type
+      collected in the same way to have the same number of significant
+      digits.<br>
+    </p>
+    <p style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">For presentations, your tables should
+      only show as much accuracy as needed to get your point across. If
+      two values differ by 100 then you don't need to show those values
+      to the third decimal place. The additional detail in the numbers
+      gets in the way of seeing the bigger trend. You can keep another
+      slide hidden in the slide morgue after the end of your talk that
+      has all the explicit details in case someone is interested.<br>
+    </p>
+    <p style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      Here is another table from the same Nielsen page. Again left
+      justifying the numbers makes things harder to read, but there are
+      also an issue of significant digits. We can presume since they
+      have been in the survey business a long time that they do have
+      faith in their data out to that degree of significance, and very
+      likely that number of digits is necessary to disambiguate data
+      further down the table, but since they are just presenting the top
+      10, the extra digits get in the way.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><span
+        style="text-decoration: underline;"><img style="width: 584px;
+          height: 286px;" alt="Original table for videogame playing
+          time" src="pics/tablesandcharts/tableb1.jpg"><br>
+      </span></p>
+    <br>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">The next version makes it easier to
+        see the overall relationships. Another possible change would be
+        to convert the data on minutes per week into data on hours per
+        week. Its hard to have an intuitive sense of '546 minutes'. If
+        you are telling a friend how long a movie you saw last night was
+        do you say it was 140 minutes long, or do you say 2 hours and 20
+        minutes long?</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;">Keep your
+        audience in mind when creating a table. You will want to keep
+        all of your data in its highest resolution form, but when you
+        present it, present just the right amount of detail for the
+        people you will be speaking to. More technical people will want
+        more detail; less technical people will want the information at
+        a higher level. Some people want to see detailed trends, others
+        just overall trends. Don't reuse your charts for different
+        audiences, create new ones targeted towards the specific
+        audience.</span><br>
+    </div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><span style="text-decoration: underline;"><img
+          style="width: 589px; height: 291px;" alt="Revised table for
+          videogame playing time" src="pics/tablesandcharts/tableb2.jpg"></span></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><br>
+      I should point&nbsp; out that if I was creating these tables
+      myself for these notes then I would use white text on a black
+      background, since these web pages have a black background<br>
+    </p>
+    <hr style="width: 100%; height: 2px; margin-left: 0px; margin-right:
+      0px;">
+    <p style="font-family: Helvetica,Arial,sans-serif;">A bit more on
+      text. You have several general choices of font styles to use<br>
+    </p>
+    <ul style="font-family: Helvetica,Arial,sans-serif;">
+      <li>sans-serif (e.g. Helvetica, Arial, Verdana, Tahoma) good for
+        on-screen text - e.g. 72 dpi</li>
+      <li>serif (e.g. Times, Georgia) - good for printed text - e.g.
+        150-300 dpi. As screen resolutions increase serif fonts become
+        more appropriate.<br>
+      </li>
+      <li>monospace - good for certain occasions when you need exact
+        alignment of the text<br>
+      </li>
+      <li>fantasy / cute / brush strokes / cursive / dripping blood -
+        just say no, unless you are creating a party invitation<br>
+      </li>
+    </ul>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">And one font, <span
+          style="font-family: Comic Sans MS;">comic sans</span>,
+        deserves some mention on its own. <a
+          href="http://www.mcsweeneys.net/articles/im-comic-sans-asshole">Here</a>
+        is one good link (with profanity) about comic sans. In the
+        summer of 2011 there were quite a few blog posts devoted to a
+        100 page US Army PowerPoint presentation using comic sans e.g. <a
+href="http://www.gizmodo.com.au/2011/07/us-army-declares-war-on-sanity-with-comic-sans-presentation/">this
+
+
+
+
+
+
+
+          one</a>. <br>
+        <br>
+      </span><span style="font-family: Helvetica,Arial,sans-serif;">Since
+
+
+
+
+
+
+
+        we are focusing on interactive computer-based visualizations,
+        you should start with a sans-serif font like Helvetica and only
+        change it if you have a very good reason. <br>
+        <br>
+        Here is a nice infographic on type - <a
+href="http://www.buzzfeed.com/lenkendall/a-guide-to-typography-infographic-wh6">http://www.buzzfeed.com/lenkendall/a-guide-to-typography-infographic-wh6</a><br>
+        <br>
+        <br>
+      </span><span style="font-family: Helvetica,Arial,sans-serif;">
+        Familiar words are recognized by shape<br>
+      </span>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">lower
+            case words are read faster than words in upper case</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">individual
+letters
+
+
+
+
+
+
+
+
+            and nonsense words like UA1416 are read faster in upper case</span></li>
+      </ul>
+      <br>
+      <span style="font-family: Helvetica,Arial,sans-serif;">O lny srmat
+        poelpe can raed tihs. </span><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">I cdnuolt
+        blveiee taht I cluod aulaclty uesdnatnrd waht I was rdanieg. The
+        phaonmneal pweor of the hmuan mnid, aoccdrnig to a rscheearch at
+        Cmabrigde Uinervtisy, it deosn't mttaer in waht oredr the
+        ltteers in a wrod are, t he olny iprmoatnt tihng is taht the
+        frist and lsat ltteer be in the rgh it pclae. The rset can be a
+        taotl mses and you can sitll raed it wouthit a porbelm. Tihs is
+        bcuseae the huamn mnid deos not raed ervey lteter by istlef, but
+        the wrod as a wlohe. Amzanig huh? yaeh and I awlyas tghuhot
+        slpeling was ipmorantt! if you can raed tihs psas it on !!"</span><br>
+    </div>
+    <br>
+    <hr style="width: 100%; height: 2px;">
+    <p style="font-family: Helvetica,Arial,sans-serif;"><span
+        style="text-decoration: underline;">Simple charts</span><br>
+    </p>
+    <ul style="text-align: justify;">
+      <li style="font-family: Helvetica,Arial,sans-serif;">Avoid 3D -
+        really. 3D may make a chart 'exciting' but it also makes it much
+        harder to see relationships. Drop shadows are OK if you really
+        want a 3D look, but if in doubt you should remove any bling<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">Avoid fully
+        saturated colours (e.g. 255 0 0 red.) Look around you, most of
+        the world is not bright primary colours. Pastels and colour
+        mixtures are easier on the eyes (note the difference in
+        Microsoft Excel's colour default pallets at the bottom of these
+        notes)<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">Choose an
+        appropriate value for the axis to cross depending on what you
+        want the user to see in the chart (e.g. should the smallest
+        value be 0 which may minimize differences in the data, or closer
+        to the low point in your dataset which will emphasize the
+        differences in the data)<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">The backdrop
+        colour of the chart should match the backdrop of the page/slide
+        you will put it on. For a paper the backdrop should be white.
+        For my notes the backdrop should be black<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">If it is a
+        line chart then make sure all the lines are visible against the
+        backdrop - a yellow line is not visible against a white page. Do
+        not accept the default colours (especially if they are from
+        pre-2007 Microsoft Excel - those colours are terrible.) If
+        certain lines are related to other lines then their colours
+        should be related to each other<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">If it is a
+        scatter plot of points then make sure the points are visible
+        against the backdrop. If there is more than one point icon (e.g.
+        circles and triangles, or red circles and blue circles) then
+        make sure the viewer can see the difference from where they will
+        be sitting. It can be very hard to see colour differences on
+        small icons. <br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">If you are
+        labeling the data points, columns etc with their actual values
+        (which is often a good idea) then make sure the text is readable
+        against any lines in the background and follow the rules for
+        text above.<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">Make sure all
+        axis are well labelled in terms of what the axis is and the
+        units / categories<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">Make sure
+        there is a meaningful title<br>
+        <br>
+      </li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">Make
+          sure there is a legend explaining what the various lines /
+          points / colours mean. The legend should be ordered in a
+          logical way - e.g. if the lines / points / colours are based
+          on a value like temperature then the legend should be ordered
+          from low to high (or high to low depending on the field). If
+          the legend shows several independent things then the legend
+          should be ordered in the same order as the general trend in
+          the graph (i.e. things that are generally at the top of the
+          graph should be at the top of the legend, things that are
+          generally at the bottom of the graph should be at the bottom
+          of the legend) to make it easier for the user to map between
+          them.<br>
+          <br>
+        </span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">If
+          certain data values relate to one another then they should be
+          next to each other or have a similar color so its easier for
+          the viewer to see the relationship, conversely things that are
+          not related should have different colors.<br
+            style="font-family: Helvetica,Arial,sans-serif;">
+          <br style="font-family: Helvetica,Arial,sans-serif;">
+        </span></li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">If you have a
+        series of graphs showing related results then try to keep the
+        same axis extents, colours, patterns etc on all the charts so
+        its easy to compare them<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">It can be
+        very important in certain fields to show error bars on your
+        charts to show how accurate the measurements are<br>
+      </li>
+    </ul>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </p>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Charts are pretty ubiquitous in
+        visualization and visual analytics, usually used in combination
+        with several other representations of the same data (e.g.
+        geographic) so its important to get the charts right. Its also
+        important to think about the differences between a static chart
+        used in print or on the web, and a dynamic chart that the user
+        can manipulate by hovering over elements with a mouse or
+        clicking on an item in the chart, or having the chart
+        dynamically update based on interactions with other elements of
+        the visualization.</span><br>
+      <br>
+    </div>
+    <p style="font-family: Helvetica,Arial,sans-serif;">Here is an
+      example charting the population of the USA over the last 8 years.
+      First up is an overly dynamic 3D chart with a hard to read set of
+      population numbers and a trend that is made even more pronounced
+      by the 3D viewpoint. Please do not create charts like this.</p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><img
+        style="width: 400px; height: 327px;" alt="Overly 3D chart of US
+        population" src="pics/tablesandcharts/pop1.jpg"> <br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Here is a less exciting but much more useful version
+      where the data is shown in 2D and the population values have
+      commas to make it easier to see what the numbers actually are.
+      Another good possibility would be to make the vertical column
+      "Population (in Millions)" and then have 270, 275, 280 etc as the
+      vertical values.</p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><img
+        style="width: 400px; height: 326px;" alt="More readable 2D chart
+        of US population" src="pics/tablesandcharts/pop2.jpg"></p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">Here are a couple variants using
+      lines with the actual data points highlighted. The big difference
+      is in the Y-axis. One chart suggests there is slow steady growth;
+      the other suggests rapid steady growth.<br>
+    </div>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><img
+        style="width: 400px; height: 328px;" alt="Vertical scale
+        suggesting slow growth" src="pics/tablesandcharts/pop3.jpg">
+      &nbsp; <img style="width: 400px; height: 329px;" alt="Vertical
+        scale suggesting rapid growth"
+        src="pics/tablesandcharts/pop4.jpg"></p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">in all these cases a simple
+      interaction is to allow the user to hover or click on one of the
+      boxes and see the actual data values, or dynamically change the Y
+      axis.<br>
+      <br>
+    </div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">and now lets go back to the video game console data from
+      above.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">First let's see a couple charts from the older version
+      of Microsoft Excel. The older Microsoft Excel just wasn't very
+      good at making charts - the colours hurt your eyes, the odd grey
+      background shouldn't be there, etc. Its best just to avoid using
+      the older Excel to make charts. It takes too much time to fix
+      everything that is wrong. Please do not create charts like this. </p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><img
+        style="width: 491px; height: 275px;" alt=""
+        src="pics/tablesandcharts/badexcel1.jpg"> <img style="width:
+        358px; height: 275px;" alt=""
+        src="pics/tablesandcharts/badexcel2.jpg"><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif;">The latest
+      version of Excel is much better in dealing with colours and
+      layout, but has also included lots of 3D bling that should be
+      avoided. 3D distorts the data and adds in unnecessary details that
+      makes it harder to see what's really going on. Please do not
+      create charts like this.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><img
+        style="width: 380px; height: 250px;" alt=""
+        src="pics/tablesandcharts/console1.jpg"> <img
+        src="pics/tablesandcharts/console2.jpg" alt="" style="width:
+        413px; height: 250px;"></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Instead we can display the data without the 3D. By
+      default Excel with pick the colours for the various data values as
+      seen above. If the data values are unrelated then the colours
+      should be unrelated, but here we could also use the colour to
+      relate consoles made by different manufacturers (blue for Sony,
+      red for Nintendo, green for Microsoft, and grey for Other, with
+      the more saturated colours for their latest releases.)<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><img
+        style="width: 600px; height: 322px;" alt=""
+        src="pics/tablesandcharts/console3x.jpg" height="277"
+        width="601"></p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><img
+        style="width: 600px; height: 427px;" alt=""
+        src="pics/tablesandcharts/console4x.jpg" height="464"
+        width="630"><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">The pie chart makes it easy to see how each console
+      compares to the whole, but the bar chart makes it easy to see how
+      they compare to each other. In an analysis tool you may need both
+      views simultaneously to see the current year, and then additional
+      visualizations to see the values over time.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Here are a couple other pie chart examples. A good one
+      comes from:<br>
+      <a
+href="http://flowingdata.com/2008/09/19/pie-i-have-eaten-and-pie-i-have-not-eaten/">http://flowingdata.com/2008/09/19/pie-i-have-eaten-and-pie-i-have-not-eaten/</a><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img src="pics/week2/piechart.jpg" alt=""><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">a bad one comes from our local fox news affiliate:<br>
+      <a
+href="http://flowingdata.com/2009/11/26/fox-news-makes-the-best-pie-chart-ever/">http://flowingdata.com/2009/11/26/fox-news-makes-the-best-pie-chart-ever/</a></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img src="pics/week2/foxnewspiechart.jpg" alt=""><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><u><br>
+          There are many different kinds of charts</u><br>
+        <br>
+        A really good book to look at for an introduction to this sort
+        of thing is Edward Tufte's 'The Visual Display of Quantitative
+        Information.'<br>
+        <br>
+        Another good reference is Robert Harris' Information Graphics -
+        A Comprehensive Illustrated Reference. Here is a nice overview
+        of different kinds of charts:<br>
+        <br>
+      </span><img style="width: 800px; height: 1140px;"
+        src="pics/week2/statistical_chart.jpg" alt="" height="1527"
+        width="1072"><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">We will talk about various kinds of charts throughout
+      the course.<br>
+    </p>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <div align="justify"><span style="font-family:
+        Helvetica,Arial,sans-serif;"> Naturalness is an important design
+        principle - better when the properties of the representation
+        match the properties of the thing being represented.
+        Representations that make use of spatial and perceptual
+        relationships make more effective use of our brains. If these
+        representations use arbitrary symbols then we need to use mental
+        transformations, mental comparisons and other mental processes,
+        forcing us to think reflectively. In experiential cognition we
+        perceive and react efficiently. In reflective cognition we use
+        our decision making skills.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"> </span><br>
+    <div style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <hr size="2" width="100%"><u><b><br>
+        </b></u><u>Color</u><br>
+      <br>
+      Before you create a chart you should know whether it will
+      eventually appear in colour or greyscale. Colour is more prevalent
+      today than in the past since more people are getting their
+      information in digital form, but some conferences and journals
+      will still only print in greyscale, and some people still get
+      their information through photocopies.<br>
+    </div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><span style="font-family: Helvetica,Arial,sans-serif;">It
+
+
+
+
+
+
+
+
+        would be good if the colours you choose also work for people who
+        are colour blind. <br>
+      </span></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">8 percent of men<br>
+      1 percent of women<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Are you colour blind? You can check on Wikipedia - <a
+        href="http://en.wikipedia.org/wiki/Ishihara_color_test">http://en.wikipedia.org/wiki/Ishihara_color_test</a><br>
+    </p>
+    <div style="text-align: justify;"> </div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Here is an image from my backyard run through vischeck
+      to show how it would look for 3 of the more common types of colour
+      blindness.</p>
+    <div style="text-align: justify;"> </div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 824px; height: 688px;"
+        src="pics/week4/colourblindness.jpg" alt=""> </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><span style="font-family: Helvetica,Arial,sans-serif;">You
+should
+
+
+
+
+
+
+
+
+        at least make sure that you data doesn't blend together or
+        disappear for people who are colour blind The colours I chose in
+        the last couple graphs are OK, but an even better way is to
+        avoid using green in your charts since red/green is the most
+        common form of colour blindness.&nbsp; Photoshop can be used to
+        check images</span> (View menu, Proof Setup, Color Blindness)<span
+        style="font-family: Helvetica,Arial,sans-serif;">, as can the
+        tool at <a href="http://colororacle.cartography.ch/">http://colororacle.cartography.ch/
+
+
+
+
+
+
+
+
+        </a>and couple good web sites to check your graphics are:&nbsp;
+        <a href="http://www.vischeck.com/vischeck/">http://www.vischeck.com/vischeck/
+
+
+
+
+
+
+
+
+        </a>and <a href="http://colorfilter.wickline.org/">http://colorfilter.wickline.org/</a><br>
+      </span></p>
+    <span style="font-family: Helvetica,Arial,sans-serif;">Here is a
+      nice set of on-line color tools:<br>
+      <a
+href="http://www.downloadsquad.com/2008/10/09/color-me-crazy-10-best-online-color-tools/">&nbsp;http://www.downloadsquad.com/2008/10/09/color-me-crazy-10-best-online-color-tools/</a><br>
+      <br>
+    </span><a
+      href="http://www.math.yorku.ca/SCS/Gallery/say-something.html"><span
+        style="font-family: Helvetica,Arial,sans-serif;"></span></a>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"></span><br>
+      <big style="font-family: Helvetica,Arial,sans-serif;"><span
+          style="font-weight: bold;">The Eye</span></big><br>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">There is a nice diagram of the eye at:<br>
+        <a
+href="http://courses.csail.mit.edu/6.831/archive/2008/lectures/L19-color-design/image004.png">http://courses.csail.mit.edu/6.831/archive/2008/lectures/L19-color-design/image004.png</a><br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><img style="width: 400px; height: 301px;"
+          src="pics/week4/mit-eye.png" alt=""><br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Light is focused by the cornea and the lens onto the
+        retina at the back of the eye.</p>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Vitreous humor - liquid inside the cornea is close to
+        water, and has the same index of refraction as water. If we are
+        under water the light is not refracted, but it is refracted if
+        we are not in water.</p>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Light passing through the center of the cornea and
+        lens hits the fovea (or macula).</p>
+      <div style="text-align: justify;"> <br>
+      </div>
+      <br>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Human eye has 2 types of photosensitive receptors:
+        cones and rods</p>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">cones</p>
+      <div style="text-align: justify;"> </div>
+      <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">
+        <li>operate at higher illumination levels </li>
+        <li>provide better spacial resolution and contrast sensitivity </li>
+        <li>provide colour vision </li>
+      </ul>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">rods</p>
+      <div style="text-align: justify;"> </div>
+      <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">
+        <li>operate at lower illumination levels, most sensitive to
+          green <br>
+        </li>
+      </ul>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">The cones are highly concentrated at the fovea and
+        quickly taper off around the retina. For colour vision we have
+        the greatest acuity at the fovea, or approximately at the center
+        of out field of vision. Visual acuity drops off as we move away
+        from the center of the field of view. However, we are very
+        sensitive to motion on the periphery of our vision, so we can
+        see movement even if we can't see what is moving.</p>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">The rods are highly concentrated 10-20 degrees around
+        the fovea, but almost none are at the fovea itself - which is
+        why if you are stargazing and want to see something dim you can
+        not look directly at it.</p>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">There is also the optic nerve which is 10-20 degrees
+        away from the fovea which connects your eye to your brain. This
+        is the blind spot where there are no cones and no rods. We can
+        not see anything at this point though we are so used to this
+        that we do not notice it unless we try to see the blind spot.</p>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><img style="border: 0px solid ; width: 75%; height:
+          75%;" src="pics/week4/rods_and_cones.jpg" alt=""><br>
+        Bill Sherman's diagram</p>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><br>
+        Try the following link if you want to see (or not see) your
+        blind spot:<br>
+        <a href="http://serendip.brynmawr.edu/bb/blindspot1.html">http://serendip.brynmawr.edu/bb/blindspot1.html</a><br>
+        with this being the simplest diagram to use<br>
+        <img src="pics/week4/blindspot1bw.gif" alt=""></p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">You need to close one eye, look at the plus sign and
+        then move your head towards and back from the screen until the
+        black circle disappears. When you are at the correct distance
+        the size of your blind spot is about the size of that black
+        circle. <br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Here is a nice short YouTube video that shows the same
+        effect -
+        http://www.youtube.com/watch?v=O7jpJ12lBjg&amp;feature=relmfu<br>
+        <br>
+      </p>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">What happens when we walk from a bright area into a
+        dark area, say into a movie theatre? When we are outside the
+        rods are saturated from the brightness. The cones which operate
+        better at high illumination levels provide all the stimulus.
+        When we walk into the darkened theatre the cones don't have
+        enough illumination to do much good, and the rods take time to
+        de-saturate before they can be useful in the new lower
+        illumination environment.</p>
+      <div style="text-align: justify; font-family:
+        Helvetica,Arial,sans-serif;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">It takes about 20 minutes for the rods to become very
+        sensitive, so dark adjust for about 20 minutes before going
+        stargazing.</p>
+      <div style="text-align: justify; font-family:
+        Helvetica,Arial,sans-serif;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Since the cones do not operate well at low light
+        intensities we can not see colour in dim light as only the rods
+        are capable of giving us information. The rods are also more
+        sensitive to the blue end of the spectrum so it is especially
+        hard to see red in the dark (it appears black).</p>
+      <div style="text-align: justify; font-family:
+        Helvetica,Arial,sans-serif;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">To human beings, brightness (perceived intensity) has
+        a logarithmic scale, not a linear scale which gives us a
+        contrast ration of 100:1 under normal conditions and 1,000,000:1
+        if we dark adapt.<br>
+        <br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Our field of view for each eye is 60 degrees inwards
+        towards the nose and 100 degrees outwards, 60 degrees up and 75
+        degrees down</p>
+      <span style="font-family: Helvetica,Arial,sans-serif;">The
+        'resolution' of the average human eye has been measured by
+        different people in different ways. In general it seems to be 1
+        arc minute (where 60 arc minutes&nbsp; = 1 degree), but that's
+        only in the very center of our field of view at the fovea
+        (within a few degrees) and under bright lighting conditions,
+        with high contrast images, and we can only recognize shapes
+        (e.g. the letter E on a Snellen vision chart) that are twice
+        that big.</span><br>
+      <br>
+      <h3 style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Chromatic Colour</h3>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">hue:</p>
+      <div style="text-align: justify;"> </div>
+      <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">
+        distinguishes between colours
+      </ul>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">saturation:</p>
+      <div style="text-align: justify;"> </div>
+      <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">
+        how far is the colour from a grey of equal intensity<br>
+        vivid colours (bright red, royal blue) are highly saturated,
+        further from grey<br>
+        pastel colours (pink, sky blue) are lightly saturated, closer to
+        grey<br>
+      </ul>
+      <div style="text-align: justify;"> </div>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">brightness:</p>
+      <div style="text-align: justify;"> </div>
+      <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">
+        perceived intensity of a luminous object<br>
+        <br>
+        <br>
+      </ul>
+      <img src="pics/week4/hsv.jpg" alt="">
+      <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">
+        <br style="font-family: Helvetica,Arial,sans-serif;">
+      </ul>
+      <span style="font-family: Helvetica,Arial,sans-serif;">Currently
+        believed there are three kinds of cones in the human eye, one
+        attuned to red (more like yellow), one to green, and one to blue
+        (Young and Helmholtz)&nbsp;</span>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Light is electromagnetic energy with wavelengths from
+        400nm - 700nm</p>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">peak red response at 580nm (reddish-yellow)<br>
+        peak green response at 545nm (greenish-yellow)<br>
+        peak blue response at 440nm<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">There is a nice graph at <a
+          href="http://www.normankoren.com/Human_spectral_sensitivity_small.jpg">http://www.normankoren.com/Human_spectral_sensitivity_small.jpg</a><br>
+      </p>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">So the idea is to add an amount of red and an amount
+        of green and an amount of blue to produce a wide range of
+        colours.</p>
+      <div style="text-align: justify;"> </div>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Unfortunately we can not generate all the colours that
+        the eye can see using an RGB CRT or LCD or LED at this point. We
+        also can not generate all the colours that the eye can see using
+        photographic film (though it can display a larger part of the
+        visible spectrum than a monitor)</p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><br>
+        <span style="font-family: Helvetica,Arial,sans-serif;">Some
+          advice on the use of colour:<br>
+        </span> </p>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Use
+            colour conservatively</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Limit
+            the number of colours</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Colour
+
+
+
+
+
+
+
+
+            can speed recognition, or hinder it depending on what is
+            coloured and how its coloured. Colour must support the
+            task(s)</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Colour
+
+
+
+
+
+
+
+
+            can help in grouping related items</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Colour
+
+
+
+
+
+
+
+
+            can help in dense information displays</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Colour
+coding
+
+
+
+
+
+
+
+
+            should appear with minimal user effort and be under the
+            user's control</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Keep
+            colour blindness in mind&nbsp; (see above)<br>
+          </span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Be
+            consistent</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Think
+            about what certain colours commonly mean / represent</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Be
+            careful what colours are used together (e.g. bright red on
+            bright blue is really annoying)</span></li>
+      </ul>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><br>
+      </p>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span>
+      <hr style="width: 100%; height: 2px;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"></span>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">3 kinds of lies: lies, damn lies, and statistics
+        (quote attributed to several different people)<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Here is a comparison of 3 graphics of the same data. <br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">The first is from Time Magazine (4/9/79) via Tufte<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><img alt="Oil Prices Represented as Barrels"
+          src="pics/week2/barrel1.jpg" style="border: 0px solid ; width:
+          384px; height: 507px;"><br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">The second is from the Sunday Times (12/16/79) via
+        Tufte<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><img alt="Oil Prices with odd Y-axis"
+          src="pics/week2/barrel2.jpg" style="border: 0px solid ; width:
+          648px; height: 415px;"><br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">The first has a high lie factor, the second a somewhat
+        lesser lie factor. Part of the lie in the first figure is not
+        taking inflation into account, but the figure itself 'lies' by
+        using 3 dimensional figures to represent a change in a single
+        dimension. The extra dimensions make the difference seem larger
+        - similar to starting a graph with the axis not at the origin.
+        It also using foreshortening - pushing the past further back
+        making it seem smaller than the present in the front<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">In the second figure the use of a line graph makes the
+        data more truthful, but look at the labeling of the price axis -
+        its not a linear scale. Also the second chart isn't really
+        giving the price of crude oil - its giving the change in price
+        after setting the price in 1972 to 100.<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">The modern graphic below from inflationdata.com is a
+        much more truthful representation of the data. Both scales are
+        linear and in easy to understand units. The source of the data
+        is cited. Contextual information is given at interesting points
+        in the graph.<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><img
+          src="pics/week2/Inflation_Adj_Oil_Prices_Chart.jpg"
+          alt="Better Visualization of Oil Prices" style="border: 0px
+          solid ; width: 800px; height: 556px;"><br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Nice graphic, so of course we ask <span
+          style="font-family: Helvetica,Arial,sans-serif;">how would you
+          enhance this visualization if it was software-based?<br>
+        </span></p>
+      <hr style="width: 100%; height: 2px;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Here is&nbsp; another way to view
+        the price of oil - geographically - as gasoline prices in the US
+        as of August 2012 by county from gasbuddy.com.&nbsp; In general
+        prices are pretty similar within each state showing some variety
+        on a county by county basis.<br>
+        <br>
+      </span><img src="pics/week2/county_gas_prices.jpg" alt="Gas Prices
+        by County" style="border: 0px solid ; width: 800px; height:
+        547px;" height="865" width="1338"><br>
+      <a style="font-family: Helvetica,Arial,sans-serif;"
+        href="http://www.gasbuddy.com/gb_gastemperaturemap.aspx">http://www.gasbuddy.com/gb_gastemperaturemap.aspx</a>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"></p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><span style="font-family: Helvetica,Arial,sans-serif;"></span>
+      </p>
+      <hr style="width: 100%; height: 2px;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"><br>
+        <span style="font-weight: bold; text-decoration: underline;">Back
+
+
+
+
+
+
+
+
+          to the Lie Factor:</span><br>
+        <br>
+      </span>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"> the
+            representation of numbers, as physically measured on the
+            surface of the graphic itself, should be directly
+            proportional to the numerical quantities represented</span></li>
+        <li><font face="Helvetica, Arial, sans-serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+            lie factor = size of effect shown in graphic vs size of
+            effect in data</font></li>
+        <li><font face="Helvetica, Arial, sans-serif">clear, detailed,
+            and thorough labeling should be used to defeat graphical
+            distortion and ambiguity. Write out explanations of the data
+            on the graphic itself. Label important events in the data.</font></li>
+        <li><font face="Helvetica, Arial, sans-serif">show data
+            variation not design variation</font></li>
+        <li><font face="Helvetica, Arial, sans-serif">the number of
+            information carrying dimensions depicted should not exceed
+            the number of dimensions in the data</font></li>
+        <li><font face="Helvetica, Arial, sans-serif">graphics must not
+            quote data out of context</font></li>
+      </ul>
+      <div style="text-align: justify;"><span style="font-family:
+          Helvetica,Arial,sans-serif;"> <br>
+          <br>
+          another one from the New York Times, 8/9/78 via Tufte:<br>
+        </span><img src="pics/week2/liefactor_nytimes.jpg" alt="Fuel
+          Economy as a Perspective Road" style="border: 0px solid ;
+          width: 548px; height: 274px;"><br>
+        <br>
+        <span style="font-family: Helvetica,Arial,sans-serif;">The
+          mileage standards rise from 18 to 27.5 which is a 53%
+          increase, but the difference in the sizes of the lines
+          representing those values from the New York Times is 783%
+          which is almost 15 times larger ... dramatic, but not very
+          truthful. If we graph it without the extra perspective we see
+          the following:<br>
+          <br>
+        </span><img src="pics/week2/mpg-line.jpg" alt=""><br>
+        <br>
+        <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+          and another one from the Los Angeles Times (8/5/79) via Tufte:<br>
+          <br>
+        </span><img src="pics/week2/liefactor_doctor.jpg" alt="Shrinking
+          Family Doctor Graphic" style="border: 0px solid ; width:
+          411px; height: 579px;"><br>
+        <br>
+        <span style="font-family: Helvetica,Arial,sans-serif;">Here a 1D
+          value is represented by a 2D image. The widths of the images
+          are proportional to the values being represented, and the
+          heights of the images are also proportional to the values,
+          which makes the visual differences much greater than the
+          differences in the actual data. If you need to use a series of
+          2D images to represent a series of 1D values then the </span><span
+          style="text-decoration: underline; font-family:
+          Helvetica,Arial,sans-serif;">2D areas</span><span
+          style="font-family: Helvetica,Arial,sans-serif;"> of those
+          images should be proportional to the values.<br>
+          <br>
+          here is a nice one from <a
+            href="http://www.math.yorku.ca/SCS/Gallery/lie-factor.html">http://www.math.yorku.ca/SCS/Gallery/lie-factor.html</a><br>
+        </span><img src="pics/week2/doctors1.gif" alt="Doctor's Income"
+          style="border: 0px solid ; width: 413px; height: 409px;"><br>
+        <br>
+        <span style="font-family: Helvetica,Arial,sans-serif;">There are
+          some graphical embellishments but basically we have two bar
+          charts showing two roughly linear series of data ... so what's
+          wrong?<br>
+          <br>
+          <br style="font-family: Helvetica,Arial,sans-serif;">
+        </span><br style="font-family: Helvetica,Arial,sans-serif;">
+        <span style="font-family: Helvetica,Arial,sans-serif;">Below is
+          a more truthful version of the data where the X-axis is spread
+          out linearly:</span><br style="font-family:
+          Helvetica,Arial,sans-serif;">
+        <br>
+        <img src="pics/week2/doctors2.gif" alt="Doctor's Income as a
+          Simple Chart" style="border: 0px solid ; width: 800px; height:
+          587px;"><br>
+        <br>
+        <br>
+        <span style="font-family: Helvetica,Arial,sans-serif;">and
+          finally what Tufte considered one of the worst</span><br>
+        <br>
+        <img src="pics/week2/worstever.jpg" alt=""><br>
+        <br>
+        <span style="font-family: Helvetica,Arial,sans-serif;">what is
+          this chart telling us? It is telling us the percentage of
+          college students that were under 25 from 1972 through 1976.
+          That's only 5 values.</span><br>
+        <br>
+        <table style="text-align: left; width: 194px; height: 154px;"
+          border="1" cellpadding="2" cellspacing="2">
+          <tbody>
+            <tr>
+              <td style="vertical-align: top; font-family:
+                Helvetica,Arial,sans-serif; background-color: rgb(102,
+                102, 102);">&nbsp;Year<br>
+              </td>
+              <td style="vertical-align: top; font-family:
+                Helvetica,Arial,sans-serif; background-color: rgb(102,
+                102, 102);">&nbsp;Percentage<br>
+              </td>
+            </tr>
+            <tr>
+              <td style="vertical-align: top; font-family:
+                Helvetica,Arial,sans-serif;">&nbsp;1972<br>
+              </td>
+              <td style="vertical-align: top; font-family:
+                Helvetica,Arial,sans-serif;">&nbsp;72.0<br>
+              </td>
+            </tr>
+            <tr>
+              <td style="vertical-align: top; font-family:
+                Helvetica,Arial,sans-serif;">&nbsp;1973<br>
+              </td>
+              <td style="vertical-align: top; font-family:
+                Helvetica,Arial,sans-serif;">&nbsp;70.8<br>
+              </td>
+            </tr>
+            <tr>
+              <td style="vertical-align: top; font-family:
+                Helvetica,Arial,sans-serif;">&nbsp;1974<br>
+              </td>
+              <td style="vertical-align: top; font-family:
+                Helvetica,Arial,sans-serif;">&nbsp;67.2<br>
+              </td>
+            </tr>
+            <tr>
+              <td style="vertical-align: top; font-family:
+                Helvetica,Arial,sans-serif;">&nbsp;1975<br>
+              </td>
+              <td style="vertical-align: top; font-family:
+                Helvetica,Arial,sans-serif;">&nbsp;66.4<br>
+              </td>
+            </tr>
+            <tr>
+              <td style="vertical-align: top; font-family:
+                Helvetica,Arial,sans-serif;">&nbsp;1976<br>
+              </td>
+              <td style="vertical-align: top; font-family:
+                Helvetica,Arial,sans-serif;">&nbsp;67.0<br>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+      </div>
+      <hr style="width: 100%; height: 2px;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"><br>
+        Here is a line chart from <a
+          href="http://www.fao.org/worldfoodsituation/en/">
+          http://www.fao.org/worldfoodsituation/en/</a> showing food
+        prices over the last four years with the years overlapping which
+        can help show seasonal variations<br>
+        <br>
+      </span><img src="pics/week2/foodpriceindex.jpg" alt=""
+        height="286" width="228"><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+        Here is another county-based map - Pop vs Soda vs Coke from </span><a
+        style="font-family: Helvetica,Arial,sans-serif;"
+        href="http://www.popvssoda.com/">http://www.popvssoda.com/</a><br>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><img src="pics/week2/total-county.gif"
+          alt="Pop-Soda-Coke Distribution in the US" style="border: 0px
+          solid ; width: 800px; height: 482px;"><br>
+        more data on this at <a
+          href="http://en.wikipedia.org/wiki/Names_for_soft_drinks#United_States">http://en.wikipedia.org/wiki/Names_for_soft_drinks#United_States</a><br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">There is also a version of this data on a
+        state-by-state basis at manyeyes. What trends would be hidden by
+        a state-by-state view?<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><a
+href="http://manyeyes.alphaworks.ibm.com/manyeyes/visualizations/percent-who-say-pop-soda-or-coke">http://manyeyes.alphaworks.ibm.com/manyeyes/visualizations/percent-who-say-pop-soda-or-coke</a><br>
+      </p>
+      <hr style="width: 100%; height: 2px;"><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;">Here is an
+        interesting map of US population from Time Magazine</span><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;"> </span><a
+        style="font-family: Helvetica,Arial,sans-serif;"
+href="http://web.archive.org/web/20101130190242/http://www.time.com/time/covers/20061030/where_we_live/">http://web.archive.org/web/20101130190242/http://www.time.com/time/covers/20061030/where_we_live/</a><br>
+      <br>
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <img style=" width: 800px; height: 411px;"
+        src="pics/wherewelive.jpg" alt="Time Multimedia - This is Where
+        We Live"><br style="font-family: Helvetica,Arial,sans-serif;">
+      <hr style="width: 100%; height: 2px; font-family:
+        Helvetica,Arial,sans-serif;"><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">here are
+        some more bad ones - </span><a style="font-family:
+        Helvetica,Arial,sans-serif;"
+        href="http://www.math.yorku.ca/SCS/Gallery/say-something.html">http://www.math.yorku.ca/SCS/Gallery/say-something.html</a><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+      <div style="text-align: justify;"><span style="font-family:
+          Helvetica,Arial,sans-serif;"><br>
+        </span>
+        <hr style="width: 100%; height: 2px; font-family:
+          Helvetica,Arial,sans-serif;"><br style="font-family:
+          Helvetica,Arial,sans-serif;">
+        <span style="font-family: Helvetica,Arial,sans-serif;">another
+          issue is how big to make your visualization - here is a
+          partial answer from Google - <a
+            href="http://browsersize.googlelabs.com/">http://browsersize.googlelabs.com/</a></span><br>
+        <br>
+        <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <div style="margin-left: 40px;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"></span></div>
+    <h3 style="font-family: Helvetica,Arial,sans-serif;"> </h3>
+    <h3 style="font-family: Helvetica,Arial,sans-serif;">Coming Next
+      Time</h3>
+    <span style="font-family: Helvetica,Arial,sans-serif; font-weight:
+      bold;">Information&nbsp; Visualization</span><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><a
+        href="http://www-personal.umich.edu/%7Emejn/election/2008/"></a></span>
+    <hr style="font-family: Helvetica,Arial,sans-serif;"> <font
+      style="font-family: Helvetica,Arial,sans-serif;" face="Helvetica,
+      Geneva, Arial, SunSans-Regular, sans-serif">last revision 9/7/12</font>
+  </body>
+</html>

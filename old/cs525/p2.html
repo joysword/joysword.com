@@ -1,0 +1,217 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title>CS 525 Project 2</title>
+  </head>
+  <body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+    vlink="#00aaff">
+    <h1 style="font-family: Helvetica;">Project 2 - Have you Seen the
+      Saucers?<br>
+    </h1>
+    <p style="font-family: Helvetica,Arial,sans-serif;">Due Monday
+      3/05/12 at 8:59pm Chicago time</p>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      This project will focus on using OpenCL to do a particle
+      simulation which talks to OpenGL to display the particles.<br>
+      <br>
+    </div>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; margin-left: 0px; margin-right: 0px;">
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"><br>
+        You will be simulating what happens to a large number of people
+        in the Mall area as the Washington DC area is visited by flying
+        saucers. Think Earth vs the Flying Saucers or Mars Attacks! or
+        the Day the Earth Stood Still (the original).<br>
+        <br>
+        Each of these people on the ground will be a boid (<a
+          href="http://www.red3d.com/cwr/boids/">http://www.red3d.com/cwr/boids/</a>)
+        with some fairly simple rules of action, and limited to 2D
+        motion, and rotation around only 1 axis. The people in the
+        simulation will not have the same amount of desire to match
+        velocity and alignment as birds, but there will still be some of
+        that in the way they move in groups. The more important
+        behaviour is to avoid collisions with other entities and with
+        the environment. You are encouraged to enhance these rules as
+        long as they stay within the spirit of the simulation. <br>
+        <br>
+        The people will initially be milling around the mall - some may
+        be stationary but many should have a particular destination in
+        mind (Lincoln Memorial, Capital, White House, Smithsonian).
+        People will movie around and try to space themselves out. The
+        user will then be able to 'launch' one or more flying saucers
+        into the area from a side of the map and the people will try to
+        run away from each saucer. <span style="color: rgb(255, 255,
+          255);">People have only a limited perceptual range so people
+          far from the UFOs will not know they are there until the
+          people running away from it reach them. </span>People can not
+        run into/onto buildings, but they can run down the streets and
+        on the grass. People should move at a normal human rate. </span><span
+        style="font-family: Helvetica,Arial,sans-serif;">The people
+        should only be able to pack so close together. If a flying
+        saucer moves away then the people will spread back out.<br>
+        <br>
+      </span><span style="font-family: Helvetica,Arial,sans-serif;">The
+        flying saucers can fly over all the buildings and the grass and
+        the water and the bridges, since all the buildings in DC are
+        lower than the Washington Monument, but they should not be able
+        to fly over the Washington Monument and should fly smoothly
+        around it.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+        The flying saucers should generally move towards the people and
+        try to hover over them. If a flying saucer flies over a person
+        then there is a percentage chance that something happens to that
+        person. The person must remain an active boid but their rules of
+        behaviour may change. Do they become homicidal cucumber-human
+        hybrids chasing after other humans? Are they given free iPhones
+        and chase after the UFOs to get more? The changed humans should
+        change colour or shape at this point. Come up with something
+        clever. Based on the saucer's intent the saucers should leave
+        after some point (e.g. they run out of iPhones to give out).<br>
+        <br>
+        Your goal is to simulate a LOT of people.<span
+          style="font-family: Helvetica,Arial,sans-serif;"> You should
+          have a visible counter of the number of people who in the
+          various states.<br>
+          <br>
+          There are several map servers out there - </span></span><span
+        style="font-family: Helvetica,Arial,sans-serif;"><span
+          style="font-family: Helvetica,Arial,sans-serif;">www.openstreetmap.org</span></span><span
+        style="font-family: Helvetica,Arial,sans-serif;"><span
+          style="font-family: Helvetica,Arial,sans-serif;">,
+          maps.google.com, open.mapquest.com, etc - where you can get
+          your map data. This map data can serve as both a backdrop to
+          show where the action is happening and as data for working out
+          where the entities are able to move.<br>
+          <br>
+          The simulation visuals should update at a reasonable rate -
+          i.e. at least 15 frames per second, and the simulation itself
+          should run at a reasonable rate. The people and the UFOs
+          should move and turn smoothly, not abruptly.<br>
+          <br>
+          <br style="font-family: Helvetica,Arial,sans-serif;">
+        </span> <br>
+        For a C you need to implement the above project<br
+          style="font-family: Helvetica,Arial,sans-serif;">
+      </span>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"> <span
+              style="font-family: Helvetica,Arial,sans-serif;"> In a
+              1024 by 768 window showing a static view of the city</span></span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="font-family: Helvetica,Arial,sans-serif;">With one
+              UFO</span></span></li>
+        <li><span style=" font-family: Helvetica,Arial,sans-serif;"><span
+              style=" font-family: Helvetica,Arial,sans-serif;">Either a
+              map view or satellite / aerial photography view<br>
+            </span></span></li>
+        <li><span style=" font-family: Helvetica,Arial,sans-serif;"><span
+              style=" font-family: Helvetica,Arial,sans-serif;">A clever
+              idea for the plot of your simulation (what the flying
+              saucers are up to)<br>
+            </span></span></li>
+      </ul>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><span
+          style="font-family: Helvetica,Arial,sans-serif;"> <br
+            style="font-family: Helvetica,Arial,sans-serif;">
+        </span><span style="font-family: Helvetica,Arial,sans-serif;"> </span><br
+          style="font-family: Helvetica,Arial,sans-serif;">
+        <span style="font-family: Helvetica,Arial,sans-serif;"> For a B
+          you need to add:</span><br style="font-family:
+          Helvetica,Arial,sans-serif;">
+      </span>
+      <ul style="font-family: Helvetica,Arial,sans-serif;">
+        <li>Pan and Zoom the map while keeping all of the people and
+          UFOs active and updating, including those off-screen at the
+          moment</li>
+        <li>Ability to change the rate of time passing<br>
+        </li>
+        <li> Ability to switch between map view and satellite / aerial
+          photography view<br>
+        </li>
+        <li>Ability to spawn multiple UFOs that stay out of each others
+          way</li>
+        <li>The military will attack the UFOs. The military boids will
+          be a different colour from any of the other boids. Some will
+          be scattered around the DC area and more will move in from the
+          Pentagon. If military people are under the saucer they will
+          degrade it, and can eventually destroy it - based on your
+          scenario this is either a good thing or a bad thing. There
+          should be an obvious way of seeing what condition the saucer
+          is in.<br>
+        </li>
+      </ul>
+      <ul style="font-family: Helvetica,Arial,sans-serif;">
+      </ul>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+        <br>
+        For an A you need to add:<br>
+      </span>
+      <ul style="font-family: Helvetica,Arial,sans-serif;">
+        <li>Add in another city for the saucers to visit to show your
+          solution is general<br>
+        </li>
+        <li>Document optimization experiments in OpenCL on your web
+          page.</li>
+      </ul>
+      <ul>
+      </ul>
+      <span style="font-family: Helvetica,Arial,sans-serif;"> </span><span
+        style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; margin-left: 0px; margin-right: 0px;">
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"></span></div>
+    <br>
+    <hr style="width: 100%; height: 2px;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">As with the previous project, to turn in your project
+      you should set up a web page describing your work, the
+      well-commented source code and required files to be able to
+      compile and run your program, and a movie in a common web-viewable
+      format showing what your application should look like when its
+      running. You should then email andy with the location of this
+      website before the deadline. It&nbsp; would probably be a good
+      idea to put a backup copy of the web page at a second website just
+      in case I can't get to the first one.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><span style="font-family: Helvetica,Arial,sans-serif;">When
+
+
+
+
+        you send andy the location of your webpage you should again
+        email a screen snapshot of your head that is 320 pixels wide by
+        240 pixels tall in jpeg format named
+        &lt;your_last_name&gt;.p2.jpg. This image will be used on the
+        class web pages along with the link to your project web page.</span></p>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; margin-left: 0px; margin-right: 0px;">
+    <div style="text-align: justify;"><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">As with the
+        previous project, each student will also give a presentation
+        about their project in-class and answer some questions about
+        your work. This time the presentation will be 15 minutes long.
+        You should prepare a good presentation - you can use your
+        project website, or create some slides. You should definitely
+        run your code and talk about how you structured the computation
+        in OpenCL. Be sure to practice your presentation so you finish
+        within the allotted time so everyone has equal time to present.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <br>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <hr style="font-family: Helvetica,Arial,sans-serif;"><span
+      style="font-family: Helvetica,Arial,sans-serif;">last revision
+      1/28/12</span><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span>
+  </body>
+</html>

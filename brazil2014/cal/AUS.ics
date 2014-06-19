@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Australia
+X-WR-CALNAME:World Cup 2014: Australia
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-4
+SUMMARY:Chile v Australia
+DESCRIPTION:Chile v Australia. Group B. Arena Pantanal\, Cuiabá\, Brazil. 
+ World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, dow
+ nload the simulator for this summer's world cup at http://www.worldcupbraz
+ ilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140613T220000Z
+DTEND:20140613T234500Z
+LOCATION:Arena Pantanal\, Cuiabá\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-20
+SUMMARY:Australia v Netherlands
+DESCRIPTION:Australia v Netherlands. Group B. Estádio Beira-Rio\, Porto Al
+ egre\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone 
+ Simulator\, download the simulator for this summer's world cup at http://w
+ ww.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140618T160000Z
+DTEND:20140618T174500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-35
+SUMMARY:Australia v Spain
+DESCRIPTION:Australia v Spain. Group B. Arena da Baixada\, Curitiba\, Brazi
+ l. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, 
+ download the simulator for this summer's world cup at http://www.worldcupb
+ razilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140623T160000Z
+DTEND:20140623T174500Z
+LOCATION:Arena da Baixada\, Curitiba\, Brazil
+END:VEVENT
+END:VCALENDAR

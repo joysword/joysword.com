@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Monster Mash - Visualization Project 2</title>
+	<meta http-equiv="refresh" content="3600">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/content.css">
+</head>
+
+<body>
+<!--============================= header area ==============================-->
+<div id="header">
+<h1>Monster Mash</h1>
+<p>CS 424 Visualization and Visual Analytics Project 2</p>
+</div>
+<!--=========================== end of header area ==========================-->
+
+<!--============================= navigation bar ============================-->
+<div id="nav_ver">
+<p><a href="index.html">introduction</a></p>
+<p><a href="demo.html">demonstration</a></p>
+<p><a href="install.html">installation</a></p>
+<br>
+<p><a href="function.html">features</a></p>
+<p><a href="data.html">data source</a></p>
+<p><a href="findings.html">interesting findings</a></p>
+<p><a href="roles.html">roles</a></p>
+<br>
+<p><a href="faq.html">FAQ</a></p>
+</div>
+<!--========================  end of navigation bar ========================-->
+
+<!--============================= main area =================================-->
+<div id="main">
+<h2>Claudio</h2>
+<p>After the initial phase of design of the application, my worked concerned mainly the database part.</p>
+<p>During the first week I worked to import the database in local, cleaned (no adult or documentaries) it and figure out a way to provide data to my teammates. Details about this steps are explained <a href=data.html>here</a>.</p>
+<p>The second week I worked for starting providing useful queries. so I wrote a processing class to connect to the database, and wrote a couple of general queries to allow my teammates to test their code with real data. Doing so I search into the database for keywords related to the monster taxonomy which was provided to me, and selected significant ones for our intent. For instance, in "ghost" keywords I removed "ghost-story" or keywords not strictly related to monsters when searching for them.</p>
+<p>Other than database part during the second week I also implemented the scrollable graph in Monster Page</p>
+<p>Last week I did the most of the work.</p><p>Since queries was too slow I redesigned the database, and thought for the solution to preprocess data</p>
+<p>While implementing it I worked to normalize budget, convert certificates and so on.</p>
+<p>When finishing this stuff I implemented methods to call to retrieve data.</p>
+<p>Last few days I on the app to solve some bugs and integrate correctly data that was not yet really used by the interfaces.</p>
+<h2>Giorgio</h2>
+<p>I mostly focused on the Monsters' Taxonomy and Movies tabs. In particular I designed and implemented the interactive taxonomy, created the black and white avatars for the monsters and worked on the panel that is displayed after clicking on one node of the taxonomy.</p>
+<p>I also implemented the functionality of comparing two monsters in a single panel and the top10 monster window.</p>
+<p>I was greatly helped by Claudio in retrieving from the database the data I needed to display.</p>
+<p>I also implemented Credit and Help windows.</p>
+<h2>Shi</h2>
+<p>At the beginning, I participated in initial design phase, created a status report page, created a git repository for code control and issues control <a href="https://github.com/joysword/cs424p2.git">here</a></p>
+<p>I then focus on implementing first interface while trying to keep the project in pace and organize this group. I found I like to manage small team.</p>
+<p>After finishing timeline I integrated monster page, movie pages, top 10 pages, help screen, etc, to my app</p>
+<p>Last few days I searched for bugs and fixed them, and improved UI stuff such as layout, font, size, color, etc, to let it better for use, and better for use on a wall size display.</p>
+</div>
+<!--======================== end of main area ===============================-->
+
+<!--============================== footer ===================================-->
+<div id="footer">
+<p>Last Updated: 2012-10-19</p>
+</div>
+<!--============================= end of footer =============================-->
+
+
+</body></html>

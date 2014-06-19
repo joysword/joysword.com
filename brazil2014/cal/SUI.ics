@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Switzerland
+X-WR-CALNAME:World Cup 2014: Switzerland
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-9
+SUMMARY:Switzerland v Ecuador
+DESCRIPTION:Switzerland v Ecuador. Group E. Estádio Nacional Mané Garrinc
+ ha\, Brasília\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 20
+ 14 iPhone Simulator\, download the simulator for this summer's world cup a
+ t http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140615T160000Z
+DTEND:20140615T174500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-25
+SUMMARY:Switzerland v France
+DESCRIPTION:Switzerland v France. Group E. Arena Fonte Nova\, Salvador\, Br
+ azil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator
+ \, download the simulator for this summer's world cup at http://www.worldc
+ upbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140620T190000Z
+DTEND:20140620T204500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-41
+SUMMARY:Honduras v Switzerland
+DESCRIPTION:Honduras v Switzerland. Group E. Arena Amazônia\, Manaus\, Bra
+ zil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\
+ , download the simulator for this summer's world cup at http://www.worldcu
+ pbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140625T200000Z
+DTEND:20140625T214500Z
+LOCATION:Arena Amazônia\, Manaus\, Brazil
+END:VEVENT
+END:VCALENDAR

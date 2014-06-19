@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title>CS 424 Project 2</title>
+  </head>
+  <body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+    vlink="#00aaff">
+    <h1 style="font-family: Helvetica,Arial,sans-serif;">Project 2<br>
+    </h1>
+    <p style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);"><span style="font-weight: bold;">In the Year 2525</span><br>
+    </p>
+    <span style="font-family: Helvetica,Arial,sans-serif;">Project due
+      at 9 pm on 10/10/11 Chicago time</span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">Project 2 will be the first group
+      project and will focus more on processing and visualizing textual
+      data.<br>
+      <br>
+      You should also very quickly set up a web page for your group
+      project and send the URL to andy. Each Friday of the project each
+      team member should post on the project web site an overview of
+      what he/she did on the project that week.<br>
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">In this project we are going to make
+      use of textual data - in particular we are going to focus on
+      transcripts of the six seasons of Futurama episodes available at
+      http://theinfosphere.org/Episode_Transcript_Listing<br>
+      <br>
+      In a larger sense these scripts give a textual representation of
+      reality which is easier to parse and generate statistics from
+      compared to looking at the video and listening to the soundtrack,
+      but may not give a completely accurate version of reality.<br>
+      <br>
+      We will use the script data to create an interactive visualization
+      to explore how often various characters appear, which characters
+      appear most often together, and what their most common sayings
+      are. The script data are in the form of html files which you can
+      parse to get the dialogue for each character, eg.<span
+        style="font-family: monospace;"><span style="font-weight: bold;">&nbsp;</span></span>
+      <br>
+      <pre><b>Leela: Oh, come on, he's just a poor kid from the Stupid Ages.</b><br></pre>
+      (note the first few transcripts have timecodes but the rest do
+      not)<br>
+      <br>
+    </div>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      <div style="text-align: justify; color: rgb(255, 255, 255);"><br>
+        <span style="font-weight: bold; text-decoration: underline;">For
+          a C you need ...</span><br>
+        <br>
+        <ul>
+          <li>see an overview of the entire series showing the relative
+            importance of the characters (based on their amount of
+            dialogue)<br>
+          </li>
+          <li>pick a character from a list of characters, where the
+            common characters are easier to pick, and see which episodes
+            that character appears in over the entire series and how
+            many episodes that character was in on a timeline of the
+            episodes<br>
+          </li>
+          <li>pick an episode from a list of all episodes and see which
+            characters are in that episode<br>
+          </li>
+          <li>pick a season from a list of all seasons and see how many
+            episodes each character was in (graphically and textually)<br>
+          </li>
+          <li>be able to switch between textual names and icons for each
+            of the characters</li>
+          <li>the application should update quickly when the user
+            interacts</li>
+        </ul>
+        <br style="font-weight: bold;">
+        <span style="font-weight: bold; text-decoration: underline;">For
+          a B you need to add ...</span><br>
+        <br>
+        <ul>
+          <li>pick an episode from a list of all episodes and see how
+            the amount of dialogue compares for all the characters
+            (graphically and textually)</li>
+          <li>pick a season from a list of all seasons and see how the
+            amount of dialogue compares for all the characters&nbsp;
+            (graphically and textually)</li>
+          <li>pick a character and see the amount of dialogue for that
+            character over the entire series (graphically and textually)</li>
+          <li>pick up to three characters from a list of characters and
+            see their relative importance per episode across all the
+            episodes and across each season<br>
+          </li>
+        </ul>
+        <br>
+        <span style="font-weight: bold; text-decoration: underline;">For
+          an A you need to add ...</span><br>
+        <br>
+        <ul>
+          <li>pick a character from a list of characters, and see the
+            common sentences for that character and the common words
+            (minus the general common english words) for that character
+            <br>
+          </li>
+          <li>be able to pick a common character phrase and see in which
+            episodes it appears <br>
+          </li>
+          <li>show which characters commonly appear together</li>
+          <li>use your interface to investigate important questions such
+            as how often does Prof Farnsworth say "Good news everyone!",
+            what episode was the first time he said it, and does he say
+            it more often than Bender says "Bite my shiny metal ass."?
+            and highlight them on your webpage through screen snapshots</li>
+        </ul>
+        <br>
+        Wikipedia has a good Futurama page that will provide you with
+        some general information about the show with reference material
+        and a nice character page with images. Be sure to cite any data
+        (including the transcripts) or images that you use in your work.<br>
+        <br>
+        Note that the seasons have different lengths so you should take
+        that into account when doing your statistics. A character should
+        appear in the database if he/she/it has dialogue in more than
+        one episode.<br>
+        <br>
+        There may be some formatting errors in the text files (a common
+        real world data issue) so be sure to check your statistics to
+        make sure they make sense.<br>
+        <br>
+        You will very likely want to divide up the work in your group
+        between parsing the text, generating appropriate statistics, and
+        then visualizing and interacting with those results. It will
+        help to agree early on what the intermediate data formats will
+        be so work on the different parts can proceed in parallel.<br>
+        <br>
+      </div>
+      <span style="font-weight: bold; text-decoration: underline;"></span>
+      <hr style="width: 100%; height: 2px;">As with Project 1 you should
+      create a set of web pages describing your work on the project and
+      containing a working applet that has a max size of 1024 x 768. The
+      web pages should also describe the contribution of each team
+      member (ie who worked on which interface elements, who worked on
+      converting the data into a more usable form, etc.) Your team
+      should create a 2-3 minute youtube video showing the use of your
+      application including narration with decent audio quality. That
+      video should be in a very obvious place on your main project web
+      page.<br>
+      <br>
+      Please send me a 1024 x 768 jpg image of your visualization for
+      the web. This should be named
+      p2.&lt;someone_in_your_groups_last_name&gt;.jpg. <br>
+      <br>
+      When the project is done, each person in the group should also
+      send me a private email ranking your coworkers on the project on a
+      scale from 1 (low) to 5 (high) in terms of how good a coworker
+      they were on the project. If you never want to work with them
+      again, give them a 1. If this person would be a first choice for a
+      partner on a future project then give them a 5. If they did what
+      was expected but nothing particularly good or bad then give them a
+      3. By default your score should be 3 unless you have a particular
+      reason to increase or decrease the number. Please confine your
+      responses to 1, 2, 3, 4, 5 and no 1/3ds or .5s please. I will
+      average out all these scores for projects 2 through 4 and keep
+      them in mind when assigning final grades to projects 2 through 4.<br>
+      <br>
+      Each group will present their work to the class and describe its
+      features to the rest of the class. All team members are expected
+      to participate equally in that presentation. <span style="color:
+        rgb(255, 255, 0);">Since there are 9 groups each talk will be 4
+        minutes long. During each talk each group in the audience should
+        write 1 question for the speaking group, and hand it to them at
+        the end of their presentation. The speaking group should add a
+        page to their website by Thursday 10/13 giving the questions
+        (and the group who asked it) and an answer to the question.</span><br>
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span>
+    <hr style="font-family: Helvetica,Arial,sans-serif;"><span
+      style="font-family: Helvetica,Arial,sans-serif;">last revision
+      10/5/11 -<span style="color: rgb(255, 255, 0);"> added text (in
+        yellow) about the presentations</span></span>
+  </body>
+</html>

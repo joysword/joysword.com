@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Netherlands
+X-WR-CALNAME:World Cup 2014: Netherlands
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-3
+SUMMARY:Spain v Netherlands
+DESCRIPTION:Spain v Netherlands. Group B. Arena Fonte Nova\, Salvador\, Bra
+ zil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\
+ , download the simulator for this summer's world cup at http://www.worldcu
+ pbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140613T190000Z
+DTEND:20140613T204500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-20
+SUMMARY:Australia v Netherlands
+DESCRIPTION:Australia v Netherlands. Group B. Estádio Beira-Rio\, Porto Al
+ egre\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone 
+ Simulator\, download the simulator for this summer's world cup at http://w
+ ww.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140618T160000Z
+DTEND:20140618T174500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-36
+SUMMARY:Netherlands v Chile
+DESCRIPTION:Netherlands v Chile. Group B. Arena de São Paulo\, São Paulo\
+ , Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simul
+ ator\, download the simulator for this summer's world cup at http://www.wo
+ rldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140623T160000Z
+DTEND:20140623T174500Z
+LOCATION:Arena de São Paulo\, São Paulo\, Brazil
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: France
+X-WR-CALNAME:World Cup 2014: France
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-10
+SUMMARY:France v Honduras
+DESCRIPTION:France v Honduras. Group E. Estádio Beira-Rio\, Porto Alegre\,
+  Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simula
+ tor\, download the simulator for this summer's world cup at http://www.wor
+ ldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140615T190000Z
+DTEND:20140615T204500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-25
+SUMMARY:Switzerland v France
+DESCRIPTION:Switzerland v France. Group E. Arena Fonte Nova\, Salvador\, Br
+ azil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator
+ \, download the simulator for this summer's world cup at http://www.worldc
+ upbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140620T190000Z
+DTEND:20140620T204500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-42
+SUMMARY:Ecuador v France
+DESCRIPTION:Ecuador v France. Group E. Estádio do Maracanã\, Rio de Janei
+ ro\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Si
+ mulator\, download the simulator for this summer's world cup at http://www
+ .worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140625T200000Z
+DTEND:20140625T214500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
+END:VCALENDAR

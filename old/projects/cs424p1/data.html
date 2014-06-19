@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Electronic Avenue - Visualization Project 1</title>
+	<meta http-equiv="refresh" content="3600">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/content.css">
+</head>
+
+<body>
+<!--============================= header area ==============================-->
+<div id="header">
+<h1>Electric Avenue</h1>
+<p>CS 424 Visualization and Visual Analytics Project 1</p>
+</div>
+<!--=========================== end of header area ==========================-->
+
+<!--============================= navigation bar ============================-->
+<div id="nav_ver">
+<p><a href="index.html">introduction</a></p>
+<p><a href="demo.html">demonstration</a></p>
+<p><a href="install.html">installation</a></p>
+<br>
+<p><a href="function.html">features</a></p>
+<p><a href="data.html">data source</a></p>
+<p><a href="findings.html">interesting findings</a></p>
+</div>
+<!--========================  end of navigation bar ========================-->
+
+<!--============================= main area =================================-->
+<div id="main"><br><br>
+<h2>Where was the data</h2>
+<p>Energy relevant data sets are from US Energy Information Administration.<br><br>
+The data is available from <a href="http://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">http://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm</a>.</p>
+
+<p>I spent some time searching for population data of whole world on Internet before I found that EIA has a population data in the same page as Energy data!</p>
+
+<h2>How did I get the data</h2>
+<p>At first, I didn't know that the default data is from 2005 - 2009 (or 2006 - 2010 for some newly updated data set). After I found this, I updated the display to 1980 through 2009 and downloaded all 7 data sets as Excel files.</p>
+
+<h2>What did I do to the data</h2>
+<p>I found that directly copy all data into a plain text file won't work. I also failed several time using different ways (such as changing extension of files to .txt or .tsv) before I finally found that the error in my first try was due to the wrong TABs in .txt files.<br><br>
+After I deleted unnecessary TABs, my app could parse the data correctly!<br><br>
+Next step was to change 'NA' (for data not applicable) and '--' (for data of countries that not there in that year) to some significance number (here I used -10 and -1) for future use. But I never had a chance to use them (because of the existence of FloatTable class provided by <i>Ben Fry</i>, author of <i>Visualizing Data</i>) since then.</p>
+</div>
+<!--======================== end of main area ===============================-->
+
+<!--============================== footer ===================================-->
+<div id="footer">
+<p>Last Updated: 2012-9-24 | &copy;copyright 2012 Shi Yin</p>
+</div>
+<!--============================= end of footer =============================-->
+
+
+</body></html>

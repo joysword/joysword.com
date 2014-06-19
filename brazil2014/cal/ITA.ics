@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Italy
+X-WR-CALNAME:World Cup 2014: Italy
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-8
+SUMMARY:England v Italy
+DESCRIPTION:England v Italy. Group D. Arena Amazônia\, Manaus\, Brazil. Wo
+ rld Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, downl
+ oad the simulator for this summer's world cup at http://www.worldcupbrazil
+ app.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140614T220000Z
+DTEND:20140614T234500Z
+LOCATION:Arena Amazônia\, Manaus\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-24
+SUMMARY:Italy v Costa Rica
+DESCRIPTION:Italy v Costa Rica. Group D. Arena Pernambuco\, Recife\, Brazil
+ . World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, d
+ ownload the simulator for this summer's world cup at http://www.worldcupbr
+ azilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140620T160000Z
+DTEND:20140620T174500Z
+LOCATION:Arena Pernambuco\, Recife\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-39
+SUMMARY:Italy v Uruguay
+DESCRIPTION:Italy v Uruguay. Group D. Arena das Dunas\, Natal\, Brazil. Wor
+ ld Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, downlo
+ ad the simulator for this summer's world cup at http://www.worldcupbrazila
+ pp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140624T160000Z
+DTEND:20140624T174500Z
+LOCATION:Arena das Dunas\, Natal\, Brazil
+END:VEVENT
+END:VCALENDAR

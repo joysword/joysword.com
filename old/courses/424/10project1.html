@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>CS 424 Project 1</title>
+</head>
+<body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+ vlink="#00aaff">
+<h1 style="font-family: Helvetica,Arial,sans-serif;">Project 1<br>
+</h1>
+<p style="font-family: Helvetica,Arial,sans-serif;">I Me Mine<br>
+</p>
+<p style="font-family: Helvetica,Arial,sans-serif;"><span
+ style="color: rgb(255, 255, 0);">Project due at 11:59pm Monday 9/20/10
+Chicago time</span><br>
+</p>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;">Project
+1
+will
+be
+an
+individual
+project
+to give people practice with writing an application
+in processing and get
+everyone ready to contribute to the group projects to come.<br>
+<br>
+The project will
+focus on looking at household utility data - which could either be used
+to decrease waste or to cyber-stalk someone.<br>
+<br>
+<br>
+Below you will find a link to a table
+containing 11 years of data on:<br>
+<ul style="text-align: justify;">
+  <li>Year</li>
+  <li>Month</li>
+  <li>Average
+temperature (according to the comed)<br>
+  </li>
+  <li>Electricity
+Usage
+(kWh
+/ day)</li>
+  <li>Natural
+Gas Usage (therms / day)</li>
+  <li>Water Usage&nbsp;
+(gallons / day)</li>
+</ul>
+The data is available
+here: <a href="http://www.evl.uic.edu/aej/491/10p1/data.csv">http://www.evl.uic.edu/aej/491/10p1/data.csv</a><br>
+<br>
+In this case the data is already pre-processed to be an
+appropriate size and in an easily readable form. That won't hold true
+for the later
+assignments. <br>
+<br>
+Electricity is
+typically billed once a month, but typically every other meter reading
+is
+an estimate. Water is typically billed every 2 to 3 months, and natural
+gas every 1 to 2 months. This makes it harder to see short term trends,
+but longer term trends should still be visible.<br>
+<br>
+The temperature
+data in the file comes from the electricity company. The data seems
+reasonable but you might want to get temperature data from
+another source, and probably in addition to the average also look at
+the
+minimum and maximum.<br>
+<div style="text-align: justify;"><br>
+</div>
+<hr
+ style="width: 100%; height: 2px; margin-left: 0px; margin-right: 0px;">
+<div style="text-align: justify;"><br>
+</div>
+You should start
+by looking at data itself and do some simple plots in your favourite
+spreadsheet / plotting program. There will be some obvious cyclical
+patterns such as air conditioning driving up electricity usage
+dramatically in the summer and the furnace driving up natural gas usage
+dramatically in the winter.<br>
+<br>
+Your job is to
+look beyond the cyclical patterns for longer term trends and
+aberrations that are hiding there, and see what changes in the real
+world could have caused them. Some of these changes are related to how
+hot a summer was or how cold a winter was, others are related to human
+behavior. This is where the cyber-stalking / privacy issues part of the
+project comes in. If you have access to this utility data and can
+filter out the repeating patterns, and the general environmental
+changes, can you find interesting events or trends that tell you about
+the people? <br>
+<br>
+The goal here is to create an interactive visualization tool to aid in
+your analysis and to back up any conclusions you draw. <br>
+<br>
+Here is some more data that will help you with this:<br>
+<br>
+- The house
+stayed basically the same throughout the 10 years of data collection.<br>
+- The house uses
+electricity to run the air conditioner for cooling, and to run the
+blower on the furnace for heating<br>
+- The house uses
+gas for heating and cooking, and drying laundry<br>
+<br>
+<br>
+I did some
+roough measurements of my electricity usage recently:<br>
+<ul style="text-align: justify;">
+  <li>Electronic
+gear (computers, TV, videogame consoles) 4.5 kwH / day <br>
+  </li>
+  <li>Cooking
+&amp; Cleaning 3.5 kWh / day</li>
+  <li>Furnace
+fan (not counting air conditioning) 2 kWh / day</li>
+  <li>Pond hardware
+2 kWh / day</li>
+</ul>
+<div style="text-align: justify;"><br>
+In a common
+house:<br>
+</div>
+<ul style="text-align: justify;">
+  <li>taking a bath takes 50 gallons</li>
+  <li>taking a shower takes 2 gallons per minute</li>
+  <li>flushing a toilet takes 3 gallons</li>
+  <li>a dishwaser uses 20 gallons</li>
+  <li>a top loading clothes washing machine uses 60 gallons, a front
+loading machine uses 30 gallons<br>
+  </li>
+</ul>
+This data should
+allow you to break up the daily usage of two people into components
+that can vary
+over the months and years.<br>
+<br>
+<br>
+Here are some of
+the dates things that might affect the utility usage<br>
+<ul>
+  <li>April 2000
+- Started an outdoor pond (400 gallons)</li>
+  <li>June 2000
+- Replaced the air conditioner<br>
+  </li>
+  <li>April 2002
+- Enlarged pond (total of 650 gallons), had major infection in pond
+fish requiring many water changes</li>
+  <li>July 2004
+- Installed new programmable thermostat<br>
+  </li>
+  <li>July 2006
+- 2 week trip out of the country</li>
+  <li>Fall 2006
+- Started using mulch and less water in the garden</li>
+  <li>2007 -
+Replaced incandescent bulbs with CF bulbs</li>
+  <li>July 2008
+- 2 visitors for a month</li>
+  <li>March 2008
+- Replaced top loading clothes washing machine with front loading model</li>
+  <li>September
+2009 - Doubled the insulation in the attic</li>
+  <li>December
+2009 - New high-efficiency furnace and water heater</li>
+  <li>June 2010
+- 2 week trip out of the country</li>
+</ul>
+</div>
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;">You
+will
+very
+likely
+need
+to
+look
+up some other reference material on the web about
+water, gas, and electricity usage. I did. I also found that some sites
+over-inflate the usage numbers by 50 to 100% compared to the numbers
+that I was able to measure. Those numbers also depend quite a bit on
+where you
+live and the size of your home. I would recommend looking at a few
+different sites to get a better feeling about what good average numbers
+might be. Be sure to cite the websites that you use.<br>
+<br>
+Your
+visualization and analysis tool should be written in processing. The
+Milk / Tea / Coffee example should give you a nice head start on this.
+You should start by getting processing installed and doing some initial
+tests to load in the data and start displaying it. You should then
+start to draw some sketches of what the interface might&nbsp; look like
+and how you want to arrange and display the data. How are you going to
+make use of the screen real-estate?<br>
+<br>
+You can use other software to generate statistics about the data if you
+find that useful. The data here is the kind of thing you would
+typically see in a graph which is probably a good way to visualize it,
+and this will give you a chance to write a set of graphing code that
+you can reuse in future assignments since graphs are so useful.<br>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+The application you create should help the user perform the following
+tasks:<br>
+<br>
+Task #1 -
+document the repeating seasonal utility usage patterns and what affects
+those
+patterns (e.g. temperature)<br>
+<br>
+Task #2 - given
+the results from task #1, document the long term trends and short term
+variations in those patterns (e.g. given temperature readings you
+should be able to work out expected values for
+gas and electricity usage, and then any variation you see might suggest
+a human cause).<br>
+<br>
+Task #3 - given
+the results from task #2, try to see if the events listed above had an
+obvious affect. Also look for other possible affects on the data. Are
+there
+other dates where interesting things happen?<br>
+<br style="color: rgb(255, 255, 0);">
+<span style="color: rgb(255, 255, 0);">Bonus Task #4 - predict Andy's
+average daily electricity, natural gas, and water usage for the next 4
+months of the table. The table of data ends at July 2010. Predict the
+values for the next four rows: August, September, October, November. At
+the end of the course we will see who was the best predictor.</span><br>
+<br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span><br style="font-family: Helvetica,Arial,sans-serif;">
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;"><br>
+<span style="font-weight: bold; text-decoration: underline;">For a C
+you need ...</span><br>
+<br>
+<ul>
+  <li>static well labelled graph or set of graphs which can be easily
+compared<br>
+  </li>
+  <li>ability for the user to show electricity / water / gas on same
+time line together or individually with appropriate colours<br>
+  </li>
+  <li>give general tabular statistics about utility usage</li>
+  <li>you should check your visualization with a colour blindness tool
+to see that its ok</li>
+  <li>the graph should update quickly when the user interacts<br>
+  </li>
+</ul>
+<br style="font-weight: bold;">
+<span style="font-weight: bold; text-decoration: underline;">For a B
+you need to add ...</span><br>
+<br>
+<ul>
+  <li>labelling the important events listed above in the graph<br>
+  </li>
+  <li>see outdoor temperature data superimposed on the utility usage
+data<br>
+  </li>
+  <li>display the data compared to its average (yearly / seasonaly /
+monthly)</li>
+  <li>compare the most recent month of data to the overall data</li>
+</ul>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">For an A
+you need to add ...</span><br>
+<br>
+<ul>
+  <li>interpolate changes in the graphs for smooth transitions between
+changes in the view</li>
+  <li>dynamically zoom in on part of the timeline to see it in more
+detail</li>
+  <li>dynamically change the clustering of the data to see aggregated
+amounts (eg per season, per year)</li>
+  <li>find some
+interesting things in the data and highlight them on your webpage
+through screen snapshots</li>
+</ul>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;"><br>
+You
+should
+create a web page that describes your work on
+the project including an
+embedded processing window (with a max size of 1280 by 700) and a link
+to a gzipped file containing the
+source code and all other necessary files to make it run locally. This
+well
+organized page should function as a README file and describe the
+featues that
+you implemented along with any special features that you added. It
+should include screenshots of all the major features. <br>
+<br>
+I will
+be
+linking this web page to the course notes
+so please send me a nice 1024 x 768 jpg image of your visualization for
+the
+web. This
+should be named p1.&lt;your_last_name&gt;.&lt;your_first_name&gt;.jpg. <br>
+<br>
+Web pages like this can
+be very helpful later on in helping you build up a portfolio of your
+work when you start looking for a job so please put some effort into it.<br>
+<br>
+We will take one class period to look through these visualizations so
+everyone can see a variety of solutions to the
+problem, and a variety of implementations. You will be expected to talk
+about your work.<br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span>
+<hr
+ style="font-family: Helvetica,Arial,sans-serif; color: rgb(255, 255, 0);"><span
+ style="font-family: Helvetica,Arial,sans-serif; color: rgb(255, 255, 0);">last
+revision
+9/14/10
+- clarified due date and time</span>
+</body>
+</html>

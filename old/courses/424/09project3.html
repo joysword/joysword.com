@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>CS 424 Project 3</title>
+</head>
+<body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+ vlink="#00aaff">
+<h1 style="font-family: Helvetica,Arial,sans-serif;">Project 3<br>
+</h1>
+<p style="font-family: Helvetica,Arial,sans-serif;">Saturday Night at
+the Movies<br>
+</p>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">In this project we
+are going to increase the size of the source datafiles to around 750
+megabytes and concentrate more on massaging the data into an easily
+viewable form to look at trends in the internet movie database over
+several decades. </span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+We will randomize the groups again for this project, so you will be
+working with new people.<br
+ style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;"><br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">In this project you
+will be looking over the time period from 1910 to (almost) 2010
+tracking the careers of a number of actors and directors. Your main
+visualization will be somewhat similar to the NY Times Billboard
+rankings from week 5 of the course with time (in years) on the x-axis
+and quality (as measured by the imdb) on the y-axis. By picking a given
+actor or director, the user should be able to see the quality of
+his/her work over
+the years as a year-by-year bar chart. By choosing another actor or
+director the
+user should be able to compare the careers of different people.</span><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;"></span><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">Most of the work
+on this project will be in converting the data into an appropriate
+shape
+to visualize. The first part of that is cutting down the data size. To
+that end we will limit the dataset by avoiding: tv shows, tv movies,
+videogames,
+adult films, direct-to-video releases, documentaries, and short
+subjects. That should knock the initial 300,000 film entries down a
+fair amount.</span><br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;"></span><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">You should then
+find the top 5-10 male actors, female actors, and directors for each
+decade. You must to do this in your code, though you can certainly use
+online resources to help you figure out who those people should be to
+make sure your code is working correcty. The top people should have
+done at least m films with more than n votes (where m and n may depend
+on the
+decade - document your decisions) For the purpose of this project a
+'top' person is defined by
+working on a highly rated film. One way to start is to pick the top
+rated films from each decade and then look for commonalities in the
+cast and directors, count them up, and eventually pick the top 5-10
+actors, actresses, directors for each decade. There may be some overlap
+from decade to decade which is fine. You should document the decisions
+that you make to create the algorithm that determines a
+top person. <br>
+<br>
+Your code could have one phase where it works out who
+the best are and then another phase that does the interactive
+visualization - the code does not need to automatically compute the top
+people every time it runs - it could do the computation under user
+control, or only
+if that data hasn't been already computed. You could have two separate
+applications - once to parse through the current data and generate new
+data files and another to take those new data files and run the
+visualization. The imdb data files are updated regularly so your code
+should continue to run on new datasets unless there is a significant
+change to their format.<br>
+</span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+The data can be found at <a href="http://www.imdb.com/interfaces">http://www.imdb.com/interfaces</a><br>
+<br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">Moreso than the
+previous projects the work on this one can be split between the data
+side and the visualization side as long as there is a common data
+format to link them. You should quickly work out which of the imdb data
+files you need and what final form you want the data to be in. Then you
+could pick a couple sample actors or directors and generate all the
+appropriate data in the proper form so the visualization work can
+proceed while working out the code to pick the top people automatically.</span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;"><br
+ style="text-decoration: underline;">
+<span style="text-decoration: underline;">For a C you need ...</span><br>
+<ul>
+  <li>choose the name of an actor or director from a list on the screen
+and see their career on the graph. If the person did more than one film
+per year then the ratings of those films should be averaged.</li>
+  <li>if a person was both an actor and a director then it should be
+obvious which films were which<br>
+  </li>
+  <li>ability to see the career of a person with the chart ranging from
+0-10 showing the average of
+all films, which you should compute from the films in the limited
+dataset (no tv shows, etc),&nbsp; ie the x axis sits at 0<br>
+  </li>
+  <li>ability to see the chart as ratings above / below the average of
+all films, ie the x axis sits at the average</li>
+  <li>you should check your visualization with a colour blindness
+checking web page to see that its ok</li>
+  <li>the interface should update quickly when the user interacts</li>
+  <li>ability to mouse over a given column in the chart and see the
+name of that specific film (or films) for that column<br>
+  </li>
+</ul>
+<br style="text-decoration: underline;">
+<span style="text-decoration: underline;">For a B you need to add ...</span><br>
+<ul>
+  <li>ability to compare n actors and / or directors simultaneously,
+each on their own graph which are aligned in time<br>
+  </li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">in
+addition to showing the average of multiple films per year, it should
+also show the minimum and maximum</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">ability to
+code the columns by genre using a subset of the imdb genre codes. If a
+film has multiple genres then it should have multiple codes. Very
+likely you will need to reduce the number of genres either by dropping
+or combining. Give your rationale for your choices on your web page.<br>
+    </span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">ability to
+code each decade for a person by the genres they worked in
+during that decade</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">ability to
+show the min / max / average ratings&nbsp; for each decade</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">ability to
+see a chart showing the overall career in terms of distribution of
+ratings and genres</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">if there
+are no people selected then clicking on a decade should show which
+people were active that decade, if there are no people selected then
+clicking on a genre should show which people were active in that genre,
+clicking on a decade and a genre would show people in the intersection.<br>
+    </span></li>
+</ul>
+<br style="text-decoration: underline;">
+<span style="text-decoration: underline;">For an A you need to add ...</span><br>
+<ul>
+  <li>ability to pan and compress/expand the years</li>
+  <li>add the bottom 20 <span
+ style="font-family: Helvetica,Arial,sans-serif;">male
+actors, female actors, and directors over the last 100 years who have
+done at least 10 films with at least m votes. This is harder that
+finding the top people since you shouldn't pick on complete unknowns,
+so you may end up with just 'mediocre' actors or actors who are
+desperate or who make bad choices on a regular basis.<br>
+    </span></li>
+  <li>you shoud pick several people that you would like to add that
+show interesting behavior (ie good actors who become good directors,
+good actors that go on to work in bad movies and then are redicovered
+and go on to do good movies again, people with very long careers, etc)
+and document them on your webpage. Since the imdb has inherant biases
+towards US films, films in English, and modern films, feel free to make
+choices that show a broader range.<br>
+  </li>
+</ul>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;">You
+should
+create
+a web page that describes your work on the project. I will be
+linking this web page to the course notes
+so please send me a 1024 x 768 jpg image of your visualization for the
+web. This
+should be named p3.&lt;someone_in_your_groups_last_name&gt;.jpg. Again,
+please make
+sure that your application is Mac / Windows / Linux compatible. Again,
+the web page should describe the contribution of each
+team member.<br>
+<br>
+Each group will bring their visualization to class to present it and
+describe
+its features to the rest of the
+class. This allows everyone to see a variety of solutions to the
+problem, and a variety of implementations.<br>
+<br>
+<span style="color: rgb(255, 255, 0);">NEW: I would also like each
+group to email me a list of you top 5 male actors, female actors, and
+directors for each decade so I can also show a comparison of the names
+that the different algorithms generated. I would like each of the three
+lists in this form so its easy to put them together:</span><br
+ style="color: rgb(255, 255, 0);">
+<table
+ style="text-align: left; width: 553px; height: 244px; color: rgb(255, 255, 0);"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">1910<br>
+      </td>
+      <td style="vertical-align: top;">#1<br>
+      </td>
+      <td style="vertical-align: top;">last name<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">#2<br>
+      </td>
+      <td style="vertical-align: top;">last name<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">#3<br>
+      </td>
+      <td style="vertical-align: top;">last name<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">#4<br>
+      </td>
+      <td style="vertical-align: top;">last name<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">#5<br>
+      </td>
+      <td style="vertical-align: top;">last name<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1920<br>
+      </td>
+      <td style="vertical-align: top;">#1<br>
+      </td>
+      <td style="vertical-align: top;">last name</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">#2<br>
+      </td>
+      <td style="vertical-align: top;">last name</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">#3<br>
+      </td>
+      <td style="vertical-align: top;">last name</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">#4<br>
+      </td>
+      <td style="vertical-align: top;">last name</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">$5<br>
+      </td>
+      <td style="vertical-align: top;">last name</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">etc<br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="color: rgb(255, 255, 0);">
+<span style="color: rgb(255, 255, 0);">I would also like to have these
+lists the night before the project is due so I have time to compile the
+lists before the presentations in class.</span><br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span>
+<hr style="font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">last revision 10/1/09</span>
+</body>
+</html>

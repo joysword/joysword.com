@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Argentina
+X-WR-CALNAME:World Cup 2014: Argentina
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-11
+SUMMARY:Argentina v Bosnia and Herzegovina
+DESCRIPTION:Argentina v Bosnia and Herzegovina. Group F. Estádio do Maraca
+ nã\, Rio de Janeiro\, Brazil. World Cup 2014.\n\nCalendar provided by Bra
+ zil 2014 iPhone Simulator\, download the simulator for this summer's world
+  cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140615T220000Z
+DTEND:20140615T234500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-27
+SUMMARY:Argentina v Iran
+DESCRIPTION:Argentina v Iran. Group F. Estádio Mineirão\, Belo Horizonte\
+ , Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simul
+ ator\, download the simulator for this summer's world cup at http://www.wo
+ rldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140621T160000Z
+DTEND:20140621T174500Z
+LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-43
+SUMMARY:Nigeria v Argentina
+DESCRIPTION:Nigeria v Argentina. Group F. Estádio Beira-Rio\, Porto Alegre
+ \, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simu
+ lator\, download the simulator for this summer's world cup at http://www.w
+ orldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140625T160000Z
+DTEND:20140625T174500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
+END:VCALENDAR

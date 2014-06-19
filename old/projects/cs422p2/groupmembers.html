@@ -1,0 +1,135 @@
+
+<style>
+body {
+	z-index:0;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-color:#fff;
+	border-width:2px;
+	font-family:Arial,Helvetica,sans-serif;
+	background-attachment : fixed;
+}
+.navbar{
+	width:100%;
+	background-color:#000;
+	height:40px;
+	overflow:hidden;
+}
+.navbar_option{
+	height:40px;
+	line-height:40px;
+	padding-left:20px;
+	padding-right:20px;
+	float:left;
+	color:#fff;
+}
+.navbar_option:hover{
+	background-color:#555;
+}
+.active{
+	background-color:#fff;
+	color:#000;
+}
+.sub_navbar{
+	height:20px;
+	width:100%;
+	font-size:12px;
+	font-weight:bold;
+	overflow:hidden;
+	background-color:#fff;
+}
+.sub_navbar_option{
+	height:20px;
+	line-height:20px;
+	padding-left:20px;
+	padding-right:20px;
+	float:left;
+	color:#000;
+}
+.sub_navbar_option-active{
+	color:#0000CC;
+}
+.logo{
+	position:absolute;
+	right:0;
+	top:0;
+	height:40px;
+}
+.bold{
+	font-weight:bold;
+}
+.content{
+	margin:20px;
+	margin-top:0px;
+	height:200px;
+	z-index:10;
+}
+.content_left{
+	width:200px;
+	z-index:10;
+}
+.content_under{
+	width:1200px;
+	padding-top:60px;
+	z-index:4000;
+}
+.content_right{
+	width:900px;
+	float:right;
+	z-index: 4100px;
+}
+.content_right_space{
+	margin:20px;
+	margin-top:0px;
+	padding-left:30px;
+	z-index:4200;
+}
+html > body .content_right_space{
+	padding-left:0px;
+} 
+.fixed{
+	position:absolute;
+	z-index:1;
+	left: expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+  	top: expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+html > body .fixed{
+	position:fixed;
+	left:0;
+	top:0;
+	right:0;
+}
+</style>
+<html>
+	<head>
+	</head>
+	<body>
+		<div class="fixed">
+			<div class="navbar">
+				<a href="final.html"><div class="navbar_option bold">The Mirror</div></a>
+				<div class="navbar_option bold active">Group Members</div>
+				<a href="downloads.html"><div class="navbar_option bold">Downloads</div></a>
+				<img src="http://superjova.com/superNew/images/Superjova.png" class="logo">
+			</div>
+			<div class="content">
+				<div class="content_left">
+					<ul>
+						<li>Pavle Jovanovic</li>
+						<li>Shi Yin</li>
+						<li>Ryan Bowling</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

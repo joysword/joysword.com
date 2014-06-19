@@ -1,0 +1,83 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Monster Mash - Visualization Project 2</title>
+	<meta http-equiv="refresh" content="3600">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/content.css">
+</script>
+</head>
+
+<body>
+<!--============================= header area ==============================-->
+<div id="header">
+<h1>Monster Mash</h1>
+<p>CS 424 Visualization and Visual Analytics Project 2</p>
+</div>
+<!--=========================== end of header area ==========================-->
+
+<!--============================= navigation bar ============================-->
+<div id="nav_ver">
+<p><a href="index.html">introduction</a></p>
+<p><a href="demo.html">demonstration</a></p>
+<p><a href="install.html">installation</a></p>
+<br>
+<p><a href="function.html">features</a></p>
+<p><a href="data.html">data source</a></p>
+<p><a href="findings.html">interesting findings</a></p>
+<p><a href="roles.html">roles</a></p>
+<br>
+<p><a href="faq.html">FAQ</a></p>
+</div>
+<!--========================  end of navigation bar ========================-->
+
+<!--============================= main area =================================-->
+<div id="main">
+
+<h2>How to install database</h2>
+
+<p>UPDATE: I've put the database on web server and modified source code to adapt this change. you don't need to install database anymore to run this app!</p>
+<p>
+The database is based on MySQL. To run it you need to have a mysql version updated and running, which you can get at <a href="http://www.mysql.com">http://www.mysql.com</a><br>
+Once you installed MySQL you need to create a new database.<br>
+You can create you database from mysql shell or using the GUI tool you prefer. To create it by shell you just need to write:<br>
+$mysql -u [user] -p<br>
+to enter mysql<br>
+And use<br>
+$create database [databasename]<br>
+to create a new database</p>
+
+<p>Once your database is created you need to import the dump. You can get the .sql file <a href="https://www.dropbox.com/s/rigwwdizgodmkiq/group8Dump.sql">here</a>. You can do it by typing:</p>
+<p>	$mysql -u root -p [database_name] < dumpfilename.sql</p>
+<p>In Windows you can do the same typing:</p>
+<p>	$use [database_name]</p>
+<p>	$source [dumpfile_name.sql]</p>
+<p>
+Note: the default settings for the database are the following:.
+</p>
+<ul>
+<li>user: root</li>
+<li>password: root</li>
+<li>localhost: localhost</li>
+<li>database: cs424imdb2</li>
+
+</ul>
+<p>
+If you want your application working you should use them or change the code.
+</p>
+<p>
+If you still have problem, contact Claudio at caletti.claudio@gmail.com
+</p>
+</div>
+<!--======================== end of main area ===============================-->
+
+<!--============================== footer ===================================-->
+<div id="footer">
+<p>Last Updated: 2012-10-17</p>
+</div>
+<!--============================= end of footer =============================-->
+
+
+</body></html>

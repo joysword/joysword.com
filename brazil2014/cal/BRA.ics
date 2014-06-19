@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Brazil
+X-WR-CALNAME:World Cup 2014: Brazil
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-1
+SUMMARY:Brazil v Croatia
+DESCRIPTION:Brazil v Croatia. Group A. Arena de São Paulo\, São Paulo\, B
+ razil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulato
+ r\, download the simulator for this summer's world cup at http://www.world
+ cupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140612T200000Z
+DTEND:20140612T214500Z
+LOCATION:Arena de São Paulo\, São Paulo\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-17
+SUMMARY:Brazil v Mexico
+DESCRIPTION:Brazil v Mexico. Group A. Estádio Castelão\, Fortaleza\, Braz
+ il. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\,
+  download the simulator for this summer's world cup at http://www.worldcup
+ brazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140617T190000Z
+DTEND:20140617T204500Z
+LOCATION:Estádio Castelão\, Fortaleza\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-33
+SUMMARY:Cameroon v Brazil
+DESCRIPTION:Cameroon v Brazil. Group A. Estádio Nacional Mané Garrincha\,
+  Brasília\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 i
+ Phone Simulator\, download the simulator for this summer's world cup at ht
+ tp://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140623T200000Z
+DTEND:20140623T214500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
+END:VCALENDAR

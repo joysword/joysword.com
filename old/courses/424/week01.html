@@ -1,0 +1,1470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title>CS 424 Week 1</title>
+  </head>
+  <body style="color: white; background-color: black;" alink="#ff2200"
+    link="yellow" vlink="#00aaff">
+    <h1><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Week 1</font></h1>
+    <h2><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Intro to the Course and Visualization<br>
+      </font></h2>
+    <hr>
+    <h3><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Information about the Course - Syllabus, projects,
+        presentations, etc.</font></h3>
+    <hr>
+    <h3><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">How this class relates to other similar / related
+        undergraduate CS courses</font></h3>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">
+      <table border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+          </tr>
+          <tr>
+            <td style="background-color: rgb(51, 102, 102);">CS 422<br>
+            </td>
+            <td style="background-color: rgb(51, 102, 102);">User
+              Interface Design</td>
+            <td style="background-color: rgb(51, 102, 102);">developing
+              effective user interfaces <br>
+            </td>
+            <td style="background-color: rgb(51, 102, 102);">Every
+              spring<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color: rgb(0, 0, 0);">CS 424<br>
+            </td>
+            <td style="background-color: rgb(0, 0, 0);">Visualization
+              &amp; Visual Analytics<br>
+            </td>
+            <td style="background-color: rgb(0, 0, 0);">interactive 2D
+              visualization of different types of data<br>
+            </td>
+            <td style="background-color: rgb(0, 0, 0);">Every fall<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color: rgb(51, 102, 102);">CS 426<br>
+            </td>
+            <td style="background-color: rgb(51, 102, 102);">Video Game
+              Programming</td>
+            <td style="background-color: rgb(51, 102, 102);">creating
+              complete audio visual interactive (and fun) experiences</td>
+            <td style="background-color: rgb(51, 102, 102);">Every
+              spring<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color: rgb(51, 102, 102);">CS 488<br>
+            </td>
+            <td style="background-color: rgb(51, 102, 102);">Computer
+              Graphics I </td>
+            <td style="background-color: rgb(51, 102, 102);">basics of
+              how computers create images on screens, OpenGL</td>
+            <td style="background-color: rgb(51, 102, 102); font-family:
+              Helvetica,Arial,sans-serif;">Every fall</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"></span><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+    </div>
+    <hr>
+    <p><b><u><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+            sans-serif">Visualization</font></u></b></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Webster defines Visualization as:</font></p>
+    <ol>
+      <li type="1"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">formation of mental visual images
+        </font></li>
+      <li type="1"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">the act or process of
+          interpreting in visual terms or of putting into visible form <br>
+        </font> </li>
+    </ol>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Hamming: "The purpose of computing is insight not
+        numbers"<br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">What are the advantages? (adapted from [Ware 2000])
+      </font></p>
+    <ul>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">ability to comprehend vast
+          amounts of data </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">allows the perception of
+          unanticipated emergent features </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">problems with the data itself can
+          often be quickly recognized </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">helps to see both large-scale and
+          small-scale features of the data </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">facilitates hypothesis formation
+        </font></li>
+    </ul>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><br>
+        How do we make good visualizations? (adapted from [Tufte 1983])
+        <br>
+      </font></p>
+    <ul>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">show the data </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">allow the viewer to focus on the
+          substance rather than the methodology, graphic design,
+          technology of the production, etc. </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">avoid distorting what the data </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">present many numbers in a small
+          space </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">encourage the eye to compare
+          different pieces of data </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">reveal the data at several levels
+          of detail, from&nbsp; a broad overview to the fine structure </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">serve a clear purpose:
+          description, exploration, tabulation, or decoration</font></li>
+    </ul>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"><br>
+        This course will also deal with Visual Analytics -&nbsp; using
+        interactive visualizations to enhance the analysis of large
+        amounts of data - that is, the visualization is not the
+        end-product but rather it is the means by which people can
+        understand complex phenomena<br>
+        <br>
+        <br>
+        Many analytical reasoning tasks follow this process<br>
+      </span>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">information
+
+
+
+
+
+
+
+            gathering</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">re-representation
+
+
+
+
+
+
+
+            of the information in a form that aids analysis</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">development
+
+
+
+
+
+
+
+            of insight through the manipulation of this representation</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">creation
+of
+
+
+
+
+
+
+
+            some knowledge product or direct action based on the
+            knowledge insight.</span></li>
+      </ul>
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      We are going to start by looking at some early visualizations.</span><br>
+    <br>
+    <hr>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">We start off talking about Charles Joseph Minard's 1861
+      graphic showing Napoleon's losses during his 1812 march to and
+      from Moscow - possibly the best statistical graph ever drawn ...
+      why?<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img alt="Joseph Minard's 1861 graphic showing
+        Napoleon's losses during his 1812 march to and from Moscow"
+        src="pics/week1/napoleon.jpg" style="border: 0px solid ; width:
+        800px; height: 491px;" height="955" width="2003"><br>
+      The image is discussed in detail on p41 of <span
+        style="text-decoration: underline;">The Visual Display of
+        Quantitative Information</span></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">The chart show 6 variables<br>
+    </p>
+    <ul style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">
+      <li>size of the army</li>
+      <li>location on a 2D surface</li>
+      <li>direction of the army's movement</li>
+      <li>temperature</li>
+      <li>location of major river crossings</li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;">If you
+      stopped by the maps exhibit at the field museum in the fall on
+      2007, the original was on display there. More Minard maps
+      (including the one above) can be seen at: <a
+        href="http://cartographia.wordpress.com/category/charles-joseph-minard/">http://cartographia.wordpress.com/category/charles-joseph-minard/</a><br>
+      <br>
+      Like many analytical visualizations this gives us a way to see
+      relationships between different tyes of related data. Today we
+      have the ability to make dynamic visualizations that encourage
+      active exploration beyond just looking. How would you enhance this
+      visualization if it was software-based?<br>
+    </span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">If you want
+      to see more really good visualizations then this site is worth
+      checking out: <a href="http://www.math.yorku.ca/SCS/Gallery/">http://www.math.yorku.ca/SCS/Gallery/</a><br>
+      <br>
+      One in particular worth looking at was this 'coxcomb' done by
+      Florence Nightingale in 1858 during the Crimean War showing deaths
+      from wounds, other causes, and preventable disease as a way to
+      encourage better hygiene to avoid cholera, typhus, dysentery, etc.
+      More detail at <a
+href="http://www.sciencenews.org/index/generic/activity/view/id/38937/title/Florence_Nightingale_The_passionate_statistician">http://www.sciencenews.org/index/generic/activity/view/id/38937/title/Florence_Nightingale_The_passionate_statistician</a><br>
+      <br>
+      Its hard to find a high-quality original but there are some good
+      reproductions that have made including a nice one from the
+      economist here: <a
+        href="http://www.economist.com/images/20071222/5107CR3B.jpg">http://www.economist.com/images/20071222/5107CR3B.jpg</a>
+      <br>
+      <br>
+      <br>
+    </span><img style="width: 800px; height: 540px;"
+      src="pics/week1/nightingale.jpg" alt="'coxcomb' graphic by
+      Florence Nightingale in 1858 during the Crimean War showing deaths
+      from wounds, other causes, and preventable disease" height="675"
+      width="1000"><br>
+    <br>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">In March 1855 the Sanitary
+        Commission arrived in Turkey, improving the water supply, sewage
+        removal, and ventilation. Deaths from preventible diseases
+        immediately drop dramatically. Returning from Turkey,
+        Nightingale wanted to show the importance of hygiene, and while
+        tables show the data, a graphic could have more immediate impact
+        on the reader.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;">&nbsp;<br>
+    </span>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">There are good things here and
+        things that could be improved. Again, </span><span
+        style="font-family: Helvetica,Arial,sans-serif;">how would you
+        enhance this visualization if it was software-based?</span></div>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span><span style="font-family:
+      Helvetica,Geneva,Arial,SunSans-Regular,sans-serif;"><br>
+      Another very famous one was</span><font face="Helvetica, Geneva,
+      Arial, SunSans-Regular, sans-serif"> created by Dr. John
+      Snow(1813-1858) a distinguished British Anesthesiologist who
+      plotted over 500 deaths in central London from Cholera in
+      September 1854. </font>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">A really good book to read
+        if you are interested in this is 'The Ghost Map' by Steven
+        Johnson, published in 2006. If you prefer, there is a TED talk
+        here: <a
+          href="http://www.ted.com/talks/steven_johnson_tours_the_ghost_map.html">http://www.ted.com/talks/steven_johnson_tours_the_ghost_map.html</a><br>
+      </font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">And much more information is
+        available online at: <a
+          href="http://www.ph.ucla.edu/epi/snow.html">http://www.ph.ucla.edu/epi/snow.html</a><br>
+      </font></p>
+    <p style="text-align: justify;"><img style="width: 800px; height:
+        746px;" src="pics/week1/originalSnow.jpg" alt="one of the
+        original Broad Street cholera maps by John Snow" height="2840"
+        width="3045"><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;">one of the
+        original maps by John Snow - </span><font face="Helvetica,
+        Geneva, Arial, SunSans-Regular, sans-serif"><span
+          style="font-family: Helvetica,Arial,sans-serif;">Deaths are
+          marked by dashes and the locati</span>on of the water pumps in
+        the area are marked with circles.</font></p>
+    <p style="font-family: Helvetica,Arial,sans-serif;"><img
+        src="pics/week1/cholera.gif" alt="E.W. Gilbert's simplified
+        version of John Snow's map" style="border: 0px solid ; width:
+        800px; height: 719px;" height="668" width="743"><br>
+      (E.W. Gilbert's simplified version of John Snow's map - more
+      information on this version can be found at: <a
+href="http://www.ph.ucla.edu/epi/snow/cartographica39%284%291_14_2004.pdf">http://www.ph.ucla.edu/epi/snow/cartographica39(4)1_14_2004.pdf</a>)<br>
+    </p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif"><span style="font-family:
+          Helvetica,Arial,sans-serif;">Deaths are marked by dots and the
+          locati</span>on of the 11 water pumps in the area are marked
+        with Xs. The deaths seemed centered around the Broad St. pump.
+        Note that at the time the infectious theory of disease was not
+        generally accepted. Disease was believed to be caused by morbid
+        poisons coming from dead bodies and decaying organic matter, and
+        spread through the air. Snow thought that water was involved in
+        the transmission of Cholera so he already had an idea what to
+        look for.<br>
+      </font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">Here is some of his own
+        text:</font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">"Very few of the fifty-six
+        attacks placed in the table to the 31st August occurred till
+        late in the evening of that day. The eruption was extremely
+        sudden, as I learn from the medical men living in the midst of
+        the district, and commenced in the night between the 31st August
+        and 1st September."</font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">&nbsp;"The greatest number
+        of attacks in any one day occurred on the 1st of September,
+        immediately after the outbreak commenced. The following day the
+        attacks fell from one hundred and forty-three to one hundred and
+        sixteen, and the day afterwards to fifty-four. A glance at the
+        above table will show that the fresh attacks continued to become
+        less numerous every day. On September the 8th - the day when the
+        handle of the pump was removed - there were twelve attacks; on
+        the 9th, eleven: on the 10th, five: on the 11th, five; on the
+        12th, only one: and after this time, there were never more than
+        four attacks on one day. During the decline of the epidemic the
+        deaths were more numerous than the attacks, owing to the decease
+        of many persons who had lingered for several days in consecutive
+        fever.</font></p>
+    <div style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">"There is no doubt that the
+        mortality was much diminished, as I said before, by the flight
+        of the population, which commenced soon after the outbreak,- but
+        the attacks had so far diminished before the use of the water
+        was stopped, that it is impossible to decide whether the well
+        still contained the cholera poison in an active state, or
+        whether, from some cause, the water had become free from it."</font><br>
+    </div>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">The last sentence above is important to note. Snow
+        himself can not state that removing the pump handle definitively
+        stopped the outbreak.&nbsp;</font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Here is some of the actual data from John Snow. Note
+        that about 4000 people live in the area.<br>
+      </font></p>
+    <table style="width: 600px;" border="4" cellpadding="2"
+      cellspacing="0">
+      <tbody>
+        <tr>
+          <td style="text-align: center;"><b><font face="Helvetica,
+                Geneva, Arial, SunSans-Regular, sans-serif">Date</font></b></td>
+          <td style="text-align: center; width: 100px;"><b><font
+                face="Helvetica, Geneva, Arial, SunSans-Regular,
+                sans-serif"># of Fatal Attacks</font></b></td>
+          <td style="text-align: center;"><b><font face="Helvetica,
+                Geneva, Arial, SunSans-Regular, sans-serif">Deaths</font></b></td>
+          <td style="text-align: center;"><font face="Helvetica, Arial,
+              sans-serif"><b>Significant Events</b></font><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/19</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">1</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">1 <br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/20</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">1</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">0 <br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/21</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">1</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">2 <br>
+          </td>
+          <td>&nbsp;<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/22</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">0</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">0 <br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/23</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">1</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">&nbsp;0 <br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/24</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">1</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">2</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/25</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">0</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">0</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/26</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">1</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">0</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/27</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">1</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">1</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/28</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">1</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">0</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/29</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">1</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">1</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/30</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">2</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">8/31</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">56</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">3</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">9/01</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">143</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">70</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">9/02</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">116</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">127</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">9/03</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">54</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">76</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">9/04</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">46</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">71</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">9/05</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">36</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">45</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;">&nbsp;10%
+            of neighborhood now dead within 1 week<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">9/06</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">20</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">37</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">9/07</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">28</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">32</td>
+          <td><span style="font-family: Helvetica,Arial,sans-serif;">&nbsp;75%
+
+
+
+
+
+
+
+              of population had left the area</span><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">9/08</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">12</td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">30<br>
+          </td>
+          <td><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+              sans-serif">&nbsp;pump handle removed</font> </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/09<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">11<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">24<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">9/10<br>
+          </td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">5<br>
+          </td>
+          <td style="font-family: Helvetica,Arial,sans-serif;
+            text-align: right;">18<br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/11<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">5<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">15<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/12<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">1<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">6<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/13<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">3<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">13<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/14<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">0<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">6<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/15<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">1<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">8<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/16<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">4<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">6<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/17<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">2<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">5<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/18<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">3<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">2<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/19<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">0<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">3<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/20<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">0<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">0<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/21<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">2<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">0<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/22<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">1<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">2<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/23<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">1<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">3<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/24<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">1<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">0<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/25<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">1<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">0<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/26<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">1<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">2<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/27<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">1<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">0<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/28<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">0<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">2<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">9/29<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">0<br>
+          </td>
+          <td style="vertical-align: top; font-family:
+            Helvetica,Arial,sans-serif; text-align: right;">1<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">and a chart
+      of that data:</span><br>
+    <img style="width: 664px; height: 211px;"
+      src="pics/week1/cholerachart.jpg" alt="Chart of Cholera Deaths"
+      height="211" width="664"><br>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><br>
+        John Snow's visualization has a number of good features that you
+        should strive for:<br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">1. Place data in the appropriate context for
+        assessing cause and effect<br>
+        2. Allow the viewer to make quantitative comparisons<br>
+        3. Encourage search for alternative explanations&nbsp; and
+        contrary cases&nbsp; <br>
+        4. Indicate level of certainty and possible errors in the data<br>
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">#3 is particularly interesting. There are areas near
+        the Broad Street pump with no/few fatalities and there are a few
+        fatalities far from the pump. Those suggest that maybe our
+        hypothesis is wrong.<br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">John Snow visited families of the deceased that
+        lived far from the pump. Some preferred the taste of the water
+        at Broad Street as it was usually more clear than the others.
+        Some had children that went to school near the Broad Street
+        Pump.<br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">What about the areas near the pump with no
+        fatalities. One was a brewery employing 70 men. The other was a
+        work house with over 500 inmates that had only 5 deaths from
+        cholera, and it had its own water pump.<br>
+        <br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">but its not just about making a graphic, but making
+        a <span style="text-decoration: underline; font-weight: bold;">good</span>
+        graphic. A bad graphic may hide the truth.</font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><img src="pics/week1/choleramaps.gif" alt="Good and
+          Bad Aggregations of John Snow Map Data" style="border: 0px
+          solid ; width: 600px; height: 551px;" height="577" width="628"></font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">As a result of John Snow's
+        work this was the last great cholera outbreak in London.</font><span
+        style="font-family: Helvetica,Arial,sans-serif;"><br>
+        <br>
+      </span></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">If you want to look at this
+        area now, you can tell Google earth to go to 'Golden Square,
+        London, Greater London, W1F, UK'</font></p>
+    <p style="text-align: justify;"><img style="width: 800px; height:
+        558px;" src="pics/week1/broad_street_today.jpg" alt="Google Maps
+        image showing the Broad Street area today" height="571"
+        width="818"></p>
+    <p style="text-align: justify;"><br>
+      <font face="Helvetica, Arial, sans-serif">and here is a photo of
+        me from the summer of 2012 standing at the commemorative pump in
+        what is now called Broadwick st. The John Snow pub is visible in
+        the background. </font><br>
+    </p>
+    <p style="text-align: justify;"> <img
+        src="pics/broadstreet2012.jpg" alt="Photo of Andy standing by
+        Broad Street commemerative pump" height="600" width="800"><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"> </span></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">Of local note there is an
+        urban legend that Chicago had 80,000+ fatalities from cholera
+        when in August 1885 a rainstorm dropped 7" of rain on Chicago in
+        one day, overflowing the drainage systems and causing raw sewage
+        to flow into the lake and back into the cities drinking water.
+        The storm happened, the fatalities did not thanks to a shift in
+        the winds.</font></p>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span>
+    <hr>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Now lets look at some common mistakes.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Here is a comparison of a good graphic and a bad
+      graphic, making use of a Choropleth map, dealing with Radon from
+      Things that Make Us Smart, p70-71.</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"> </div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 600px; height: 439px;"
+        src="pics/week1/radon1.jpg" alt="US radon levels - bad
+        illustration" height="464" width="634"></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 600px; height: 105px;"
+        src="pics/week1/radon2.jpg" alt="US radon levels - bad
+        illustration - Legend" height="111" width="633"><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 600px; height: 461px;"
+        src="pics/week1/radon3.jpg" alt="US radon levels - better
+        illustration" height="492" width="641"></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Why is the first version bad:</p>
+    <span style="font-family: Helvetica,Arial,sans-serif;">- density
+      scale is not an ordered additive sequence - the viewer must keep
+      referring back to the legend</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">- 'white'
+      states are assumed to have low levels of radon when they are
+      actually not part of the data<br>
+      <br>
+      <br>
+      Now you may be thinking, hey that was back in the 80s, desktop
+      publishing software was new, people wouldn't do something like
+      that today ...<br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      Here is a recent graphic showing the spread of H1N1. What states
+      are the hardest hit? What is the order of the colours?<br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;"></span><img
+      style="width: 600px; height: 456px;"
+      src="pics/week1/swine_flu_map_1.jpg" alt="H1N1 in the US graphic"
+      height="405" width="533"><br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">Here is the
+      legend:</span><br style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <img style="width: 122px; height: 128px; font-family:
+      Helvetica,Arial,sans-serif;" src="pics/week1/swine_flu_2.jpg"
+      alt="H1N1 in the US graphic - Legend" height="128" width="122"><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">aside form the poor color choices,
+        one thing to note is that the colour scheme is based on number
+        of cases in each state, so more populous states and less
+        populous states are treated equally. Since the most populated
+        state (California) has 70 times the population of the least
+        populated state (Wyoming), a chart based on the percentage of
+        the population with H1N1 could look very different. Both ways
+        are useful and legitimate, but you want to make sure your
+        audience is drawing the correct conclusions.</span><br>
+    </div>
+    <br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">Here is the
+      colour scheme from the centers for disease control:</span><br>
+    <br>
+    <img style="width: 600px; height: 425px;"
+      src="pics/week1/cdc_swine_flu_1.jpg" alt="Influenza in the US
+      graphic" height="434" width="612"><br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">What states
+      are the hardest hit? What is the order of the colours?<br>
+      <br>
+      Green is usually good and red is usually bad, but blue and pink?<br>
+    </span><br>
+    <br>
+    <img src="pics/week1/cdc_swine_flu_2.jpg" alt=""><br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">as we will
+      see next week this kind of color scheme is not very good for
+      quantitative values.</span><br>
+    <br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">and here is
+      what that same image looks like to someone who is color blind:</span><br>
+    <img style="width: 600px; height: 424px;"
+      src="pics/week1/color_blind_cdc_swine_flu.jpg" alt="Influenza in
+      the US graphic - color blind version" height="406" width="575"><br>
+    <br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">Here is a
+      link to the current (somewhat better) one:</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;"><a
+        href="http://www.cdc.gov/flu/weekly/WeeklyFluActivityMap.htm">http://www.cdc.gov/flu/weekly/WeeklyFluActivityMap.htm</a><br>
+    </span><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      and again, h</span><span style="font-family:
+      Helvetica,Arial,sans-serif;">ow would you enhance this
+      visualization if it was software-based?</span><br>
+    <hr style="width: 100%; height: 2px;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">Some basic
+        principles from Norman:</span><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+    </p>
+    <ul style="text-align: justify;">
+      <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+            style="font-weight: bold;"><span style="text-decoration:
+              underline;">Appropriateness Principle</span> </span>&#8211; The
+          visual representation should provide neither more nor less
+          information than that needed for the task at hand. Additional
+          information may be distracting and makes the task more
+          difficult.<br>
+          <br>
+        </span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+            style="font-weight: bold; text-decoration: underline;">Naturalness
+
+
+
+
+
+
+
+            Principle</span> &#8211; Experiential cognition is most effective
+          when the properties of the visual representation most closely
+          match the information being represented. New visual metaphors
+          are only useful for representing information when they match
+          the user&#8217;s cognitive model of the information; purely
+          artificial visual metaphors can actually hinder understanding.</span><br>
+        <p style="font-family: Helvetica,Arial,sans-serif;">Representations
+that
+
+
+
+
+
+
+
+          make use of spatial and perceptual relationships make more
+          effective use of our brains. If these representations use
+          arbitrary symbols then we need to use mental transformations,
+          mental comparisons and other mental processes, forcing us to
+          think reflectively. In experiential cognition we perceive and
+          react efficiently. In reflective cognition we use our decision
+          making skills.</p>
+        <span style="font-family: Helvetica,Arial,sans-serif;"> </span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+            style="font-weight: bold; text-decoration: underline;">Matching
+
+
+
+
+
+
+
+            Principle</span> &#8211; Representations of information are most
+          effective when they match the task to be performed by the
+          user. Effective visual representations should present
+          affordances suggestive of the appropriate action.</span></li>
+    </ul>
+    <hr style="width: 100%; height: 2px;"> <span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      Schneiderman: &#8220;Overview first, zoom and filter, details on demand&#8221;</span>
+    <br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px;"><b style="font-family:
+      Helvetica,Arial,sans-serif;"></b>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><b>How big is an acre</b></p>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>43,560 square feet - not very helpful<br>
+      </li>
+      <li>6,272,640 square inches - even worse<br>
+      </li>
+      <li>American football field without the end zone - helpful for
+        people from the US<br>
+      </li>
+      <li>about half the size of a football pitch - helpful for most of
+        the rest of the world<br>
+      </li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;">People
+      understand new information relative to what is already understood</span><br>
+    <br>
+    <hr style="width: 100%; height: 2px;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Here is a familiar image in an unfamiliar orientation.</p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 800px; height: 1189px;" alt="'upside
+        down' map of the americas" src="pics/week1/america.jpg"
+        height="2368" width="1593"><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">When information is first presented, the user should be
+      able to quickly orient themselves. <br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">When a map program starts up it should start up with a
+      view that makes it obvious what the map is showing. Maybe that is
+      using your current location with your position clearly labelled,
+      or maybe its a view the country or city that you are accessing the
+      map program from. The zoom factor should also be appropriate
+      enough - if you are initially zoomed in too far you may not see
+      enough landmarks to judge the scale of the map.<br>
+    </p>
+    <hr style="width: 100%; height: 2px;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">&nbsp;<br>
+      Principles of graphical excellence&nbsp; from Tufte (a slightly
+      longer list now that you've seen some examples):</p>
+    <ul>
+      <li style="font-family: Helvetica,Arial,sans-serif;">well-designed
+        presentation of interesting data - a matter of substance,
+        statistics and design<br>
+        <br style="font-family: Helvetica,Arial,sans-serif;">
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">complex ideas
+        communicated with clarity, precision, and efficiency<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">gives to the
+        viewer the greatest number of ideas on the shortest time with
+        the least ink in the smallest space<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">requires
+        telling the truth about the data <br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">the
+        representation of numbers, as physically measured on the surface
+        of the graphic itself, should be directly proportional to the
+        numerical quantities represented<br>
+        <br>
+        lie factor = size of effect shown in graphic vs size of effect
+        in data<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">clear,
+        detailed, and thorough labeling should be used to defeat
+        graphical distortion and ambiguity. Write out explanations of
+        the data on the graphic itself. Label important events in the
+        data<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">show data
+        variation not design variation<br>
+        <br>
+      </li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">the number of
+        information carrying dimensions depicted should not exceed the
+        number of dimensions in the data<br>
+        <br>
+      </li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">graphics
+must
+
+
+
+
+
+
+
+          not quote data out of context</span><br>
+      </li>
+    </ul>
+    <hr style="width: 100%; height: 2px;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Here are some examples for class discussion:<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">and now, for the weather, which is a common analysis
+      task that we all undertake. We look at temperature data,
+      precipitation data and make decisions on how to dress and/or how
+      to get to/from work. We need to know what the weather is before we
+      go out in the morning, depending on our job what the weather will
+      be during the day, and what the weather will be like when we try
+      to get home.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">For everyday activities we usually aren't looking for
+      really specific information (is it going to be 84 degrees F or 83
+      degrees F, is it going to rain 0.2 inches or 0.3 inches) but
+      rather ranges of temperature&nbsp; (cold, mild, hot, really hot)
+      or rainfall (cloudy, light rain, thunderstorms, tornado,
+      hurricane.) There is also the general unpredictability of the
+      weather, so we are used to predictions having some variability.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Normally we just care about the weather where we live
+      and work. If we are traveling we will need to look wider, or if we
+      are interested in the weather where friends/family are living, or
+      where some sporting event is talking place.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">We normally only care about the weather near the surface
+      but if you're involved in the airline industry, especially as a
+      pilot, you care about a much larger volume of weather.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">If you job is to predict the weather or study the
+      climate then you need much more accurate data over larger areas
+      and longer ranges of time.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">How much data is just enough for your purposes and how
+      easy is it to understand:<br>
+      <br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 600px; height: 469px;"
+        src="pics/week1/wunderground.com.jpg" alt="Weather map version
+        1" height="503" width="644"><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">what are the steps you need to go through to figure out
+      what the temperature in Chicago IL, or Las Vegas, NV.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 600px; height: 416px;"
+        src="pics/week1/almanac.com.jpg" alt="Weather map version 2"
+        height="339" width="489"><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 600px; height: 396px;"
+        src="pics/week1/foxnews.jpg" alt="Weather map version 3"
+        height="430" width="651"></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 600px; height: 449px;"
+        src="pics/week1/rssweather.com.jpg" alt="Weather map version 4"
+        height="477" width="637"><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 600px; height: 448px;"
+        src="pics/week1/hamweather.com.jpg" alt="Weather map version 5"
+        height="475" width="636"></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><br>
+      For a slight change here is a precipitation forecast map:<br>
+      <img style="width: 600px; height: 403px;"
+        src="pics/week1/weather_channel_precip.jpg" alt="Precipitation
+        map" height="402" width="598"><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><span style="font-family: Helvetica,Arial,sans-serif;">And
+
+
+
+
+
+
+
+        again, same question, how would you enhance these visualizations
+        if they were software-based? <br>
+      </span></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><span style="font-family: Helvetica,Arial,sans-serif;">For
+
+
+
+
+
+
+
+        simple comparisons to historical values, which makes things
+        somewhat more analytical, this is a nice site:<br>
+        <a
+          href="http://www.ncdc.noaa.gov/oa/climate/research/cag3/cag3.html">http://www.ncdc.noaa.gov/oa/climate/research/cag3/cag3.html</a><br>
+      </span></p>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><span
+        style="font-style: italic;"><br>
+      </span>Some sites are also converting the raw statistics into
+      something more personalized like the following 'Frizz Factor' map
+      from intellicast.<span style="font-style: italic;"><br>
+      </span></span>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 513px; height: 432px;" alt="Frizz
+        factor graphic 1" src="pics/week1/bad_hair_day.jpg" height="432"
+        width="513"><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">and the corresponding "Frizz Forecast" from Accuweather.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 748px; height: 611px;" alt="Frizz
+        factor graphic 2" src="pics/week1/bad_hair_day_chart.jpg"
+        height="611" width="748"></p>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">A forecast is
+      going to give us some sense of what is coming - with rain and snow
+      it may help to see the actual shape and previous path of the
+      storm.</span><br>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 600px; height: 403px;" alt="doppler
+        radar map" src="pics/week1/web_radar.jpg" height="400"
+        width="596"></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Radar images are nice for knowing where the storms are
+      right now - moving (animated) radar images are better for knowing
+      where they have been and predicting where they are heading and
+      when they will get there.<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">low rez: <a
+href="http://www.weather.com/maps/maptype/dopplerradarusnational/usdopplerradar_large_animated.html">http://www.weather.com/maps/maptype/dopplerradarusnational/usdopplerradar_large_animated.html</a><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">high rez: <a
+        href="http://radar.weather.gov/Conus/full_loop.php">http://radar.weather.gov/Conus/full_loop.php</a><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img style="width: 800px; height: 418px;"
+        src="pics/week1/radarmosaic.jpg" alt="National detailed radar
+        map" height="1781" width="3407"><br>
+    </p>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;">Here are a couple images showing how
+      hard it can be to lay out data on a map even with a lot of
+      resolution.</span><br>
+    <br>
+    <img style="width: 800px; height: 400px;"
+      src="pics/week1/GLIF_5-11_World_4k.jpg" alt="map of international
+      fiber optic networks" height="2048" width="4096"><br>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><br>
+      <img style="width: 800px; height: 422px;"
+        src="pics/week1/GLIF_5-11_NA_4k.jpg" alt="map of inational fiber
+        optic networks" height="2048" width="4096"><br>
+    </p>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Here is an image from Information Anxiety, P286. Here
+      the problem is over designing the graphic. Trying to make the
+      graphic 'exciting' makes it harder to get information from
+      it.&nbsp;</p>
+    <div style="text-align: justify;"><img alt="'exciting' graphic of US
+        weather map" src="pics/week2/usamaps1.jpg" style="border: 0px
+        solid ; width: 800px; height: 446px;" height="824" width="1477"><br>
+    </div>
+    <br>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Today its easy to make things look
+        '3D' with software. We need to be careful what view we choose,
+        even of a familiar object.</span><br>
+      <br>
+      <hr style="width: 100%; height: 2px;"><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">There was a
+        nice recent introduction to different kinds of visualizations in
+        the June 2010 issue of Communications of the ACM - </span><a
+        style="font-family: Helvetica,Arial,sans-serif;"
+href="http://cacm.acm.org/magazines/2010/6/92482-a-tour-through-the-visualization-zoo/fulltext">link</a><br>
+    </div>
+    <br>
+    <a href="http://www.math.yorku.ca/SCS/Gallery/say-something.html"><span
+        style="font-family: Helvetica,Arial,sans-serif;"></span></a>
+    <hr>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">The projects in the class
+        are going to be written in Processing, so if you haven't used
+        processing before you should start by taking a look at <a
+          href="http://processing.org/">http://processing.org/</a> and
+        the textbook: <span style="font-style: italic;">Visualizing
+          Data: Exploring and Explaining Data with the Processing
+          Environment<br>
+        </span></font></p>
+    <p style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">http://benfry.com is also a nice
+      place to for some of the projects used his own language for. In
+      particular, since we've been looking at maps, <a
+        href="http://benfry.com/zipdecode/">http://benfry.com/zipdecode/</a><br>
+    </p>
+    <p style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">The source code there gives you a
+      pretty simple example showing that the language looks very
+      familiar if you are used to C, Java, Python, etc. The Visualizing
+      Data book gives better step by step examples.<br>
+      <span style="font-style: italic;"></span></p>
+    <span style="font-family: Helvetica,Arial,sans-serif;"> </span>
+    <hr style="width: 100%; height: 2px;">
+    <h3><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Coming Next Time</font></h3>
+    <h3><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Introduction to Programming in Processing<br>
+      </font></h3>
+    <hr> <font face="Helvetica, Geneva, Arial, SunSans-Regular,
+      sans-serif">last revision 8/29/12 - removed link to outdated evl
+      temperature monitor</font>
+  </body>
+</html>

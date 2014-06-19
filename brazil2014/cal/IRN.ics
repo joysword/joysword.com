@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Iran
+X-WR-CALNAME:World Cup 2014: Iran
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-12
+SUMMARY:Iran v Nigeria
+DESCRIPTION:Iran v Nigeria. Group F. Arena da Baixada\, Curitiba\, Brazil. 
+ World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, dow
+ nload the simulator for this summer's world cup at http://www.worldcupbraz
+ ilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140616T190000Z
+DTEND:20140616T204500Z
+LOCATION:Arena da Baixada\, Curitiba\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-27
+SUMMARY:Argentina v Iran
+DESCRIPTION:Argentina v Iran. Group F. Estádio Mineirão\, Belo Horizonte\
+ , Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simul
+ ator\, download the simulator for this summer's world cup at http://www.wo
+ rldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140621T160000Z
+DTEND:20140621T174500Z
+LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-44
+SUMMARY:Bosnia and Herzegovina v Iran
+DESCRIPTION:Bosnia and Herzegovina v Iran. Group F. Arena Fonte Nova\, Salv
+ ador\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone 
+ Simulator\, download the simulator for this summer's world cup at http://w
+ ww.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140625T160000Z
+DTEND:20140625T174500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
+END:VCALENDAR

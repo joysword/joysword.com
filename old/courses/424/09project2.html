@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>CS 424 Project 2</title>
+</head>
+<body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+ vlink="#00aaff">
+<h1 style="font-family: Helvetica,Arial,sans-serif;">Project 2<br>
+</h1>
+<p style="font-family: Helvetica,Arial,sans-serif;">Leaving on a Jet
+Plane<br>
+</p>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">In the last decade
+more and more tracking data has been made available on the web allowing
+people to track cabs, buses, trains, and planes. In this project we
+will be looking at real tracking data about flights arriving to and
+departing from O'Hare.<br>
+<br>
+This will be the first group project. Given the quick turnaround time
+on these projects you should get your team together quickly and decide
+on roles.<br style="font-family: Helvetica,Arial,sans-serif;">
+</span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">Over the summer I
+collected a week of data about flights into and out of O'Hare using
+data from
+www.flightstats.com/go/AirportTracker/airportTrackerUpdate.do?airportCode=ORD.
+This
+data was collected at 5 minute intervals giving over 2000 files of
+data. Each file contains 1 line for each flight either inbound or
+outbound at that time.<br>
+<br>
+The data is located at <a href="data/p2/airport.zip">data/p2/airport.zip</a>
+and is 8.4MB as a zip file<br>
+<br>
+Each file is labelled ORD.month-day-year-hour-minute.log<br>
+<br>
+and each file contains a number of lines like the following:<br>
+&lt;Flight Id="161510335" Flight="BR 658" Airline="EVA Air"
+Latitude="60.52" Longitude="-147.49" Bearing="90" IsDep="0" /&gt;<br>
+</span><span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+Each line countains:<br>
+</span>
+<ul>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">Flight ID
+- unique numerical identifier for each flight</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">Flight -
+common flight identifier eg UA 124</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">Airline -
+name of the airline</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">Latitude -
+current latitude of the flight</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">Longitude
+- current longitude of the flight</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">Bearing -
+direction the plane is heading (in degrees)<br>
+    </span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">IsDep -
+whether its a departing flight (1) or an arriving flight (0)</span></li>
+</ul>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">As in Project 1 you
+will be
+creating a web page. The final data download may be a little heavy so
+you
+should also provide a downloadable version. The application should have
+obvious and intuitive
+controls.</span> <span style="font-family: Helvetica,Arial,sans-serif;">Similar
+to
+project 1, this application will involve a map and additional graphs
+to help the user investigate this data. Unlike project 1, before you
+visualize this data you will need to convert it into appropriate
+form(s).</span><br style="font-family: Helvetica,Arial,sans-serif;">
+</div>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span><span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;"><br>
+<span style="font-weight: bold; text-decoration: underline;">For a C
+you need ...</span><br>
+<br>
+<ul>
+  <li>display a useful map of the continental US (could be a vector map
+or a bitmap map, and please cite who
+made the map in your documentation) with the flights correctly located
+(and visible) on the map along with their heading. <br>
+  </li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">ability to
+pick a day and play back an animation of the flights throughout that
+day. </span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">ability to
+use the mouse to brush time and see the locations and heading of all
+flights in the system at that time. You should be able to
+filter those flights by all / inbound / outbound.</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">a graph
+showing the total number of flights in the air, inbound, and outbound
+for each hour of the day and night.</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">as with
+Project 1, </span>you should check your visualization with a colour
+blindness checking web page to see that its ok and <span
+ style="font-family: Helvetica,Arial,sans-serif;">the visualizations </span>should
+update
+quickly when the user interacts</li>
+  <li>everything should be well labelled<br>
+  </li>
+</ul>
+<br>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">For a B
+you need to add ...</span><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+<br>
+</span>
+<ul>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">ability to
+filter flights by airline (being able to show the flights from any
+number of different airlines at the same time)<br>
+    </span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">in
+addition to showing the current position of each flight you should also
+add the capability of showing the prior flightpaths.</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">ability to
+compare different days of the week in terms of the number of inbound /
+outbound / total number of flights in the air for each hour and the
+total for the day<br>
+    </span></li>
+</ul>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span><br style="font-weight: bold;">
+<span style="font-weight: bold; text-decoration: underline;">For an A
+you need to add ...</span><br>
+<br>
+<ul>
+  <li>allow the user to zoom out to a map of the world appropriately
+geo-referenced with the flight data<br>
+  </li>
+  <li>be able to vary the display on the map (geographic features,
+political features, minimal features, etc)</li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">Show an
+overall reach of each airline (ie for a given airline show all of the
+flightpaths for that airline that are to/from O'Hare)</span></li>
+  <li>show the density of flights to/from O'Hare by overlaying a
+latitude/longitude based grid over the country/world</li>
+  <li>come up with some questions to ask about this dataset, and use
+your application to answer those questions.</li>
+</ul>
+<hr style="width: 100%; height: 2px;"><br>
+One thing to be careful of on this project is the coordinate system of
+the map you choose, so you can map the latitude and longiture values
+correctly. You may want to look up the coordinates of various cities
+around the country / world and make sure they appear in the correct
+locations on your map. <br>
+<br>
+Another thing is the format of the data. There is 8 MB of compressed
+data and 51MB of uncompressed data here
+(and there will be more data in future projects) so you will need to
+massage it into one or more appropriate formats to make it easier and
+quicker to visualize. <br>
+<br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;">As
+with
+Project 1 you should create a web page describing your work on the
+application. This time instead of embedding the processing applicaiton
+you should have a link so people can download your application
+(and the necessary data files) to run your application. Please make
+sure that your application is Mac / Windows / Linux compatible. If you
+can get your app to run online through a browser then do include that
+version as well. The web page should describe the contribution of each
+team member (ie who worked on which interface elements, who worked on
+converting the data into a more usable form, etc.)<br>
+<br>
+Please send me a 1024 x 768 jpg image of your visualization for the
+web. This
+should be named p2.&lt;someone_in_your_groups_last_name&gt;.jpg. <br>
+<br>
+Each person in the group should also send me a private email ranking
+your coworkers on the project on a scale from 1 (low) to 5 (high) in
+terms of how good a coworker they were on the project. If you never
+want to work with them again, give them a 1. If this person would be a
+first choice for a partner on a future project then give them a 5. If
+they did what was expected but nothing particularly good or bad then
+give them a 3. By default your score should be 3 unless you have a
+particular reason to increase or decrease the number. Please confine
+your responses to 1, 2, 3, 4, 5 and no 1/3ds or .5s please. I will
+average out all these scores for projects 2, 3 and 4 and make those
+final averages available to the class and keep them in mind when
+assigning
+final grades.<br>
+<br>
+Each group
+will present their work to the class and describe
+its features to the rest of the
+class. This allows everyone to see a variety of solutions to the
+problem, and a variety of implementations.<br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span>
+<hr style="font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">last revision 9/14/09</span>
+</body>
+</html>

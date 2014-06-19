@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Bosnia and Herzegovina
+X-WR-CALNAME:World Cup 2014: Bosnia and Herzegovina
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-11
+SUMMARY:Argentina v Bosnia and Herzegovina
+DESCRIPTION:Argentina v Bosnia and Herzegovina. Group F. Estádio do Maraca
+ nã\, Rio de Janeiro\, Brazil. World Cup 2014.\n\nCalendar provided by Bra
+ zil 2014 iPhone Simulator\, download the simulator for this summer's world
+  cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140615T220000Z
+DTEND:20140615T234500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-28
+SUMMARY:Nigeria v Bosnia and Herzegovina
+DESCRIPTION:Nigeria v Bosnia and Herzegovina. Group F. Arena Pantanal\, Cui
+ abá\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone 
+ Simulator\, download the simulator for this summer's world cup at http://w
+ ww.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140621T220000Z
+DTEND:20140621T234500Z
+LOCATION:Arena Pantanal\, Cuiabá\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-44
+SUMMARY:Bosnia and Herzegovina v Iran
+DESCRIPTION:Bosnia and Herzegovina v Iran. Group F. Arena Fonte Nova\, Salv
+ ador\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone 
+ Simulator\, download the simulator for this summer's world cup at http://w
+ ww.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140625T160000Z
+DTEND:20140625T174500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
+END:VCALENDAR

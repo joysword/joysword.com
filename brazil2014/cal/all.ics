@@ -1,0 +1,787 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014
+X-WR-CALNAME:World Cup 2014
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-1
+SUMMARY:Brazil v Croatia
+DESCRIPTION:Brazil v Croatia. Group A. Arena de São Paulo\, São Paulo\, B
+ razil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulato
+ r\, download the simulator for this summer's world cup at http://www.world
+ cupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140612T200000Z
+DTEND:20140612T214500Z
+LOCATION:Arena de São Paulo\, São Paulo\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-2
+SUMMARY:Mexico v Cameroon
+DESCRIPTION:Mexico v Cameroon. Group A. Arena das Dunas\, Natal\, Brazil. W
+ orld Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, down
+ load the simulator for this summer's world cup at http://www.worldcupbrazi
+ lapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140613T160000Z
+DTEND:20140613T174500Z
+LOCATION:Arena das Dunas\, Natal\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-3
+SUMMARY:Spain v Netherlands
+DESCRIPTION:Spain v Netherlands. Group B. Arena Fonte Nova\, Salvador\, Bra
+ zil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\
+ , download the simulator for this summer's world cup at http://www.worldcu
+ pbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140613T190000Z
+DTEND:20140613T204500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-4
+SUMMARY:Chile v Australia
+DESCRIPTION:Chile v Australia. Group B. Arena Pantanal\, Cuiabá\, Brazil. 
+ World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, dow
+ nload the simulator for this summer's world cup at http://www.worldcupbraz
+ ilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140613T220000Z
+DTEND:20140613T234500Z
+LOCATION:Arena Pantanal\, Cuiabá\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-5
+SUMMARY:Colombia v Greece
+DESCRIPTION:Colombia v Greece. Group C. Estádio Mineirão\, Belo Horizonte
+ \, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simu
+ lator\, download the simulator for this summer's world cup at http://www.w
+ orldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140614T160000Z
+DTEND:20140614T174500Z
+LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-6
+SUMMARY:Ivory Coast v Japan
+DESCRIPTION:Ivory Coast v Japan. Group C. Arena Pernambuco\, Recife\, Brazi
+ l. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, 
+ download the simulator for this summer's world cup at http://www.worldcupb
+ razilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140615T010000Z
+DTEND:20140615T024500Z
+LOCATION:Arena Pernambuco\, Recife\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-7
+SUMMARY:Uruguay v Costa Rica
+DESCRIPTION:Uruguay v Costa Rica. Group D. Estádio Castelão\, Fortaleza\,
+  Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simula
+ tor\, download the simulator for this summer's world cup at http://www.wor
+ ldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140614T190000Z
+DTEND:20140614T204500Z
+LOCATION:Estádio Castelão\, Fortaleza\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-8
+SUMMARY:England v Italy
+DESCRIPTION:England v Italy. Group D. Arena Amazônia\, Manaus\, Brazil. Wo
+ rld Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, downl
+ oad the simulator for this summer's world cup at http://www.worldcupbrazil
+ app.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140614T220000Z
+DTEND:20140614T234500Z
+LOCATION:Arena Amazônia\, Manaus\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-9
+SUMMARY:Switzerland v Ecuador
+DESCRIPTION:Switzerland v Ecuador. Group E. Estádio Nacional Mané Garrinc
+ ha\, Brasília\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 20
+ 14 iPhone Simulator\, download the simulator for this summer's world cup a
+ t http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140615T160000Z
+DTEND:20140615T174500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-10
+SUMMARY:France v Honduras
+DESCRIPTION:France v Honduras. Group E. Estádio Beira-Rio\, Porto Alegre\,
+  Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simula
+ tor\, download the simulator for this summer's world cup at http://www.wor
+ ldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140615T190000Z
+DTEND:20140615T204500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-11
+SUMMARY:Argentina v Bosnia and Herzegovina
+DESCRIPTION:Argentina v Bosnia and Herzegovina. Group F. Estádio do Maraca
+ nã\, Rio de Janeiro\, Brazil. World Cup 2014.\n\nCalendar provided by Bra
+ zil 2014 iPhone Simulator\, download the simulator for this summer's world
+  cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140615T220000Z
+DTEND:20140615T234500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-12
+SUMMARY:Iran v Nigeria
+DESCRIPTION:Iran v Nigeria. Group F. Arena da Baixada\, Curitiba\, Brazil. 
+ World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, dow
+ nload the simulator for this summer's world cup at http://www.worldcupbraz
+ ilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140616T190000Z
+DTEND:20140616T204500Z
+LOCATION:Arena da Baixada\, Curitiba\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-13
+SUMMARY:Germany v Portugal
+DESCRIPTION:Germany v Portugal. Group G. Arena Fonte Nova\, Salvador\, Braz
+ il. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\,
+  download the simulator for this summer's world cup at http://www.worldcup
+ brazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140616T160000Z
+DTEND:20140616T174500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-14
+SUMMARY:Ghana v USA
+DESCRIPTION:Ghana v USA. Group G. Arena das Dunas\, Natal\, Brazil. World C
+ up 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download t
+ he simulator for this summer's world cup at http://www.worldcupbrazilapp.c
+ om/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140616T220000Z
+DTEND:20140616T234500Z
+LOCATION:Arena das Dunas\, Natal\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-15
+SUMMARY:Belgium v Algeria
+DESCRIPTION:Belgium v Algeria. Group H. Estádio Mineirão\, Belo Horizonte
+ \, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simu
+ lator\, download the simulator for this summer's world cup at http://www.w
+ orldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140617T160000Z
+DTEND:20140617T174500Z
+LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-16
+SUMMARY:Russia v South Korea
+DESCRIPTION:Russia v South Korea. Group H. Arena Pantanal\, Cuiabá\, Brazi
+ l. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, 
+ download the simulator for this summer's world cup at http://www.worldcupb
+ razilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140617T220000Z
+DTEND:20140617T234500Z
+LOCATION:Arena Pantanal\, Cuiabá\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-17
+SUMMARY:Brazil v Mexico
+DESCRIPTION:Brazil v Mexico. Group A. Estádio Castelão\, Fortaleza\, Braz
+ il. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\,
+  download the simulator for this summer's world cup at http://www.worldcup
+ brazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140617T190000Z
+DTEND:20140617T204500Z
+LOCATION:Estádio Castelão\, Fortaleza\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-18
+SUMMARY:Cameroon v Croatia
+DESCRIPTION:Cameroon v Croatia. Group A. Arena Amazônia\, Manaus\, Brazil.
+  World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, do
+ wnload the simulator for this summer's world cup at http://www.worldcupbra
+ zilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140618T220000Z
+DTEND:20140618T234500Z
+LOCATION:Arena Amazônia\, Manaus\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-19
+SUMMARY:Spain v Chile
+DESCRIPTION:Spain v Chile. Group B. Estádio do Maracanã\, Rio de Janeiro\
+ , Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simul
+ ator\, download the simulator for this summer's world cup at http://www.wo
+ rldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140618T190000Z
+DTEND:20140618T204500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-20
+SUMMARY:Australia v Netherlands
+DESCRIPTION:Australia v Netherlands. Group B. Estádio Beira-Rio\, Porto Al
+ egre\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone 
+ Simulator\, download the simulator for this summer's world cup at http://w
+ ww.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140618T160000Z
+DTEND:20140618T174500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-21
+SUMMARY:Colombia v Ivory Coast
+DESCRIPTION:Colombia v Ivory Coast. Group C. Estádio Nacional Mané Garrin
+ cha\, Brasília\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2
+ 014 iPhone Simulator\, download the simulator for this summer's world cup 
+ at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140619T160000Z
+DTEND:20140619T174500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-22
+SUMMARY:Japan v Greece
+DESCRIPTION:Japan v Greece. Group C. Arena das Dunas\, Natal\, Brazil. Worl
+ d Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, downloa
+ d the simulator for this summer's world cup at http://www.worldcupbrazilap
+ p.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140619T220000Z
+DTEND:20140619T234500Z
+LOCATION:Arena das Dunas\, Natal\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-23
+SUMMARY:Uruguay v England
+DESCRIPTION:Uruguay v England. Group D. Arena de São Paulo\, São Paulo\, 
+ Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulat
+ or\, download the simulator for this summer's world cup at http://www.worl
+ dcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140619T190000Z
+DTEND:20140619T204500Z
+LOCATION:Arena de São Paulo\, São Paulo\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-24
+SUMMARY:Italy v Costa Rica
+DESCRIPTION:Italy v Costa Rica. Group D. Arena Pernambuco\, Recife\, Brazil
+ . World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, d
+ ownload the simulator for this summer's world cup at http://www.worldcupbr
+ azilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140620T160000Z
+DTEND:20140620T174500Z
+LOCATION:Arena Pernambuco\, Recife\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-25
+SUMMARY:Switzerland v France
+DESCRIPTION:Switzerland v France. Group E. Arena Fonte Nova\, Salvador\, Br
+ azil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator
+ \, download the simulator for this summer's world cup at http://www.worldc
+ upbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140620T190000Z
+DTEND:20140620T204500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-26
+SUMMARY:Honduras v Ecuador
+DESCRIPTION:Honduras v Ecuador. Group E. Arena da Baixada\, Curitiba\, Braz
+ il. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\,
+  download the simulator for this summer's world cup at http://www.worldcup
+ brazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140620T220000Z
+DTEND:20140620T234500Z
+LOCATION:Arena da Baixada\, Curitiba\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-27
+SUMMARY:Argentina v Iran
+DESCRIPTION:Argentina v Iran. Group F. Estádio Mineirão\, Belo Horizonte\
+ , Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simul
+ ator\, download the simulator for this summer's world cup at http://www.wo
+ rldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140621T160000Z
+DTEND:20140621T174500Z
+LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-28
+SUMMARY:Nigeria v Bosnia and Herzegovina
+DESCRIPTION:Nigeria v Bosnia and Herzegovina. Group F. Arena Pantanal\, Cui
+ abá\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone 
+ Simulator\, download the simulator for this summer's world cup at http://w
+ ww.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140621T220000Z
+DTEND:20140621T234500Z
+LOCATION:Arena Pantanal\, Cuiabá\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-29
+SUMMARY:Germany v Ghana
+DESCRIPTION:Germany v Ghana. Group G. Estádio Castelão\, Fortaleza\, Braz
+ il. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\,
+  download the simulator for this summer's world cup at http://www.worldcup
+ brazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140621T190000Z
+DTEND:20140621T204500Z
+LOCATION:Estádio Castelão\, Fortaleza\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-30
+SUMMARY:USA v Portugal
+DESCRIPTION:USA v Portugal. Group G. Arena Amazônia\, Manaus\, Brazil. Wor
+ ld Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, downlo
+ ad the simulator for this summer's world cup at http://www.worldcupbrazila
+ pp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140622T220000Z
+DTEND:20140622T234500Z
+LOCATION:Arena Amazônia\, Manaus\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-31
+SUMMARY:Belgium v Russia
+DESCRIPTION:Belgium v Russia. Group H. Estádio do Maracanã\, Rio de Janei
+ ro\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Si
+ mulator\, download the simulator for this summer's world cup at http://www
+ .worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140622T160000Z
+DTEND:20140622T174500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-32
+SUMMARY:South Korea v Algeria
+DESCRIPTION:South Korea v Algeria. Group H. Estádio Beira-Rio\, Porto Aleg
+ re\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Si
+ mulator\, download the simulator for this summer's world cup at http://www
+ .worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140622T190000Z
+DTEND:20140622T204500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-33
+SUMMARY:Cameroon v Brazil
+DESCRIPTION:Cameroon v Brazil. Group A. Estádio Nacional Mané Garrincha\,
+  Brasília\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 i
+ Phone Simulator\, download the simulator for this summer's world cup at ht
+ tp://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140623T200000Z
+DTEND:20140623T214500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-34
+SUMMARY:Croatia v Mexico
+DESCRIPTION:Croatia v Mexico. Group A. Arena Pernambuco\, Recife\, Brazil. 
+ World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, dow
+ nload the simulator for this summer's world cup at http://www.worldcupbraz
+ ilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140623T200000Z
+DTEND:20140623T214500Z
+LOCATION:Arena Pernambuco\, Recife\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-35
+SUMMARY:Australia v Spain
+DESCRIPTION:Australia v Spain. Group B. Arena da Baixada\, Curitiba\, Brazi
+ l. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, 
+ download the simulator for this summer's world cup at http://www.worldcupb
+ razilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140623T160000Z
+DTEND:20140623T174500Z
+LOCATION:Arena da Baixada\, Curitiba\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-36
+SUMMARY:Netherlands v Chile
+DESCRIPTION:Netherlands v Chile. Group B. Arena de São Paulo\, São Paulo\
+ , Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simul
+ ator\, download the simulator for this summer's world cup at http://www.wo
+ rldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140623T160000Z
+DTEND:20140623T174500Z
+LOCATION:Arena de São Paulo\, São Paulo\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-37
+SUMMARY:Japan v Colombia
+DESCRIPTION:Japan v Colombia. Group C. Arena Pantanal\, Cuiabá\, Brazil. W
+ orld Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, down
+ load the simulator for this summer's world cup at http://www.worldcupbrazi
+ lapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140624T200000Z
+DTEND:20140624T214500Z
+LOCATION:Arena Pantanal\, Cuiabá\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-38
+SUMMARY:Greece v Ivory Coast
+DESCRIPTION:Greece v Ivory Coast. Group C. Estádio Castelão\, Fortaleza\,
+  Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simula
+ tor\, download the simulator for this summer's world cup at http://www.wor
+ ldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140624T200000Z
+DTEND:20140624T214500Z
+LOCATION:Estádio Castelão\, Fortaleza\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-39
+SUMMARY:Italy v Uruguay
+DESCRIPTION:Italy v Uruguay. Group D. Arena das Dunas\, Natal\, Brazil. Wor
+ ld Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, downlo
+ ad the simulator for this summer's world cup at http://www.worldcupbrazila
+ pp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140624T160000Z
+DTEND:20140624T174500Z
+LOCATION:Arena das Dunas\, Natal\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-40
+SUMMARY:Costa Rica v England
+DESCRIPTION:Costa Rica v England. Group D. Estádio Mineirão\, Belo Horizo
+ nte\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone S
+ imulator\, download the simulator for this summer's world cup at http://ww
+ w.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140624T160000Z
+DTEND:20140624T174500Z
+LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-41
+SUMMARY:Honduras v Switzerland
+DESCRIPTION:Honduras v Switzerland. Group E. Arena Amazônia\, Manaus\, Bra
+ zil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\
+ , download the simulator for this summer's world cup at http://www.worldcu
+ pbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140625T200000Z
+DTEND:20140625T214500Z
+LOCATION:Arena Amazônia\, Manaus\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-42
+SUMMARY:Ecuador v France
+DESCRIPTION:Ecuador v France. Group E. Estádio do Maracanã\, Rio de Janei
+ ro\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Si
+ mulator\, download the simulator for this summer's world cup at http://www
+ .worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140625T200000Z
+DTEND:20140625T214500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-43
+SUMMARY:Nigeria v Argentina
+DESCRIPTION:Nigeria v Argentina. Group F. Estádio Beira-Rio\, Porto Alegre
+ \, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simu
+ lator\, download the simulator for this summer's world cup at http://www.w
+ orldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140625T160000Z
+DTEND:20140625T174500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-44
+SUMMARY:Bosnia and Herzegovina v Iran
+DESCRIPTION:Bosnia and Herzegovina v Iran. Group F. Arena Fonte Nova\, Salv
+ ador\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone 
+ Simulator\, download the simulator for this summer's world cup at http://w
+ ww.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140625T160000Z
+DTEND:20140625T174500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-45
+SUMMARY:USA v Germany
+DESCRIPTION:USA v Germany. Group G. Arena Pernambuco\, Recife\, Brazil. Wor
+ ld Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, downlo
+ ad the simulator for this summer's world cup at http://www.worldcupbrazila
+ pp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140626T160000Z
+DTEND:20140626T174500Z
+LOCATION:Arena Pernambuco\, Recife\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-46
+SUMMARY:Portugal v Ghana
+DESCRIPTION:Portugal v Ghana. Group G. Estádio Nacional Mané Garrincha\, 
+ Brasília\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iP
+ hone Simulator\, download the simulator for this summer's world cup at htt
+ p://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140626T160000Z
+DTEND:20140626T174500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-47
+SUMMARY:South Korea v Belgium
+DESCRIPTION:South Korea v Belgium. Group H. Arena de São Paulo\, São Paul
+ o\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Sim
+ ulator\, download the simulator for this summer's world cup at http://www.
+ worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140626T200000Z
+DTEND:20140626T214500Z
+LOCATION:Arena de São Paulo\, São Paulo\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-48
+SUMMARY:Algeria v Russia
+DESCRIPTION:Algeria v Russia. Group H. Arena da Baixada\, Curitiba\, Brazil
+ . World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, d
+ ownload the simulator for this summer's world cup at http://www.worldcupbr
+ azilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140626T200000Z
+DTEND:20140626T214500Z
+LOCATION:Arena da Baixada\, Curitiba\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-49
+SUMMARY:Round of 16: Winner of Group A v Runner-up of Group B
+DESCRIPTION:Round of 16: Winner of Group A v Runner-up of Group B. Round of
+  16. Estádio Mineirão\, Belo Horizonte\, Brazil. World Cup 2014.\n\nCale
+ ndar provided by Brazil 2014 iPhone Simulator\, download the simulator for
+  this summer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140628T160000Z
+DTEND:20140628T174500Z
+LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-50
+SUMMARY:Round of 16: Winner of Group C v Runner-up of Group D
+DESCRIPTION:Round of 16: Winner of Group C v Runner-up of Group D. Round of
+  16. Estádio do Maracanã\, Rio de Janeiro\, Brazil. World Cup 2014.\n\nC
+ alendar provided by Brazil 2014 iPhone Simulator\, download the simulator 
+ for this summer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140628T200000Z
+DTEND:20140628T214500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-51
+SUMMARY:Round of 16: Winner of Group B v Runner-up of Group A
+DESCRIPTION:Round of 16: Winner of Group B v Runner-up of Group A. Round of
+  16. Estádio Castelão\, Fortaleza\, Brazil. World Cup 2014.\n\nCalendar 
+ provided by Brazil 2014 iPhone Simulator\, download the simulator for this
+  summer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140629T160000Z
+DTEND:20140629T174500Z
+LOCATION:Estádio Castelão\, Fortaleza\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-52
+SUMMARY:Round of 16: Winner of Group D v Runner-up of Group C
+DESCRIPTION:Round of 16: Winner of Group D v Runner-up of Group C. Round of
+  16. Arena Pernambuco\, Recife\, Brazil. World Cup 2014.\n\nCalendar provi
+ ded by Brazil 2014 iPhone Simulator\, download the simulator for this summ
+ er's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140629T200000Z
+DTEND:20140629T214500Z
+LOCATION:Arena Pernambuco\, Recife\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-53
+SUMMARY:Round of 16: Winner of Group E v Runner-up of Group F
+DESCRIPTION:Round of 16: Winner of Group E v Runner-up of Group F. Round of
+  16. Estádio Nacional Mané Garrincha\, Brasília\, Brazil. World Cup 201
+ 4.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download the sim
+ ulator for this summer's world cup at http://www.worldcupbrazilapp.com/sim
+ ulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140630T160000Z
+DTEND:20140630T174500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-54
+SUMMARY:Round of 16: Winner of Group G v Runner-up of Group H
+DESCRIPTION:Round of 16: Winner of Group G v Runner-up of Group H. Round of
+  16. Estádio Beira-Rio\, Porto Alegre\, Brazil. World Cup 2014.\n\nCalend
+ ar provided by Brazil 2014 iPhone Simulator\, download the simulator for t
+ his summer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140630T200000Z
+DTEND:20140630T214500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-55
+SUMMARY:Round of 16: Winner of Group F v Runner-up of Group E
+DESCRIPTION:Round of 16: Winner of Group F v Runner-up of Group E. Round of
+  16. Arena de São Paulo\, São Paulo\, Brazil. World Cup 2014.\n\nCalenda
+ r provided by Brazil 2014 iPhone Simulator\, download the simulator for th
+ is summer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140701T160000Z
+DTEND:20140701T174500Z
+LOCATION:Arena de São Paulo\, São Paulo\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-56
+SUMMARY:Round of 16: Winner of Group H v Runner-up of Group G
+DESCRIPTION:Round of 16: Winner of Group H v Runner-up of Group G. Round of
+  16. Arena Fonte Nova\, Salvador\, Brazil. World Cup 2014.\n\nCalendar pro
+ vided by Brazil 2014 iPhone Simulator\, download the simulator for this su
+ mmer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140701T200000Z
+DTEND:20140701T214500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-57
+SUMMARY:Quarter Final: Winner of Round of 16 1 v Winner of Round of 16 2
+DESCRIPTION:Quarter Final: Winner of Round of 16 1 v Winner of Round of 16 
+ 2. Quarter Final. Estádio Castelão\, Fortaleza\, Brazil. World Cup 2014.
+ \n\nCalendar provided by Brazil 2014 iPhone Simulator\, download the simul
+ ator for this summer's world cup at http://www.worldcupbrazilapp.com/simul
+ ator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140704T200000Z
+DTEND:20140704T214500Z
+LOCATION:Estádio Castelão\, Fortaleza\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-58
+SUMMARY:Quarter Final: Winner of Round of 16 5 v Winner of Round of 16 6
+DESCRIPTION:Quarter Final: Winner of Round of 16 5 v Winner of Round of 16 
+ 6. Quarter Final. Estádio do Maracanã\, Rio de Janeiro\, Brazil. World C
+ up 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download t
+ he simulator for this summer's world cup at http://www.worldcupbrazilapp.c
+ om/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140704T160000Z
+DTEND:20140704T174500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-59
+SUMMARY:Quarter Final: Winner of Round of 16 3 v Winner of Round of 16 4
+DESCRIPTION:Quarter Final: Winner of Round of 16 3 v Winner of Round of 16 
+ 4. Quarter Final. Arena Fonte Nova\, Salvador\, Brazil. World Cup 2014.\n\
+ nCalendar provided by Brazil 2014 iPhone Simulator\, download the simulato
+ r for this summer's world cup at http://www.worldcupbrazilapp.com/simulato
+ r
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140705T200000Z
+DTEND:20140705T214500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-60
+SUMMARY:Quarter Final: Winner of Round of 16 7 v Winner of Round of 16 8
+DESCRIPTION:Quarter Final: Winner of Round of 16 7 v Winner of Round of 16 
+ 8. Quarter Final. Estádio Nacional Mané Garrincha\, Brasília\, Brazil. 
+ World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, dow
+ nload the simulator for this summer's world cup at http://www.worldcupbraz
+ ilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140705T160000Z
+DTEND:20140705T174500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-61
+SUMMARY:Semi Final: Winner of Quarter Final 1 v Winner of Quarter Final 2
+DESCRIPTION:Semi Final: Winner of Quarter Final 1 v Winner of Quarter Final
+  2. Semi Final. Estádio Mineirão\, Belo Horizonte\, Brazil. World Cup 20
+ 14.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download the si
+ mulator for this summer's world cup at http://www.worldcupbrazilapp.com/si
+ mulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140708T200000Z
+DTEND:20140708T214500Z
+LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-62
+SUMMARY:Semi Final: Winner of Quarter Final 3 v Winner of Quarter Final 5
+DESCRIPTION:Semi Final: Winner of Quarter Final 3 v Winner of Quarter Final
+  5. Semi Final. Arena de São Paulo\, São Paulo\, Brazil. World Cup 2014.
+ \n\nCalendar provided by Brazil 2014 iPhone Simulator\, download the simul
+ ator for this summer's world cup at http://www.worldcupbrazilapp.com/simul
+ ator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140709T200000Z
+DTEND:20140709T214500Z
+LOCATION:Arena de São Paulo\, São Paulo\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-63
+SUMMARY:Third Place Play-Off: Loser of Semi Final 1 v Loser of Semi Final 2
+DESCRIPTION:Third Place Play-Off: Loser of Semi Final 1 v Loser of Semi Fin
+ al 2. Third Place Play-Off. Estádio Nacional Mané Garrincha\, Brasília\
+ , Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simul
+ ator\, download the simulator for this summer's world cup at http://www.wo
+ rldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140712T200000Z
+DTEND:20140712T214500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-64
+SUMMARY:Final: Winner of Semi Final 1 v Winner of Semi Final 2
+DESCRIPTION:Final: Winner of Semi Final 1 v Winner of Semi Final 2. Final. 
+ Estádio do Maracanã\, Rio de Janeiro\, Brazil. World Cup 2014.\n\nCalend
+ ar provided by Brazil 2014 iPhone Simulator\, download the simulator for t
+ his summer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140713T190000Z
+DTEND:20140713T204500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
+END:VCALENDAR

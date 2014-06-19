@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title>CS 424 Project 1</title>
+  </head>
+  <body style=" color: white; background-color: black;" alink="#ff2200"
+    link="yellow" vlink="#00aaff">
+    <h1 style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);">Project 1<br>
+    </h1>
+    <h2 style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);"><span style="font-weight: bold;">Electric Avenue</span><br>
+    </h2>
+    <p style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);">Project due 9/24 at 9 pm Chicago time<br>
+    </p>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);"><span
+      style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);"><br>
+    </span>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);">Project 1
+      will be an individual project to give people practice with writing
+      an application in Processing for the wall and get everyone ready
+      to contribute to the group projects to come. In this project
+      everyone will learn how to get data into processing, how to write
+      an interactive processing application, how to create an effective
+      user interface for viewing and analyzing this data, and make this
+      work on our classroom touch-wall. This will give everyone a common
+      basis for communication in the later group projects where people
+      will most likely specialize in different tasks.<br>
+      <br>
+      The project will make use of data from the US Energy Information
+      Administration for the years 1980 through 2009.<br>
+      <br>
+      The data is available from <a
+        href="http://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">http://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm</a><br>
+      <div style="text-align: justify;"><br>
+        We are interested in looking at the following data<br>
+        <br>
+        <ul>
+          <li>Total primary energy production (under Total Energy)<br>
+            <br>
+          </li>
+          <li>Total primary energy consumption (under Total Energy)</li>
+          <li>Total primary energy consumption per capita (under Total
+            Energy Consumption, use the product drop-down menu)<br>
+            <br>
+          </li>
+          <li>Total carbon dioxide emissions from the consumption of
+            Energy (under Indicators, under CO2 Emissions)<br>
+          </li>
+          <li>Per capita carbon dioxide emissions from the consumption
+            of Energy (under Indicators, under CO2 Emissions, use the
+            Product drop-down menu)<br>
+            <br>
+          </li>
+          <li>Total renewables electricity generation (under Renewables,
+            under Electricity Generation)<br>
+          </li>
+        </ul>
+        <br>
+        We want to investigate how these values change over time, and
+        look at differences among countries and regions of the world<br>
+        <br>
+      </div>
+      <hr style="width: 100%; height: 2px; margin-left: 0px;
+        margin-right: 0px;">
+      <div style="text-align: justify;"><br>
+        You will be writing your code to run on the wall in the
+        classroom. Solutions that only run on your laptop computer are
+        not acceptable. <br>
+        <br>
+        Details on the Cyber-Commons wall:<br>
+        <ul>
+          <li> The wall is 8160 pixels wide x 2304 pixels tall</li>
+          <li> The computer running the wall is running SUSE-12.1 and
+            Processing 2.0a8.</li>
+        </ul>
+      </div>
+      <hr style="width: 100%; height: 2px;"><br>
+      Your visualization and analysis tool should be written in
+      Processing. As this is primarily a graph-based visualization, the
+      Milk / Tea / Coffee example should give you a nice head start on
+      this. As graphs are a very common visualization this will give you
+      a chance to write a set of graphing code that you can reuse and
+      improve in future assignments.<br>
+      <br>
+      You should start by getting processing installed and doing some
+      initial tests to load in the data and start displaying it. The
+      examples from the Visualizing Data text, many of which are
+      included as examples in Processing itself, are a good starting
+      point.<br>
+      <br>
+      You will also need to grab the code we use to interface with the
+      wall and its touch-screen. This code makes use of new routines
+      instead of the standard mouse routines from Processing. See the
+      week 2 notes for the google code <br>
+      <br>
+      Processing is a multi-platform language but there are some
+      differences on different platforms so be sure to test your code
+      and make sure that it runs under the same OS as the wall;
+      VirtualBox is a pretty nice free emulation solution you may want
+      to look into. You may also want to stop by during TA office hours
+      and test your code on the actual wall to make sure it works, that
+      all the controls and reachable, and that the font sizes, line
+      sizes, and colors are appropriate for that size screen and that
+      size room. I highly suggest using scaling factors in your code so
+      you can scale your solutions from desktop/laptop screen sizes for
+      debugging up to wall sizes for your final presentation.<br>
+      <br>
+      Once you have a basic shell working you should then start to draw
+      some sketches of what the interface might look like and how you
+      want to arrange and display the data. You can use other software
+      to generate statistics about the data if you find that useful but
+      be sure to document that process. Be careful of missing data when
+      you generate statistics. <br>
+      <br>
+      Your application should start out showing some data - a blank
+      screen is not very inviting. In past terms the students have shown
+      a desire to show an overwhelming amount of the data to the user
+      right away. You should be careful not to overwhelm the user. As
+      Schneiderman said "overview first, zoom and filter, details on
+      demand." Appropriate levels of aggregating data will be very
+      important here. <br>
+      <br>
+      It is also important to note that 'getting it to work' is just a
+      prerequisite to using the application to find answers to your
+      questions. It is that usage that will give you ideas on how to
+      improve your app to make it easier and more intuitive to find
+      those things.<br>
+      <br>
+      <hr style="width: 100%; height: 2px;"><br style="color: rgb(255,
+        255, 255);">
+      <span style="color: rgb(255, 255, 255);">The application you
+        create should help the user perform the following tasks:</span><br>
+      <ul>
+        <li>see changes in total world energy production and consumption
+          since 1980</li>
+        <li>see changes in total Co2 emissions from the consumption of
+          energy since 1980</li>
+        <li>see changes in total renewable energy generation since 1980</li>
+        <li>see data in absolute terms and per capita terms</li>
+        <li>see how a particular country or region of the world
+          contributes to those totals</li>
+        <li>compare particular countries or regions of the world to
+          other countries or regions of the world</li>
+        <li>cluster the data by decade as well as region</li>
+        <li>select regions of the world from a map</li>
+        <li>select countries or regions by typing the name of that
+          country or region with intelligent filtering and autocomplete</li>
+        <li>relate this information to world events that may have had an
+          affect on it</li>
+        <li>relate this data to population information</li>
+      </ul>
+      <br>
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif; color:
+      rgb(255, 255, 255);"> </span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);"><span
+      style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);"></span><br style="font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);"><br>
+      <span style="font-weight: bold; text-decoration: underline;">For a
+        C you need ...</span><br>
+      <ul>
+      </ul>
+      <ul>
+        <li>be able to view any of the data sets</li>
+        <li>choose which data set through a convenient interface to view
+          for the entire time range<br>
+        </li>
+        <li>see the data in graphical and tabular form</li>
+        <li>see data as totals, per-capita, and percentages</li>
+        <li>be able to pick a country or region and see the data for
+          that country or region and how it relates to the total</li>
+        <li>select countries or regions by typing their name with
+          intelligent help (filtering, auto-complete)</li>
+        <li>help screen and author credits screen<br>
+        </li>
+      </ul>
+      <br style="font-weight: bold;">
+      <span style="font-weight: bold; text-decoration: underline;">For a
+        B you need to add ...</span><br>
+      <br>
+      <ul>
+        <li>compare two or more countries or regions for the same data
+          set</li>
+        <li>compare two or more data sets for the same country or region</li>
+        <li>cluster the data by decade </li>
+        <li>choose a range of years to view</li>
+        <li>select regions from a map</li>
+        <li>create an onscreen keyboard for text entry<br>
+        </li>
+        <li>deal intelligently with countries that form or break up</li>
+      </ul>
+      <br>
+      <span style="font-weight: bold; text-decoration: underline;">For
+        an A you need to add ...</span><br>
+      <br>
+      <ul>
+        <li>integrate population data since 1980 <br>
+        </li>
+        <li>integrate international events that may affect this data to
+          look for correlations</li>
+        <li>discuss five interesting findings or evidence to support
+          conclusions using the interface</li>
+      </ul>
+      <ul>
+      </ul>
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif; color:
+      rgb(255, 255, 255);"> </span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);"><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">You should create a set of web
+        pages that describe your work on the project. This should
+        include:</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"> </span> </div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>1 page on how to use your application and the things you can
+        do with it. </li>
+      <li>1 page on the data you used including where you got it, what
+        you did to it.<br>
+      </li>
+      <li>1 page with links to the source code and any instructions
+        necessary to install and run it. These instructions should start
+        from the assumption that the reader has a web browser on their
+        computer and tell the user everything else he/she needs to know
+        to get the code and get it running.<br>
+      </li>
+      <li>1 page on what interesting things you found using your
+        application.</li>
+    </ul>
+    <div style="text-align: justify;"> <span style="font-family:
+        Helvetica,Arial,sans-serif;">all of which should have plenty of
+        screenshots with meaningful captions. </span><span
+        style="font-family: Helvetica,Arial,sans-serif;">Web pages like
+        this can be very helpful later on in helping you build up a
+        portfolio of your work when you start looking for a job so
+        please put some effort into it.</span><br>
+      <br>
+      <font color="#ffff00" face="Helvetica, Arial, sans-serif">Be sure
+        to document any external libraries or tools that you make use of
+        - give credit where credit is due.</font><br>
+      <br>
+      <font color="#ffff00" face="Helvetica, Arial, sans-serif">For some
+        examples of good web pages please see:<br>
+      </font>
+      <ul>
+        <li><font color="#ffff00" face="Helvetica, Arial, sans-serif">https://sites.google.com/site/jaurisano/portfolio/vis1</font></li>
+        <li><font color="#ffff00" face="Helvetica, Arial, sans-serif">https://sites.google.com/site/cs424g7proj3/home</font></li>
+        <li><font color="#ffff00" face="Helvetica, Arial, sans-serif">https://sites.google.com/site/p4cs424/home</font></li>
+      </ul>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><font
+        face="Helvetica, Arial, sans-serif"><br>
+        <span style="font-family: Helvetica,Arial,sans-serif;"> You
+          should also create a 2-3 minute YouTube video showing the use
+          of your application including narration with decent audio
+          quality. That video should be in a very obvious place on your
+          main project web page. The easiest way to do this is to use a
+          screen-capture tool while interacting with a scaled-down
+          version of the application, though you will most likely find
+          its useful to do some editing afterwards to tighten the video
+          up. Its also a good idea to have a video like this available
+          as a backup during your presentation just in case of gremlins.</span></font>
+      <font face="Helvetica, Arial, sans-serif"> For the future group
+        assignments you may want to shoot this video on the wall itself.</font><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">The web
+        page including screen snapshots and video need to be done by the
+        deadline so be sure to leave enough time to get that work done.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"> I will be
+        linking your web page to the course notes so please send me a
+        nice 1280 x 361 jpeg image of your visualization for the web.
+        This should be named
+        p1.&lt;your_last_name&gt;.&lt;your_first_name&gt;.jpg.&nbsp; </span><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">Each
+        student will show his / her visualization to the cla<font
+          face="Helvetica, Arial, sans-serif">ss on the wall and
+          describe its features. This allows everyone to see a variety
+          of solutions to the problem, and a variety of implementations.</font></span><font
+        face="Helvetica, Arial, sans-serif"> Rehearse your presentation
+        ... several times.</font><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+    </div>
+    <span style="font-family: Helvetica,Arial,sans-serif; color:
+      rgb(255, 255, 255);"><br>
+    </span>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);"><span
+      style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);"></span>
+    <hr style="font-family: Helvetica,Arial,sans-serif; color: rgb(255,
+      255, 255);"><span style="font-family: Helvetica,Arial,sans-serif;
+      color: rgb(255, 255, 255);">last revision 9/05/12 - <font
+        color="#ffff00">added links to good examples of project web
+        pages, and a line about crediting external libraries used</font></span>
+  </body>
+</html>

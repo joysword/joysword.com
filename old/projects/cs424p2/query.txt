@@ -1,0 +1,190 @@
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "vampire",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where (k.keyword="vampire" or k.keyword="vampire-slayer" or k.keyword="vampire-hunter" or k.keyword="vampire-bat" or k.keyword="vampire-bite" or k.keyword="vampire-human-love" or k.keyword="vampire-vs-vampire" or k.keyword="chinese-vampire" or k.keyword="child-vampire" or k.keyword="vampire-human-relationship" or k.keyword="master-vampire" or k.keyword="vampire-sex" or k.keyword="vampire-cult" or k.keyword="vampire-driving-a-car" or k.keyword="bisexual-vampire" or k.keyword="vampire-versus-werewolf" or k.keyword="vampire-girl" or k.keyword="space-vampire" or k.keyword="bitten-by-a-vampire" or k.keyword="ancient-vampire" or k.keyword="gay-vampire" or k.keyword="vampire-staked" or k.keyword="sex-vampire" or k.keyword="vampire-teeth" or k.keyword="erotic-vampire" or k.keyword="male-vampire" or k.keyword="vampire-cop" or k.keyword="taoist-vampire" or k.keyword="turning-into-a-vampire" or k.keyword="vampire-spoof" or k.keyword="vampire-cowboy" or k.keyword="vampire-blood" or k.keyword="fang-free-vampire" or k.keyword="vampire-driving-car" or k.keyword="vampire-family" or k.keyword="pregnant-vampire" or k.keyword="vampire-legend" or k.keyword="vampire-doctor" or k.keyword="vampire-in-coma" or k.keyword="vampire-kill" or k.keyword="death-of-vampire" or k.keyword="vampire-nation" or k.keyword="vampire-bar" or k.keyword="experimenting-on-a-vampire" or k.keyword="noble-vampire" or k.keyword="suicidal-vampire" or k.keyword="vampire-army" or k.keyword="vampire-experiment" or k.keyword="vampire-soldier" or k.keyword="world-of-vampires" or k.keyword="zombie-cannibal-vampire-pirate-queen" or k.keyword="psychic-vampire" or k.keyword="nazi-vampire" or k.keyword="strong-vampire" or k.keyword="swedish-vampire" or k.keyword="vampire-suit" or k.keyword="vampire-couple" or k.keyword="vampire-hunt" or k.keyword="vampire-maker" or k.keyword="reference-to-buffy-the-vampire-slayer" or k.keyword="teenage-vampire" or k.keyword="half-vampire" or k.keyword="vampire-band" or k.keyword="vampire-killed-by-daylight" or k.keyword="vampire-queen" or k.keyword="vampire-detective" or k.keyword="energy-vampire" or k.keyword="flying-vampire" or k.keyword="newborn-vampire" or k.keyword="blood-drained-by-vampires")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "female_vampire",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="female-vampire" or k.keyword="lesbian-vampire" or k.keyword="vampire_girl" or k.keyword="vampire_queen")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "dracula",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="dracula")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "zombie",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="zombie" or k.keyword="flesh-eating-zombie" or k.keyword="zombie-violence" or k.keyword="zombie-attack" or k.keyword="zombie-survival" or k.keyword="zombie-child" or k.keyword="flesh-eating-zombies" or k.keyword="zombie-spoof" or k.keyword="zombification" or k.keyword="nazi-zombie" or k.keyword="zombie-love" or k.keyword="zombie-hunter" or k.keyword="zombie-bite" or k.keyword="sex-with-a-zombie" or k.keyword="zombie-sexuality" or k.keyword="zombie-parody" or k.keyword="zombie-with-gun" or k.keyword="zombie-slave" or k.keyword="zombie-apocalypse" or k.keyword="human-eaten-by-zombies" or k.keyword="zombie-baby" or k.keyword="zombie-soldiers" or k.keyword="zombie-master" or k.keyword="zombie-walk" or k.keyword="lesbian-zombie" or k.keyword="zombie-horse" or k.keyword="zombie-clown" or k.keyword="underwater-nazi-zombie" or k.keyword="zombie-survival-guide" or k.keyword="zombie-outbreak" or k.keyword="gay-zombie" or k.keyword="zombie-uprising" or k.keyword="zombie-jesus" or k.keyword="smart-zombies" or k.keyword="marine-zombie" or k.keyword="alien-zombie" or k.keyword="reference-to-zombies" or k.keyword="man-made-zombie" or k.keyword="zombie-bride" or k.keyword="zombie-groom" or k.keyword="zombie-like-trance" or k.keyword="zombie-showgirl" or k.keyword="kung-fu-zombie" or k.keyword="zombie-nun" or k.keyword="the-zombie-walk" or k.keyword="zombie-plan" or k.keyword="zombie-video" or k.keyword="zombie-walk-2011" or k.keyword="zombie-walk-2012" or k.keyword="zombie-walk-long-beach" or k.keyword="zombie-walk-pittsburgh" or k.keyword="zombies-movie" or k.keyword="zombie-cannibal-vampire-pirate-queen" or k.keyword="old-lady-zombie" or k.keyword="russian-zombie-movie" or k.keyword="animated-zombie-horror" or k.keyword="chained-zombie" or k.keyword="exploding-zombie" or k.keyword="zombie-city" or k.keyword="running-zombie" or k.keyword="nerdy-zombie" or k.keyword="bitten-by-a-zombie" or k.keyword="child-zombie" or k.keyword="shark-attacked-by-a-zombie" or k.keyword="shark-bitten-by-a-zombie")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "frankenstein",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="frankenstein" or k.keyword="frankenstein's-monster" or k.keyword="doctor-frankenstein" or k.keyword="frankenstein-legend" or k.keyword="frankenstein-baby"
+)
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "witch-wizards",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="wizard" or k.keyword="evil-wizard" or k.keyword="wizard-of-oz" or k.keyword="wizards'-duel" or k.keyword="magician" or k.keyword="stage-magician" or k.keyword="merlin-the-magician" or k.keyword="evil-magician" or k.keyword="mad-magician" or k.keyword="black-magician" or k.keyword="female-magician" or k.keyword="white-magician" or k.keyword="mysto-the-magician" or k.keyword="magician-hero" or k.keyword="sorcerer" or k.keyword="evil-sorcerer" or k.keyword="gilbert-and-sullivan's-the-sorcerer" or k.keyword="simon-the-sorcerer" or k.keyword="witch" or k.keyword="witch-doctor" or k.keyword="evil-witch" or k.keyword="wicked-witch" or k.keyword="honey-halfwitch" or k.keyword="sea-witch" or k.keyword="witches-horror" or k.keyword="bell-witch" or k.keyword="flying-witch" or k.keyword="blair-witch" or k.keyword="salem-witch-hunt" or k.keyword="witch's-revenge" or k.keyword="preteenage-witch" or k.keyword="witches-sabbath")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "invisible-man",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="invisible-man" or k.keyword="invisible-being" or k.keyword="invisible-woman" or k.keyword="invisible-being-makes-fotoprint" or k.keyword="invisible-creature" or k.keyword="invisible-girl" or k.keyword="invisible-companion")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "michael-myers",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="michael-myers")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "freddy-krueger",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="freddy-krueger")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "swamp",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword= "swamp-thing" or k.keyword="swamp-monster" or k.keyword="swamp-beast" or k.keyword="swamp-creature")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "jason-voorhees",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword= "jason-voorhees")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "godzilla",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword= "godzilla" or k.keyword="mechagodzilla")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "muted-creatures",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="teenage-mutant-ninja-turtles" or k.keyword="mutant-animal" or k.keyword="mutant-creature" or k.keyword="mutant-dog" or k.keyword="genetic-mutant" or k.keyword="mutant-reptile" or k.keyword="mutant-amphibian" or k.keyword="bitten-by-a-mutant" or k.keyword="mutant-spider" or k.keyword="mutant-baboon" or k.keyword="mutant-registration-act" or k.keyword="mutant-plant" or k.keyword="strategically-altered-mutant" or k.keyword="os-mutantes" or k.keyword="giant-mutant-koala-bear" or k.keyword="mutant-lizard" or k.keyword="liver-eating-mutant")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "giant",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="giant-monster" or k.keyword="giant-animal" or k.keyword="giant-insect" or k.keyword="giant-spider" or k.keyword="giant-snake" or k.keyword="giant-squid" or k.keyword="giant-bird" or k.keyword="giant-lizard" or k.keyword="giant-cat" or k.keyword="giant-octopus" or k.keyword="giant-worm" or k.keyword="giant-crab" or k.keyword="giant-crocodile" or k.keyword="giant-rat" or k.keyword="giant-creature" or k.keyword="giant-dog" or k.keyword="giant-fish" or k.keyword="giant-chicken" or k.keyword="giant-bug" or k.keyword="giant-invertebrate" or k.keyword="giant-bat" or k.keyword="giant-lobster" or k.keyword="giant-scorpion" or k.keyword="giant-frog" or k.keyword="giant-insect-larva" or k.keyword="giant-insect-egg" or k.keyword="giant-lollipop" or k.keyword="giant-condor" or k.keyword="giant-bee" or k.keyword="giant-mouse" or k.keyword="giant-centipede" or k.keyword="giant-mosquito" or k.keyword="giant-snail" or k.keyword="giant-rabbit" or k.keyword="giant-web")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "werewolf",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where (k.keyword="werewolf" or k.keyword="female-werewolf" or k.keyword="werewolf-bite" or k.keyword="vampire-versus-werewolf" or k.keyword="werewolf-transformation" or k.keyword="werewolf-family" or k.keyword="killed-by-a-werewolf" or k.keyword="werewolf-killer" or k.keyword="teenage-werewolf" or k.keyword="scratched-by-werewolf" or k.keyword="werewolf-doll" or k.keyword="werewolf-shot" or k.keyword="werewolf-pack-leader" or k.keyword="bitten-by-a-werewolf" or k.keyword="alpha-werewolf" or k.keyword="werewolf-human-relationship" or k.keyword="male-werewolf")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "ghost",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where (k.keyword="ghost" or k.keyword="ghost-girl" or k.keyword="ghost-child" or k.keyword="vengeful-ghost" or k.keyword="ghost-writer" or k.keyword="ghost-ship" or k.keyword="ghost-in-mirror" or k.keyword="ghost-hunter" or k.keyword="sex-with-ghost" or k.keyword="ghost-in-the-shell" or k.keyword="female-ghost" or k.keyword="ghost-boy" or k.keyword="ghosts" or k.keyword="ghost-house-underground" or k.keyword="ghostbuster" or k.keyword="ghostbusters" or k.keyword="ghost-hunting" or k.keyword="male-ghost" or k.keyword="seeing-ghosts" or k.keyword="ghost-train" or k.keyword="ghost-of-mother" or k.keyword="talking-to-a-ghost" or k.keyword="seeing-a-ghost" or k.keyword="ghost-of-father" or k.keyword="ghost-dog" or k.keyword="ghost-of-wife" or k.keyword="scared-ghost" or k.keyword="ghost-riding" or k.keyword="ghost-rider" or k.keyword="ghost-in-a-mirror" or k.keyword="child-ghost" or k.keyword="mistaken-for-ghost" or k.keyword="menacing-ghost" or k.keyword="ghost-of-baby" or k.keyword="disguised-as-a-ghost" or k.keyword="killed-by-ghost" or k.keyword="ghost-on-video" or k.keyword="invisible-daylight-ghosts" or k.keyword="playful-ghost" or k.keyword="sexy-ghost" or k.keyword="holy-ghost" or k.keyword="ghost-human-relationship" or k.keyword="baby-ghost" or k.keyword="ghost-cage" or k.keyword="ghosts-japan" or k.keyword="tiger-ghost" or k.keyword="ghost-of-covered-up-murder-victim" or k.keyword="ghost-in-elevator" or k.keyword="ghost-against-ghost" or k.keyword="ghost-of-ancestor" or k.keyword="bull-ghost" or k.keyword="friendly-ghost" or k.keyword="ghost-tour" or k.keyword="monkey-ghost" or k.keyword="boy-ghost" or k.keyword="headless-ghost-knight" or k.keyword="ghost-of-grandfather" or k.keyword="ghostbusting" or k.keyword="haunted-by-a-ghost" or k.keyword="mistaken-for-a-ghost" or k.keyword="ghost-as-friend" or k.keyword="ghost-ranch-new-mexico" or k.keyword="silver-ghost" or k.keyword="ghost-investigators" or k.keyword="former-ghostbuster" or k.keyword="ghost-car" or k.keyword="ghost-in-the-machine" or k.keyword="ghost-sickness")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "mutants",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where (k.keyword="mutant" or k.keyword="mutant-baby" or k.keyword="mutant-human" or k.keyword="mutant-woman" or k.keyword="woman-mutant")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "mr-hyde",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="jekyll-and-hyde")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "shark",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="shark")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "snake",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="snake")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "supernatural",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="supernatural-horror" or k.keyword="supernatural-being" or k.keyword="supernatural-murderer" or k.keyword="supernatural-creature")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "demon",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="demon" or k.keyword="demonic-possession" or k.keyword="demon-rape" or k.keyword="demon-hunter" or k.keyword="demoness" or k.keyword="demonic" or k.keyword="demon-spawn" or k.keyword="inner-demon" or k.keyword="female-demon" or k.keyword="demonic-spirit" or k.keyword="impregnated-by-demon" or k.keyword="horned-demon" or k.keyword="balan-the-demon" or k.keyword="shadow-demon" or k.keyword="demon-lady" or k.keyword="impish-demon" or k.keyword="rogue-demon-hunter" or k.keyword="giant-demon")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+insert into budget_count(monster,genre,year,clustered_by,count)
+select "mummy",mi1.info,t.production_year,mi2.info,count(mk.movie_id)
+from keyword k, movie_keyword mk, title t, movie_info mi1, movie_info mi2
+where ( k.keyword="mummy")
+and k.id=mk.keyword_id and t.id=mk.movie_id and mi1.movie_id=t.id and mi2.movie_id=t.id and mi1.info_type_id=3 and
+mi2.info_type_id=105
+group by t.production_year,mi1.info,mi2.info;
+
+
+
+

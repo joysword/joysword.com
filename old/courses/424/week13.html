@@ -1,0 +1,823 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title>CS 424 Week 13</title>
+  </head>
+  <body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+    vlink="#00aaff">
+    <h1><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Week 13<br>
+      </font></h1>
+    <h2><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Visual Analytics<br>
+      </font></h2>
+    <p> </p>
+    <hr style="width: 100%; height: 2px;">
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">We've talked about various pieces
+        of visual analytics throughout the course - this brings all of
+        that together into a process.</span><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+    </div>
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">The bible of the field is James J.
+        Thomas and Kristin A. Cook. Illuminating the Path: The Research
+        and Development Agenda for Visual Analytics. IEEE Computer
+        Society, 2005. ISBN: 0-7695-2323-4. <a
+          href="http://nvac.pnl.gov/agenda.stm">[Available online as a
+          free PDF.]</a></span><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">A much
+        shorter overview whitepaper from the University of Konstanz: </span><a
+        style="font-family: Helvetica,Arial,sans-serif;"
+        href="http://infovis.uni-konstanz.de/papers/2009/edbs2008.pdf">http://infovis.uni-konstanz.de/papers/2009/edbs2008.pdf</a><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">"Visual Analytics is the science of
+        analytical reasoning facilitated by interactive visual
+        interfaces. People use visual analytics tools and techniques to
+        synthesize information and derive insight from massive, dynamic,
+        ambiguous, and often conflicting data, provide timely,
+        defensible, and understandable assessments; and communicate
+        assessment effectively for action. The overall goal is to detect
+        the expected and discover the unexpected. "<br>
+        <br>
+        The goal of visual analytics is to facilitate this analytical
+        reasoning process through the creation of software that
+        maximizes human capacity to perceive, understand, and reason
+        about complex and dynamic data and situations.<br>
+        <br>
+        It must build upon an understanding of the reasoning process, as
+        well as an understanding of underlying cognitive and perceptual
+        principles, to provide mission-appropriate interactions that
+        allow analysts to have a true discourse with their information.
+        The goal is to facilitate high-quality human judgment with a
+        limited investment of the analysts&#8217; time.<br>
+        <br>
+        Here are a couple diagrams from the Konstanz whitepaper:<br>
+        <br>
+      </span><img style="width: 400px; height: 262px;"
+        src="pics/week13/k1.jpg" alt=""><br>
+      <br>
+      <img style="width: 400px; height: 237px;" src="pics/week13/k2.jpg"
+        alt=""><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+        <br>
+        Visual analytics is a multidisciplinary field that includes the
+        following focus areas:<br>
+      </span>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="font-weight: bold; text-decoration: underline;">Data
+representations
+
+
+
+              and transformations</span> that convert all types of
+            conflicting and dynamic data in ways that support
+            visualization and analysis</span><span style="font-family:
+            Helvetica,Arial,sans-serif;"><span style="font-weight: bold;
+              text-decoration: underline;"></span></span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="font-weight: bold; text-decoration: underline;">Visual
+representations
+
+
+
+              and interaction techniques</span> that take advantage of
+            the human eye&#8217;s broad bandwidth pathway into the mind to
+            allow users to see, explore, and understand large amounts of
+            information at once</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"></span><span
+            style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="font-weight: bold; text-decoration: underline;">Analytical
+reasoning
+
+
+
+              techniques</span> that enable users to obtain deep
+            insights that directly support assessment, planning, and
+            decision making</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="font-weight: bold; text-decoration: underline;">Techniques
+
+
+
+              to support production, presentation, and dissemination</span><span
+              style="font-family: Helvetica,Arial,sans-serif;"> of the
+              results of an analysis to communicate</span></span></li>
+      </ul>
+      <span style="font-family: Helvetica,Arial,sans-serif;">An analysis
+        session is a <span style="font-weight: bold; text-decoration:
+          underline;">dialogue</span> between the analyst and the data
+        where the visual representation is the interface into the data.
+      </span><br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;">The use of
+        visual representations and interactions to accelerate rapid
+        insight into complex data is what distinguishes visual analytics
+        software from other types of analytical tools. Visual
+        representations translate data into a visible form that
+        highlights important features, including commonalities and
+        anomalies. These visual representations make it easy for users
+        to perceive salient aspects of their data quickly. Augmenting
+        the cognitive reasoning process with perceptual reasoning
+        through visual representations permits the analytical reasoning
+        process to become faster and more focused.</span><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">Visual
+        representations invite the user to explore his or her data. This
+        exploration requires that the user be able to interact with the
+        data to understand trends and anomalies, isolate and reorganize
+        information as appropriate, and engage in the analytical
+        reasoning process. It is through these interactions that the
+        analyst achieves insight.<br>
+        <br style="font-family: Helvetica,Arial,sans-serif;">
+      </span><span style="font-family: Helvetica,Arial,sans-serif;"></span><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">Analysts
+        may be asked to perform several different types of tasks:</span><br
+        style="font-family: Helvetica,Arial,sans-serif;">
+      <ul style="font-family: Helvetica,Arial,sans-serif;">
+        <li><span style="font-weight: bold;">Assess </span>&#8211; Understand
+          the current world around them and explain the past. <br>
+        </li>
+        <li><span style="font-weight: bold;">Forecast</span> &#8211; Estimate
+          future capabilities, threats, vulnerabilities, and
+          opportunities.</li>
+        <li><span style="font-weight: bold;">Develop Options </span>&#8211;
+          Evaluate multiple reactions to potential events and assess
+          their effectiveness and implications. </li>
+      </ul>
+      <br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+        Steps in the Analytical Process<br>
+      </span>
+      <ol>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Determine
+how
+
+
+
+            to address the issue that has been posed, what resources to
+            use, and how to allocate time to various parts of the
+            process to meet deadlines. </span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Gather
+information
+
+
+
+            containing the relevant evidence and become familiar with
+            it, and incorporate it with the knowledge he or she already
+            has. </span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Generate
+multiple
+
+
+
+            candidate hypotheses. </span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">Evaluate
+these
+
+
+
+            alternative explanations in light of evidence and
+            assumptions to reach a judgment about the most likely
+            explanations or outcomes. </span></li>
+        <li style="font-family: Helvetica,Arial,sans-serif;">Consider
+          alternative explanations that were not previously considered.</li>
+        <li style="font-family: Helvetica,Arial,sans-serif;">Create
+          reports, presentations, or other products that summarize the
+          analytical judgments. These products summarize the judgments
+          made and the supporting reasoning that was developed, and the
+          uncertainties that remain during the analytical process. These
+          products can then be shared with others.<br>
+        </li>
+      </ol>
+    </div>
+    <br>
+    <h3 style="font-family: Helvetica,Arial,sans-serif; font-weight:
+      normal;"><span style="font-weight: normal;"></span></h3>
+    <div style="text-align: justify;"><span style="font-weight: normal;
+        font-family: Helvetica,Arial,sans-serif;">Analysts must deal
+        with data that is dynamic, incomplete, often deceptive, and</span><span
+        style="font-weight: normal;"><span style="font-family:
+          Helvetica,Arial,sans-serif;"> evolving and they often must
+          come to conclusions within a limited period of time.</span></span><br>
+      <span style="font-weight: normal;"></span></div>
+    <span style="font-weight: normal;"></span><br>
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Analysis products are expected to
+        clearly communicate the assessment or forecast, the evidence on
+        which it is based, knowledge gaps or unknowns, the analyst&#8217;s
+        degree of certainty in the judgment, and any significant
+        alternatives and their indicators.</span><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+    </div>
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Visual analytics systems must
+        capture this information and facilitate its presentation in ways
+        that meet the needs of the recipient of the information.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><span
+        style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"> </span>
+      <hr style="width: 100%; height: 2px;"><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">Its very
+        important to quickly identify competing explanations and chains
+        of reasoning for the issue under study and actively maintain
+        awareness of those competing idea so that they are kept &#8220;alive&#8221;</span><span
+        style="font-family: Helvetica,Arial,sans-serif;"> as analytic
+        possibilities. </span><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">Often the
+        most plausible explanation will be researched extensively,
+        analysts should always revisit the key alternatives. </span><span
+        style="font-family: Helvetica,Arial,sans-serif;">Visual
+        analytics tools must facilitate the analyst&#8217;s task of actively
+        considering competing hypotheses.</span><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">Another
+        important analytic technique is the enumeration and testing of
+        assumptions.</span><span style="font-family:
+        Helvetica,Arial,sans-serif;"> Explicit representation of these
+        assumptions facilitates this process. <br>
+      </span><span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      </span>
+      <hr style="width: 100%; height: 2px;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"><br>
+        want 'constant' feedback from the visualization application:<br>
+        <br>
+        ~100 milliseconds. Bare minimum update rate to perceive smooth
+        animation (50 ms is a better minimum) <br>
+        <br>
+        ~1 second. Simple user actions (bringing up a menu, making a
+        menu selection, etc) should get a response or some feedback
+        (progress bar appears) within this time. <br>
+        <br>
+        ~10 seconds. More complex user actions </span><span
+        style="font-family: Helvetica,Arial,sans-serif;">(generating a
+        new view of the data, doing a complex query) should get a
+        response or some feedback (progress bar appears) within this
+        time. <br>
+      </span><span style="font-family: Helvetica,Arial,sans-serif;"><br>
+        ~100 seconds (minutes to hours). Higher level reasoning
+        processes, including the analytic reasoning take place in this
+        time frame.</span><br>
+      <br>
+      <hr style="width: 100%; height: 2px;"> <span style="font-weight:
+        normal; font-family: Helvetica,Arial,sans-serif;"><br>
+        Issues with streaming data</span><br style="font-weight: normal;
+        font-family: Helvetica,Arial,sans-serif;">
+      <ol>
+        <li><span style="font-weight: normal; font-family:
+            Helvetica,Arial,sans-serif;">Provide situational awareness
+            for data streams.</span></li>
+        <li><span style="font-weight: normal; font-family:
+            Helvetica,Arial,sans-serif;">Show changes in the state of
+            the system and help users identify when the changes are
+            significant.</span></li>
+        <li><span style="font-weight: normal; font-family:
+            Helvetica,Arial,sans-serif;">Fuse various types of
+            information to provide an integrated view of the
+            information.<br>
+            <br>
+          </span></li>
+      </ol>
+      <font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">
+      </font>
+      <hr>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif"><br>
+          One part of this process that we haven't talked much about is
+          the reporting phase - taking the results of an analysis and
+          presenting them to the target audience.<br>
+          <br>
+        </font></p>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif">Discussion of the
+          Challenger disaster with refs from Tufte's "Visual
+          Explanations." <br>
+        </font></p>
+      <p style="text-align: justify;"><span style="font-family:
+          Helvetica,Arial,sans-serif;">The Challenger example gets
+          talked about a lot in terms of ethics and responsibility and
+          there are various views on the topic. One lengthy critique of
+          Tufte's conclusions (which brings up several very important
+          points but also reads into Tufte's work an attitude that I do
+          not feel while reading it) is given here:</span><br
+          style="font-family: Helvetica,Arial,sans-serif;">
+        <a href="http://www.onlineethics.org/cms/17453.aspx"><span
+            style="font-family: Helvetica,Arial,sans-serif;">http://www.onlineethics.org/cms/17453.aspx</span></a><br>
+        <br>
+      </p>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif"><span style="font-family:
+            Helvetica,Arial,sans-serif;">Just for reference, here is a
+            photo of Atlantis on the launch pad:</span></font></p>
+      <p style="text-align: justify;"><img style="width: 400px; height:
+          597px;" src="pics/week13/atlantis.jpg" alt="Space Shuttle
+          Atlantis photo"></p>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif"><span style="font-family:
+            Helvetica,Arial,sans-serif;">The engineers at Morton Thiokol
+            who designed the solid rocket boosters for the shuttle
+            opposed the launch&nbsp; of Challenger and faxed 13 diagrams
+            to NASA management to make their case - they failed in large
+            part because of what information they chose to present and
+            the way they presented that information, but also because of
+            time and information constraints.<br>
+          </span></font></p>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif"><span style="font-family:
+            Helvetica,Arial,sans-serif;">There is a nice overview here:<br>
+            <a
+href="http://www.nasaspaceflight.com/2007/01/remembering-the-mistakes-of-challenger/">http://www.nasaspaceflight.com/2007/01/remembering-the-mistakes-of-challenger/</a><br>
+            <a href="http://history.nasa.gov/rogersrep/v4p740.htm"></a><br>
+          </span></font></p>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif"><span style="font-family:
+            Helvetica,Arial,sans-serif;">including the following: <br>
+          </span></font></p>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif"><span style="font-family:
+            Helvetica,Arial,sans-serif;">&#8216;We discussed what might happen
+            below our 40 degree qualification temperature and
+            practically to a man we decided it would be catastrophic,&#8217;
+            added Morton Thiokol's Bob Ebeling.<br>
+          </span></font></p>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif"><span style="font-family:
+            Helvetica,Arial,sans-serif;">&#8216;Thiokol recommended that we
+            could not launch until the weather warmed up in the
+            afternoon,&#8217; said NASA senior manager Jud Lovingood. &#8216;Well I
+            told them they couldn&#8217;t make that recommendation. They had
+            to give us a temperature that we could launch with.&#8217;<br>
+            <br>
+            A formal presentation would have to be made, two hours after
+            speaking with Lovingood and just 15 hours before launch, via
+            a teleconference at which Thiokol would need to given their
+            reasoning for a no launch decision &#8211; a power contractors
+            held, but were scared to make given the effects on the
+            Shuttle schedule.<br>
+            <br>
+            Thiokol engineer Roger Boisjoly &#8211; one of two specialists
+            (the other being Arnie Thompson) on the SRB joint seals &#8211;
+            grabbed anything he could from his office to show how the
+            temperature would lead to a failure of the SRB&#8217;s O-ring and
+            the destruction of the Shuttle.<br>
+            <br>
+            &#8216;Unfortunately in our rush we didn&#8217;t have time for a dry run
+            at what we&#8217;d present to NASA,&#8217; noted Boisjoly. &#8216;I had no
+            idea what my colleagues would present and I had no idea what
+            I&#8217;d bring to the meeting.&#8217;<br>
+          </span></font></p>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif"><span style="font-family:
+            Helvetica,Arial,sans-serif;">&#8216;The entire Thiokol group
+            recommended no launch,&#8217; remembered Ebeling, as they
+            recommended a minimum launch temperature of 53F (11C). The
+            expected rubber stamping of that recommendation was expected
+            from NASA on the other end of the teleconference. However,
+            they would be proven wrong.<br>
+          </span></font></p>
+      <p style="text-align: justify;"><img src="pics/week13/v1p90.jpg"
+          alt=""></p>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif"><span style="font-family:
+            Helvetica,Arial,sans-serif;">There had been several earlier
+            flights with O-ring problems and the issues were being
+            worked through to create a less flawed design, so NASA knew
+            there were continuing concerns, but the amount of data
+            available from the 24 previous shuttle flights was limited.
+            For example the Morton Thiokol engineers did not have
+            temperature data available for all of the previous shuttle
+            flights (air temperature, or the much more useful O-ring
+            temperature.) Seven earlier flights had O-ring issues, and
+            those launches were at temperatures (F) of 53, 57, 58, 63,
+            70, 70, 75, and only two of those had serious 'blow by'
+            issues, one at 53F and one at 75F. There were problems when
+            it was warm; there were problems when it was cool. No
+            shuttle had launched below 53 degrees F before.<br>
+          </span></font></p>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif"><span style="font-family:
+            Helvetica,Arial,sans-serif;">Mr Mulloy, the Solid Rocket
+            Booster Project Manager,&nbsp; testified: It was Thiokol's
+            calculation of what the lowest temperature an O-ring had
+            seen in previous flights, and the engineering recommendation
+            was that we should not move outside of that experience base.<br>
+          </span></font></p>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif"><span style="font-family:
+            Helvetica,Arial,sans-serif;">Another person present said
+            "One of my colleagues that was in the meeting summed it up
+            best. This was a meeting where the determination was to
+            launch, and it was up to us to prove beyond a shadow of a
+            doubt that it was not safe to do so. This is in total
+            reverse to what the position usually is in a pre-flight
+            conversation or a flight readiness review. It is usually
+            exactly opposite that."<br>
+            <br>
+          </span></font></p>
+      <p style="text-align: justify;"><font face="Helvetica, Geneva,
+          Arial, SunSans-Regular, sans-serif"><span style="font-family:
+            Helvetica,Arial,sans-serif;">The key table that the
+            engineers produced was:<br>
+          </span></font></p>
+      <img style="width: 544px; height: 361px;"
+        src="pics/week13/thiokol.jpg" alt="One of the Thiokol Memos to
+        NASA"><br>
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <div style="text-align: justify;"><span style="font-family:
+          Helvetica,Arial,sans-serif;">The table shows that there were
+          problems seen in four rocket tests, and two actual launches,
+          and then what the assumption would be for the temperatures at
+          the Challenger launch. This table should also be seen in the
+          larger context of many years of work between NASA and Morton
+          Thiokol on the development of the rockets, so everyone
+          involved in the meeting <span style="text-decoration:
+            underline;">should</span> have been able to put this data
+          into context. One thing this table leaves out is data on tests
+          and launches where there were no problems.<br>
+          <br>
+          The Rogers Commission shows this data in a graphical form as
+          well as a revised version which gives context by showing
+          launches with no problems <a href="pics/week13/v1p146.pdf">here</a></span><span
+          style="font-family: Helvetica,Arial,sans-serif;"><br>
+          <br>
+          When NASA basically asked Morton Thiokol to prove that it was
+          unsafe to launch the engineers were given an almost impossible
+          task given the time and information available to them. <br>
+          <br>
+          chapter 5 of the Rogers report gives a lot of detail on this.<br>
+          <br>
+        </span><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+          sans-serif"><span style="font-family:
+            Helvetica,Arial,sans-serif;">and there is some interesting
+            reading here:<br>
+            <a href="http://history.nasa.gov/rogersrep/v4p740.htm">http://history.nasa.gov/rogersrep/v4p740.htm</a></span></font><br>
+      </div>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+        and some of the findings:<br>
+        <br>
+        l. The Commission concluded that there was a serious flaw in the
+        decision making process leading up to the launch of flight 51-L.
+        A well structured and managed system emphasizing safety would
+        have flagged the rising doubts about the Solid Rocket Booster
+        joint seal. Had these matters been clearly stated and emphasized
+        in the flight readiness process in terms reflecting the views of
+        most of the Thiokol engineers and at least some of the Marshall
+        engineers, it seems likely that the launch of 51-L might not
+        have occurred when it did.<br>
+        <br>
+        4. The Commission concluded that the Thiokol Management reversed
+        its position and recommended the launch of 51-L, at the urging
+        of Marshall and contrary to the views of its engineers in order
+        to accommodate a major customer.<br>
+        <br>
+      </span>
+      <hr style="width: 100%; height: 2px;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"><br>
+        Back to Tufte:<br>
+        <br>
+        Even after the disaster and the during the investigation when
+        there was more time and more information available bad graphics
+        were still being created. Looking at the O-Ring damage over the
+        previous 24 shuttle missions, the data was presented in
+        chronological order showing the location and extent of the
+        damage sustained to the left and right boosters and the
+        temperature at launch time. This hides the pattern.</span>
+      <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+          sans-serif"><img src="pics/week13/challenger2.gif" alt="O-Ring
+            Damage Chart Presented to Congress" style="border: 0px solid
+            ; width: 611px; height: 489px;"><br>
+        </font></p>
+      <p style="text-align: justify;"><span style="font-family:
+          Helvetica,Arial,sans-serif;">If instead of using chronological
+          order the same data was presented in ascending temperature
+          order the pattern is a bit more clear</span><br>
+      </p>
+      <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+          sans-serif"><img src="pics/week13/challenger3b.gif"
+            alt="Another O-Ring Chart PResented to Congress"
+            style="border: 0px solid ; width: 600px; height: 136px;"></font></p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">If instead we remove all the extraneous imagery and do
+        a simple plot of temperature vs damage (a weighted average of
+        erosion, heating, and blow-by) as shown below then the pattern
+        becomes much clearer which is the point that Tufte stresses.
+        This chart is almost the same as the revised Rogers Commision
+        chart in pdf form above.<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">To really do analysis you would still want to be able
+        to get access to the more detailed data - this just gives you a
+        nice overview.<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif;"><img
+          src="pics/week13/challenger1.gif" alt="Simplified O-Ring
+          Damage Plot" style="border: 0px solid ; width: 600px; height:
+          217px;"><br>
+        (note that 15 and 22 mentioned in the original memo are
+        highlighted in this chart)<br>
+      </p>
+      <p><span style="font-family: Helvetica,Arial,sans-serif;">The
+          Rogers Commission report on the Challenger can be found at: </span><br
+          style="font-family: Helvetica,Arial,sans-serif;">
+        <a href="http://history.nasa.gov/rogersrep/genindex.htm"><span
+            style="font-family: Helvetica,Arial,sans-serif;"><span
+              style="text-decoration: underline;">http://history.nasa.gov/rogersrep/genindex.htm</span></span></a><br>
+      </p>
+      <hr>
+      <p><span style="font-family: Helvetica,Arial,sans-serif;">Discussion
+
+
+
+          of Columbia disaster in 2003 with refs from Tufte's "Beautiful
+          Evidence" - how you organize, present text, and choose words
+          can be just as dangerous as how you present graphical
+          information. Do all of the necessary words even fit readably
+          on a PowerPoint slide?<br>
+          <br>
+          Unlike Challenger, this time the issue was less about what the
+          engineers knew and more about what they did not know and their
+          inability to convince their managers to get them more
+          information from the astronauts in space or department of
+          defense imagery.<br>
+        </span></p>
+      <p><span style="font-family: Helvetica,Arial,sans-serif;">The
+          results of an analysis needed to be succinctly presented in a
+          report or set of PowerPoint slides, with the bulk of the
+          analysis sitting in a very big report that may not be read.
+          Tufte spends a fair amount of time in this book talking about
+          the dangers inherent in a PowerPoint presentation.<br>
+        </span></p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><a
+href="http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001yB&amp;topic_id=1&amp;topic=Ask+E%2eT%2e">http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001yB&amp;topic_id=1&amp;topic=Ask+E%2eT%2e</a><br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">first a bit of background from the Columbia report
+        which we will hit the highlights of ...<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"Columbia was launched from Launch Com- plex 39-A on
+        January 16, 2003, at 10:39 a.m. Eastern Standard Time (EST). At
+        81.7 seconds after launch, when the Shuttle was at about 65,820
+        feet and traveling at Mach 2.46 (1,650 mph), a large piece of
+        hand-crafted insulating foam came off an area where the Orbiter
+        attaches to the External Tank. At 81.9 seconds, it struck the
+        leading edge of Columbia&#700;s left wing. This event was not
+        detected by the crew on board or seen by ground support teams
+        until the next day, during detailed reviews of all launch camera
+        photography and videos. This foam strike had no apparent effect
+        on the daily conduct of the 16-day mission, which met all its
+        objectives."<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"Post-launch photographic analysis showed that one
+        large piece and at least two smaller pieces of insulating foam
+        separated from the External Tank left bipod (&#8211;Y) ramp area at
+        81.7 seconds after launch. Later analysis showed that the larger
+        piece struck Columbia on the underside of the left wing, around
+        Reinforced Carbon-Carbon (RCC) panels 5 through 9, at 81.9
+        seconds after launch (see Figure 2.3-2). Further photographic
+        analysis conducted the day after launch revealed that the large
+        foam piece was approximately 21 to 27 inches long and 12 to 18
+        inches wide, tumbling at a minimum of 18 times per second, and
+        moving at a relative velocity to the Shuttle Stack of 625 to 840
+        feet per second (416 to 573 miles per hour) at the time of
+        impact."<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><img style="width: 600px; height: 544px;"
+          src="pics/week13/3.4-1.jpg" alt="Columbia Launch Photo"></p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"The object&#700;s large size and the apparent momentum
+        transfer concerned Intercenter Photo Working Group personnel,
+        who were worried that Columbia had sustained damage not
+        detectable in the limited number of views their tracking cameras
+        captured. This concern led the Intercenter Photo Working Group
+        Chair to request, in anticipation of analysts&#700; needs, that a
+        high-resolution image of the Orbiter on-orbit be obtained by the
+        Department of Defense. By the Board&#700;s count, this would be the
+        first of three distinct requests to image Columbia on-orbit. The
+        exact chain of events and circumstances surrounding the movement
+        of each of these requests through Shuttle Program Management, as
+        well as the ultimate denial of these requests, is a topic of
+        Chapter 6."<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><img style="width: 600px; height: 452px;"
+          src="pics/week13/3.-1.jpg" alt="Columbia Wing"><br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><img style="width: 600px; height: 446px;"
+          src="pics/week13/3.3-4.jpg" alt="RCC Panel life time"></p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"Without on-orbit pictures of Columbia, the Debris
+        Assessment Team was restricted to using a mathematical modeling
+        tool called Crater to assess damage, although it had not been
+        designed with this type of impact in mind. Team members
+        concluded over the next six days that some localized heating
+        damage would most likely occur during re-entry, but they could
+        not definitively state that structural damage would result. On
+        January 24, the Debris Assessment Team made a presentation of
+        these results to the Mission Evaluation Room, whose manager gave
+        a verbal summary (with no data) of that presentation to the
+        Mission Management Team the same day. The Mission Management
+        Team declared the debris strike a &#8220;turnaround&#8221; issue and did not
+        pursue a request for imagery."<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"Boeing analysts conducted a preliminary damage
+        assessment on Saturday. Using video and photo images, they
+        generated two estimates of possible debris size &#8211; 20 inches by
+        20 inches by 2 inches, and 20 inches by 16 inches by 6 inches &#8211;
+        and determined that the debris was traveling at a approximately
+        750 feet per second, or 511 miles per hour, when it struck the
+        Orbiter at an estimated impact angle of less than 20 degrees.
+        These estimates later proved remarkably accurate."<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"To calculate the damage that might result from such a
+        strike, the analysts turned to a Boeing mathematical modeling
+        tool called Crater that uses a specially developed algorithm to
+        predict the depth of a Thermal Protection System tile to which
+        debris will penetrate. This algorithm, suitable for estimating
+        small (on the order of three cubic inches) debris impacts, had
+        been calibrated by the results of foam, ice, and metal debris
+        impact testing. "<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"Until STS-107, Crater was normally used only to
+        predict whether small debris, usually ice on the External Tank,
+        would pose a threat to the Orbiter during launch. Engineers used
+        Crater during STS-107 to analyze a piece of debris that was at
+        maximum 640 times larger in volume than the pieces of debris
+        used to calibrate and validate the Crater model (the Board&#700;s
+        best estimate is that it actually was 400 times larger)."</p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"For the Thermal Protection System tile, Crater
+        predicted damage deeper than the actual tile thickness. This
+        seemingly alarming result suggested that the debris that struck
+        Columbia would have exposed the Orbiter&#700;s underlying aluminum
+        airframe to extreme temperatures, resulting in a possible
+        burn-through during re-entry. Debris Assessment Team engineers
+        discounted the possibility of burn through for two reasons.
+        First, the results of calibration tests with small projectiles
+        showed that Crater predicted a deeper penetration than would
+        actually occur. Second, the Crater equation does not take into
+        account the increased density of a tile&#700;s lower &#8220;densified&#8221;
+        layer, which is much stronger than tile&#700;s fragile outer layer.
+        Therefore, engineers judged that the actual damage from the
+        large piece of foam lost on STS-107 would not be as severe as
+        Crater predicted, and assumed that the debris did not penetrate
+        the Orbiter&#700;s skin."<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"Prior to STS-107, Crater analysis was the
+        responsibility of a team at Boeing&#700;s Huntington Beach facility
+        in California, but this responsibility had recently been
+        transferred to Boeing&#700;s Houston office. Even though STS-107&#700;s
+        debris strike was 400 times larger than the objects Crater is
+        designed to model, neither Johnson engineers nor Program
+        managers appealed for assistance from the more experienced
+        Huntington Beach engineers, who might have cautioned against
+        using Crater so far outside its validated limits. Nor did safety
+        personnel provide any additional oversight. NASA failed to
+        connect the dots: the engineers who misinterpreted Crater &#8211; a
+        tool already unsuited to the task at hand &#8211; were the very ones
+        the Shuttle Program identified as engendering the most risk in
+        their transition from Huntington Beach." </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"Columbia re-entered Earth&#700;s atmosphere with a
+        pre-existing breach in the leading edge of its left wing in the
+        vicinity of Reinforced Carbon-Carbon (RCC) panel 8. This breach,
+        caused by the foam strike on ascent, was of sufficient size to
+        allow superheated air (probably exceeding 5,000 degrees
+        Fahrenheit) to penetrate the cavity behind the RCC panel. The
+        breach widened, destroying the insulation protecting the wing&#700;s
+        leading edge support structure, and the superheated air
+        eventually melted the thin aluminum wing spar. Once in the
+        interior, the superheated air began to destroy the left wing."</p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"By the time Columbia passed over the coast of
+        California in the pre-dawn hours of February 1, at Entry
+        Interface plus 555 seconds, amateur videos show that pieces of
+        the Orbiter were shedding. Analysis indicates that the Orbiter
+        continued to fly its pre-planned flight profile, although, still
+        unknown to anyone on the ground or aboard Columbia, her control
+        systems were working furiously to maintain that flight profile.
+        Finally, over Texas, just southwest of Dallas-Fort Worth, the
+        increasing aerodynamic forces the Orbiter experienced in the
+        denser levels of the atmosphere overcame the catastrophically
+        damaged left wing, causing the Orbiter to fall out of control at
+        speeds in excess of 10,000 mph."<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><img style="width: 600px; height: 449px;"
+          src="pics/week13/3.7-5.jpg" alt="Columbia Debris"></p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><br>
+        and for a bit of perspective:<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">One debris strike in particular foreshadows the
+        STS-107 event. When Atlantis was launched on STS-27R on December
+        2, 1988, the largest debris event up to that time significantly
+        damaged the Orbiter. Post-launch analysis of tracking camera
+        imagery by the Intercenter Photo Working Group identified a
+        large piece of debris that struck the Thermal Protection System
+        tile at approximately 85 seconds into the flight. On Flight Day
+        Two, Mission Control asked the flight crew to inspect Atlantis
+        with a camera mounted on the remote manipulator arm, a robotic
+        device that was not installed on Columbia for STS-107. Mission
+        Commander R.L. &#8220;Hoot&#8221; Gibson later stated that Atlantis &#8220;looked
+        like it had been blasted by a shotgun.&#8221;18 Concerned that the
+        Orbiter&#700;s Thermal Protection System had been breached, Gibson
+        ordered that the video be transferred to Mission Control so that
+        NASA engineers could evaluate the damage.</p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">When Atlantis landed, engineers were surprised by the
+        extent of the damage. Post-mission inspections deemed it &#8220;the
+        most severe of any mission yet flown.&#8221; The Orbiter had 707
+        dings, 298 of which were greater than an inch in one dimension.
+        <br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><br>
+        <img style="width: 600px; height: 283px;"
+          src="pics/week13/6.1-6.jpg" alt="Tile Damage on Shuttle
+          Missions"><br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">Below is the Tufte analysis of the powerpoints used by
+        the Debris Assessment Team, which is also part of the official
+        report:<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><img style="width: 600px; height: 515px;"
+          src="pics/week13/p164.gif" alt="Columbia Powerpoint #1"></p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;"><img style="width: 600px; height: 504px;"
+          src="pics/week13/p165.gif" alt="Columbia Powerpoint #2"><br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">again from the report:<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"As information gets passed up an organization
+        hierarchy, from people who do analysis to mid-level managers to
+        high-level leadership, key explanations and supporting
+        information is filtered out. In this context, it is easy to
+        understand how a senior manager might read this PowerPoint slide
+        and not realize that it addresses a life-threatening situation."</p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">"At many points during its investigation, the Board
+        was surprised to receive similar presentation slides from NASA
+        officials in place of technical reports. The Board views the
+        endemic use of PowerPoint briefing slides instead of technical
+        papers as an illustration of the problematic methods of
+        technical communication at NASA."<br>
+      </p>
+      <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+        justify;">The complete Columbia report can be found at <a
+          href="http://caib.nasa.gov/">http://caib.nasa.gov/</a><br>
+        <a
+href="http://caib.nasa.gov/news/report/pdf/vol1/full/caib_report_volume1.pdf">http://caib.nasa.gov/news/report/pdf/vol1/full/caib_report_volume1.pdf</a><br>
+      </p>
+    </div>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><a
+        href="http://www.cs.uic.edu/%7Ewilkinson/"></a><br>
+    </span>
+    <hr style="width: 100%; height: 2px;">
+    <h3><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Coming Next Time</font></h3>
+    <p><font face="Helvetica, Arial, sans-serif">More Visual Analytics</font><br>
+    </p>
+    <span style="font-family:
+      Helvetica,Geneva,Arial,SunSans-Regular,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Geneva,Arial,SunSans-Regular,sans-serif;"></span><font
+      face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">last
+      revision 11/12/12</font>
+  </body>
+</html>

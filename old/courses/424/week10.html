@@ -1,0 +1,1019 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title>CS 424 Week 10</title>
+  </head>
+  <body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+    vlink="#00aaff">
+    <h1><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Week 10<br>
+      </font></h1>
+    <h2><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Medical Visualization </font><font><font
+          face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">&amp;
+
+
+
+
+          Scientific Visualization <br>
+        </font></font></h2>
+    <p> </p>
+    <hr style="width: 100%; height: 2px;">
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><span style="font-weight: bold;"></span></span><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><span
+        style="font-weight: bold;">How X-Ray, CT, MRI, fMRI work<br>
+        <br>
+      </span><br>
+      <span style="font-weight: bold; text-decoration: underline;">X-Rays</span>
+      - http://en.wikipedia.org/wiki/X-ray<br>
+      <br>
+    </span>
+    <div style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">At a very high level of
+        description, you have an x-ray source, an image receptor (in the
+        old days a photographic plate), and something in between that
+        you want to look at. X-rays are partially blocked by dense
+        tissue like bones, and less blocked by soft tissue resulting in
+        an image on the image recepter where bones show up white and
+        softer tissue is darker. These are very portable (dentist
+        offices, emergency rooms) and very fast. The big disadvantage is
+        that a 3D volume like our chest or your tooth are compressed
+        into a 2D image which can make working out the 3D location
+        difficult.</font><span style="font-family:
+        Helvetica,Arial,sans-serif;"></span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      More modern techniques create a sequence of slices that can be
+      combined to form a volume of data<br>
+      <br>
+    </span>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><span style="font-weight: bold; text-decoration:
+          underline;">CT Scan </span>-
+        http://en.wikipedia.org/wiki/Ct_scan<br>
+      </font></p>
+    <div style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">At a very high level of
+        description, a computed tomography scanner uses X-rays to take a
+        series of 2D images to combine into a 3D volume after a bunch of
+        math is applied. CT scans are good for looking at bones. They
+        can also make use of contrast agents, typically iodine. </font><br>
+    </div>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><span style="font-weight: bold; text-decoration:
+          underline;">MRI </span>-
+        http://en.wikipedia.org/wiki/Magnetic_resonance_imaging</font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">At a very high level of
+        description, Magnetic Resonance Imaging uses a powerful magnetic
+        field to align the hydrogen atoms in the water of the body with
+        the direction of the field. A radio frequency electromagnetic
+        field is introduced which causes the atoms to alter their
+        alignment. When the field is turned off they return to their
+        original alignment producing a detectable signal. Atoms in
+        different types of issue return to the original alignment at
+        different rates, based on the density of water in the tissue, so
+        a 3D picture of the different tissues can be built up through a
+        lot of math. If there isn't enough natural contrast between the
+        densities then a contrast agent can be introduced to
+        artificially boost the contrast. </font><font face="Helvetica,
+        Geneva, Arial, SunSans-Regular, sans-serif">Good for looking at
+        soft tissue and finding tumors.<br>
+      </font></p>
+    <div style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">CT typically has better
+        spatial resolution, but MRI has better contrast. MRI takes
+        longer (30 minutes for MRI vs 10 minutes for CT.) Note that
+        aside from a person needing to remain still during the scan,
+        organs like the heart and the lungs are not remaining still that
+        long. CT uses radiation which is bad. MRI uses strong magnetic
+        fields which may be bad. Both are constantly improving. </font><br>
+    </div>
+    <font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif"><br>
+    </font>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><span style="font-weight: bold; text-decoration:
+          underline;">fMRI </span>-
+http://en.wikipedia.org/wiki/Functional_magnetic_resonance_imaging<br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">fMRI works like MRI but the idea is to collect data
+        in real-time (once every few seconds), though at lower
+        resolution, commonly from the brain. <br>
+        <br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">here are some sample datasets:
+        http://graphics.stanford.edu/data/voldata/ and
+        http://digimorph.org/<br>
+      </font></p>
+    <hr style="width: 100%; height: 2px;"><font face="Helvetica, Geneva,
+      Arial, SunSans-Regular, sans-serif"></font>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">From the virtual human web
+        page (http://www.nlm.nih.gov/research/visible/) "The Visible
+        Human Male data set consists of MRI, CT and anatomical images.
+        Axial MRI images of the head and neck and longitudinal sections
+        of the rest of the body were obtained at 4 mm intervals. The MRI
+        images are 256 pixel by 256 pixel resolution. Each pixel having
+        12 bits of grey tone resolution. The CT data consists of axial
+        CT scans of the entire body taken at 1 mm intervals at a
+        resolution of 512 pixels by 512 pixels with each pixel made up
+        of 12 bits of grey tone. The approximately 7.5 megabyte axial
+        anatomical images are 2048 pixels by 1216 pixels, with each
+        pixel defined by 24 bits of color. The anatomical cross-sections
+        are at 1 mm intervals to coincide with the CT axial images.
+        There are 1871 cross-sections for both CT and anatomy. The
+        complete male data set, 15 gigabytes in size, was made publicly
+        available in November, 1994. <br>
+      </font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">The Visible Human Female
+        data set, released in November, 1995, has the same
+        characteristics as the The Visible Human Male with one
+        exception, the axial anatomical images were obtained at 0.33 mm
+        intervals. This resulted in 5,189 anatomical images, and a data
+        set of about 40 gigabytes. Spacing in the "Z" direction was
+        reduced to 0.33mm in order to match the 0.33mm pixel sizing in
+        the "X-Y" plane, thus enabling developers interested in
+        three-dimensional reconstructions to work with cubic voxels."</font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">(and let us remember that in
+        1995 personal computers were running at 200Mhz, with 16MB of RAM
+        and 1 GB hard drives. Now the visible woman dataset easily fits
+        on an iPod)</font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">Here are some small jpeg
+        images of a very few of the slices of the visible woman. We will
+        show a movie in class of the full-size images. Once these images
+        were collected and aligned then images slicing through the body
+        on other planes are easy to generate as well as the ability to
+        generate arbitrary planes.<br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><img style="border: 0px solid ; width: 256px;
+          height: 128px;" src="pics/week8/f1.png" alt="" height="128"
+          width="256"><img style="border: 0px solid ; width: 256px;
+          height: 128px;" src="pics/week8/f2.png" alt="" height="128"
+          width="256"></font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><img style="border: 0px solid ; width: 256px;
+          height: 128px;" src="pics/week8/f3.png" alt="" height="128"
+          width="256"><img style="border: 0px solid ; width: 256px;
+          height: 128px;" src="pics/week8/f4.png" alt="" height="128"
+          width="256"></font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">There is a nice applet here to look at the data: <a
+          href="http://visiblehuman.epfl.ch/">visiblehuman.epfl.ch/</a><br>
+      </font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">We are going to use paraview
+        to look at the data</font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">paraview is available from <a
+          href="http://www.paraview.org">www.paraview.org</a> and there
+        is a nice intro at:<br>
+        <a href="https://visualization.hpc.mil/wiki/ParaView_Basics">visualization.hpc.mil/wiki/ParaView_Basics</a></font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">Here is ParaView viewing the
+        75MB version of the Visible Woman dataset. ParaView is a tool we
+        use in the graduate level scientific visualization course that
+        deals much more with 3D datasets. It is build on top of a
+        library called VTK (the visualization toolkit.) This allows us
+        to take the volumetric data and convert it into polygonal
+        surfaces.<br>
+      </font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">This version of the dataset
+        is made up of 577 slices, 1 slice every 3mm, where each slice is
+        256 x 256 16-bit values. Note that this is not terribly high
+        resolution. Once the data is loaded in we can set up two
+        contours - one for the skin and one for the bones.<br>
+      </font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">Since this is a 3d block of
+        data values we need to tell paraview how to read in this data:<br>
+      </font></p>
+    <ul style="font-family: monospace;">
+      <li>Data Scalar Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; unsigned short</li>
+      <li>Data Byte Order:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; BigEndian</li>
+      <li>File Dimensionality: &nbsp; 3</li>
+      <li>Data
+        Origin:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        0 0 0</li>
+      <li>Data
+        Spacing:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1
+        1 1 </li>
+      <li>Data
+        Extent:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        0 255, 0 255, 0 576</li>
+      <li>Num Scalar Components: 1</li>
+    </ul>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Once its read in I can then create 2 contours - one
+        transparent at 800 for skin, and one opaque at 1200 for bone.
+        This results in something similar to this.<br>
+      </font></p>
+    <font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif"><img
+        style="border: 0px solid ; width: 600px; height: 348px;"
+        src="pics/week8/vhuman.jpg" alt="Visible Human Isosurface"><br>
+      <br>
+      and another way is through volume rendering with the transfer
+      function shown on the left<br>
+      <br>
+    </font><img style="width: 600px; height: 348px;"
+      src="pics/week8/paraview-volume.jpg" alt="Visible Human Volume
+      Rendering"><br>
+    <font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif"><br>
+      more recently newer scans have been made including the Visible
+      Korean Human http://vkh3.kisti.re.kr/new/ and a paper
+      http://www.uchsc.edu/sm/chs/events/vh_conf/pdfs/001.pdf that shows
+      some of the process and the Chinese Visible Human
+      http://www.chinesevisiblehuman.com/index_e.aspx<br>
+      <br>
+    </font>
+    <div style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">Paraview was designed to be
+        a general purpose tool so it is not particularly focused on
+        medical data - which makes it harder to use than the specialized
+        tools we will talk about later, but has the basic functionality
+        that students can recreate in the Computer Graphics II course.</font><br>
+    </div>
+    <font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif"></font><font
+      face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif"><br>
+    </font>
+    <ul>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">Contouring - constructing
+          boundaries between regions </font>
+        <ul>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">2D - contour lines of
+              constant scalar value </font>
+            <ul>
+              <li type="disc"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">e.g. weather maps
+                  annotated with lines of constant temperature
+                  (isotherms) </font></li>
+              <li type="disc"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">e.g. topological maps
+                  with lines of constant elevation </font></li>
+            </ul>
+          </li>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">3D - isosurfaces - surfaces
+              of constant scalar value </font>
+            <ul>
+              <li type="disc"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">e.g. skin or bone in a
+                  medical image showing a constant intensity </font></li>
+            </ul>
+          </li>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">generating contours probably
+              requires interpolation between the given points </font></li>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">generate a new set of points
+              then connect them into a contour </font>
+            <p> </p>
+          </li>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">Marching Squares (2D) /
+              Marching Cubes (3D) </font>
+            <ul>
+              <li type="disc"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">assumes a contour can
+                  pass through a cell in only a finite number of ways </font></li>
+              <li type="disc"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">can create a table
+                  enumerating all these possible topological states of
+                  cell </font>
+                <ul>
+                  <li type="disc"><font face="Helvetica, Geneva, Arial,
+                      SunSans-Regular, sans-serif"># of states depends
+                      on # of cell vertices and # of possible in/out
+                      relationships </font></li>
+                  <li type="disc"><font face="Helvetica, Geneva, Arial,
+                      SunSans-Regular, sans-serif">vertex is 'inside' if
+                      scalar value &gt; value of contour line </font></li>
+                  <li type="disc"><font face="Helvetica, Geneva, Arial,
+                      SunSans-Regular, sans-serif">vertex is 'outside'
+                      if scalar value &lt; value of contour line </font></li>
+                  <li type="disc"><font face="Helvetica, Geneva, Arial,
+                      SunSans-Regular, sans-serif">e.g. if cell has 4
+                      vertices and each can be in or out then 16
+                      possibilities </font>
+                    <ul>
+                      <li type="disc"><font face="Helvetica, Geneva,
+                          Arial, SunSans-Regular, sans-serif">can
+                          represent these by a 4 bit code </font></li>
+                    </ul>
+                  </li>
+                  <li type="disc"><font face="Helvetica, Geneva, Arial,
+                      SunSans-Regular, sans-serif">currently not
+                      interested in 'where' the contour passes through
+                      cell, just 'how' </font></li>
+                </ul>
+              </li>
+              <li type="disc"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">treats each cell
+                  independently </font></li>
+            </ul>
+            <p> </p>
+            <ol>
+              <li type="1"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">select cell </font></li>
+              <li type="1"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">calculate inside/outside
+                  for each vertex of the cell </font></li>
+              <li type="1"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">create 4-bit index from
+                  in/out values </font></li>
+              <li type="1"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">use index to look up
+                  topological state </font></li>
+              <li type="1"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">interpolate contour
+                  location for each edge </font></li>
+            </ol>
+            <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+                sans-serif"><img style="border: 0px solid ; width:
+                  600px; height: 211px;"
+                  src="pics/week8/marchingsquares.gif" alt="Marching
+                  Squares"><br>
+                dark vertex is above the contour value (inside), white
+                vertex is below (outside)<br>
+              </font></p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <hr style="width: 100%; height: 2px;">
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><b>another way to look at this kind of data is
+          through Volume Rendering where we avoid generating polygons</b><br>
+      </font></p>
+    <span style="font-family:
+      Helvetica,Geneva,Arial,SunSans-Regular,sans-serif;">a common way
+      is to use ray-casting</span><br>
+    <br>
+    <p><img style="width: 600px; height: 319px;"
+        src="pics/week8/image_order.jpg" alt="Ray Casting"></p>
+    <ul>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">greyscale data values </font>
+        <ul>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">minimum value = transparent
+              black </font></li>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">maximum value = white </font></li>
+        </ul>
+      </li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">determine values encountered
+          along ray </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">processing those values according
+          to ray function - many possibilities </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">volume is 3D image dataset w/
+          scalar values at points of a regular grid </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">need an interpolation function to
+          sample locations between the grid points </font>
+        <ul>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">zero-order / constant /
+              nearest neighbor returns closest grid point - simple </font></li>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">trilinear - linear
+              interpolation between closest points along 3 axis </font></li>
+        </ul>
+      </li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">can sample volume at uniform
+          intervals while traversing the ray </font>
+        <ul>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">need to take care in choosing
+              step size - speed vs accuracy tradeoff </font></li>
+        </ul>
+      </li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">or examine each voxel encountered
+          while traversing the ray (fig 7-8) </font>
+        <ul>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">convert the ray into a
+              discrete form to obtain an ordered sequence of voxels </font></li>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">each voxel has 6 sides, 8
+              vertices, 12 edges </font>
+            <ul>
+              <li type="disc"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">6-connected if each share
+                  a face (best at finding small details) </font></li>
+              <li type="disc"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">18-connected if share a
+                  face or an edge </font></li>
+              <li type="disc"><font face="Helvetica, Geneva, Arial,
+                  SunSans-Regular, sans-serif">26-connected if share a
+                  face or an edge or a vertex (faster) (fig 7-10) </font></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">ray: (x, y, z) = (xo, yo, zo) +
+          (a, b, c) t where (a, b, c) is normalized direction vector </font></li>
+    </ul>
+    <p> </p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><img style="border: 0px solid ; width: 250px;
+          height: 250px;" src="pics/week8/ray_maximum.jpg" alt=""><img
+          style="border: 0px solid ; width: 250px; height: 250px;"
+          src="pics/week8/ray_average.jpg" alt=""></font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><img style="border: 0px solid ; width: 250px;
+          height: 250px;" src="pics/week8/ray_distance.jpg" alt=""><img
+          style="border: 0px solid ; width: 250px; height: 250px;"
+          src="pics/week8/ray_composite.jpg" alt=""></font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">4 different ray functions - UL:maximum, UR:average,
+        BL:distance=30, BR:composite<br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">a nice program to explore this kind of data on the
+        mac is OsiriX - <a href="http://www.osirix-viewer.com/">http://www.osirix-viewer.com/</a><br>
+        and a newer company involved in this work that makes a plugin
+        for OsiriX is fovia - <a href="http://www.fovia.com/">http://www.fovia.com/
+
+
+
+
+
+
+
+        </a><br>
+      </font></p>
+    <p><img style="width: 591px; height: 519px;"
+        src="pics/week8/osirix.jpg" alt="Osirix"></p>
+    <br>
+    <br>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><br>
+        Volume Classification</font></p>
+    <ul>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">transfer function maps
+          information at voxel location into material / colour / opacity
+        </font>
+        <ul>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">e.g. differentiating air,
+              muscle, bone in a CT scan </font></li>
+        </ul>
+      </li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">can have separate functions for
+          red, green, blue, opacity </font></li>
+    </ul>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Regions of Interest</font></p>
+    <ul>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">often need to look through parts
+          of the volume to see other parts of the volume </font></li>
+      <li type="disc"><font face="Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif">can specify a partial region of
+          the volume to render that contains interesting things </font>
+        <ul>
+          <li type="disc"><font face="Helvetica, Geneva, Arial,
+              SunSans-Regular, sans-serif">use clipping planes or other
+              geometric forms to specify the region </font></li>
+        </ul>
+      </li>
+    </ul>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><img style="border: 0px solid ; width: 500px;
+          height: 500px;" src="pics/week8/volume_cut_knee.jpg" alt=""><br>
+      </font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">Viewing is helpful. Being
+        able to view images taken over a period of weeks, months, years,
+        or before and after surgery are helpful, but for real analysis
+        you also need tools that allow you to take measurements from
+        these images (length, volume, density, etc.)<br>
+      </font></p>
+    <div style="text-align: justify;"></div>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">We deal with this kind of 3D
+        data more in CS 526 where students typically deal with
+        generating polygonal contours and raytracing.<br>
+      </font></p>
+    <p style="text-align: justify;"><font face="Helvetica, Geneva,
+        Arial, SunSans-Regular, sans-serif">Similar tools can also be
+        used to look at other volumetric datasets (where all 3
+        dimensions may not be lengths) as in astronomy. This web page
+        describes some work that uses slicer&nbsp; (which sits on top of
+        the vtk library like paraview does)<br>
+&nbsp;http://astromed.iic.harvard.edu/index.cgi/UsingSlicer/Perseus_scenes<br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Here is that data in paraview<br>
+      </font></p>
+    <p><img style="width: 600px; height: 507px;"
+        src="pics/week8/perseus.jpg" alt="Perseus using Slicer"></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><br>
+      </font></p>
+    <hr style="width: 100%; height: 2px;"><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif; font-weight:
+      bold;">NCMIR microscope image montages</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">e.g. a
+      montage of 43,200 images where each is 4000 x 4000 pixels of a rat
+      brain that are then stitched together.<br>
+      <br>
+      Like Google maps, this lets you easily zoom from an overall image
+      of the brain down to individual neurons.<br>
+    </span>
+    <p><img style="width: 600px; height: 342px;"
+        src="pics/week8/ncmir.jpg" alt="NCMIR Displays"><br>
+    </p>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span>
+    <h2><span style="font-family: Helvetica,Arial,sans-serif;">Scientific
+
+
+
+
+
+
+
+        Visualization<br>
+        <br>
+      </span></h2>
+    <h2><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif"><img style="border: 0px solid ; width: 600px;
+          height: 136px;" src="pics/week7/itestapps.jpg" alt="Different
+          Views of the Earth"></font><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      </span></h2>
+    <font face="Helvetica, Arial, sans-serif">In past terms we have had
+      talks by three people in this area. <br>
+      <br>
+    </font>
+    <div style="text-align: justify;"> <font face="Helvetica, Arial,
+        sans-serif"><span style="font-weight: bold;">Paul Morin</span><br>
+        Director of the Antarctic Geospatial Information Center<br>
+        http://www.pgc.umn.edu/about/people/morin<br>
+        <br style="font-weight: bold;">
+        <span style="font-weight: bold;">Dr Mark SubbaRao</span></font>
+      <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+        Astronomer<br>
+        Adler Planetarium<br>
+        http://astro.uchicago.edu/cosmus/SubbaRao/index0.html<br>
+        <br>
+        <br>
+        <span style="font-weight: bold;">Dr Peter Doran</span> <br>
+        Professor <br>
+        Earth and Environmental Science Department <br>
+        University of Illinois at Chicago<br>
+        http://tigger.uic.edu/~pdoran/home.htm<br>
+        <br>
+      </span><span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+      <br>
+      <font face="Helvetica, Arial, sans-serif">This term we will have
+        another talk by Dr. Mark SubbaRao from the Adler Planetarium<br>
+      </font><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><span
+        style="font-family: Helvetica,Arial,sans-serif;">Three main uses
+        for visualizing scientific data</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span> </div>
+    <ul style="text-align: justify;">
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">viewing
+          / evaluating collected data (is it complete, correct)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">viewing
+          / evaluating simulation data </span><span style="font-family:
+          Helvetica,Arial,sans-serif;">(is it complete, correct, should
+          I stop and restart)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">presenting
+data
+
+
+
+
+
+
+
+          to a different audience</span></li>
+    </ul>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"></span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><span
+        style="font-family: Helvetica,Arial,sans-serif;">Some fields
+        like astronomy rely on observation and simulation with very
+        little chance for direct experimentation, others like high
+        energy physics have access to very big experimental setups.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><span
+        style="font-family: Helvetica,Arial,sans-serif;">When doing
+        analysis, you want to be able to compare data collected at
+        different times and places, compare real data to simulated data,
+        integrate data from multiple real and simulated sources to solve
+        more complex problems.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      Here are a couple other specific use cases:</span><span
+      style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span><big><big><big><span style="font-family:
+            Helvetica,Arial,sans-serif;"><br>
+            Endurance<br>
+            <a href="http://www.evl.uic.edu/endurance/"><small><small><small>http://www.evl.uic.edu/endurance/</small></small></small></a><br>
+            <br>
+          </span></big></big></big><span style="font-family:
+      Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp; have elevation of
+      the landscape around the lake<br>
+      &nbsp;&nbsp;&nbsp; have older bathymetry data collected at various
+      points of the lake<br>
+      &nbsp;&nbsp;&nbsp; have older chemistry data collected at various
+      points in the lake <br>
+      <br>
+      <br>
+    </span><img style="width: 600px; height: 474px;"
+      src="pics/week6/bonney_crop_%209-25-09.png" alt="Lake Bonney
+      Satellite Photo"><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span><img style="width: 600px; height: 446px;"
+      src="pics/week6/Bonney_West_12-6-08.jpg" alt="Lake Bonney
+      Satellite Photo Close-Up"><br>
+    <br>
+    <img style="width: 600px; height: 444px;"
+      src="pics/week6/bonney_grid.jpg" alt="Lake Bonney Mapping Mission
+      2008"><br>
+    <br>
+    <img style="width: 600px; height: 450px;"
+      src="pics/week6/dpx1194.jpg" alt="ENDURANCE AUV"><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      &nbsp;&nbsp;&nbsp; Given that sparse data you can form hypotheses
+      and plan for more thorough data collection<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; Goals:<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; generate accurate bathymetry for
+      the lake<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; investigate the chemical
+      composition of the entire volume of the lake<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; Mission in December 2008<br>
+      &nbsp;&nbsp;&nbsp; Mission in November 2009<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; collecting current multispectral satellite
+      photography at beginning and end of deployment<br>
+      &nbsp;&nbsp;&nbsp; collecting GPS readings at various locations on
+      site to correctly map the satellite photography to the terrain<br>
+      &nbsp;&nbsp;&nbsp; collecting information on lake level each day<br>
+      &nbsp;&nbsp;&nbsp; <br>
+      &nbsp;&nbsp;&nbsp; collecting data on new bathymetry directly </span><span
+      style="font-family: Helvetica,Arial,sans-serif;">on a 100m by 100m
+      2D grid</span><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;
+collecting
+data
+on
+new
+bathymetry
+
+
+
+
+
+
+
+      via constant sonar<br>
+      &nbsp;&nbsp;&nbsp; collecting data on chemical content of the lake
+      on a 100m by 100m by every-few-centimeters 3D grid<br>
+    </span>
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">Conductivity
+
+
+
+
+
+
+
+          (S/m)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">Temperature
+
+
+
+
+
+
+
+          (C )</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">CDOM
+          (ru)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">Chl-a
+          (ru)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">REDOX
+          (meV)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">PAR
+          (umol/m^2*s^1)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">pH</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">Turbidity
+
+
+
+
+
+
+
+          (ru)</span></li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;
+collecting
+photographs
+of
+the
+ice
+
+
+
+
+
+
+
+      from below on a 100m by 100m 2D grid<br>
+      &nbsp;<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; each day there is one mission where the vehicle
+      starts from the same site and goes off to several of the
+      measurement sites and collects data. <br>
+      <br>
+      &nbsp;&nbsp;&nbsp; <span style="text-decoration: underline;">however</span><br>
+    </span>
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">the
+          water level in the lake changes from day to day and year to
+          year meaning 'depth' is relative</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">there
+          is a layer of high salinity in the lake which disrupts the
+          sonar</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">a
+          stream starts flowing in the middle of data collection
+          changing the chemical makeup of the lake</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">instruments
+
+
+
+
+
+
+
+          don't always work properly</span></li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span><span
+      style="font-family: Helvetica,Arial,sans-serif;"><br>
+      &nbsp;&nbsp;&nbsp; <span style="text-decoration: underline;">first</span><br>
+    </span>
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">make a
+          copy of the collected data each day as a backup</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">look at
+          collected data - in particular the n files of csv numerical
+          data</span></li>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">do
+            the numbers make sense? excel or some other simple graphing
+            tool is your friend</span></li>
+      </ul>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">check
+            min, max, general trends, odd outliers, dramatic changes in
+            value</span></li>
+      </ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">what if
+          some of the measurements are clearly wrong? if a device failed
+          when did it fail and how many measurements are affected?
+          instead of looking at missions independently you now need to
+          look at them in temporal order</span></li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      &nbsp;&nbsp;&nbsp; ideally you do all of this in the field so you
+      know if you missed collecting any data so you run another mission
+      and collect it again.<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; <span style="text-decoration: underline;">next</span><br>
+    </span>
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">need to
+          assign common null values to make later processing easier
+          (might be tricky with different types of data)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">need to
+          correct depth issues (where is depth gauge on the vehicle,
+          what is current lake level - this affects the precise depth of
+          all the measurements</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">need to
+          keep track of the changes being made to the data - a copy (and
+          backup) of the raw data should remain untouched. Revised
+          versions of the data should have metadata describing the
+          changes that were made. </span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">need to
+          explicitly state what is the degree of accuracy of each
+          instrument</span></li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      &nbsp;&nbsp;&nbsp; now we can get to more interesting
+      visualization and analysis issues<br>
+      <br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <hr style="width: 100%; height: 2px;"><br>
+    <big><big><big><span style="font-family:
+            Helvetica,Arial,sans-serif;">CoreWall<br>
+            <a href="http://www.corewall.org/"><small><small><small>http://www.corewall.org/</small></small></small></a><br>
+          </span></big></big></big><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Cores brought
+      up from lakes, ice, ocean floor, the antarctic</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">These cores
+      may be several meters long or several kilometers long</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Used to
+      determine the climate thousands to hundreds of millions of years
+      ago</span><br style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Cores brought
+      up and sliced in half</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">One
+          half kept untouched in refrigerated storage</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">One
+          half is photographed and sampled and then put into
+          refrigerated storage</span></li>
+    </ul>
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Data from
+      each core segment is recorded on a paper 'barrel sheet' summary
+      stored in binders</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">printouts
+of
+
+
+
+
+
+
+
+          the photographic scan of the core</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">graphs
+          of measurements taken along the core</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">information
+on
+samples
+collected
+from
+specific
+
+
+
+
+
+
+
+          points of the core</span></li>
+    </ul>
+    <img style="width: 600px; height: 450px;"
+      src="pics/week6/core_analysis.jpg" alt="Cores in Minnesota"><br>
+    <br>
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Why doesn't
+      this work</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">Researchers
+
+
+
+
+
+
+          must go to the core to collect new tests</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">Researchers
+may
+have
+to
+wait
+months
+
+
+
+
+
+
+
+          before physical cores are shipped back from drill site</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">Cores
+          in storage oxidize, shrink</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">Paper
+          in binders is not an easily sharable format</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">to look
+          at long cores investigators need to lay paper end to end down
+          the hallway</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">cores
+          can be scanned at higher resolution than eventual data storage
+          - that information is wasted</span></li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span><img style="width: 600px; height: 402px;"
+      src="pics/week6/core_repository.jpg" alt="Core Repository in
+      Minnesota"><br>
+    <br>
+    <img style="width: 600px; height: 799px;"
+      src="pics/week6/hallway.jpg" alt="Viewing Core Data on the Floor"><br>
+    <br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">CoreWall
+      solution<br>
+    </span><img style="width: 600px; height: 275px;"
+      src="pics/week6/corewall.jpg" alt="CoreWall Screens"><br>
+    <br>
+    <img src="pics/week6/corewall-tile.jpg" alt=""><br>
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">keep
+          information in digital form (photography, numerical scans,
+          annotations)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">store
+          data in common database(s) allowing remote access over the
+          internet</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">information
+immediately
+available
+when
+it
+is
+
+
+
+
+
+
+
+          scanned at the drill site</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">use
+          multiple high resolution monitors to allow people to load in
+          multiple core segments, pan, and zoom, in the lab</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">easy to
+          find and compare related core data (from previous expeditions,
+          from nearby drill sites)</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">same
+          software runs on a laptop for personal work</span></li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">ANDRILL</span>
+      2006 - two CoreWall setups in Antarctica<br>
+      ANDRILL 2007 - seven CoreWall setups including one at the drill
+      site in Antarctica<br>
+      now installed on JOIDES Resolution drill ship<br>
+      <br>
+      http://www.apple.com/science/profiles/andrill/<br>
+      <br>
+      moving towards 3D MRI / CT scans of cores</span><span
+      style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span>
+    <h3> </h3>
+    <hr style="width: 100%; height: 2px;">
+    <h3><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Coming Next Time</font></h3>
+    <p><span style="font-family:
+        Helvetica,Geneva,Arial,SunSans-Regular,sans-serif; font-weight:
+        bold;">Project 3 Presentations</span><br>
+    </p>
+    <span style="font-family:
+      Helvetica,Geneva,Arial,SunSans-Regular,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Geneva,Arial,SunSans-Regular,sans-serif;"></span><font
+      face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">last
+      revision 10/16/10</font>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+
+font.chapter {font-weight:bold}
+font.headline {font-weight:bold}
+font.seal {font-family:times new roman, times;font-size:7pt;font-weight:bold;}
+a.search {font-family:times new roman, times;font-size:8pt;color:black;background-color:white;text-decoration:none}
+input.txtsearch {width:210}
+
+font.poem {font-family:times new roman, times;font-size:12pt;color:silver;}
+font.nosee {font-family:times new roman, times;font-size:5pt;color:darkblue;}
+font.note {font-family:arial, helvetica, sans serif;font-size:8pt;color:white;}
+a.note {font-family:arial, helvetica, sans serif;font-size:8pt;color:white;text-decoration:none}
+a.noteu {font-family:arial, helvetica, sans serif;font-size:8pt;color:white;}
+
+font.bar {font-family:arial, helvetica, sans serif;font-size:8pt;color:white}
+a.bar {font-family:arial, helvetica, sans serif;font-size:8pt;color:white;text-decoration:none}
+a.bar1 {font-family:arial, helvetica, sans serif;font-size:10pt;font-weight:bold;color:white;text-decoration:none}
+
+a.arrow {font-weight:bold;color:blue;background-color:white;}
+
+font.ititle {font-size:20pt;font-weight:bold}
+font.isupport {font-size:9pt;font-weight:bold}
+font.iname {font-size:12pt;font-weight:bold}
+font.iheadline {}
+a.ichapter {font-weight:bold;color:blue;}
+font.display {font-family:arial, helvetica, sans serif;font-size:11pt;font-weight:bold}
+
+font.quote {font-family:arial, helvetica, sans serif;font-size:10pt}
+

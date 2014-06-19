@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Shi Yin | [LeetCode] Same Tree</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="a blog about everything in my life" />
+    <meta name="author" content="Shi Yin" />
+    <meta name="keywords" content="joysword, Shi Yin, Shi, Yin, personal website, portfolio, games, blog, Video Games, Jekyll, Bootstrap, Font Awesome" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+    <link href="/en/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/en/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/en/css/style.css" rel="stylesheet" media="screen">
+    <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="sidebar">
+  <a class="navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
+    <i class="fa fa-bars fa-fw"></i>
+  </a>
+        
+  <nav id="nav" class="navigation" role="navigation">
+    <div class="mynav">
+      <a href="/en/"><i class="fa fa-list-alt fa-fw"></i> <span>posts</span></a>
+      <a href="/en/archive/"><i class="fa fa-inbox fa-fw"></i> <span>archive</span></a>
+      <a href="/en/categories/"><i class="fa fa-folder fa-fw"></i> <span>categories</span></a>
+      <a href="/en/tags/"><i class="fa fa-tags fa-fw"></i> <span>tags</span></a>
+    </div>
+    <div class="mynav">
+      <a href="http://joysword.com"><i class="fa fa-home fa-fw"></i> <span>home</span></a>
+    </div>
+  </nav><!-- /nav -->
+
+</div><!-- /sidebar -->
+
+        <div class="container">
+            <section class="section">
+  <article>
+    <h1 class="post-title">
+      [LeetCode] Same Tree
+    </h1>
+
+    	<section class="byline">
+      February 11, 2014 | <i class="fa fa-folder"></i>
+        
+          <a href="/en/categories/#leetcode">leetcode</a>
+        
+        | <i class="fa fa-tags"></i>
+        
+          #<a href="/en/tags/#LeetCode">LeetCode</a>,
+        
+          #<a href="/en/tags/#algorithm">algorithm</a>,
+        
+          #<a href="/en/tags/#interview">interview</a>
+        
+    </section>
+
+    <div class="post-content">
+      <h3>Description</h3>
+
+<blockquote><p>Given two binary trees, write a function to check if they are equal or not.</p>
+
+<p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p></blockquote>
+
+<h3>Solution</h3>
+
+<p><a href="(http://oj.leetcode.com/problems/same-tree/">Same Tree</a> is very easy if we consider in a recursive way. Tree A and Tree B can be considered as the same if the value of root of A and the value of root of B are the same, and left sub-tree of A is the same as left sub-tree of B, and the same for right sub-tree of A and B.</p>
+
+<!--more-->
+
+
+<p>So the pseudo code of this algorithm:</p>
+
+<div class="highlight"><pre><code class="c++"><span class="kt">bool</span> <span class="nf">isSameTree</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="n">is</span> <span class="nb">NULL</span> <span class="n">and</span> <span class="n">q</span> <span class="n">is</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">same</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="n">or</span> <span class="n">q</span> <span class="n">is</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">different</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="n">of</span> <span class="n">p</span> <span class="n">and</span> <span class="n">q</span> <span class="n">are</span> <span class="n">different</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">different</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">isSameTree</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="n">and</span> <span class="n">isSameTree</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h3>Summary</h3>
+
+<p>We can test recursively. Two trees are the same if values of roots are the same and left and right sub-trees are the same respectively.</p>
+
+    </div>
+    <hr>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- below the article -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-9274627071963476"
+     data-ad-slot="6098520145"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <hr>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'joysword';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  </article>
+</section>
+<div id="footer">
+    <hr>
+    <div class="row">
+        <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br> All articles are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br>Copyright &copy; 2014 joysword.com
+        </p>
+    </div>
+</div>
+
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43448447-1', 'joysword.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+    </div>
+    <!-- /wrapper -->
+
+
+</body>
+
+<!-- JAVASCRIPTS -->
+<script type="text/javascript" src="/en/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/en/js/main.js"></script>
+
+<!-- MathJax Section -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+    tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(),
+        i;
+    for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+</html>

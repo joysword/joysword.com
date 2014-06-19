@@ -1,0 +1,561 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title>CS 424 Week 12</title>
+  </head>
+  <body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+    vlink="#00aaff">
+    <h1><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Week 12<br>
+      </font></h1>
+    <h2><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Dynamic Data &amp; Animation<br>
+      </font></h2>
+    <p> </p>
+    <hr style="width: 100%; height: 2px;">
+    <hr style="width: 100%; height: 2px;"><big><big><br>
+        <span style="font-family: Helvetica,Arial,sans-serif;
+          font-weight: bold;">Dynamic Data</span></big></big> <br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">The data
+      being analyzed may not be a static database - it may be a
+      constantly flowing stream of data that you are dipping into to
+      look at the current state at this instant.<br>
+      <br>
+      There is a wide variety of data and tasks here:<br>
+    </span>
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">actively
+assisting
+
+
+
+
+          / routing</span></li>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">an
+            air traffic controller</span></li>
+      </ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;"></span><span
+          style="font-family: Helvetica,Arial,sans-serif;">monitoring
+          and looking for anomalies where you need to react quickly</span></li>
+      <ul>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">monitoring
+
+            the telemetry while launching a space shuttle</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">tracking
+
+            various stocks, currencies, world events for a wall street
+            broker</span></li>
+        <li><span style="font-family: Helvetica,Arial,sans-serif;">city
+            traffic management</span></li>
+      </ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">casually
+keeping
+
+
+
+
+          track of the current situation</span></li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      Importance of context</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Often very
+      important not just knowing the current value (e.g. position,
+      price) of an entity, but also the recent values of that entity, to
+      show how it is changing (e.g. value increasing or decreasing,
+      moving <span style="font-family: Helvetica,Arial,sans-serif;">N /
+        S / E / W, etc) </span><br style="font-family:
+        Helvetica,Arial,sans-serif;">
+      <br>
+      <br>
+      How do the characteristics and recent history of this entity
+      compare to other similar entities (airplanes, currencies, stocks,
+      etc) at the current time? Is there a larger pattern or is this one
+      an anomaly.<br>
+      <br>
+      <br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;">How do
+      the characteristics of the current data compare to the expected /
+      common / average / historical data?<br>
+    </span>
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">in
+          value, volume, diversity, density, location, direction,
+          content, etc</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">e.g. is
+          that earthquake in a spot that we expect earthquakes in? is
+          that airplane following a typical flight path? do sales tend
+          to increase at this time of year?<br style="font-family:
+            Helvetica,Arial,sans-serif;">
+        </span></li>
+      <li style="font-family: Helvetica,Arial,sans-serif;">Is the
+        expected data explicitly shown or is that kept within the
+        individuals using the visualization</li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;">Google
+      Finance is a nice example - lets see how apple is doing: </span><a
+      style="font-family: Helvetica,Arial,sans-serif;"
+      href="http://www.google.com/finance?q=NASDAQ:AAPL">http://www.google.com/finance?q=NASDAQ:AAPL</a><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">and how they
+      compare to other tech companies and US stocks in general.</span><br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span><span
+      style="font-family: Helvetica,Arial,sans-serif;"></span><span
+      style="font-family: Helvetica,Arial,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px;"><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">If you are
+      working in shifts then its very important to effectively hand off
+    </span><span style="font-family: Helvetica,Arial,sans-serif;">control
+
+
+
+
+      to someone else (air traffic controllers, nurses.) What is the
+      current general situation? What are the points of interest that
+      someone should keep track of?</span><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      <br>
+    </span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;">How
+      can the visualization draw the viewers attention to a new
+      important event? </span><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span><span style="font-family:
+      Helvetica,Arial,sans-serif;">(from Schneiderman)<br>
+    </span>
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">intensity:
+2
+
+
+
+
+          levels (normal and high intensity attention getting) -
+          remember human perception of intensities</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">marking:&nbsp;
+
+
+
+
+          ___, *, arrows, boxes</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">size:
+          up to 4, larger attracting more attention<br>
+        </span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">color:
+          up to 4 standard colours with additional colours used
+          occasionally<br>
+        </span></li>
+    </ul>
+    <ul>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">blinking:
+(2-4
+
+
+
+
+          Hz) on off, inverse, or colour changes - use sparingly</span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">audio:
+          soft for regular / harsh to attract attention<br>
+          <br>
+        </span></li>
+      <li><span style="font-family: Helvetica,Arial,sans-serif;">animation:
+bouncing
+
+
+
+
+          / wiggling / shaking</span></li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;">It can be
+      helpful to put these under user control so the user can set the
+      thresholds or manually label interesting entities.<br>
+      <br>
+      If the alert is very important then the visualization should
+      continue trying to get the user's attention until he/she
+      acknowledges the event.</span><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      <br>
+    </span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;">in
+      situ visualization<br>
+      <br>
+      a nice paper on this topic is:<br>
+      In-Situ Processing and Visualization for Ultrascale Simulations,
+      Kwan-Liu Ma, Chaoli Wang, Hongfeng Yu, Anna Tikhonova, Journal of
+      Physics: Conference Series 78 (2007)<br>
+      <br>
+    </span>
+    <div align="justify"><span style="font-family:
+        Helvetica,Arial,sans-serif;"> As well as monitoring complex
+        systems in the 'real world' there is also a need to monitor what
+        is going on in high-performance simulations. </span><span
+        style="font-family: Helvetica,Arial,sans-serif;">Visualization
+        is usually done as a post-processing step once the simulation
+        has finished running. This is becoming less common today as
+        there is now a need to do visualization while the simulation is
+        running.</span><span style="font-family:
+        Helvetica,Arial,sans-serif;">Computer simulations take up a
+        tremendous amount of resources and time (days to weeks) and the
+        investigators don't want to waste them. </span><br>
+    </div>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      Simulations are now running at the peta scale with exa scale
+      machines on the drawing board - <a
+href="http://en.wikipedia.org/wiki/Supercomputer#Timeline_of_supercomputers">http://en.wikipedia.org/wiki/Supercomputer#Timeline_of_supercomputers</a></span><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <div align="justify"><span style="font-family:
+        Helvetica,Arial,sans-serif;"> Often simulations are run in
+        emsembles with slight variations in the initial parameters to
+        see what the different results are. If one of these simulations
+        starts behaving incorrectly or goes out of bounds then it would
+        be better to end it quickly and devote the processors, storage,
+        etc to a set of parameters that may give a better result.
+        Scientists would also like to 'steer' these simulations to
+        particular points of interest while they are running. This means
+        we need to see what is happening as the simulation is running -
+        as Larry Smarr puts it 'the window in the oven.' </span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"> </span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"> </span><span
+        style="font-family: Helvetica,Arial,sans-serif;">The ability for
+        simulations to generate data far exceeds our ability to store
+        that data, and storing data to disc can take a very long time.
+        Most of the data generated in high-performance simulations is
+        not stored, so you typically do not have the ability to look
+        back through the various time steps of the simulation - the data
+        for the current step is used to get to the next step and then it
+        is discarded. </span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"> One
+        approach to this is to stop the simulation at a given time step,
+        move the relevant data over to another cluster for
+        visualization, and then start the simulation running again. This
+        allows the creation of the visualization to run in parallel
+        (co-processing) with further computation. When the visualization
+        is finished then decisions can be made on whether to continue
+        the current simulation, refocus it by changing some parameters,
+        or end it. This is doable but there can be a lot of time spent
+        moving data between the clusters.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"> </span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"> Another
+        approach (in situ visualization) is to share the processing
+        nodes and storage space on the same cluster with part of the
+        cluster devoted to computation and part devoted to
+        visualization. This is harder to code since the computation and
+        visualization need to make sure they don't step on each other's
+        data, and scientists often want to devote as much of the cluster
+        as possible to computation. To reduce data duplication and
+        movement the visualization code needs to accept the organization
+        of the data for the simulation, which may be less than ideal.
+        For this to work well the visualization software designers must
+        work closely with the simulation software designers. This also
+        means the visualization people need to make use of the resources
+        on the simulation machine which typically means software-based
+        rendering rather than hardware-accelerated rendering.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"> <br>
+      In both cases a major issue is the amount of data that needs to be
+      moved. Data reduction techniques may involve only visualizing
+      every n'th time step, visualizing all the data at a very course
+      resolution, reducing the dimensionality of the data to be
+      visualized, or focusing on a particular region of the simulation.<br>
+      <br>
+    </span><br>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      <br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;">We
+      talked about weather data before, and similar data on air quality
+      is made available on an hourly basis.<br>
+      <br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <div align="justify"><span style="font-family:
+        Helvetica,Arial,sans-serif;"> Flight tracking software is a good
+        example of this - when I was collecting data for the O'Hare
+        project I grabbed the current data at regular intervals. There
+        is similar data for buses in Chicago , and many other types of
+        vehicles. This kind of data tends to be rather small though,
+        there may be many entities.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"> <br>
+      We looked at the Chicago traffic data in graphic form when talking
+      about uncertainty:<br>
+      <a
+href="http://www.travelmidweststats.com/GCMLink.aspx?GCMLinkID=IL-TESTTSC-264">http://www.travelmidweststats.com/GCMLink.aspx?GCMLinkID=IL-TESTTSC-264</a><br>
+      <br>
+      Similar charts can be useful when looking at things like
+      electricity demand and will likely become more ubiquitous as we
+      move to 'smarter' power grids:<br>
+      <a href="http://www.caiso.com/outlook/SystemStatus.html">http://www.caiso.com/outlook/SystemStatus.html</a><br>
+      <br>
+      <br>
+      Back to Chicago traffic<br>
+      <br>
+    </span>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"> We can also look at in a map form
+        and that form may be better to show recent accidents or lane
+        closures that explain why travel times have suddenly changed and
+        give more accuracy as to where those events may have occurred
+        (i.e. where the road turns from red to green.) Google maps and
+        other services also nicely update the colour of tracked road in
+        something close to real-time. Here are the traffic conditions
+        around UIC on Monday Nov 2nd at 3pm. In the future fixed sensors
+        communicating to a central server will likely be replaced by
+        auto to auto communication systems for more timely
+        communication.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"> <br>
+    </span><img style="width: 800px; height: 334px;"
+      src="pics/week11/google_traffic.jpg" alt="Google Maps showing
+      traffic around UIC"><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      Other sites allow you to track individual entities:<br>
+      <br>
+      Exploratorium's Cab Tracker: <a
+        href="http://cabspotting.org/client.html">http://cabspotting.org/client.html</a><br>
+      The live tracking is no longer being updated but the movies are
+      still there<br>
+      <br>
+      CTA Bus Tracker: </span><a style="font-family:
+      Helvetica,Arial,sans-serif;"
+      href="http://www.ctabustracker.com/bustime/map/displaymap.jsp">http://www.ctabustracker.com/bustime/map/displaymap.jsp</a><br>
+    <br>
+    <img style="width: 800px; height: 509px;"
+      src="pics/week11/cta-bus.jpg" alt="CTA Bus Tracker - Halsted"><br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">and slower
+      things like whales: <a
+href="http://www.greenpeace.org/international/campaigns/oceans/whaling/great-whale-trail/map">http://www.greenpeace.org/international/campaigns/oceans/whaling/great-whale-trail/map</a><br>
+      which is no longer being updated.<br>
+      <br>
+    </span><img style="width: 720px; height: 763px;"
+      src="pics/week11/whales.jpg" alt=""><br>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">or fast
+      things like the international space station - <a
+        href="http://spaceflight.nasa.gov/realdata/tracking/index.html">http://spaceflight.nasa.gov/realdata/tracking/index.html</a>
+      or <a href="http://www.n2yo.com/?s=25544"><span
+          style="text-decoration: underline;">http://www.n2yo.com/?s=25544</span></a><br>
+    </span><img style="width: 638px; height: 665px;"
+      src="pics/week11/ISS.jpg" alt=""><br>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      Its pretty common for people to visualize the current state of
+      their computer (CPU, network, battery, temperature, etc.) In the
+      'old days' of the 70s and 80s you could listen to the hard drive
+      or the modem and know what the computer was doing. Today the
+      computer helps out.<br>
+      <br>
+      on a bigger scale there are similar tools for the state of the
+      PlanetLab machines: <a
+        href="http://codeen.cs.princeton.edu/covisualize/">http://codeen.cs.princeton.edu/covisualize/</a><br>
+      or to look over the various optical networks that EVL can connect
+      to: <a href="http://starlsd.sl.startap.net/mrtg/e1200.html">http://starlsd.sl.startap.net/mrtg/e1200.html</a><br>
+      <br>
+    </span>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"></span>
+      <hr style="width: 100%; height: 2px;"><span style="font-family:
+        Helvetica,Arial,sans-serif;"></span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span> <span
+      style="font-family: Helvetica,Arial,sans-serif;">back to the chaos
+      that is twitter: <a href="http://beta.twittervision.com/"></a></span><span
+      style="font-family: Helvetica,Arial,sans-serif;"><br>
+      <a href="http://trendsmap.com/">http://trendsmap.com/</a> - this
+      one seems slow to update<br>
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">digg labs -
+        <a href="http://labs.digg.com/">http://labs.digg.com/</a> -
+        (link seems unresponsive) stack seems somewhat useful, swarm is
+        interesting but needs more resolution<br>
+      </span></span><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      current news:<br>
+      msnbc specra - <a
+        href="http://www.msnbc.msn.com/id/24207533/%20and%20news%20skimmer">http://www.msnbc.msn.com/id/24207533/
+
+
+
+
+      </a>- pretty but is it useful?<br>
+      and news skimmer -&nbsp; <a
+        href="http://www.msnbc.msn.com/id/24115502">http://www.msnbc.msn.com/id/24115502</a>
+      - ditto<br>
+      and we previously talked about news map <a
+        href="http://newsmap.jp/">http://newsmap.jp/</a><br>
+      <br>
+    </span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      somewhat slower:<br>
+      reasonably current national air quality data - <a
+        href="http://airnow.gov/">http://airnow.gov/</a><br>
+      and an example at the state level - <a
+        href="http://www2.des.state.nh.us/airdata/">http://www2.des.state.nh.us/airdata/</a>
+      and <a href="http://www.maine.gov/dep/air/ozone/currentdata.html">http://www.maine.gov/dep/air/ozone/currentdata.html</a><br>
+      <br>
+      realtime (within 5 minutes) earthquakes for the past 7 days on
+      Google earth<br>
+      <a href="http://earthquake.usgs.gov/eqcenter/catalogs/">http://earthquake.usgs.gov/eqcenter/catalogs/</a><br>
+      and a map version <a
+        href="http://earthquake.usgs.gov/eqcenter/recenteqsww/">http://earthquake.usgs.gov/eqcenter/recenteqsww/</a><br>
+      <br>
+      local 'weather' data in EVL: <a
+        href="ftp://ftp.evl.uic.edu/pub/software/andy/evlTempF.html">ftp://ftp.evl.uic.edu/pub/software/andy/evlTempF.html</a><br>
+      <br>
+      internet traffic report: <a
+        href="http://www.internettrafficreport.com/">http://www.internettrafficreport.com/</a><br>
+      <br>
+    </span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+    </span>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">on the financial side there is a
+        lot of work looking at the current state of the stock market and
+        currencies. In many cases these are purely algorithmic since
+        fractions of a second can be important in making those kinds of
+        trades, but people also use visualization to look for trends or
+        opportunities that the algorithms may have missed.</span><br>
+      <span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+    <span style="font-family: Helvetica,Arial,sans-serif;"><br>
+      For example aqumin's AlphaVision: <a
+        href="https://sites.google.com/a/aqumin.com/wiki/"><span
+          style="text-decoration: underline;">https://sites.google.com/a/aqumin.com/wiki/</span></a></span><span
+      style="font-family: Helvetica,Arial,sans-serif;"><br>
+      <br>
+    </span><span style="font-family: Helvetica,Arial,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Arial,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px;"><big><big><br>
+        <span style="font-weight: bold; font-family:
+          Helvetica,Arial,sans-serif;">Animations</span></big></big> <br>
+    <br>
+    <div style="text-align: justify;"><span style="font-family:
+        Helvetica,Arial,sans-serif;">Animations can be an end product of
+        an analysis, and it can also be used within a visualization and
+        analysis tool as we have seen in the class projects. <br>
+        <br>
+        Animation allows us to look at the pace of change in the data
+        (velocity), and changes in that pace (acceleration.) In
+        visualizations with many entities it helps us follow the path of
+        individual entities rather than just seeing 'snapshots' of
+        static positions. In many cases the original phenomena being
+        studied was continuous but was discretized when it was sampled /
+        measured so animation can bring us back to a more 'natural'
+        representation of the information. One must be careful that any
+        interpolation done for an animation remains true to the original
+        data.</span><br>
+      <br>
+      <span style="font-family: Helvetica,Arial,sans-serif;">In terms of
+        the lie factor, here you need to be careful of how time appears
+        to progress. You should have an indication of the current time,
+        and you should not change the speed that time passes or cut out
+        sections of time without informing the viewer in an obvious way.</span><br>
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+    </div>
+    <br>
+    <span style="font-family: Helvetica,Arial,sans-serif;">A nice
+      application showing global statistics over time<br>
+      <a href="http://www.gapminder.org/">http://www.gapminder.org/</a><br>
+      <br>
+      There is a nice 20 minute 2006 TED talk about it here: <a
+href="http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html">http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html</a><br>
+      and there are several more video talks with Hans Rosling that are
+      worth watching as well, one shorter more recent one is <a
+        href="http://www.youtube.com/watch?v=jbkSRLYSojo">http://www.youtube.com/watch?v=jbkSRLYSojo</a><br>
+      <br>
+    </span>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Some nice examples:<br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">CodeSwarm out of UC Davis - http://vimeo.com/3914346<span
+          style="text-decoration: underline;"><br>
+        </span>and an example with twitter - http://vimeo.com/9225227 <a
+          href="http://vis.cs.ucdavis.edu/%7Eogawa/codeswarm/"></a><br>
+      </font></p>
+    <p><font style="font-family: Helvetica,Arial,sans-serif;"
+        face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">similar
+to
+
+
+
+
+        the data from the O'Hare project, here are<br>
+        airplane flight patterns across the US - <a
+          href="http://youtube.com/watch?v=dPv8psZsvIU">http://youtube.com/watch?v=dPv8psZsvIU</a><br>
+        and worldwide <a
+          href="http://www.youtube.com/watch?v=1XBwjQsOEeg">http://www.youtube.com/watch?v=1XBwjQsOEeg</a></font><br>
+      <br>
+      <span style="font-family: Helvetica,Arial,sans-serif;">more data
+        is available here: <a
+          href="http://www.aaronkoblin.com/work/flightpatterns/"><span
+            style="text-decoration: underline;">http://www.aaronkoblin.com/work/flightpatterns/</span></a></span><br>
+    </p>
+    <span style="font-family: Helvetica,Arial,sans-serif;">an
+      interesting ad: <a
+href="http://flowingdata.com/2009/07/29/animated-infographics-for-the-eat-local-eat-real-campaign/">http://flowingdata.com/2009/07/29/animated-infographics-for-the-eat-local-eat-real-campaign/</a><br>
+      <br>
+      <br>
+      Here is a flash visualization of the Chicago Fire of 1871<br>
+      <a
+        href="http://www.pbs.org/wgbh/amex/chicago/maps/pop_fire_body.html">http://www.pbs.org/wgbh/amex/chicago/maps/pop_fire_body.html</a><br>
+      <br>
+    </span>
+    <p><br>
+      <font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">NASA
+Goddard
+
+
+
+
+        Space Flight Center makes some very nice high resolution
+        animations:<br>
+        <a href="http://svs.gsfc.nasa.gov/">http://svs.gsfc.nasa.gov/</a><br>
+      </font></p>
+    <p><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">including the 2005 hurricane season animation - 27
+        storms<br>
+        <a
+          href="http://svs.gsfc.nasa.gov/vis/a000000/a003300/a003354/index.html">http://svs.gsfc.nasa.gov/vis/a000000/a003300/a003354/index.html</a><span
+          style="text-decoration: underline;"></span><br>
+      </font><img style="width: 707px; height: 400px;"
+        src="pics/week11/viz3.jpg" alt=""></p>
+    <span style="font-family: Helvetica,Arial,sans-serif;"></span>
+    <h3> </h3>
+    <hr style="width: 100%; height: 2px;">
+    <h3><font face="Helvetica, Geneva, Arial, SunSans-Regular,
+        sans-serif">Coming Next Time</font></h3>
+    <p><span style="font-family:
+        Helvetica,Geneva,Arial,SunSans-Regular,sans-serif; font-weight:
+        bold;">Visual Analytics<br>
+      </span><span style="font-family:
+        Helvetica,Geneva,Arial,SunSans-Regular,sans-serif; font-weight:
+        bold;"></span></p>
+    <span style="font-family:
+      Helvetica,Geneva,Arial,SunSans-Regular,sans-serif;"></span>
+    <hr style="width: 100%; height: 2px;"><span style="font-family:
+      Helvetica,Geneva,Arial,SunSans-Regular,sans-serif;"></span><font
+      face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">last
+      revision 11/12/12</font>
+  </body>
+</html>

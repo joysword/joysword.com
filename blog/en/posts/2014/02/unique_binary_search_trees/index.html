@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Shi Yin | [LeetCode] Unique Binary Search Trees</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="a blog about everything in my life" />
+    <meta name="author" content="Shi Yin" />
+    <meta name="keywords" content="joysword, Shi Yin, Shi, Yin, personal website, portfolio, games, blog, Video Games, Jekyll, Bootstrap, Font Awesome" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+    <link href="/en/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/en/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/en/css/style.css" rel="stylesheet" media="screen">
+    <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="sidebar">
+  <a class="navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
+    <i class="fa fa-bars fa-fw"></i>
+  </a>
+        
+  <nav id="nav" class="navigation" role="navigation">
+    <div class="mynav">
+      <a href="/en/"><i class="fa fa-list-alt fa-fw"></i> <span>posts</span></a>
+      <a href="/en/archive/"><i class="fa fa-inbox fa-fw"></i> <span>archive</span></a>
+      <a href="/en/categories/"><i class="fa fa-folder fa-fw"></i> <span>categories</span></a>
+      <a href="/en/tags/"><i class="fa fa-tags fa-fw"></i> <span>tags</span></a>
+    </div>
+    <div class="mynav">
+      <a href="http://joysword.com"><i class="fa fa-home fa-fw"></i> <span>home</span></a>
+    </div>
+  </nav><!-- /nav -->
+
+</div><!-- /sidebar -->
+
+        <div class="container">
+            <section class="section">
+  <article>
+    <h1 class="post-title">
+      [LeetCode] Unique Binary Search Trees
+    </h1>
+
+    	<section class="byline">
+      February 12, 2014 | <i class="fa fa-folder"></i>
+        
+          <a href="/en/categories/#leetcode">leetcode</a>
+        
+        | <i class="fa fa-tags"></i>
+        
+          #<a href="/en/tags/#LeetCode">LeetCode</a>,
+        
+          #<a href="/en/tags/#algorithm">algorithm</a>,
+        
+          #<a href="/en/tags/#interview">interview</a>
+        
+    </section>
+
+    <div class="post-content">
+      <h3>Description</h3>
+
+<blockquote><p>Given n, how many structurally unique BST's (binary search trees) that store values 1...n?</p>
+
+<p>For example,</p>
+
+<p>Given n = 3, there are a total of 5 unique BST's.</p>
+
+<pre><code>   1         3     3      2      1
+    \       /     /      / \      \
+     3     2     1      1   3      2
+    /     /       \                 \
+   2     1         2                 3
+</code></pre></blockquote>
+
+<h3>Solution</h3>
+
+<p>Before we start to solve <a href="(http://oj.leetcode.com/problems/runique-binary-search-trees/">Unique Binary Search Trees</a>, recall that a BST is a binary tree which has the following properties:</p>
+
+<ul>
+<li>The left sub-tree contains only nodes smaller than the root;</li>
+<li>The right sub-tree contains only nodes larger than the root;</li>
+<li>The left and right sub-tree each is a BST.</li>
+</ul>
+
+
+<!--more-->
+
+
+<p>If <code>n = 1</code>, the answer is 1.</p>
+
+<p>If <code>n = 2</code>, the answer is 2, either 1 is root or 2 is root.</p>
+
+<pre><code>    1          2
+     \        /
+      2      1
+</code></pre>
+
+<p>If <code>n = 3</code>, the answer is 5. If 1 is root, we need to put 2 and 3 in the right sub-tree, and we'll have 2 BST's; if 2 is root, we need to put 1 and 3 in each side, respectively, and we'll have 1 BST; if 3 is root, we need to put 1 and 2 in the left sub-tree, and we'll have 2 BST's.</p>
+
+<p>If <code>n = 4</code>, the answer is . If 1 is root, we need to put 2, 3 and 4 in the right sub-tree, and we'll have 5 BST's, just like when <code>n = 3</code>; If 2 is root, we need to put 1 in the left sub-tree and to put 3 and 4 in the right sub-tree, and we'll have <code>1*2=2</code> BST's; If 3 is root, we need to put 1 and 2 in the left sub-tree and to put 4 in the right sub-tree, and we'll also have <code>2*1=2</code> BST's; If 4 is root, we need to put 1, 2 and 3 in the left sub-tree, and we'll have 5 BST's, just like when <code>n = 3</code>.</p>
+
+<p>...</p>
+
+<p>Each time we put a number at root, we know how many nodes in each of left and right sub-tree, thus we know how many unique BST's can there be as left or right sub-tree.Multipling number of left sub-tree by number of right sub-tree will give us the answer for this root. Summing all different selections for root will give us the final result.</p>
+
+<h3>Summary</h3>
+
+<p>The formula to calcute the number of unique BST's is <code>\(numTrees(n) = \sum_{i=1}^{n} numTrees(i) * numTrees(n-i-1)\)</code></p>
+
+<h3>More</h3>
+
+<p>I thought I might get <code>TLE</code> in my first attempt for solving it in a recursive way, but instead I got <code>Wrong Answer</code>. This was because I used <code>+</code> instead of <code>*</code> betweeen the number of left and right sub-trees.</p>
+
+<p>The second attempt was <code>Accepted</code>.</p>
+
+    </div>
+    <hr>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- below the article -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-9274627071963476"
+     data-ad-slot="6098520145"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <hr>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'joysword';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  </article>
+</section>
+<div id="footer">
+    <hr>
+    <div class="row">
+        <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br> All articles are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br>Copyright &copy; 2014 joysword.com
+        </p>
+    </div>
+</div>
+
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43448447-1', 'joysword.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+    </div>
+    <!-- /wrapper -->
+
+
+</body>
+
+<!-- JAVASCRIPTS -->
+<script type="text/javascript" src="/en/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/en/js/main.js"></script>
+
+<!-- MathJax Section -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+    tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(),
+        i;
+    for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+</html>

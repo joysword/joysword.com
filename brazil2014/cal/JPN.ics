@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Japan
+X-WR-CALNAME:World Cup 2014: Japan
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-6
+SUMMARY:Ivory Coast v Japan
+DESCRIPTION:Ivory Coast v Japan. Group C. Arena Pernambuco\, Recife\, Brazi
+ l. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, 
+ download the simulator for this summer's world cup at http://www.worldcupb
+ razilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140615T010000Z
+DTEND:20140615T024500Z
+LOCATION:Arena Pernambuco\, Recife\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-22
+SUMMARY:Japan v Greece
+DESCRIPTION:Japan v Greece. Group C. Arena das Dunas\, Natal\, Brazil. Worl
+ d Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, downloa
+ d the simulator for this summer's world cup at http://www.worldcupbrazilap
+ p.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140619T220000Z
+DTEND:20140619T234500Z
+LOCATION:Arena das Dunas\, Natal\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-37
+SUMMARY:Japan v Colombia
+DESCRIPTION:Japan v Colombia. Group C. Arena Pantanal\, Cuiabá\, Brazil. W
+ orld Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, down
+ load the simulator for this summer's world cup at http://www.worldcupbrazi
+ lapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140624T200000Z
+DTEND:20140624T214500Z
+LOCATION:Arena Pantanal\, Cuiabá\, Brazil
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>CS 424 Project 4</title>
+</head>
+<body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+ vlink="#00aaff">
+<h1 style="font-family: Helvetica,Arial,sans-serif;">Project 4<br>
+</h1>
+<p style="font-family: Helvetica,Arial,sans-serif;">I Heard it through
+the Grapevine<br>
+</p>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">In this
+project we are going to do a bit of network visualization using force
+directed graphs in processing, increase the size of the source
+datafiles to 2 gigabytes, and deal with integrating databases.</span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+We will randomize the groups again for this project, so you will be
+working with new people.</span><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;"><br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">In this project we
+will be looking at the data that netflix provided for its $1,000,000
+challenge. In our case, given a particular rental in their database
+that we assume you like, the application should recommend several other
+rentals that you should also like based on the ratings of others - ie
+given a rental in the database, the system should find all of the other
+renters that liked that film and then find all the films that those
+renters liked, prioritize them, and display them.<br>
+<br>
+The data is available at <a
+ href="http://archive.ics.uci.edu/ml/datasets/Netflix+Prize">http://archive.ics.uci.edu/ml/datasets/Netflix+Prize</a><br>
+<br>
+The files of particular interest are:<br>
+<span style="font-weight: bold;">README </span>- always good to start
+with the meta-data<br>
+<span style="font-weight: bold;">movie_titles.txt </span>- contains
+the 18,000 titles mathed to their ID number which includes movies, TV
+shows, etc. <br>
+<span style="font-weight: bold;">training_set </span>- directory
+containing one file for each title ID showing who rented it, what
+rating they gave it, and when they rented it.<br>
+<br>
+Since there are a lot of films and a lot of renters in the database we
+will again start by making some assumptions to simplify things. A
+rental needs to have been rented by at least 2500 people to be valid
+(which cuts the initial 17,770 titles down to about 5,000.) </span><span
+ style="font-family: Helvetica,Arial,sans-serif;">A renter needs to
+have rented at least 50 titles to be valid which will help you cut down
+the 480,000 renters. <br>
+<br>
+<br>
+</span><span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;"><br>
+<br>
+<span style="text-decoration: underline;">For a C you need ...</span><br>
+<ul>
+  <li>for the given rental (title) you should see the name of the
+rental linked
+by a force directed graph to n recommended rentals as other nodes in
+the graph. Clicking on one of the recommended rentals moves that one to
+the center and generates a new set of prioritized recommended rental
+nodes.<br>
+  </li>
+  <li>show the overall popularity of that selected rental(s) as a
+percentage of&nbsp; 5 / 4 / 3 / 2 / 1 star ratings</li>
+  <li>you should chart the rental popularity of the selected rental(s)
+over time - ie how many times was it rented per month over the last n
+months</li>
+  <li>show the popularity of the recommended rentals (based on total
+number of rentals)</li>
+  <li>show the quality of the recommended rentals (based on the average
+rating)</li>
+  <li>the program should start off with a list of the n titles. You can
+chose these yourselves and they should show a fair amount of variation
+on a variety of variables and include the top rented, top rated, least
+rented, lowest rated (from within the subset discussed above.)<br>
+  </li>
+</ul>
+<br style="text-decoration: underline;">
+<span style="text-decoration: underline;">For a B you need to add ...</span><br>
+<ul>
+  <li>clicking on one of the recommended rentals should bring up the
+list of n
+rentals recommended by that one <span
+ style="text-decoration: underline;">in addition to</span> the previous
+one(s). Rentals that are in common should be more recommended</li>
+  <li>a control to limit the popularity of rentals shown. You may find
+that very popular rentals overwhelm the more offbeat titles so the user
+should have a control that limits the titles displayed to only those
+above and/or below a certain popularity level.</li>
+  <li>the bad movie version - given a film that the user doesnt like,
+use
+other renters that didnt like it to find films that they also didnt
+like. This implies that your starting set of films should include
+several bad ones</li>
+</ul>
+<br>
+<span style="text-decoration: underline;">For an A you need to add ...</span><br>
+<ul>
+  <li>genre data from the imdb database. Combining data from multiple
+databases can be tricky but often necessary. We will again limit the
+titles to ones that are not videogames, TV shows, documentaries, adult
+films, etc. You will need to be a little generous in finding matches
+between the imdb and netflix titles, (especially with the use of 'The'
+and punctuation.) The imdb will have a lot more remakes with the same
+title than the netflix database, but since we are only using the genre
+information that shouldn't matter too much. The imdb uses the original
+foreign
+language title rendered in English while netflix uses the English title
+so you will unfortunately lose most of the foreign films, and many
+early films, but you should still have a good number of titles to work
+with. Once you have the genre information you can use it to label the
+various nodes in the graph, and to organize the nodes. Some nodes will
+have these labels and some will not.</li>
+  <li>decrease the restrictions on number of votes and number of
+rentals to be valid - ie increase the size of the dataset that you are
+accessing.<br>
+  </li>
+  <li>use the tool to find some interesting things and document them on
+your webpage.<br>
+  </li>
+</ul>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">Note that this
+project explicitely is not using the prior rental history of the user
+to make recommendations. One could choose a user from the database as a
+starting point to gain more data to use in creating good
+recommendations for that person, but that's a different project. </span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;">You
+should
+create
+a
+web
+page that describes your work on the project. I will be
+linking this web page to the course notes
+so please send me a 1024 x 768 jpg image of your visualization for the
+web. This
+should be named p4.&lt;someone_in_your_groups_last_name&gt;.jpg. Again,
+please make
+sure that your application is Mac / Windows / Linux compatible. Again,
+the web page should describe the contribution of each
+team member.<br>
+<br>
+Each group will bring their visualization to class to present it and
+describe
+its features to the rest of the
+class. This allows everyone to see a variety of solutions to the
+problem, and a variety of implementations.<br>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+For those who are interested there is a discussion here on the winning
+algorithms for the netflix prize:<br>
+http://www.netflixprize.com//community/viewtopic.php?id=1537<br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span>
+<hr style="font-family: Helvetica,Arial,sans-serif;">
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">last revision 11/5/09
+- added link to discussions of winning netflix contest algorithms, and
+clarification that we are not making use of any past rental history of
+the user in the project</span><br>
+</div>
+</body>
+</html>

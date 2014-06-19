@@ -1,0 +1,322 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>CS 424 Project 3</title>
+</head>
+<body alink="#ff2200" bgcolor="black" link="yellow" text="white"
+ vlink="#00aaff">
+<h1 style="font-family: Helvetica,Arial,sans-serif;">Project 3<br>
+</h1>
+<p style="font-family: Helvetica,Arial,sans-serif;">Whatever Happened
+to Randolph Scott<br>
+</p>
+<p style="font-family: Helvetica,Arial,sans-serif;"><span
+ style="color: rgb(255, 255, 255);">Project due at 11:59pm Monday
+11/1/10
+Chicago time</span>
+</p>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">Project 3 will be the
+second group project and the focus here will be more on the data
+integration side of things.<br
+ style="font-family: Helvetica,Arial,sans-serif;">
+</span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+In this project we will make use of the internet movie database
+(www.imdb.com) to investigate movie genres over time.<br>
+<br>
+The raw data is available at http://www.imdb.com/interfaces#plain<br>
+<br>
+The genres.list file contains information on the genre(s) of the films
+in the database.<br>
+<br>
+We will use a subset of the main genres: Action, Adventure, Animation,
+Comedy, Crime, Documentary, Drama, Fantasy, Family, Film-Noir, Horror,
+Musical, Mystery, Romance, Sci-Fi, Thriller, War, Western<br>
+<br>
+We will ignore some of the genres such as Adult, Short, Sport,
+Biography, History, Reality-TV, Talk-Show, News, Game-Show. </span><span
+ style="font-family: Helvetica,Arial,sans-serif;"><span
+ style="color: rgb(255, 255, 0);">You can go through the genres list
+and remove any line with any of these ignored genres. If the film also
+has a genre or genres other than the ignored ones then it will remain
+in the sample for the project, unless it is 'Adult' or 'Short'. </span></span><span
+ style="font-family: Helvetica,Arial,sans-serif;"><span
+ style="color: rgb(255, 255, 0);">If 'Adult' or 'Short' are listed as a
+genre however, all entries for that film should be removed. Do be
+careful not to remove other films with the same name that came out in a
+different year.</span></span> <br>
+<span style="font-family: Helvetica,Arial,sans-serif;"><span
+ style="color: rgb(255, 255, 0);"><br>
+So <br>
+100 Most Shocking Music Moments (2009) (TV)&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; Reality-TV<br>
+would get removed from the project because its only Reality-TV ( and
+would also get removed as shown below because its TV)<br>
+<br>
+but<br>
+Tin Cup (1996)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Comedy<br>
+Tin Cup (1996)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Drama<br>
+Tin Cup (1996)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Romance<br>
+Tin Cup (1996)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Sport<br>
+would still exist in the project because even though the Sport genre is
+removed it still has Comedy, Drama, and Romance.<br>
+<br>
+however<br>
+Hardware Wars (1978)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Action<br>
+Hardware Wars (1978)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Comedy<br>
+Hardware Wars (1978)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Sci-Fi<br>
+Hardware Wars (1978)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Short<br>
+would be completely removed since one of its genres is Short.<br>
+<br>
+</span><br>
+<br>
+We will also ignore any direct-to-video releases (V), video games (VG),
+TV movies (TV), and TV episodes {Title (#episode #)}</span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+Some films also have more than one genre eg:<br>
+North by Northwest (1959)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Action<br>
+North by Northwest (1959)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Adventure<br>
+North by Northwest (1959)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Drama<br>
+North by Northwest (1959)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Mystery<br>
+North by Northwest (1959)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Romance<br>
+North by Northwest (1959)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Thriller<br>
+<br>
+<br>
+The release-dates.list file gives more detailed release date
+information eg:<br>
+North by Northwest (1959)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USA:17 July
+1959&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Los Angeles, California)<br>
+North by Northwest (1959)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USA:28 July
+1959&nbsp;&nbsp; &nbsp;&nbsp; (Chicago, Illinois)<br>
+North by Northwest (1959)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USA:6 August
+1959&nbsp;&nbsp;&nbsp; (New York City, New York)<br>
+<br>
+Up through the 70s it was common for films in the US to be released in
+different cities in different weeks and months. In this file we will be
+interested in the earliest USA release date.
+Some will have only years, others month and day.<br>
+<br>
+<br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">The ratings file
+gives the distribution of quality ratings that people
+have given each film both as an aggregate number and a distribution eg:</span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0000001223&nbsp;&nbsp;
+91021&nbsp;&nbsp;
+8.6&nbsp;
+North
+by
+Northwest
+(1959)<br>
+<br>
+</span>
+<div style="text-align: justify;"><span
+ style="font-family: Helvetica,Arial,sans-serif;">We will also limit
+the films to those that have already been released
+as the database includes films that have been announced or are already
+in production. We will start with films released in 1920, since most
+early films would be considered short films today.</span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;">As with the
+earlier projects you should first get a copy of the data
+files and take a look at them to try and understand their structure.
+Then you need to decide how you want to integrate these various files
+together into a form that you can visualize. This may involve writing
+shell scripts or programs to process the files, or loading the
+information into a database. </span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span></div>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;"><br>
+<span style="font-weight: bold; text-decoration: underline;">For a C
+you need ...</span><br>
+<br>
+<ul>
+  <li>be able to pick a genre (eg Drama) from the list given above and
+shown on the user interface and
+see a distribution of films in that genre on a well-labeled timeline
+showing each
+year from 1920 through 2010. <br>
+  </li>
+  <li>the user should be able to display the distribution of a genre in
+several ways - in terms of absolute numbers or&nbsp; percentage for
+that year, or how this year compares to the average for this genre over
+the entire time, since the number of films made per year is highly
+variable.</li>
+  <li>the user should be able to choose a year and see the distribution
+of all genres for that year<br>
+  </li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">you should
+check your visualization with a colour blindness tool to
+see that its ok</span></li>
+  <li><span style="font-family: Helvetica,Arial,sans-serif;">everything
+should update quickly as you interact</span></li>
+</ul>
+<br>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">For a B
+you need to add ...</span><span
+ style="font-family: Helvetica,Arial,sans-serif;"><br>
+<br>
+</span>
+<ul>
+  <li>the user should be able to pick more than one genre and see their
+results simultaneously for comparison purposes</li>
+  <li>selecting a genre should bring up a listing of the top films in
+that genre across the entire data set both in terms of the highest
+rated films and the most popular (which we will use the number of votes
+for). Note that for top rated films you will need to set a minimum
+number of votes and that minimum may not be the same across all years
+of the database.<br>
+  </li>
+  <li>clicking on a particular year for a genre should show the top 5
+films in that genre for that year both in terms of the highest rated
+films and the most popular</li>
+  <li>when choosing a particular year to look at the overall genre
+distribution, the user should be able to see the top film in each genre
+for that year.<br>
+  </li>
+  <li>the user should be able to cluster the results by decade and see
+the aggregate results for that decade (eg now you would see the top
+films in the decade not just the year, how this decade compares to
+others, etc)</li>
+</ul>
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span><br style="font-weight: bold;">
+<span style="font-weight: bold; text-decoration: underline;">For an A
+you need to add ...</span>
+<ul>
+  <li>the user should be able to pick any number of genres and see
+their results simultaneously to compare the popularity of different
+genres over time<br>
+  </li>
+  <li>the user should be able to investigate whether different genres
+are more commonly released in different times of the year either by
+seasons or by months and see if this distribution changes over the
+decades. Here you should only use the films that have information on
+their month of release in the USA</li>
+  <li>the user should be able to choose combinations of genres to see
+the popularity of films that are in multiple genres <br>
+  </li>
+  <li>be able to scale the timeline to focus in on different periods in
+more detail<br>
+  </li>
+</ul>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+As with project 2, each Friday each member of the team should post a
+description of what they did on the project to the project web site.
+There are more opportunities in this project for different team members
+to focus on different areas.<br>
+<br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><br
+ style="font-family: Helvetica,Arial,sans-serif;">
+<div
+ style="text-align: justify; font-family: Helvetica,Arial,sans-serif;">As
+with
+Project
+1
+and
+2
+you
+should
+create
+a
+web
+page
+describing your work on the
+application. TIf possible make an embedded applet of your application
+but the data files may be large so be sure to have a link so people can
+download your application
+(and the necessary data files) to run your application. Please make
+sure that your application is Mac / Windows / Linux compatible. If you
+can get your app to run online through a browser then do include that
+version as well. The web page should describe the contribution of each
+team member (ie who worked on which interface elements, who worked on
+converting the data into a more usable form, etc.)<br>
+<br>
+Please send me a 1024 x 768 jpg image of your visualization for the
+web. This
+should be named p2.&lt;someone_in_your_groups_last_name&gt;.jpg. <br>
+<br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">Each person in
+the group should also send me a private email ranking
+your coworkers on the project on a scale from 1 (low) to 5 (high) in
+terms of how good a coworker they were on the project. If you never
+want to work with them again, give them a 1. If this person would be a
+first choice for a partner on a future project then give them a 5. If
+they did what was expected but nothing particularly good or bad then
+give them a 3. By default your score should be 3 unless you have a
+particular reason to increase or decrease the number. Please confine
+your responses to 1, 2, 3, 4, 5 and no 1/3ds or .5s please. I will
+average out all these scores for projects 2 through 4 and keep them in
+mind when
+assigning
+final grades.</span><br>
+<br>
+Each group
+will present their work to the class and describe
+its features to the rest of the
+class. This allows everyone to see a variety of solutions to the
+problem, and a variety of implementations.<br>
+<br>
+<span style="color: rgb(255, 255, 255);">Since
+we have six groups to go through in 75 minutes, each group will talk
+for 8 minutes plus 4 minutes for questions from the other groups. The
+presentation time should be evenly split among all members of the
+group. Each group sitting in the audience will be allowed one question
+for the group currently presenting, so come up with a good one. In
+answering the questions the group presenting should be concise so all
+of the other groups have a chance to ask questions.</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span><br>
+</div>
+<span style="font-family: Helvetica,Arial,sans-serif;">
+</span>
+<hr
+ style="width: 100%; height: 2px; font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span>
+<hr style="font-family: Helvetica,Arial,sans-serif;"><span
+ style="font-family: Helvetica,Arial,sans-serif; color: rgb(255, 255, 0);">last
+revision
+10/19/10
+- made the genre issue even more clear.</span>
+</body>
+</html>

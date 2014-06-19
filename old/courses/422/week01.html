@@ -1,0 +1,858 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=UTF-8">
+    <title>CS 422: Week 1</title>
+  </head>
+  <body style="color: white; background-color: black;" alink="#ff2200"
+    link="yellow" vlink="#00aaff">
+    <h1 style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Introduction and the Design of Everyday Things</h1>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <hr style="font-family: Helvetica,Arial,sans-serif; margin-left:
+      0px; margin-right: 0px;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <h3 style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Information about the Course</h3>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <hr style="font-family: Helvetica,Arial,sans-serif; margin-left:
+      0px; margin-right: 0px;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <h3 style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Warning about jargon</h3>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <hr style="font-family: Helvetica,Arial,sans-serif; margin-left:
+      0px; margin-right: 0px;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <h3 style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">What is this Course About</h3>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">This is a course in sensitivity.</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Making a program work for you is pretty easy. Making it
+      work for another user is much harder&nbsp; You need to think about
+      the actual users of your software early in the design stage, and
+      keep their needs in mind all the time.</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Engineers are not trained in design and psychology and
+      these are increasingly important in writing good software. People
+      in general have a hard time sitting quietly while people criticize
+      your hard work, but this is very important to creating a useful
+      product.</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">While this course involves using widgets to create
+      interfaces, it is primarily about the procedures to go through to
+      create good designs and evaluate them. This course is not about
+      teaching you how to write a bunch of programs with a specific
+      widget library; widget libraries come and go. This course is going
+      to focus on higher level concepts of how to create useful user
+      interfaces. We will be using qml as the user interface library for
+      this course; you will be expected to learn it on your own. There
+      will be two projects - the first done individually to get everyone
+      familiar and productive in the language, and the second in small
+      groups.<br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Throughout the course there will be many opportunities
+      for you to present your work to others in small groups, and to the
+      class as a whole. If you are terrified of public speaking or
+      working in groups then this class may help cure you of that or
+      send you screaming into a corner. <br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Similarly, if you are the kind of person that wants
+      specific quantifiable metrics for a given grade on a programming
+      project, then this may not be the class for you. There are many
+      rules for creating good user interfaces and many are in direct
+      conflict with each other, so finding the balance is as much an art
+      as a science - that's why its hard to do.<br>
+    </p>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">The Design of Everyday Things</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">(material from: <u>The Design of Everyday Things</u> by
+      Donald Norman)<br>
+    </p>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">
+      <center>
+        <p><i>Science Finds</i></p>
+      </center>
+      <center>
+        <p><i>Industry Applies</i></p>
+      </center>
+      <center>
+        <p><i>Man Conforms</i></p>
+      </center>
+      <center>
+        <p>(1933 Chicago World's Fair)<br>
+        </p>
+        <hr style="width: 100%; height: 2px;">
+        <p style="text-align: justify;"><br>
+          <b>Start by looking at Interfaces for common things:<br>
+          </b></p>
+      </center>
+    </div>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">"<b>Affordances</b> - perceived and actual properties of
+      a thing, primarily those fundamental properties that determine
+      just how the thing could possibly be used." Affordances provide
+      strong clues to the operation of a thing</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>Knobs are for turning </li>
+      <li>Slots are for inserting things into </li>
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Provide a good conceptual model and make things visible</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-decoration:
+      underline; text-align: justify;"><img src="GIFs/doors.jpg" alt=""
+        border="0" height="714" width="468"><br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-decoration:
+      underline; text-align: justify;">from the Design of Everyday
+      Things<span style="font-weight: bold;"><br>
+      </span></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-decoration:
+      underline; text-align: justify;">some local examples<span
+        style="font-weight: bold;"></span></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-decoration:
+      underline; text-align: justify;"><img style=" width: 225px;
+        height: 300px;" src="GIFs/door1.JPG" alt="">&nbsp; <img style="
+        width: 400px; height: 300px;" src="GIFs/door2.JPG" alt="">&nbsp;
+      <img style=" width: 225px; height: 300px;" src="GIFs/door3.JPG"
+        alt=""></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-decoration:
+      underline; text-align: justify;"><span style="font-weight: bold;"></span></p>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-decoration:
+      underline; text-align: justify;"><span style="font-weight: bold;"></span><b>Two
+conceptual
+
+
+
+
+
+        models</b></p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>the <b style="text-decoration: underline;">designer's</b>
+        conceptual model</li>
+      <li>the <b style="text-decoration: underline;">user's</b>
+        conceptual model</li>
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">The <b style="text-decoration: underline;">system image</b>
+      is the visible part of a device (including the physical structure,
+      the documentation, instructions, etc). The designer only talks to
+      the user through the system image. If the system image doesn't
+      make the design model clear then the user will create a different
+      model through their interaction.</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><b style="text-decoration: underline;">Mental models</b><span
+        style="text-decoration: underline;"> </span>- conceptual model
+      of the way something works, often constructed from fragmentary
+      evidence<br>
+      <br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Jef Raskin - To the user the interface IS the product.<br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <hr style="font-family: Helvetica,Arial,sans-serif; margin-left:
+      0px; margin-right: 0px;" width="50%">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><b style="text-decoration: underline;">Thermostat</b><span
+        style="text-decoration: underline;"> </span>- will a room or
+      oven heat (or cool) faster if the thermostat is turned all the way
+      to the maximum setting?</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">&nbsp;&nbsp;&nbsp; 2 'folk' theories of thermostats<br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>timer theory - thermostat controls the relative proportion of
+        time that the device stays on</li>
+      <li>valve theory - thermostat controls how much heat (cold) comes
+        out of the device</li>
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">&nbsp;&nbsp;&nbsp; both are wrong<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; thermostat is an on/off
+      switch - fully on or fully off - no in between</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">&nbsp;&nbsp;&nbsp; The design gives no hint to the
+      actual model so the users form their own theories<span
+        style="font-weight: bold;"><br>
+      </span></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><span style="font-weight: bold;"></span></p>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><span style="font-weight: bold;"></span><b>Why is the
+        basic automobile easy to figure out?</b></p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>Things are visible </li>
+      <li>Good mappings between controls and things controlled </li>
+      <li>Single controls have single functions</li>
+      <ul>
+        <li>at least for driving - the radio/CD player is another story</li>
+      </ul>
+      <li>Good feedback - immediate and obvious effect</li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;">This is
+      pretty important when you go on a trip and rent a car. You need to
+      be able to drive that car safely.</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;"><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Once you get
+      to the hotel you run into something that may have less obvious
+      mappings - the alarm clock. Lets take some simple alarm clock
+      examples that are just clocks and not clock radios or clock radio
+      phones</span><br style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Here is a
+      classic analog clock.</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">The display
+      shows the current time and the time that the alarm is set to. </span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">There are
+      three controls with a pretty decent set of icons:</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <ul style="font-family: Helvetica,Arial,sans-serif;">
+      <li>small bar: pull out to turn alarm on / push in to turn alarm
+        off</li>
+      <li>small knob: if the knob is pushed in, turning it sets the
+        alarm, if the knob is&nbsp; pulled out then turning it sets the
+        time. You can turn the knob slowly or quickly, and turn it in
+        either direction.<br>
+      </li>
+      <li>button on the top: hit it to snooze</li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;">How do I know
+      when the alarm is on? I need look at or feel for the bar on the
+      back to see if it is in or out.</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <img style="font-family: Helvetica,Arial,sans-serif;"
+      src="GIFs/analog%20clock.jpg" alt=""><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Here is a
+      digital analog clock.</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">The display
+      shows the current time and the time and whether that time is pm</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">There are
+      three controls on the front and top with textual names:</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <ul style="font-family: Helvetica,Arial,sans-serif;">
+      <li>small 3 position bar on the left ("TIME: FAST / RUN : SLOW"):
+        push the bar up to fast and the time on the display goes forward
+        quickly. push the bar to run and the time on the display passes
+        normally, push the bar to slow and the time on the display goes
+        forward slowly. If you go past the correct time you need to keep
+        going back around until the right time appears again<br>
+      </li>
+      <li>small 3 position bar on the right (ALARM: ON / OFF / SET") :
+        on and off are pretty self explanatory, and when this par is
+        pushed to set then the controls on the left set the alarm time.<br>
+      </li>
+      <li>button on the top ("SNOOZER"): hit it to snooze</li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;">How do I know
+      when the alarm is on? Another dot appears a the bottom of the
+      display under the PM dot.</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <img style="font-family: Helvetica,Arial,sans-serif;"
+      src="GIFs/digital%20clock%201.jpg" alt=""><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Here is
+      another digital analog clock.</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">The display
+      shows the current time and the time and whether that time is pm</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">There are
+      three controls on the back and top with textual names:</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <ul style="font-family: Helvetica,Arial,sans-serif;">
+      <li>small 2 position bar on the left ("DIMMER: HI / LO"): sets the
+        brightness of the display<br>
+      </li>
+      <li>small 3 position bar on the (TIME SET / LOCK / ALARM SET") :
+        push the bar to time set and you can set the current time, push
+        it to lock and time passes normally, push it to alarm set and
+        you can set the alarm time</li>
+      <li>small push button on left&nbsp; ("SLOW") holding this button
+        in when in time set or alarm set will move the appropriate time
+        forward slowly<br>
+      </li>
+      <li>small push button on left&nbsp; ("FAST") holding this button
+        in when in time set or alarm set will move the appropriate time
+        forward quickly</li>
+      <li>small 2 position bar on the right ("ALARM: ON / OFF"): sets
+        the brightness of the display</li>
+      <li>button on the top ("SNOOZ ALARM"): push the lever up to turn
+        the alarm on and down to turn the alarm off.</li>
+    </ul>
+    <span style="font-family: Helvetica,Arial,sans-serif;">How do I know
+      when the alarm is on? The upper dot of the colon in the time glows
+      slightly brighter.</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Note that
+      TIMEX is a little inconsistent with their control names: 'DIMMER'
+      is written horizontally, TIME SET / LOCK / ALARM SET doesn't have
+      one, slow and fast appear to be named 'HONG KONG' and ALARM is
+      written vertically.</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <img style="font-family: Helvetica,Arial,sans-serif;"
+      src="GIFs/digital%20clock%202.jpg" alt=""><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">But in all
+      three cases one interface remains the same ...<br>
+      <br>
+      Sony is selling a clock where the time is preset at the factory so
+      you only need to choose your time zone and it should always keep
+      the correct time. Other clocks now listen to the airwaves to set
+      themselves automatically. However you still need to set the alarm
+      yourself.<br>
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+    </span><br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">Given all of
+      these choices, what do I use for an alarm clock? my iPhone.</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <ul style="font-family: Helvetica,Arial,sans-serif;">
+      <li>it knows where it is located so it knows the timezone</li>
+      <li>it can regularly check for the current time<br>
+      </li>
+      <li>it knows the rules for daylight savings time</li>
+      <li>I can change the display settings</li>
+      <li>I can set different alarm patterns for different days</li>
+      <li>I can set the alarm at any time since the phone is with me all
+        the time<br>
+      </li>
+      <li>gives me access to weather, email, news etc when I wake up</li>
+    </ul>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><b>How about watches?<br>
+      </b></p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>analogue watch</li>
+      <ul>
+        <li>small knob on a little stem</li>
+        <li>pull the stem out to activate the stem</li>
+        <li>turn forward or back to change the time forward or back</li>
+        <li>push the stem back in so no accidental changes occur</li>
+        <li>setting the day of the week and date are trickier<br>
+          <br>
+          <img style=" width: 268px; height: 400px;"
+            src="GIFs/watch.JPG" alt=""><br>
+          <br>
+        </li>
+      </ul>
+      <li>digital watch from the 70s<br>
+      </li>
+      <ul>
+        <li>same basic functionality - 2 to 4 buttons<br>
+        </li>
+      </ul>
+      <ul>
+        <li>here is an instruction sheet from one of the earliest
+          digital watches on how to set the date and time: <a
+            href="http://www.oldpulsars.com/Auto-%20Command/Autoset.jpg"><span
+              style="text-decoration: underline;">http://www.oldpulsars.com/Auto-%20Command/Autoset.jpg<br>
+              <br>
+            </span><img src="GIFs/pulsar.jpg" alt="Pulsar instructions
+              for setting the time and date" style="border: 0px solid;
+              width: 345px; height: 800px;"><br>
+          </a></li>
+      </ul>
+    </ul>
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><b style="text-decoration: underline;">Mapping</b> -
+      relationship between controls and their affects. Want the mapping
+      to be 'natural' - taking advantage of physical analogies and
+      cultural standards.<br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>steering wheel</li>
+      <li>digital alarm clocks</li>
+      <li>stove burners</li>
+      <li>light switches<b>&nbsp;</b></li>
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><b><img src="GIFs/stove.JPG" height="292" width="440"></b></p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-decoration:
+      underline; text-align: justify;"><b>Some examples from my house</b></p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>no manuals for the appliances, no notes on what controls what<br>
+      </li>
+      <li>trial and error</li>
+    </ul>
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">light switch
+      for fan/lights in family room</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <img style="width: 899px; height: 343px; font-family:
+      Helvetica,Arial,sans-serif;" alt="fan and switch"
+      src="GIFs/fan.jpg"><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <br style="font-family: Helvetica,Arial,sans-serif;">
+    <span style="font-family: Helvetica,Arial,sans-serif;">porch lights
+      (track lighting, a fan with a light, and an outside light)</span><br
+      style="font-family: Helvetica,Arial,sans-serif;">
+    <img style="width: 690px; height: 492px; font-family:
+      Helvetica,Arial,sans-serif;" alt="Front Porch Lightswitch"
+      src="GIFs/frontporch.jpg"><span style="font-family:
+      Helvetica,Arial,sans-serif;"><br>
+      <br>
+      fuse box / circuit breakers</span><br style="font-family:
+      Helvetica,Arial,sans-serif;">
+    <img style="width: 375px; height: 684px; font-family:
+      Helvetica,Arial,sans-serif;" alt="fusebox" src="GIFs/fusebox.jpg">
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">some more examples:&nbsp;<a
+        href="http://www.baddesigns.com/examples.html" target="_blank">http://www.baddesigns.com/examples.html</a><br>
+      <br>
+      and here is a nice computer-related one: <a
+        href="http://www.baddesigns.com/mouseconnector.html"
+        target="_blank">http://www.baddesigns.com/mouseconnector.html</a><br>
+      <br>
+      <hr style="width: 100%; height: 2px;"><a
+        href="http://www.baddesigns.com/mouseconnector.html"
+        target="_blank"><span style="font-weight: bold;"></span></a></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-decoration:
+      underline; text-align: justify;"><b>Constraints</b></p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>physical - physically restrict your actions.<br>
+      </li>
+      <li>semantic - mentally restrict your actions based on the meaning
+        of the situation<br>
+      </li>
+      <li>cultural - mentally restrict your actions through cultural
+        conventions<br>
+      </li>
+      <li>logical - mentally restrict your actions based on rules of
+        logic<br>
+      </li>
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img src="GIFs/police.jpg" alt="" border="0"
+        height="678" width="414"><br>
+      and logic tells us that there should be no pieces left over</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"> </div>
+    <hr style="width: 100%; height: 2px; margin-left: 0px; margin-right:
+      0px; font-family: Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">These two books: <span
+        style="text-decoration: underline;">101 un-useless Japanese
+        Inventions</span> and <span style="text-decoration: underline;">99
+
+
+
+
+        more un-useless Japanese Inventions</span> by Kenji Kawakami
+      have some novel devices that are interesting to look at in this
+      context.<br>
+      <br>
+http://www.amazon.com/gp/product/0393313697/103-0859795-8002257?v=glance&amp;n=283155<br>
+    </div>
+    <hr style="width: 100%; height: 2px; margin-left: 0px; margin-right:
+      0px; font-family: Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><b style="text-decoration: underline;">Forcing function</b><br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Up until the late 1940s it was possible to try and start
+      car without the key in the ignition<br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>the key was put in the dashboard to unlock the car and then
+        you pressed the starter button</li>
+      <li>now its common to insert the key and turn it to start the
+        car&nbsp;</li>
+      <li>separating these functions is making a comeback since you can
+        now remotely start some cars without having the key in the
+        ignition and the idea of a 'key' is changing to Bluetooth or
+        other near field transmission where having the 'key' in the car
+        allows you to start the car or open the doors<br>
+      </li>
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>in some cars you need to use the keys to lock the door - so
+        you can't lock keys inside</li>
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li><b>i<span style="text-decoration: underline;">nterlocks</span></b>
+        - prevent accidental use of a device</li>
+      <ul>
+        <li>force operations to take place in proper sequence</li>
+        <li>pin on fire extinguisher or hand grenade<br>
+        </li>
+      </ul>
+      <li><b style="text-decoration: underline;">lockins</b> - keeps
+        operation active preventing someone from permanently stopping it</li>
+      <ul>
+        <li>if you ask a word processor to quit it should ask you if you
+          want to save the&nbsp;modified file you have been working on
+          or discard the changes<br>
+        </li>
+      </ul>
+      <li><b style="text-decoration: underline;">lockouts</b> - prevents
+        an event from occurring</li>
+      <ul>
+        <li>&nbsp;in case of fire, its difficult to walk down the stairs
+          into the basement<span style="text-decoration: underline;"><span
+              style="font-weight: bold;"></span></span></li>
+      </ul>
+    </ul>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-decoration:
+      underline; text-align: justify;"><b>7 stages of action</b></p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>Forming the goal - state to be achieved (often ill-formed) </li>
+      <li>Forming the intention - goal translated into intention to
+        perform some action </li>
+      <li>Specifying an action - translate intention into set of
+        internal commands </li>
+      <li>Executing the action </li>
+      <li>Perceiving the state of the world </li>
+      <li>Interpreting the state of the world </li>
+      <li>Evaluating the outcome<br>
+      </li>
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">&nbsp;&nbsp;&nbsp; e.g. you reading a book at dusk and
+      its getting dark.<br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>goal - get more light</li>
+      <li>forming intention - push the switch on the lamp</li>
+      <li>specifying action - how to move body</li>
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-decoration:
+      underline; text-align: justify;"><b>7 Stages as Design Aid</b></p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">How easily can a person<br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>Determine the function of the device</li>
+      <li>Tell what actions are possible</li>
+      <li>Determine mapping from&nbsp; intention to physical movement</li>
+      <li>Perform the action</li>
+      <li>Tell if system is in desired state</li>
+      <li>Determine mapping from system state to interpretation</li>
+      <li>Tell what state system is in</li>
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <hr style="width: 100%; height: 2px; margin-left: 0px; margin-right:
+      0px; font-family: Helvetica,Arial,sans-serif;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-decoration:
+      underline; text-align: justify;">A couple examples (with vary
+      different technologies):</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">
+      <li>Faucets</li>
+      <li>Airline rapid check-in machines</li>
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Think about these in terms of</p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">
+      <li>Visibility</li>
+      <li>Mapping</li>
+      <li>Feedback</li>
+      <li>7 Stages of Action<span style="text-decoration: underline;"><span
+            style="font-weight: bold;"></span></span></li>
+    </ul>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><b style="text-decoration: underline;">Gulf of execution</b><br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>how well does the system allow someone to do their intended
+        actions directly</li>
+      <li>do the affordances provided by the system match the actions
+        intended by the person</li>
+      <li>bad if not clear what actions need to be done to accomplish
+        the intention</li>
+    </ul>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><b style="text-decoration: underline;">Gulf of
+        evaluation</b><br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ul style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>how well does the system provide a visible state that can be
+        directly perceived and that is interpretable in terms of the
+        intentions and expectations of the user</li>
+      <li>how much effort user must exert to interpret the state of the
+        system and determine&nbsp; how well the expectations and
+        intentions have been met<span style="text-decoration:
+          underline;"><span style="font-weight: bold;"></span></span></li>
+    </ul>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-decoration:
+      underline; text-align: justify;"><b>Designing for error</b></p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <ol style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">
+      <li>Understand the cause of error and design to minimize those
+        causes</li>
+      <li>Make it possible to reverse (undo) actions, or make it harder
+        to do what cannot be reversed</li>
+      <li>Make it easier to discover errors that do occur and make them
+        easier to correct</li>
+      <li>Think of an object's user as attempting to do a task, getting
+        there by imperfect approximations, Don't think of the user as
+        making errors, think of the actions as approximations of what is
+        desired</li>
+    </ol>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif;">
+    <ul style="font-family: Helvetica,Arial,sans-serif;">
+      <li><b style="text-decoration: underline;">Visibility</b> - User
+        can tell the state of the device and the alternatives for action</li>
+      <li><b style="text-decoration: underline;">Good conceptual model</b>
+        - User given consistent in presentation of operations and
+        results</li>
+      <li><b style="text-decoration: underline;">Good Mappings</b> -
+        easy to determine relationships between actions and results,
+        controls and their effects, system state and what's visible</li>
+      <li><b style="text-decoration: underline;">Feedback</b> - User
+        receives full and continuous feedback</li>
+      <br>
+    </ul>
+    <hr style="width: 100%; height: 2px;">
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><b>Class Discussion Topics</b></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Elevators<br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">&nbsp;&nbsp;&nbsp; Arrangement of the buttons</p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">&nbsp;&nbsp;&nbsp; O'Hare</p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">&nbsp;&nbsp;&nbsp; <img src="GIFs/ohareparking.jpg"
+        alt="" border="0" height="349" width="265"></p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">&nbsp;&nbsp;&nbsp; Logos, team colours and theme songs<br>
+      <br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Vending Machines</p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><img src="GIFs/vending-machine1.jpg" alt="" border="0"
+        height="320" width="203"><img src="GIFs/vending-machine2.jpg"
+        alt="" border="0" height="329" width="200"><br>
+      <br>
+    </p>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">Finding your way ...<br>
+      Field Museum floor maps: <a
+        href="http://www.fieldmuseum.org/plan_visit/floor_plans.htm">http://www.fieldmuseum.org/plan_visit/floor_plans.htm</a></p>
+    <a href="http://www.fieldmuseum.org/plan_visit/floor_plans.htm"><img
+        style="border: 0px solid ; width: 746px; height: 572px;"
+        alt="First Floor Field Museum" src="GIFs/main2005.gif"></a>
+    <ul style="font-family: Helvetica,Arial,sans-serif;">
+      <br>
+    </ul>
+    <dl style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">
+    </dl>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"> </div>
+    <hr style="font-family: Helvetica,Arial,sans-serif; height: 2px;
+      width: 100%; margin-left: 0px; margin-right: 0px;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;"><b>Coming Next Time</b></p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <p style="font-family: Helvetica,Arial,sans-serif; text-align:
+      justify;">In-Class group work related to homework 1<br>
+    </p>
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;"></div>
+    <hr style="width: 100%; height: 2px; font-family:
+      Helvetica,Arial,sans-serif; margin-left: 0px; margin-right: 0px;">
+    <div style="text-align: justify; font-family:
+      Helvetica,Arial,sans-serif;">last updated 1/11/2012 - updated the
+      watch notes<br>
+    </div>
+  </body>
+</html>

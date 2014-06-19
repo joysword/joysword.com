@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: Algeria
+X-WR-CALNAME:World Cup 2014: Algeria
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-15
+SUMMARY:Belgium v Algeria
+DESCRIPTION:Belgium v Algeria. Group H. Estádio Mineirão\, Belo Horizonte
+ \, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simu
+ lator\, download the simulator for this summer's world cup at http://www.w
+ orldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140617T160000Z
+DTEND:20140617T174500Z
+LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-32
+SUMMARY:South Korea v Algeria
+DESCRIPTION:South Korea v Algeria. Group H. Estádio Beira-Rio\, Porto Aleg
+ re\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Si
+ mulator\, download the simulator for this summer's world cup at http://www
+ .worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140622T190000Z
+DTEND:20140622T204500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-48
+SUMMARY:Algeria v Russia
+DESCRIPTION:Algeria v Russia. Group H. Arena da Baixada\, Curitiba\, Brazil
+ . World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, d
+ ownload the simulator for this summer's world cup at http://www.worldcupbr
+ azilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140626T200000Z
+DTEND:20140626T214500Z
+LOCATION:Arena da Baixada\, Curitiba\, Brazil
+END:VEVENT
+END:VCALENDAR

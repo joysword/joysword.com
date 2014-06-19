@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//WC//WCCAL//EN
+X-WR-TIMEZONE:UTC
+X-PUBLISHED-TTL:PT1H
+DESCRIPTION:World Cup 2014: South Korea
+X-WR-CALNAME:World Cup 2014: South Korea
+URL:http://www.worldcupbrazilapp.com/simulator
+BEGIN:VEVENT
+UID:MATCH-16
+SUMMARY:Russia v South Korea
+DESCRIPTION:Russia v South Korea. Group H. Arena Pantanal\, Cuiabá\, Brazi
+ l. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, 
+ download the simulator for this summer's world cup at http://www.worldcupb
+ razilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140617T220000Z
+DTEND:20140617T234500Z
+LOCATION:Arena Pantanal\, Cuiabá\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-32
+SUMMARY:South Korea v Algeria
+DESCRIPTION:South Korea v Algeria. Group H. Estádio Beira-Rio\, Porto Aleg
+ re\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Si
+ mulator\, download the simulator for this summer's world cup at http://www
+ .worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140622T190000Z
+DTEND:20140622T204500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-47
+SUMMARY:South Korea v Belgium
+DESCRIPTION:South Korea v Belgium. Group H. Arena de São Paulo\, São Paul
+ o\, Brazil. World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Sim
+ ulator\, download the simulator for this summer's world cup at http://www.
+ worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140626T200000Z
+DTEND:20140626T214500Z
+LOCATION:Arena de São Paulo\, São Paulo\, Brazil
+END:VEVENT
+END:VCALENDAR
