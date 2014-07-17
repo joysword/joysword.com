@@ -44,4 +44,29 @@ DTSTART:20140626T200000Z
 DTEND:20140626T214500Z
 LOCATION:Arena de São Paulo\, São Paulo\, Brazil
 END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-56
+SUMMARY:Round of 16: Belgium v USA
+DESCRIPTION:Round of 16: Winner of Group H v Runner-up of Group G. Round of
+  16. Arena Fonte Nova\, Salvador\, Brazil. World Cup 2014.\n\nCalendar pro
+ vided by Brazil 2014 iPhone Simulator\, download the simulator for this su
+ mmer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140701T200000Z
+DTEND:20140701T214500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-60
+SUMMARY:Quarter Final: Argentina v Belgium
+DESCRIPTION:Quarter Final: Winner of Round of 16 7 v Winner of Round of 16 
+ 8. Quarter Final. Estádio Nacional Mané Garrincha\, Brasília\, Brazil. 
+ World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, dow
+ nload the simulator for this summer's world cup at http://www.worldcupbraz
+ ilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140705T160000Z
+DTEND:20140705T174500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
 END:VCALENDAR

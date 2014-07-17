@@ -44,4 +44,16 @@ DTSTART:20140626T200000Z
 DTEND:20140626T214500Z
 LOCATION:Arena da Baixada\, Curitiba\, Brazil
 END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-54
+SUMMARY:Round of 16: Germany v Algeria
+DESCRIPTION:Round of 16: Winner of Group G v Runner-up of Group H. Round of
+  16. Estádio Beira-Rio\, Porto Alegre\, Brazil. World Cup 2014.\n\nCalend
+ ar provided by Brazil 2014 iPhone Simulator\, download the simulator for t
+ his summer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140630T200000Z
+DTEND:20140630T214500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
 END:VCALENDAR

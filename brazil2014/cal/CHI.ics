@@ -44,4 +44,16 @@ DTSTART:20140623T160000Z
 DTEND:20140623T174500Z
 LOCATION:Arena de São Paulo\, São Paulo\, Brazil
 END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-49
+SUMMARY:Round of 16: Brazil v Chile
+DESCRIPTION:Round of 16: Winner of Group A v Runner-up of Group B. Round of
+  16. Estádio Mineirão\, Belo Horizonte\, Brazil. World Cup 2014.\n\nCale
+ ndar provided by Brazil 2014 iPhone Simulator\, download the simulator for
+  this summer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140628T160000Z
+DTEND:20140628T174500Z
+LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
+END:VEVENT
 END:VCALENDAR

@@ -44,4 +44,16 @@ DTSTART:20140626T160000Z
 DTEND:20140626T174500Z
 LOCATION:Arena Pernambuco\, Recife\, Brazil
 END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-56
+SUMMARY:Round of 16: Belgium v USA
+DESCRIPTION:Round of 16: Winner of Group H v Runner-up of Group G. Round of
+  16. Arena Fonte Nova\, Salvador\, Brazil. World Cup 2014.\n\nCalendar pro
+ vided by Brazil 2014 iPhone Simulator\, download the simulator for this su
+ mmer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140701T200000Z
+DTEND:20140701T214500Z
+LOCATION:Arena Fonte Nova\, Salvador\, Brazil
+END:VEVENT
 END:VCALENDAR

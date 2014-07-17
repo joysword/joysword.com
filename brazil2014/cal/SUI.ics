@@ -44,4 +44,16 @@ DTSTART:20140625T200000Z
 DTEND:20140625T214500Z
 LOCATION:Arena Amazônia\, Manaus\, Brazil
 END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-55
+SUMMARY:Round of 16: Argentina v Switzerland
+DESCRIPTION:Round of 16: Winner of Group F v Runner-up of Group E. Round of
+  16. Arena de São Paulo\, São Paulo\, Brazil. World Cup 2014.\n\nCalenda
+ r provided by Brazil 2014 iPhone Simulator\, download the simulator for th
+ is summer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140701T160000Z
+DTEND:20140701T174500Z
+LOCATION:Arena de São Paulo\, São Paulo\, Brazil
+END:VEVENT
 END:VCALENDAR

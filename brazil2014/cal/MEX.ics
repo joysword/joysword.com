@@ -44,4 +44,16 @@ DTSTART:20140623T200000Z
 DTEND:20140623T214500Z
 LOCATION:Arena Pernambuco\, Recife\, Brazil
 END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-51
+SUMMARY:Round of 16: Netherlands v Mexico
+DESCRIPTION:Round of 16: Winner of Group B v Runner-up of Group A. Round of
+  16. Estádio Castelão\, Fortaleza\, Brazil. World Cup 2014.\n\nCalendar 
+ provided by Brazil 2014 iPhone Simulator\, download the simulator for this
+  summer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140629T160000Z
+DTEND:20140629T174500Z
+LOCATION:Estádio Castelão\, Fortaleza\, Brazil
+END:VEVENT
 END:VCALENDAR

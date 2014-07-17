@@ -44,4 +44,16 @@ DTSTART:20140624T200000Z
 DTEND:20140624T214500Z
 LOCATION:Estádio Castelão\, Fortaleza\, Brazil
 END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-52
+SUMMARY:Round of 16: Costa Rica v Greece
+DESCRIPTION:Round of 16: Winner of Group D v Runner-up of Group C. Round of
+  16. Arena Pernambuco\, Recife\, Brazil. World Cup 2014.\n\nCalendar provi
+ ded by Brazil 2014 iPhone Simulator\, download the simulator for this summ
+ er's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140629T200000Z
+DTEND:20140629T214500Z
+LOCATION:Arena Pernambuco\, Recife\, Brazil
+END:VEVENT
 END:VCALENDAR

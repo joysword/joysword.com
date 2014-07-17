@@ -44,4 +44,54 @@ DTSTART:20140626T160000Z
 DTEND:20140626T174500Z
 LOCATION:Arena Pernambuco\, Recife\, Brazil
 END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-54
+SUMMARY:Round of 16: Germany v Algeria
+DESCRIPTION:Round of 16: Winner of Group G v Runner-up of Group H. Round of
+  16. Estádio Beira-Rio\, Porto Alegre\, Brazil. World Cup 2014.\n\nCalend
+ ar provided by Brazil 2014 iPhone Simulator\, download the simulator for t
+ his summer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140630T200000Z
+DTEND:20140630T214500Z
+LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-58
+SUMMARY:Quarter Final: France v Germany
+DESCRIPTION:Quarter Final: Winner of Round of 16 5 v Winner of Round of 16 
+ 6. Quarter Final. Estádio do Maracanã\, Rio de Janeiro\, Brazil. World C
+ up 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download t
+ he simulator for this summer's world cup at http://www.worldcupbrazilapp.c
+ om/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140704T160000Z
+DTEND:20140704T174500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-61
+SUMMARY:Semi Final: Brazil v Germany
+DESCRIPTION:Semi Final: Winner of Quarter Final 1 v Winner of Quarter Final
+  2. Semi Final. Estádio Mineirão\, Belo Horizonte\, Brazil. World Cup 20
+ 14.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download the si
+ mulator for this summer's world cup at http://www.worldcupbrazilapp.com/si
+ mulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140708T200000Z
+DTEND:20140708T214500Z
+LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-64
+SUMMARY:Final: Germany v Argentina
+DESCRIPTION:Final: Winner of Semi Final 1 v Winner of Semi Final 2. Final. 
+ Estádio do Maracanã\, Rio de Janeiro\, Brazil. World Cup 2014.\n\nCalend
+ ar provided by Brazil 2014 iPhone Simulator\, download the simulator for t
+ his summer's world cup at http://www.worldcupbrazilapp.com/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140713T190000Z
+DTEND:20140713T204500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
 END:VCALENDAR

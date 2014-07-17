@@ -44,4 +44,17 @@ DTSTART:20140625T160000Z
 DTEND:20140625T174500Z
 LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
 END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-53
+SUMMARY:Round of 16: France v Nigeria
+DESCRIPTION:Round of 16: Winner of Group E v Runner-up of Group F. Round of
+  16. Estádio Nacional Mané Garrincha\, Brasília\, Brazil. World Cup 201
+ 4.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download the sim
+ ulator for this summer's world cup at http://www.worldcupbrazilapp.com/sim
+ ulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140630T160000Z
+DTEND:20140630T174500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
 END:VCALENDAR

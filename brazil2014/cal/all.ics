@@ -586,7 +586,7 @@ LOCATION:Arena da Baixada\, Curitiba\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-49
-SUMMARY:Round of 16: Winner of Group A v Runner-up of Group B
+SUMMARY:Round of 16: Brazil v Chile
 DESCRIPTION:Round of 16: Winner of Group A v Runner-up of Group B. Round of
   16. Estádio Mineirão\, Belo Horizonte\, Brazil. World Cup 2014.\n\nCale
  ndar provided by Brazil 2014 iPhone Simulator\, download the simulator for
@@ -598,7 +598,7 @@ LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-50
-SUMMARY:Round of 16: Winner of Group C v Runner-up of Group D
+SUMMARY:Round of 16: Colombia v Uruguay
 DESCRIPTION:Round of 16: Winner of Group C v Runner-up of Group D. Round of
   16. Estádio do Maracanã\, Rio de Janeiro\, Brazil. World Cup 2014.\n\nC
  alendar provided by Brazil 2014 iPhone Simulator\, download the simulator 
@@ -610,7 +610,7 @@ LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-51
-SUMMARY:Round of 16: Winner of Group B v Runner-up of Group A
+SUMMARY:Round of 16: Netherlands v Mexico
 DESCRIPTION:Round of 16: Winner of Group B v Runner-up of Group A. Round of
   16. Estádio Castelão\, Fortaleza\, Brazil. World Cup 2014.\n\nCalendar 
  provided by Brazil 2014 iPhone Simulator\, download the simulator for this
@@ -622,7 +622,7 @@ LOCATION:Estádio Castelão\, Fortaleza\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-52
-SUMMARY:Round of 16: Winner of Group D v Runner-up of Group C
+SUMMARY:Round of 16: Costa Rica v Greece
 DESCRIPTION:Round of 16: Winner of Group D v Runner-up of Group C. Round of
   16. Arena Pernambuco\, Recife\, Brazil. World Cup 2014.\n\nCalendar provi
  ded by Brazil 2014 iPhone Simulator\, download the simulator for this summ
@@ -634,7 +634,7 @@ LOCATION:Arena Pernambuco\, Recife\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-53
-SUMMARY:Round of 16: Winner of Group E v Runner-up of Group F
+SUMMARY:Round of 16: France v Nigeria
 DESCRIPTION:Round of 16: Winner of Group E v Runner-up of Group F. Round of
   16. Estádio Nacional Mané Garrincha\, Brasília\, Brazil. World Cup 201
  4.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download the sim
@@ -647,7 +647,7 @@ LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-54
-SUMMARY:Round of 16: Winner of Group G v Runner-up of Group H
+SUMMARY:Round of 16: Germany v Algeria
 DESCRIPTION:Round of 16: Winner of Group G v Runner-up of Group H. Round of
   16. Estádio Beira-Rio\, Porto Alegre\, Brazil. World Cup 2014.\n\nCalend
  ar provided by Brazil 2014 iPhone Simulator\, download the simulator for t
@@ -659,7 +659,7 @@ LOCATION:Estádio Beira-Rio\, Porto Alegre\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-55
-SUMMARY:Round of 16: Winner of Group F v Runner-up of Group E
+SUMMARY:Round of 16: Argentina v Switzerland
 DESCRIPTION:Round of 16: Winner of Group F v Runner-up of Group E. Round of
   16. Arena de São Paulo\, São Paulo\, Brazil. World Cup 2014.\n\nCalenda
  r provided by Brazil 2014 iPhone Simulator\, download the simulator for th
@@ -671,7 +671,7 @@ LOCATION:Arena de São Paulo\, São Paulo\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-56
-SUMMARY:Round of 16: Winner of Group H v Runner-up of Group G
+SUMMARY:Round of 16: Belgium v USA
 DESCRIPTION:Round of 16: Winner of Group H v Runner-up of Group G. Round of
   16. Arena Fonte Nova\, Salvador\, Brazil. World Cup 2014.\n\nCalendar pro
  vided by Brazil 2014 iPhone Simulator\, download the simulator for this su
@@ -683,7 +683,7 @@ LOCATION:Arena Fonte Nova\, Salvador\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-57
-SUMMARY:Quarter Final: Winner of Round of 16 1 v Winner of Round of 16 2
+SUMMARY:Quarter Final: Brazil v Colombia
 DESCRIPTION:Quarter Final: Winner of Round of 16 1 v Winner of Round of 16 
  2. Quarter Final. Estádio Castelão\, Fortaleza\, Brazil. World Cup 2014.
  \n\nCalendar provided by Brazil 2014 iPhone Simulator\, download the simul
@@ -696,7 +696,7 @@ LOCATION:Estádio Castelão\, Fortaleza\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-58
-SUMMARY:Quarter Final: Winner of Round of 16 5 v Winner of Round of 16 6
+SUMMARY:Quarter Final: France v Germany
 DESCRIPTION:Quarter Final: Winner of Round of 16 5 v Winner of Round of 16 
  6. Quarter Final. Estádio do Maracanã\, Rio de Janeiro\, Brazil. World C
  up 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download t
@@ -709,7 +709,7 @@ LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-59
-SUMMARY:Quarter Final: Winner of Round of 16 3 v Winner of Round of 16 4
+SUMMARY:Quarter Final: Netherlands v Costa Rica
 DESCRIPTION:Quarter Final: Winner of Round of 16 3 v Winner of Round of 16 
  4. Quarter Final. Arena Fonte Nova\, Salvador\, Brazil. World Cup 2014.\n\
  nCalendar provided by Brazil 2014 iPhone Simulator\, download the simulato
@@ -722,7 +722,7 @@ LOCATION:Arena Fonte Nova\, Salvador\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-60
-SUMMARY:Quarter Final: Winner of Round of 16 7 v Winner of Round of 16 8
+SUMMARY:Quarter Final: Argentina v Belgium
 DESCRIPTION:Quarter Final: Winner of Round of 16 7 v Winner of Round of 16 
  8. Quarter Final. Estádio Nacional Mané Garrincha\, Brasília\, Brazil. 
  World Cup 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, dow
@@ -735,7 +735,7 @@ LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-61
-SUMMARY:Semi Final: Winner of Quarter Final 1 v Winner of Quarter Final 2
+SUMMARY:Semi Final: Brazil v Germany
 DESCRIPTION:Semi Final: Winner of Quarter Final 1 v Winner of Quarter Final
   2. Semi Final. Estádio Mineirão\, Belo Horizonte\, Brazil. World Cup 20
  14.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download the si
@@ -748,7 +748,7 @@ LOCATION:Estádio Mineirão\, Belo Horizonte\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-62
-SUMMARY:Semi Final: Winner of Quarter Final 3 v Winner of Quarter Final 5
+SUMMARY:Semi Final: Netherlands v Argentina
 DESCRIPTION:Semi Final: Winner of Quarter Final 3 v Winner of Quarter Final
   5. Semi Final. Arena de São Paulo\, São Paulo\, Brazil. World Cup 2014.
  \n\nCalendar provided by Brazil 2014 iPhone Simulator\, download the simul
@@ -774,7 +774,7 @@ LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
 END:VEVENT
 BEGIN:VEVENT
 UID:MATCH-64
-SUMMARY:Final: Winner of Semi Final 1 v Winner of Semi Final 2
+SUMMARY:Final: Germany v Argentina
 DESCRIPTION:Final: Winner of Semi Final 1 v Winner of Semi Final 2. Final. 
  Estádio do Maracanã\, Rio de Janeiro\, Brazil. World Cup 2014.\n\nCalend
  ar provided by Brazil 2014 iPhone Simulator\, download the simulator for t

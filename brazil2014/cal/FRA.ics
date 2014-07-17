@@ -44,4 +44,30 @@ DTSTART:20140625T200000Z
 DTEND:20140625T214500Z
 LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
 END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-53
+SUMMARY:Round of 16: France v Nigeria
+DESCRIPTION:Round of 16: Winner of Group E v Runner-up of Group F. Round of
+  16. Estádio Nacional Mané Garrincha\, Brasília\, Brazil. World Cup 201
+ 4.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download the sim
+ ulator for this summer's world cup at http://www.worldcupbrazilapp.com/sim
+ ulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140630T160000Z
+DTEND:20140630T174500Z
+LOCATION:Estádio Nacional Mané Garrincha\, Brasília\, Brazil
+END:VEVENT
+BEGIN:VEVENT
+UID:MATCH-58
+SUMMARY:Quarter Final: France v Germany
+DESCRIPTION:Quarter Final: Winner of Round of 16 5 v Winner of Round of 16 
+ 6. Quarter Final. Estádio do Maracanã\, Rio de Janeiro\, Brazil. World C
+ up 2014.\n\nCalendar provided by Brazil 2014 iPhone Simulator\, download t
+ he simulator for this summer's world cup at http://www.worldcupbrazilapp.c
+ om/simulator
+URL:http://www.worldcupbrazilapp.com/simulator
+DTSTART:20140704T160000Z
+DTEND:20140704T174500Z
+LOCATION:Estádio do Maracanã\, Rio de Janeiro\, Brazil
+END:VEVENT
 END:VCALENDAR
