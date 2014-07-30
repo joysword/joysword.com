@@ -57,6 +57,45 @@
   		<article>
   		<div class="post-list-title">
 		  <h3>
+		    <a href="/posts/2014/07/install-win7-CD-DVD-driver-missing">安装win7时提示"缺少所需的CD/DVD驱动器设备驱动程序"</a>
+		  </h3>
+
+		  	<section class="byline">
+      2014-07-29 | <i class="fa fa-folder"></i>
+        
+          <a href="/categories/#伪技术宅">伪技术宅</a>
+        
+        | <i class="fa fa-tags"></i>
+        
+          #<a href="/tags/#windows">windows</a>,
+        
+          #<a href="/tags/#重装">重装</a>
+        
+    </section>
+		 </div>
+
+		  <div class="post-list">
+			  	
+    				<p>前两天帮一个朋友重装系统，点击了‘现在安装’之后竟然报错，<strong>缺少所需的CD/DVD驱动器设备驱动程序</strong>。</p>
+
+<p>我是用U盘安装的，不是用的光盘，为什么去寻找CD/DVD驱动器？经研究发现，解决方法竟然是：</p>
+
+<p><strong>把U盘拔了，重新插上</strong></p>
+
+<p>而错误原因也很简单：<strong>U盘没有读出来</strong>。或者说电脑启动的时候成功地从U盘引导了，但是进入安装界面以后没有能够读取U盘。</p>
+
+<p>事实证明那个USB接口是USB 3.0的，用USB 3.0的接口就是容易出现这个问题。</p>
+
+<p>所以以后安装系统的时候就使用USB 2.0的接口吧。</p>
+
+				
+		  </div>
+			<div class="read-more"><a href="/posts/2014/07/install-win7-CD-DVD-driver-missing"><i class="fa fa-bookmark"></i> read more</a></div>
+		</article>
+		
+  		<article>
+  		<div class="post-list-title">
+		  <h3>
 		    <a href="/posts/2014/02/mlg-columbus-20130in-my-view">[译]我眼中的MLG哥伦布站</a>
 		  </h3>
 
@@ -255,50 +294,6 @@
 				
 		  </div>
 			<div class="read-more"><a href="/posts/2013/08/blue-eyes-and-red-eyes-problem"><i class="fa fa-bookmark"></i> read more</a></div>
-		</article>
-		
-  		<article>
-  		<div class="post-list-title">
-		  <h3>
-		    <a href="/posts/2013/03/mitbbs-baozi-capturer-released">mitbbs包子自动抓取器完成了</a>
-		  </h3>
-
-		  	<section class="byline">
-      2013-03-14 | <i class="fa fa-folder"></i>
-        
-          <a href="/categories/#伪技术宅">伪技术宅</a>
-        
-        | <i class="fa fa-tags"></i>
-        
-          #<a href="/tags/#CentOS">CentOS</a>,
-        
-          #<a href="/tags/#mitbbs">mitbbs</a>,
-        
-          #<a href="/tags/#php">php</a>,
-        
-          #<a href="/tags/#字符集">字符集</a>,
-        
-          #<a href="/tags/#脚本">脚本</a>
-        
-    </section>
-		 </div>
-
-		  <div class="post-list">
-			  	
-   					<p>今天终于算是基本搞定了mitbbs包子自动抓取器，可以算是beta版上线了</p>
-
-<p>这货实际上就是两个php脚本，现在默默运行在服务器的后台，基本工作步骤如下:</p>
-
-<ol>
-<li><p>利用bobo提供的脚本获取并解析mitbbs的主页以及特定板块的RSS内容</p></li>
-<li><p>对解析得到的主题进行筛选，只留下之前未处理过的新主题，连同链接和时间戳一起存入数据库</p></li>
-</ol>
-
-
-
-				
-		  </div>
-			<div class="read-more"><a href="/posts/2013/03/mitbbs-baozi-capturer-released"><i class="fa fa-bookmark"></i> read more</a></div>
 		</article>
 		
   	</div>
