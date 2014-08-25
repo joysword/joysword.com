@@ -1,22 +1,21 @@
 <!DOCTYPE HTML>
 <html>
-
-<head>
+  <head>
     <title>Shi Yin | Blog</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="a blog about everything in my life" />
     <meta name="author" content="Shi Yin" />
     <meta name="keywords" content="joysword, Shi Yin, Shi, Yin, personal website, portfolio, games, blog, Video Games, Jekyll, Bootstrap, Font Awesome" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <link href="/en/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/en/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/en/css/style.css" rel="stylesheet" media="screen">
     <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-</head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
 
-<body>
+  <body>
 
     <div id="wrapper">
         <div id="sidebar">
@@ -58,6 +57,53 @@
         <article>
             <div class="post-list-title">
                 <h3>
+                    <a href="/en/posts/2014/02/reverse_integer">[LeetCode] Reverse Integer</a>
+                </h3>
+
+                	<section class="byline">
+      February 11, 2014 | <i class="fa fa-folder"></i>
+        
+          <a href="/en/categories/#leetcode">leetcode</a>
+        
+        | <i class="fa fa-tags"></i>
+        
+          #<a href="/en/tags/#LeetCode">LeetCode</a>,
+        
+          #<a href="/en/tags/#algorithm">algorithm</a>,
+        
+          #<a href="/en/tags/#interview">interview</a>
+        
+    </section>
+            </div>
+
+            <div class="post-list">
+                
+                    <h3>Description</h3>
+
+<blockquote>
+<p>Reverse digits of an integer.</p>
+
+<p><strong>Example1:</strong> x = 123, return 321</p>
+
+<p><strong>Example2:</strong> x = -123, return -321</p>
+</blockquote>
+
+<h3>Solution</h3>
+
+<p>According to the two examples in the description of <a href="http://oj.leetcode.com/problems/reverse-integer/">Reverse Integer</a>, we can easily see that if we don&#39;t consider negative sign, <code>x=123</code> and <code>x=-123</code> can be solved in the same way.</p>
+
+<p>Thus I decided to first get rid of the negative sign if necessary, then reverse the positive number, then add the negative sign back if necessary.</p>
+
+
+                
+            </div>
+            <div class="read-more"><a href="/en/posts/2014/02/reverse_integer"><i class="fa fa-bookmark"></i> read more</a>
+            </div>
+        </article>
+        
+        <article>
+            <div class="post-list-title">
+                <h3>
                     <a href="/en/posts/2014/02/same_tree">[LeetCode] Same Tree</a>
                 </h3>
 
@@ -81,9 +127,11 @@
                 
                     <h3>Description</h3>
 
-<blockquote><p>Given two binary trees, write a function to check if they are equal or not.</p>
+<blockquote>
+<p>Given two binary trees, write a function to check if they are equal or not.</p>
 
-<p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p></blockquote>
+<p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p>
+</blockquote>
 
 <h3>Solution</h3>
 
@@ -122,9 +170,11 @@
                 
                     <h3>Description</h3>
 
-<blockquote><p>Given a binary tree, find its maximum depth.</p>
+<blockquote>
+<p>Given a binary tree, find its maximum depth.</p>
 
-<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p></blockquote>
+<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+</blockquote>
 
 <h3>Solution</h3>
 
@@ -163,10 +213,12 @@
                 
                     <h3>Description</h3>
 
-<blockquote><p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
+<blockquote>
+<p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
 
 <p><strong>Note:</strong>
-Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p></blockquote>
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
+</blockquote>
 
 <h3>Solution</h3>
 
@@ -246,31 +298,25 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 </script>
 
 
-    </div>
-    <!-- /wrapper -->
+    </div><!-- /wrapper -->
+  </body>
 
-
-</body>
-
-<!-- JAVASCRIPTS -->
-<script type="text/javascript" src="/en/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/en/js/main.js"></script>
-
-<!-- MathJax Section -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-MathJax.Hub.Config({
-    tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-});
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(),
-        i;
-    for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
+  <!-- JAVASCRIPTS -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- MathJax Section -->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    MathJax.Hub.Config({
+        tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i<all.length;i+=1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
 </html>

@@ -7,12 +7,12 @@
     <meta name="author" content="joysword" />
     <meta name="keywords" content="joysword, 个人主页, 博客, 作品集, 游戏, 电子游戏, Jekyll, Bootstrap, Font Awesome" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet" media="screen">
     <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
     
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -72,7 +72,6 @@
 
 <!--more-->
 
-
 <p>期间因为手机电量不足，就关了一段时间，还因此走岔了路，耽误了一点时间。结果因祸得福，在途径一个公交站点的时候看到我的85A从后面开来，于是果断上车。</p>
 
 <p>因为我总是搞不清报站的时候是在报终点站还是所在站，结果还没到该下车的地方我就下车了。没办法，剩下的1英里只能自己走了。好在上次看Titanic的时候坐的另外一趟车也是到这里下的车，最后这段路是走过的。</p>
@@ -100,7 +99,6 @@
 <p>出来以后天气超级好，虽然5点了，太阳还是很大，很有春天的感觉。回来的路上坐公交没敢睡觉，坐蓝线又睡过了。回家以后吃了点东西，准备补一觉，没想到一下子睡到凌晨了。</p>
 
 <hr>
-
 
 <p>本文另发于时光网及人人网</p>
 
@@ -158,22 +156,21 @@ var duoshuoQuery = {short_name:"joysword"};
   </body>
 
   <!-- JAVASCRIPTS -->
-  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/js/main.js"></script>
-   <!-- MathJax Section -->
-<script type="text/javascript"
- src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-  MathJax.Hub.Config({
-    tex2jax: {
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-  });
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- MathJax Section -->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
       }
-  });
-</script>
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i<all.length;i+=1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
 </html>

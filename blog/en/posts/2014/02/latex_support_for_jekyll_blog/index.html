@@ -1,22 +1,21 @@
 <!DOCTYPE HTML>
 <html>
-
-<head>
+  <head>
     <title>Shi Yin | LaTeX Support for Jekyll Blog</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="a blog about everything in my life" />
     <meta name="author" content="Shi Yin" />
     <meta name="keywords" content="joysword, Shi Yin, Shi, Yin, personal website, portfolio, games, blog, Video Games, Jekyll, Bootstrap, Font Awesome" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <link href="/en/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/en/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/en/css/style.css" rel="stylesheet" media="screen">
     <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-</head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
 
-<body>
+  <body>
 
     <div id="wrapper">
         <div id="sidebar">
@@ -67,10 +66,9 @@
 
 <!--more-->
 
-
 <p>Generally speaking, the issue that every Jekyll blog has is that when Markdown will interpret all tags even if some of them are actually LaTeX tags. For more information, please refer to <a href="http://cwoebker.com/posts/latex-math-magic">this blog post</a>.</p>
 
-<p>The way to we use MathJax is to put LaTeX code in a <code>code block</code>, using <code>acute</code> symbol: <code>`</code>. But MathJax won't render text between <code>&lt;code&gt;</code> tags by default since in most cases code between <code>&lt;code&gt;</code> tags are not LaTeX code.</p>
+<p>The way to we use MathJax is to put LaTeX code in a <code>code block</code>, using <code>acute</code> symbol: <code>`</code>. But MathJax won&#39;t render text between <code>&lt;code&gt;</code> tags by default since in most cases code between <code>&lt;code&gt;</code> tags are not LaTeX code.</p>
 
 <p>To solve this issue, we need to add some JavaScript and some CSS (optional).</p>
 
@@ -94,7 +92,6 @@
 <span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
 
-
 <p>Line 1 is to include MathJax. MathJax.Hub.Config is to configure which tags to skip.MathJax.Hub.Queue adds a function to add string <code>has-jax</code> to all LaTeX code blocks.</p>
 
 <h4>In Main CSS File</h4>
@@ -103,7 +100,6 @@
 
 <div class="highlight"><pre><code class="css"><span class="nt">code</span><span class="nc">.has-jax</span> <span class="p">{</span><span class="k">font</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span> <span class="k">font-size</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="k">background</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span> <span class="k">border</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;}</span>
 </code></pre></div>
-
 
 <h3>Examples</h3>
 
@@ -171,15 +167,7 @@
 
     </div>
     <hr>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- below the article -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-9274627071963476"
-     data-ad-slot="6098520145"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    
     <hr>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -218,31 +206,25 @@
 </script>
 
 
-    </div>
-    <!-- /wrapper -->
+    </div><!-- /wrapper -->
+  </body>
 
-
-</body>
-
-<!-- JAVASCRIPTS -->
-<script type="text/javascript" src="/en/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/en/js/main.js"></script>
-
-<!-- MathJax Section -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-MathJax.Hub.Config({
-    tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-});
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(),
-        i;
-    for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
+  <!-- JAVASCRIPTS -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- MathJax Section -->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    MathJax.Hub.Config({
+        tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i<all.length;i+=1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
 </html>

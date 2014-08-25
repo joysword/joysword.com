@@ -1,22 +1,21 @@
 <!DOCTYPE HTML>
 <html>
-
-<head>
+  <head>
     <title>Shi Yin | [LeetCode] Populating Next Right Pointers in Each Node</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="a blog about everything in my life" />
     <meta name="author" content="Shi Yin" />
     <meta name="keywords" content="joysword, Shi Yin, Shi, Yin, personal website, portfolio, games, blog, Video Games, Jekyll, Bootstrap, Font Awesome" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <link href="/en/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/en/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/en/css/style.css" rel="stylesheet" media="screen">
     <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-</head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
 
-<body>
+  <body>
 
     <div id="wrapper">
         <div id="sidebar">
@@ -63,15 +62,14 @@
     <div class="post-content">
       <h3>Description</h3>
 
-<blockquote><p>Given a binary tree</p>
-
-<pre><code>   struct TreeLinkNode {
+<blockquote>
+<p>Given a binary tree</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">   struct TreeLinkNode {
      TreeLinkNode *left;
      TreeLinkNode *right;
      TreeLinkNode *next;
    }
-</code></pre>
-
+</code></pre></div>
 <p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.</p>
 
 <p>Initially, all next pointers are set to NULL.</p>
@@ -82,22 +80,19 @@
 You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).
 For example,
 Given the following perfect binary tree,</p>
-
-<pre><code>        1
+<div class="highlight"><pre><code class="text language-text" data-lang="text">        1
       /  \
      2    3
     / \  / \
    4  5  6  7
-</code></pre>
-
+</code></pre></div>
 <p>After calling your function, the tree should look like:</p>
-
-<pre><code>        1 -&gt; NULL
+<div class="highlight"><pre><code class="text language-text" data-lang="text">        1 -&gt; NULL
       /  \
      2 -&gt; 3 -&gt; NULL
     / \  / \
    4-&gt;5-&gt;6-&gt;7 -&gt; NULL
-</code></pre></blockquote>
+</code></pre></div></blockquote>
 
 <h3>Solution</h3>
 
@@ -105,26 +100,17 @@ Given the following perfect binary tree,</p>
 
 <!--more-->
 
-
-<p>It is clear how to link the left child to the right child of a node, but I did not figured out how to link the right child of a node to the left child of this node's sibling.</p>
+<p>It is clear how to link the left child to the right child of a node, but I did not figured out how to link the right child of a node to the left child of this node&#39;s sibling.</p>
 
 <p>The solution is to use the links we create in previous steps. Below is the algorithm to solve this problem:</p>
 
-<p>Traversing from root to the left-most leaf by moving to left child in every iteration. With in each iteration, traverse from left-most sibling to right-most one using links created in last iteration. In odd steps, link current node's left child to its right child; in even steps, link current node's right child to current node's next node's left child.</p>
+<p>Traversing from root to the left-most leaf by moving to left child in every iteration. With in each iteration, traverse from left-most sibling to right-most one using links created in last iteration. In odd steps, link current node&#39;s left child to its right child; in even steps, link current node&#39;s right child to current node&#39;s next node&#39;s left child.</p>
 
 <h3>Summary</h3>
 
     </div>
     <hr>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- below the article -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-9274627071963476"
-     data-ad-slot="6098520145"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    
     <hr>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -163,31 +149,25 @@ Given the following perfect binary tree,</p>
 </script>
 
 
-    </div>
-    <!-- /wrapper -->
+    </div><!-- /wrapper -->
+  </body>
 
-
-</body>
-
-<!-- JAVASCRIPTS -->
-<script type="text/javascript" src="/en/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/en/js/main.js"></script>
-
-<!-- MathJax Section -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-MathJax.Hub.Config({
-    tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-});
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(),
-        i;
-    for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
+  <!-- JAVASCRIPTS -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- MathJax Section -->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    MathJax.Hub.Config({
+        tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i<all.length;i+=1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
 </html>

@@ -1,22 +1,21 @@
 <!DOCTYPE HTML>
 <html>
-
-<head>
+  <head>
     <title>Shi Yin | [LeetCode] Maximum Depth of Binary Tree</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="a blog about everything in my life" />
     <meta name="author" content="Shi Yin" />
     <meta name="keywords" content="joysword, Shi Yin, Shi, Yin, personal website, portfolio, games, blog, Video Games, Jekyll, Bootstrap, Font Awesome" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <link href="/en/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/en/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/en/css/style.css" rel="stylesheet" media="screen">
     <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-</head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
 
-<body>
+  <body>
 
     <div id="wrapper">
         <div id="sidebar">
@@ -63,16 +62,17 @@
     <div class="post-content">
       <h3>Description</h3>
 
-<blockquote><p>Given a binary tree, find its maximum depth.</p>
+<blockquote>
+<p>Given a binary tree, find its maximum depth.</p>
 
-<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p></blockquote>
+<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+</blockquote>
 
 <h3>Solution</h3>
 
 <p><a href="http://oj.leetcode.com/problems/maximum-depth-of-binary-tree/">Maximum Depth of Binary Tree</a> is not difficult in term of algorihtm but there are some things we need to care about during writing the code.</p>
 
 <!--more-->
-
 
 <p>I used recursion to solve this problem. The basic idea is that the depth of a tree is either the depth of left sub-tree plus one or the depth of right sub-tree plus one, whichever is larger.</p>
 
@@ -102,7 +102,6 @@
 <span class="lineno">10</span> <span class="p">}</span>
 </code></pre></div>
 
-
 <p>In <code>line 2</code> I only test leaf nodes (both left and right children are NULL). But there are also nodes that have only one child. In this case, one of the <code>line 7</code> and <code>line 8</code> will fail because in the next level of calling of <code>maxDepth()</code>, <code>root-&gt;left</code> or <code>root-&gt;right</code> will not be valid.</p>
 
 <p>Following is the code from my third attempt:</p>
@@ -127,7 +126,6 @@
 <span class="lineno">18</span> <span class="p">}</span>
 </code></pre></div>
 
-
 <p>I made the code more complicated. This would probably pass most of the test cases but one. When the tree is itself an empty tree, the code will fail.</p>
 
 <p>That was when I figured out I could actually keep the code very simple and straight forward.</p>
@@ -144,20 +142,9 @@
 <span class="lineno">10</span> <span class="p">}</span>
 </code></pre></div>
 
-
-
-
     </div>
     <hr>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- below the article -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-9274627071963476"
-     data-ad-slot="6098520145"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    
     <hr>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -196,31 +183,25 @@
 </script>
 
 
-    </div>
-    <!-- /wrapper -->
+    </div><!-- /wrapper -->
+  </body>
 
-
-</body>
-
-<!-- JAVASCRIPTS -->
-<script type="text/javascript" src="/en/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/en/js/main.js"></script>
-
-<!-- MathJax Section -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-MathJax.Hub.Config({
-    tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-});
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(),
-        i;
-    for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
+  <!-- JAVASCRIPTS -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- MathJax Section -->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    MathJax.Hub.Config({
+        tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i<all.length;i+=1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
 </html>

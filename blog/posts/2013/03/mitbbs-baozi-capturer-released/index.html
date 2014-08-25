@@ -7,12 +7,12 @@
     <meta name="author" content="joysword" />
     <meta name="keywords" content="joysword, 个人主页, 博客, 作品集, 游戏, 电子游戏, Jekyll, Bootstrap, Font Awesome" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet" media="screen">
     <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
     
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -73,15 +73,12 @@
 <li><p>对解析得到的主题进行筛选，只留下之前未处理过的新主题，连同链接和时间戳一起存入数据库</p></li>
 </ol>
 
-
 <!--more-->
-
 
 <ol>
 <li><p>与此同时对新主题进行检查，根据特定特定规则（主要是看是否包含“包子”子串）选出需要的主题发送邮件通知</p></li>
 <li><p>对保存超过三天的行进行删除处理</p></li>
 </ol>
-
 
 <p>主要的收获有二：</p>
 
@@ -90,9 +87,7 @@
 <li><p>电子邮件问题，包括php发电子邮件问题以及centOS发电子邮件问题</p></li>
 </ol>
 
-
 <hr>
-
 
 <h4>update:</h4>
 
@@ -153,22 +148,21 @@ var duoshuoQuery = {short_name:"joysword"};
   </body>
 
   <!-- JAVASCRIPTS -->
-  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/js/main.js"></script>
-   <!-- MathJax Section -->
-<script type="text/javascript"
- src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-  MathJax.Hub.Config({
-    tex2jax: {
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-  });
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- MathJax Section -->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
       }
-  });
-</script>
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i<all.length;i+=1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
 </html>

@@ -1,22 +1,21 @@
 <!DOCTYPE HTML>
 <html>
-
-<head>
+  <head>
     <title>Shi Yin | [LeetCode] Best Time to Buy and Sell Stock II</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="a blog about everything in my life" />
     <meta name="author" content="Shi Yin" />
     <meta name="keywords" content="joysword, Shi Yin, Shi, Yin, personal website, portfolio, games, blog, Video Games, Jekyll, Bootstrap, Font Awesome" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <link href="/en/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/en/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/en/css/style.css" rel="stylesheet" media="screen">
     <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-</head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
 
-<body>
+  <body>
 
     <div id="wrapper">
         <div id="sidebar">
@@ -63,16 +62,17 @@
     <div class="post-content">
       <h3>Description</h3>
 
-<blockquote><p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+<blockquote>
+<p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
 
-<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p></blockquote>
+<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
+</blockquote>
 
 <h3>Solution</h3>
 
 <p><a href="http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/">Best Time to Buy and Sell Stock II</a> is easy to solve. Assume we buy stock in day <code>i</code>, and sell it in day <code>j</code>, where <code>j&gt;i</code>, then if <code>prices[j]&gt;prices[i]</code>, we can make profit. However, if in some day between day <code>i</code> and day <code>j</code>, the price is lower than <code>prices[i]</code>, if we buy stock in that day rather than in day <code>i</code>, we can make more profit.</p>
 
 <!--more-->
-
 
 <p>Therefore, our solution is to test if price today is higher than price yesterday. If so, the difference in price is our maximum profit for today. Go over all days and add them up will give us the final result.</p>
 
@@ -88,15 +88,7 @@
 
     </div>
     <hr>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- below the article -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-9274627071963476"
-     data-ad-slot="6098520145"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    
     <hr>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -135,31 +127,25 @@
 </script>
 
 
-    </div>
-    <!-- /wrapper -->
+    </div><!-- /wrapper -->
+  </body>
 
-
-</body>
-
-<!-- JAVASCRIPTS -->
-<script type="text/javascript" src="/en/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/en/js/main.js"></script>
-
-<!-- MathJax Section -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-MathJax.Hub.Config({
-    tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-});
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(),
-        i;
-    for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
+  <!-- JAVASCRIPTS -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- MathJax Section -->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    MathJax.Hub.Config({
+        tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i<all.length;i+=1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
 </html>

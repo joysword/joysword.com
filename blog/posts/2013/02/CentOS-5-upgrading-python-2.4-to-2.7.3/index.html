@@ -7,12 +7,12 @@
     <meta name="author" content="joysword" />
     <meta name="keywords" content="joysword, 个人主页, 博客, 作品集, 游戏, 电子游戏, Jekyll, Bootstrap, Font Awesome" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet" media="screen">
     <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
     
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -76,12 +76,10 @@
 
 <!--more-->
 
-
 <p>2) 下载压缩包</p>
 
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>wget http://www.python.org/ftp/python/2.7.x/Python-2.7.x.tgz
 </code></pre></div>
-
 
 <p>（将x换成版本号，我用的是2.7.3）</p>
 
@@ -90,24 +88,20 @@
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>tar -xvf Python2.7.x.tgz
 </code></pre></div>
 
-
 <p>4) 进入python文件夹</p>
 
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span><span class="nb">cd </span>Python2.7.x
 </code></pre></div>
-
 
 <p>5) 配置python</p>
 
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>./configure
 </code></pre></div>
 
-
 <p>6) 运行make编译</p>
 
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>make
 </code></pre></div>
-
 
 <p>然后等待</p>
 
@@ -115,7 +109,6 @@
 
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>make install
 </code></pre></div>
-
 
 <p>然后等待</p>
 
@@ -125,7 +118,6 @@
 
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>/usr/local/bin/python2.7 -V
 </code></pre></div>
-
 
 <h3>Step 2</h3>
 
@@ -139,18 +131,15 @@
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>mv /usr/bin/python /usr/bin/python.bak
 </code></pre></div>
 
-
 <p>2) 建立软连接</p>
 
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>ln -s /usr/local/bin/python2.7 /usr/bin/python
 </code></pre></div>
 
-
 <p>3) 检验python指向是否成功</p>
 
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>python -V
 </code></pre></div>
-
 
 <p>如果此时显示新版本号，则成功</p>
 
@@ -165,7 +154,6 @@
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>vi /usr/bin/yum
 </code></pre></div>
 
-
 <p>2) 按i进入INSERT模式</p>
 
 <p>3) 编辑第一行，将<code>#!/usr/bin/python</code>修改为<code>#!/usr/bin/python2.4</code></p>
@@ -174,12 +162,9 @@
 
 <p>5) 按:wq保存退出</p>
 
-<p>至此终于成功安装python2.7并且拯救了yum</p>
-
+<p>至此终于成功安装python2.7并且拯救了yum
 <hr>
-
-
-<p>参考资料：
+参考资料：
 1 http://myhat.blog.51cto.com/391263/788552</p>
 
     </div>
@@ -236,22 +221,21 @@ var duoshuoQuery = {short_name:"joysword"};
   </body>
 
   <!-- JAVASCRIPTS -->
-  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/js/main.js"></script>
-   <!-- MathJax Section -->
-<script type="text/javascript"
- src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-  MathJax.Hub.Config({
-    tex2jax: {
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-  });
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- MathJax Section -->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
       }
-  });
-</script>
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i<all.length;i+=1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
 </html>

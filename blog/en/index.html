@@ -1,22 +1,21 @@
 <!DOCTYPE HTML>
 <html>
-
-<head>
+  <head>
     <title>Shi Yin | Blog</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="a blog about everything in my life" />
     <meta name="author" content="Shi Yin" />
     <meta name="keywords" content="joysword, Shi Yin, Shi, Yin, personal website, portfolio, games, blog, Video Games, Jekyll, Bootstrap, Font Awesome" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <link href="/en/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/en/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/en/css/style.css" rel="stylesheet" media="screen">
     <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-</head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
 
-<body>
+  <body>
 
     <div id="wrapper">
         <div id="sidebar">
@@ -81,15 +80,14 @@
                 
                     <h3>Description</h3>
 
-<blockquote><p>Given a binary tree</p>
-
-<pre><code>   struct TreeLinkNode {
+<blockquote>
+<p>Given a binary tree</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">   struct TreeLinkNode {
      TreeLinkNode *left;
      TreeLinkNode *right;
      TreeLinkNode *next;
    }
-</code></pre>
-
+</code></pre></div>
 <p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.</p>
 
 <p>Initially, all next pointers are set to NULL.</p>
@@ -100,22 +98,19 @@
 You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).
 For example,
 Given the following perfect binary tree,</p>
-
-<pre><code>        1
+<div class="highlight"><pre><code class="text language-text" data-lang="text">        1
       /  \
      2    3
     / \  / \
    4  5  6  7
-</code></pre>
-
+</code></pre></div>
 <p>After calling your function, the tree should look like:</p>
-
-<pre><code>        1 -&gt; NULL
+<div class="highlight"><pre><code class="text language-text" data-lang="text">        1 -&gt; NULL
       /  \
      2 -&gt; 3 -&gt; NULL
     / \  / \
    4-&gt;5-&gt;6-&gt;7 -&gt; NULL
-</code></pre></blockquote>
+</code></pre></div></blockquote>
 
 <h3>Solution</h3>
 
@@ -125,6 +120,54 @@ Given the following perfect binary tree,</p>
                 
             </div>
             <div class="read-more"><a href="/en/posts/2014/02/populating_next_right_pointers_in_each-node"><i class="fa fa-bookmark"></i> read more</a>
+            </div>
+        </article>
+        
+        <article>
+            <div class="post-list-title">
+                <h3>
+                    <a href="/en/posts/2014/02/install_nginx_php_mysql_python_flask_on_amazon_ec2_linux">Install Nginx PHP MySQL Python Flask on Amazon EC2 Linux AMI</a>
+                </h3>
+
+                	<section class="byline">
+      February 17, 2014 | <i class="fa fa-folder"></i>
+        
+          <a href="/en/categories/#techy">techy</a>
+        
+        | <i class="fa fa-tags"></i>
+        
+          #<a href="/en/tags/#Linux">Linux</a>,
+        
+          #<a href="/en/tags/#Amazon">Amazon</a>,
+        
+          #<a href="/en/tags/#EC2">EC2</a>,
+        
+          #<a href="/en/tags/#AMI">AMI</a>,
+        
+          #<a href="/en/tags/#Nginx">Nginx</a>,
+        
+          #<a href="/en/tags/#PHP">PHP</a>,
+        
+          #<a href="/en/tags/#MySQL">MySQL</a>,
+        
+          #<a href="/en/tags/#Python">Python</a>,
+        
+          #<a href="/en/tags/#Flask">Flask</a>
+        
+    </section>
+            </div>
+
+            <div class="post-list">
+                
+                    <h2>Assumptions:</h2>
+
+<ul>
+<li>you have a brande new EC2 instance running Amazon Linux AMI</li>
+<li>your time zone is <code>America/Chicago</code></li>
+</ul>
+ 
+            </div>
+            <div class="read-more"><a href="/en/posts/2014/02/install_nginx_php_mysql_python_flask_on_amazon_ec2_linux"><i class="fa fa-bookmark"></i> read more</a>
             </div>
         </article>
         
@@ -154,9 +197,11 @@ Given the following perfect binary tree,</p>
                 
                     <h3>Description</h3>
 
-<blockquote><p>Given a linked list, determine if it has a cycle in it.</p>
+<blockquote>
+<p>Given a linked list, determine if it has a cycle in it.</p>
 
-<p>Follow up: Can you solve it without using extra space?</p></blockquote>
+<p>Follow up: Can you solve it without using extra space?</p>
+</blockquote>
 
 <h3>Solution</h3>
 
@@ -234,18 +279,18 @@ Given the following perfect binary tree,</p>
                 
                     <h3>Description</h3>
 
-<blockquote><p>Given n, how many structurally unique BST's (binary search trees) that store values 1...n?</p>
+<blockquote>
+<p>Given n, how many structurally unique BST&#39;s (binary search trees) that store values 1...n?</p>
 
 <p>For example,</p>
 
-<p>Given n = 3, there are a total of 5 unique BST's.</p>
-
-<pre><code>   1         3     3      2      1
+<p>Given n = 3, there are a total of 5 unique BST&#39;s.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">   1         3     3      2      1
     \       /     /      / \      \
      3     2     1      1   3      2
     /     /       \                 \
    2     1         2                 3
-</code></pre></blockquote>
+</code></pre></div></blockquote>
 
 <h3>Solution</h3>
 
@@ -256,7 +301,6 @@ Given the following perfect binary tree,</p>
 <li>The right sub-tree contains only nodes larger than the root;</li>
 <li>The left and right sub-tree each is a BST.</li>
 </ul>
-
 
 
                 
@@ -291,9 +335,11 @@ Given the following perfect binary tree,</p>
                 
                     <h3>Description</h3>
 
-<blockquote><p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+<blockquote>
+<p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
 
-<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p></blockquote>
+<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
+</blockquote>
 
 <h3>Solution</h3>
 
@@ -303,51 +349,6 @@ Given the following perfect binary tree,</p>
                 
             </div>
             <div class="read-more"><a href="/en/posts/2014/02/best_time_to_buy_and_sell_stock_ii"><i class="fa fa-bookmark"></i> read more</a>
-            </div>
-        </article>
-        
-        <article>
-            <div class="post-list-title">
-                <h3>
-                    <a href="/en/posts/2014/02/reverse_integer">[LeetCode] Reverse Integer</a>
-                </h3>
-
-                	<section class="byline">
-      February 11, 2014 | <i class="fa fa-folder"></i>
-        
-          <a href="/en/categories/#leetcode">leetcode</a>
-        
-        | <i class="fa fa-tags"></i>
-        
-          #<a href="/en/tags/#LeetCode">LeetCode</a>,
-        
-          #<a href="/en/tags/#algorithm">algorithm</a>,
-        
-          #<a href="/en/tags/#interview">interview</a>
-        
-    </section>
-            </div>
-
-            <div class="post-list">
-                
-                    <h3>Description</h3>
-
-<blockquote><p>Reverse digits of an integer.</p>
-
-<p><strong>Example1:</strong> x = 123, return 321</p>
-
-<p><strong>Example2:</strong> x = -123, return -321</p></blockquote>
-
-<h3>Solution</h3>
-
-<p>According to the two examples in the description of <a href="http://oj.leetcode.com/problems/reverse-integer/">Reverse Integer</a>, we can easily see that if we don't consider negative sign, <code>x=123</code> and <code>x=-123</code> can be solved in the same way.</p>
-
-<p>Thus I decided to first get rid of the negative sign if necessary, then reverse the positive number, then add the negative sign back if necessary.</p>
-
-
-                
-            </div>
-            <div class="read-more"><a href="/en/posts/2014/02/reverse_integer"><i class="fa fa-bookmark"></i> read more</a>
             </div>
         </article>
         
@@ -385,31 +386,25 @@ Given the following perfect binary tree,</p>
 </script>
 
 
-    </div>
-    <!-- /wrapper -->
+    </div><!-- /wrapper -->
+  </body>
 
-
-</body>
-
-<!-- JAVASCRIPTS -->
-<script type="text/javascript" src="/en/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/en/js/main.js"></script>
-
-<!-- MathJax Section -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-MathJax.Hub.Config({
-    tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-});
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(),
-        i;
-    for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
+  <!-- JAVASCRIPTS -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- MathJax Section -->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    MathJax.Hub.Config({
+        tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i<all.length;i+=1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
 </html>

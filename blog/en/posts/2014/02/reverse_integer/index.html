@@ -1,22 +1,21 @@
 <!DOCTYPE HTML>
 <html>
-
-<head>
+  <head>
     <title>Shi Yin | [LeetCode] Reverse Integer</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="a blog about everything in my life" />
     <meta name="author" content="Shi Yin" />
     <meta name="keywords" content="joysword, Shi Yin, Shi, Yin, personal website, portfolio, games, blog, Video Games, Jekyll, Bootstrap, Font Awesome" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <link href="/en/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/en/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/en/css/style.css" rel="stylesheet" media="screen">
     <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-</head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
 
-<body>
+  <body>
 
     <div id="wrapper">
         <div id="sidebar">
@@ -63,20 +62,21 @@
     <div class="post-content">
       <h3>Description</h3>
 
-<blockquote><p>Reverse digits of an integer.</p>
+<blockquote>
+<p>Reverse digits of an integer.</p>
 
 <p><strong>Example1:</strong> x = 123, return 321</p>
 
-<p><strong>Example2:</strong> x = -123, return -321</p></blockquote>
+<p><strong>Example2:</strong> x = -123, return -321</p>
+</blockquote>
 
 <h3>Solution</h3>
 
-<p>According to the two examples in the description of <a href="http://oj.leetcode.com/problems/reverse-integer/">Reverse Integer</a>, we can easily see that if we don't consider negative sign, <code>x=123</code> and <code>x=-123</code> can be solved in the same way.</p>
+<p>According to the two examples in the description of <a href="http://oj.leetcode.com/problems/reverse-integer/">Reverse Integer</a>, we can easily see that if we don&#39;t consider negative sign, <code>x=123</code> and <code>x=-123</code> can be solved in the same way.</p>
 
 <p>Thus I decided to first get rid of the negative sign if necessary, then reverse the positive number, then add the negative sign back if necessary.</p>
 
 <!--more-->
-
 
 <p>In order to reverse the positive number, we traverse all the digits from right to left, everytime multiply previous result by 10 and add the curren digit.</p>
 
@@ -94,22 +94,13 @@
 <span class="p">}</span>
 </code></pre></div>
 
-
 <h3>Summary</h3>
 
 <p>In each iteration, multiply previous result (initial value 0) by 10, then take the right most digit before get rid of it. Negative sign is dealt separately.</p>
 
     </div>
     <hr>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- below the article -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-9274627071963476"
-     data-ad-slot="6098520145"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    
     <hr>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -148,31 +139,25 @@
 </script>
 
 
-    </div>
-    <!-- /wrapper -->
+    </div><!-- /wrapper -->
+  </body>
 
-
-</body>
-
-<!-- JAVASCRIPTS -->
-<script type="text/javascript" src="/en/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/en/js/main.js"></script>
-
-<!-- MathJax Section -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-MathJax.Hub.Config({
-    tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-});
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(),
-        i;
-    for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
+  <!-- JAVASCRIPTS -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- MathJax Section -->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    MathJax.Hub.Config({
+        tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i<all.length;i+=1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
 </html>

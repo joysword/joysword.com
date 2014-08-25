@@ -7,12 +7,12 @@
     <meta name="author" content="joysword" />
     <meta name="keywords" content="joysword, 个人主页, 博客, 作品集, 游戏, 电子游戏, Jekyll, Bootstrap, Font Awesome" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet" media="screen">
     <!--<link href="/css/syntax.css" rel="stylesheet" media="screen">-->
     
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -92,7 +92,6 @@
 </ol>
 
 
-
 				
 		  </div>
 			<div class="read-more"><a href="/posts/2013/03/mitbbs-baozi-capturer-released"><i class="fa fa-bookmark"></i> read more</a></div>
@@ -127,7 +126,6 @@
    					<p>update: 10.9系统下Mail完美兼容Gmail，不需要做任何改动。但如果是从10.7或10.8升级到10.9系统，Mail可能有bug导致Gmail无法完全正常使用</p>
 
 <hr>
-
 
 <p>今天拿回了送去修的macbook，换了一块新硬盘（苹果说换了硬盘还是有问题，需要换主板。因为电脑摔过，主板不保修。我果断没有换主板）</p>
 
@@ -209,12 +207,11 @@
 
 <hr>
 
-
 <p>素材来自一份不太简短的LaTex2e介绍</p>
 
 <p>1) 指数和下标可以用^和_后加相应字符来实现。比如：</p>
 
-<p><a href="/img/posts/latex_1_foot.gif"><img src="/img/posts/latex_1_foot.gif" alt="foot" /></a></p>
+<p><a href="/img/posts/latex_1_foot.gif"><img src="/img/posts/latex_1_foot.gif" alt="foot"></a></p>
 
 
 				
@@ -333,22 +330,21 @@
   </body>
 
   <!-- JAVASCRIPTS -->
-  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/js/main.js"></script>
-   <!-- MathJax Section -->
-<script type="text/javascript"
- src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-  MathJax.Hub.Config({
-    tex2jax: {
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-  });
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- MathJax Section -->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
       }
-  });
-</script>
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i<all.length;i+=1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
 </html>
