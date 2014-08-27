@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Monster Mash - Visualization Project 2</title>
+	<meta http-equiv="refresh" content="3600">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/content.css">
+</head>
+
+<body>
+<!--============================= header area ==============================-->
+<div id="header">
+<h1>Monster Mash</h1>
+<p>CS 424 Visualization and Visual Analytics Project 2</p>
+</div>
+<!--=========================== end of header area ==========================-->
+
+<!--============================= navigation bar ============================-->
+<div id="nav_ver">
+<p><a href="index.html">introduction</a></p>
+<p><a href="demo.html">demonstration</a></p>
+<p><a href="install.html">installation</a></p>
+<br>
+<p><a href="function.html">features</a></p>
+<p><a href="data.html">data source</a></p>
+<p><a href="findings.html">interesting findings</a></p>
+<p><a href="roles.html">roles</a></p>
+<br>
+<p><a href="faq.html">FAQ</a></p>
+</div>
+<!--========================  end of navigation bar ========================-->
+
+
+<!--============================= main area =================================-->
+<div id="main">
+<br><br>
+<h2>Data Managing</h2>
+<p>
+<p>Data comes from <a href="http://www.imdb.com">IMDb</a>, an online database of information related to movies. Data have been downloaded, using an FTP download tool, from <a href="http://www.imdb.com/interfaces#plain">http://www.imdb.com/interfaces#plain</a>. </p>
+<p>Downloaded data was in .list format, and needed to be imported into a local database. To do it we first created a <a href="http://www.mysql.com/">MySQL</a> database in local, and then imported data. Since data was not structured in good format, it was not possible to trivially insert the dump into the database and we needed to parse before. In this process we get helped by a <a href="http://imdbpy.sourceforge.net/">IMDbPY</a>, a Python package useful to retrieve and manage the data of the IMDb</p>
+<p>Once data have been imported we began cleaning data. The database was very big (~4Gb) and it needed to be reduced to speed it up. Since we didn't need information about actors we cut out everything had to do with it. We cut every table with the exception of:
+</p><p>
+<ul>
+<li>title: main movie table, it contains information about title and production year</li>
+<li>movie_info: link table between movie and info_type and contains information data type</li>
+<li>info_type: lists the types of data contained in movie_info</li>
+<li>movie_keyword: link table between movie and keyword table</li>
+<li>keyword: lists keyword types</li>
+<li>kind_type: contains type of the movie</li>
+</ul>
+</p>
+<p>
+Useless columns have been removed and also indexes, which was empty, have been recreated for the so obtained database structure. So far the process of cleaning of the database reduced it to ~1Gb from ~4Gb.
+</p>
+<p>
+To further reduce its dimensions adult and documentary genre film has been removed, and the same for movies with kind id not in 1 (movie), 3 (tv movie) or 4 (video movie). We selected useful information we intended to use in the visualization:
+</p><p>
+<ul>
+<li>runtimes: how long the movie is, interesting for movie page</li>
+<li>genres: genre of the movie</li>
+<li>certificates: certificates (G,PG...)</li>
+<li>countries: countries</li>
+<li>votes: number of votes, useful to get popularity</li>
+<li>rating: for the quality</li>
+<li>budget: budget of the films</li>
+</ul>
+</p>
+<p>
+Once this task has been completed the remaining database was still too big. The main responsible of this was movie_info table, which contained a lot of things. For this reason we went through information and we eliminated the ones we didn't need, for instance detailed format(LD in database), gross and so on. We set the priority in eliminating useless information by ordering the information types for the number of information they matched, so that everytime we deleted one we was sure it was really wise choice. We avoid to eliminate everything we didn't selected as "useful information" so that it is still possible to extend our project without having to do much work on the database.
+</p>
+<p>
+A similar task has been performed on keywords, most common useless keywords (such as "love" and common words unrelated with monsters) has been removed from movie_keyword, while for each monster we decided to use, we selected a meaningful list of keywords to match to retrieve it.
+</p>
+<p>
+The values of data has been managed into the database, working with scrips and DML, while the presence (missing certificate) of a value is managed into the code.
+Data have been clustered in groups of 3 or 7 elements os that it was possible for users to easily visualize and understand them.
+The clusters have been made so that the number of instances for each group was almost the same, so that it was possible to effectively visualize data. The most intersting manipulation of data are about two elements:
+<p>
+<ul>
+<li>certificates</li>
+<li>budget</li>
+</ul>
+</p>
+<p>Certificates have been mapped using the ones we found in <a href="http://en.wikipedia.org/wiki/Motion_picture_rating_system">wikipedia</a> to MPAA USA standard. It is possible to download the matching file from this site. The values have been updated using SQL DML update function. For the organization of the queries we used Regular Expression tool embedded into Sublime Text 2, which allowed to manipulated them easily.
+</p>
+<p>Budget have been managed with an external .py script. Values have been converted considering both currency and inflation. Since we didn't mean to show the user the amount of budget, we clustered it in 3 groups directly in the database using MySQL DML. It is possible to perform the same operations we did using the script (downloadable from this site) and lunch it in a console ($python budget.py).
+</p>
+<p>
+Once the development part began we realized that what we did that far was not enough efficient in order to have efficient queries. To speedup queries we decided to precompute movie count result in separate small tables, so that the processing of that data was very fast.
+</p>
+<p>
+Before to take this choice we tried different ways to speedup queries. At first we indexed everything we was using in joins and matching parts in query, and then tried to increase the cache size. The problem, anyway was not solved. We was able to achieve fast queries only by caching them.
+</p>
+<p>
+What we did was cluster the possible visualization we wanted to allow the user to see into a small set of groups, and create a specific table for each group, so that it was possible to avoid joins and scans for that data. These tables was created precomputing the count for grouping data on three levels: the monster, the genre and the way the data is clustered. For instance, for each monster there are N times K times T instances, where N is the number of genres of films related to the monster, K is the number of different clusters the information is organized in, and T the year.
+</p>
+<p>
+The result are 6 tables of ~10^4 instances each, that are very fast to query. They are organized with following columns:
+
+<p>
+<ul>
+<li>Monster: name of the monster</li>
+<li>Genre: genre of film related to monster</li>
+<li>Year</li>
+<li>Type of cluster</li>
+<li>Count of films</li>
+
+</ul>
+</p>
+<p>
+	This lightweight organization of data allowed us to achieve ~10^-2 sec queries.
+	</p>
+<p>
+	A minor optimization concern the fact we added some column to title table, so that it was possible to access only that table to retrieve movie page information
+</p>
+</div>
+<!--======================== end of main area ===============================-->
+
+<!--============================== footer ===================================-->
+<div id="footer">
+<p>Last Updated: 2012-10-17</p>
+</div>
+<!--============================= end of footer =============================-->
+
+
+</body></html>
