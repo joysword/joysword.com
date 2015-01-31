@@ -7,5 +7,5 @@ http://joysword.com
 http://blog.joysword.com
 
 ## English Blog
-http://blog.joysword.com/en
+http://en.joysword.com
 
