@@ -1,0 +1,685 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>new_student</title>
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+</head>
+<body>
+<h1 id="toc_0">UIC新生指南2015版</h1>
+
+<p>7.2 新增：《如何安装UIC VPN》(<a href="vpn.html">点此阅读</a>）</p>
+
+<h2 id="toc_1">前言</h2>
+
+<p>本文旨在给初到UIC的中国学生一些指导，帮助新生尽快融入芝加哥的学习和生活。虽然有些部分是针对UIC的学生，但多数信息对芝加哥其它学校也有一定参考价值。</p>
+
+<p>本文希望用尽量精简的语言给出新生初到美国最需要的信息，基本涵盖了从行前准备到基本安顿下来，所以主要部分有：</p>
+
+<ul>
+<li><strong>行前准备</strong>：出发前准备的东西和注意事项</li>
+<li><strong>上天入地</strong>：乘坐飞机和刚刚抵达美国注意事项</li>
+<li><strong>安居乐业</strong>：找到住所，办理证件、银行开户、开通手机之类的初步安顿下来</li>
+</ul>
+
+<p>为了保持本文尽量简短，那些不是十分急迫的信息，可以到了美国后再慢慢了解也来得及，所以暂时不在本文讨论之列，以后会另写几篇来给大家介绍。比如：</p>
+
+<ul>
+<li>芝加哥哪里有好吃/好玩/好看的地方</li>
+<li>哪里有便宜打折购物淘货的地方</li>
+</ul>
+
+<h2 id="toc_2">行前准备</h2>
+
+<h3 id="toc_3">重要物品</h3>
+
+<p>一些重要的物品，记得要随身携带，不要托运：</p>
+
+<ul>
+<li><strong>护照</strong>：出发前护照（签证页和信息页）最好能够复印一份放在家里。</li>
+<li><strong>学校相关文件</strong>：录取通知书和I-20等相关资料。最好也复印一份留在家里。</li>
+<li><strong>机票</strong>：哪怕是电子机票，最好也印一份随身带着。</li>
+<li><strong>美金</strong>：刚到美国时需要支付学费、购买书本、预付押金（住房、手机、水电之类的）、添置家具和其它日用品，而这时你美国的银行卡可能还没下来。即使是TA或者RA之类的有收入，但办理SSN需要时间，有可能前一两个月钱还下不来，所以最好还是多准备一点现金。如果有能够支付美金的美金卡或双币卡，也可以带着以备不时之需。</li>
+</ul>
+
+<h3 id="toc_4">哪里买划算</h3>
+
+<p>除了上面这些重要物品外，在准备其它东西的时候，都会遇到这样一个问题：这个东西是在国内买划算还是到美国后来买划算？</p>
+
+<ul>
+<li><strong>总体经验</strong>：国内名牌的东西一般都是美国便宜，非名牌或没牌的一般都是中国便宜。</li>
+<li><strong>比较价格</strong>：现在大部分东西在网上都能买到，所以查找的时候可以比较淘宝和Amazon上的价格。</li>
+<li><strong>体积重量</strong>：订完机票后要弄清楚能携带行李的最大尺寸和最大重量，再决定如何有效利用空间。</li>
+</ul>
+
+<h3 id="toc_5">衣物</h3>
+
+<p>芝加哥一年基本上就是夏冬两季，春秋季转眼即逝。这里夏天相对比较凉爽，但冬天寒冷漫长，十月到四月这大半年基本上都不太适合户外运动。但室内的暖气一般都很暖和，所以建议还是<strong>多带春秋天穿的服装为主</strong>，因为冬天在室内差不多也是穿这些，外出加一件厚的外套就行了。而夏天很多地方室内的冷气开得很足，可能也需要春秋季穿的薄外套。</p>
+
+<ul>
+<li><strong>休闲装</strong>：一般平时上课和生活只需要休闲类的服装就行了。</li>
+<li><strong>正装</strong>：建议准备一两套正装，参加正式场合用得着，放着以备不时之需。</li>
+<li><strong>外套</strong>：如果有冬天的厚外套可以带着，如果没有到芝加哥后要尽快添置。</li>
+<li><strong>鞋子</strong>：如果有厚的高的雪地靴可以带着，没有的话到了后要尽快添置。</li>
+<li><strong>贴身衣裤</strong>：一般人起码要一个礼拜才洗一次衣服，所以建议起码带一打。</li>
+<li><strong>床上用品</strong>：一般是美国比较贵，如果带得下的话建议从国内购买，同理，不用带太厚的。</li>
+</ul>
+
+<h3 id="toc_6">药物</h3>
+
+<p>建议带一些常用药物，比如治疗感冒、腹泻、割伤、烫伤、扭伤、退烧之类的药物。</p>
+
+<h3 id="toc_7">礼物</h3>
+
+<p>可以带一点你家乡当地有特色的小物品作为礼物送给这边的外国朋友。</p>
+
+<h3 id="toc_8">书本</h3>
+
+<ul>
+<li><strong>参考书</strong>：美国的教科书一般很贵，图书馆里也不一定都借得到。如果有经典的教材参考书什么的，建议带着。你也可以先发Email问同系学长学姐，如果国内买得到的一般会便宜很多。</li>
+<li><strong>休闲书</strong>：如果怕刚到美国那几天无聊，可以带些小说杂志之类的，不过现在基本上都是电子书或在网上看了。</li>
+</ul>
+
+<h3 id="toc_9">厨房用品</h3>
+
+<ul>
+<li>碗筷什么的一般也是国内比较便宜，一般带个两三套就行了。</li>
+<li>如果有特别想念的家乡独特口味调料可以带着，其它的一般的酱料中国城应该都有。</li>
+<li>抹布洗碗巾什么的也是国内便宜，建议带一点。</li>
+</ul>
+
+<h3 id="toc_10">电脑</h3>
+
+<p>大部分电脑产品都是美国比较便宜，所以如果想买新的话还是到美国来买好了。但有些小东西比如网线、USB线之类的还是国内比较便宜，如果需要的话可以带过来。</p>
+
+<h3 id="toc_11">其它</h3>
+
+<p>如果戴眼镜的话，建议多带几副备用，最好走之前再去验个光。美国这边配眼镜非常贵！</p>
+
+<h3 id="toc_12">航空公司里程帐户</h3>
+
+<p>大多数航空公司都有自己的飞行里程积累系统，都是免费申请的，可以积在每个联盟里的任意一家航空公司。最好在飞行前注册免费的里程帐号，后补通常有时间限制（7天内左右）。这样飞行完后，在官网上直接能查到应得的相应飞行里程数。</p>
+
+<ul>
+<li><strong>寰宇一家</strong>：包括美国航空(AA)，全美航空（已经与AA合并），英国航空(BA)，国泰航空(CX)等等。<strong>AA里程换回国机票相对好用，BA换美国境内短途最划算，CX服务最好</strong>。</li>
+<li><strong>星空联盟</strong>(STAR ALLIANCE)：中国国际航空(CA)，美国联合航空（UA），全日空(NH)，韩亚空(OZ)都属于星空联盟。<strong>个人推荐长留美帝积UA，不长呆的就积CA</strong></li>
+<li><strong>天合联盟</strong>：大韩航空(KE)，达美航空(DL)，中国南方航空(CZ)<br></li>
+</ul>
+
+<h2 id="toc_13">上天入地</h2>
+
+<h3 id="toc_14">轻松过关</h3>
+
+<p>航班到达前空服人员会放发海关的报关单，请按实填写。如果进入美国每人携带超过一万美金的现金，需要特别申报。<strong>报关单必须清楚填写，如果填写错误可以再要一张，切忌涂改</strong>。</p>
+
+<p>过关时需要出示护照、I-20和填好的报关单。有关的其它文件（比如学校的录取信，SEVIS收据等）最好也准备好，万一被需要出示时不会手忙脚乱翻箱掏包到处找。</p>
+
+<h3 id="toc_15">机场交通</h3>
+
+<h4 id="toc_16">免费接机</h4>
+
+<p>UICCCF天悦团契和学校CSSA都有为新生提供免费的接机服务，请尽早与他们联络，并留下您详细的联络方式和航班信息。(<a href="http://uicccf.org/pickup">去填写免费接机注册表</a>)</p>
+
+<p>接机注意事项：</p>
+
+<ul>
+<li>请尽可能早的与他们联络，每个志愿者都有正常的学习/工作/生活计划，他们需要联络协调不同的志愿者来接机。如果临时通知马上需要接机，会给他们的安排增加很大的难度。</li>
+<li>如果您已经与他们确定了接机计划，请不要再与其它第三方联络接机的事项，以尊重每个志愿者在时间和金钱上的付出。</li>
+<li>如果有任何临时的行程或时间上的变动，请尽快与接机的人联络。</li>
+</ul>
+
+<h4 id="toc_17">乘坐地铁</h4>
+
+<p>地铁蓝线（Blue Line）提供从O&#39;Hare机场到UIC的地铁。按照机场的指示牌到蓝线（CTA Blue Line）的乘坐地（在二号航站楼地下，所以如果是国际航班的五号航站楼下来，要坐机场内部的轻轨线到二号航站楼下），购买地铁票车就行了。机场出发$5美元，其他站上车$2.25美元。<strong>因为地铁用的是自动售票机，所以不收100元面值的大钞，需要换成20美元的才行</strong>。机场是起点站，也不存在乘坐方向的问题，上车后<strong>坐到UIC-Halsted这站</strong>下来就到了。</p>
+
+<h4 id="toc_18">乘坐出租车</h4>
+
+<p>每个航站楼外都有出租车在排队等候，只要在机场指示牌上找到带有出租车的标志，按着箭头指示出来就能打到车了。O&#39;Hare机场到UIC校园大约需要四十分钟左右（如果遇到上下班高峰堵车，时间还会更久），打表再加上10-15%的小费，一般总共花费在$50美金左右。<strong>最好能够写下详细地址给司机看</strong>。</p>
+
+<h4 id="toc_19">乘坐机场巴士</h4>
+
+<p>还有一种选择是乘坐机场的巴士，在每个航站楼的领取行李处（Luggage Claim）旁边都有他们的柜台，可以问他们价格和时间表。一般一个人加上小费在$30美金左右，如果有多个人一起坐，还可以再省一点。详情可以去他们的<a href="http://www.airportexpress.com/">网站</a>查询。</p>
+
+<h2 id="toc_20">安居乐业</h2>
+
+<h3 id="toc_21">学校报道</h3>
+
+<h4 id="toc_22">开通学校的网上帐号</h4>
+
+<p>要去网上开通NetID、ACCC和Enterprise ID等帐号，才能使用学校的email和选课之类的。这点在网上就可以完成，而且一般来美国之前都已经做好了。</p>
+
+<h4 id="toc_23">去学校的系上报道</h4>
+
+<p>这一步一般没什么实质性的内容，基本上就是熟悉一下系里的位置，跟小秘说一声你到了，然后他会给你一些系上的资料，介绍你熟悉一下地形，认识一下老师之类的。一般会叫你尽快去OIS报道注册，这样才能尽早选课。如果系里有新生的Orientation，一般也会邀请你去参加。</p>
+
+<h4 id="toc_24">去学校的OIS报道</h4>
+
+<p><a href="http://www.ois.uic.edu/">OIS</a>（Office of International Services）是专门处理国际学生及相关事务的地方，位于SSB（Student Service Building）里面。在SSB里面可以完成很多事情，主要有：</p>
+
+<ul>
+<li>去OIS办理报道注册手续，需要准备好护照和I-20表。不注册的话无法网上选课。</li>
+<li>递交健康检查表（Immunization Record Form），只有住校才需要提交这张表。</li>
+<li>选完课后把网上的选课单打印出来，证明选够学分后，可以去领学生证（I-Card）。</li>
+<li>拿到I-Card后，再去领取U-Pass，可以在学期内无限次乘坐CTA（地铁和公交等）。</li>
+<li>有些缴费的手续也可以在SSB内完成。</li>
+</ul>
+
+<h4 id="toc_25">购买课本</h4>
+
+<p>美国的课本一般都很贵，所以购买前最好先多比较一下，看看有没有可能买到便宜的。</p>
+
+<ul>
+<li><a href="http://www.uicbookstore.org/">UIC Bookstore</a>：学校的书店，课本肯定能买到，价格就是原价了。也有二手书卖，会便宜不少，不过卖得很快。</li>
+<li><a href="http://www.contitextbooks.com/">Conti Textbook</a>：这个是UIC毕业的学生做的网站，在网上从事教科书的倒卖工作，一般是期末开车到校园来收购课本，开学再拉出来卖。只接受网上订购。</li>
+<li>其它的大型网站还有<a href="http://www.amazon.com/">Amazon</a>和<a href="http://www.half.ebay.com/">Half</a>之类的。 如果书较贵，Amazon 租书也是不错的选择。</li>
+<li>买之前可以先去<a href="http://www.booksprice.com/">Booksprice</a>或<a href="http://www.addall.com/">Addall</a>或者<a href="book.ly">book.ly</a>之类的比价网站搜索一下你要买的书。<strong>注意看到有些价格是租书的价格</strong>。个人的经验是<a href="http://www.abebooks.com/">Abebooks</a>往往能买到最便宜的书。</li>
+</ul>
+
+<h3 id="toc_26">住宿</h3>
+
+<h4 id="toc_27">临时住宿</h4>
+
+<p>刚到美国还在找房子的时候，临时住宿基本上有以下几种选择：</p>
+
+<ul>
+<li><strong>联络学长学姐蹭房子</strong> （推荐）：基本上是最经济最省钱的方案了，有认识的可能就不收钱了，就算按天收钱一般也比外面的便宜好多。</li>
+<li><strong>住UIC自己SSR的Guest Housing</strong>：详情请见学校的<a href="http://www.housing.uic.edu/halls/guest.php">网站</a>。</li>
+<li><strong>订青年旅馆</strong>：<a href="http://www.hichicago.org/">Hostelling International Chicago</a>和<a href="http://www.chicagoparthenonhostel.com/">Parthenon Hostel</a>。</li>
+<li><strong>其它学校附近的旅馆</strong>还有<a href="http://www.ihg.com/crowneplaza/hotels/us/en/chicago/chish/hoteldetail">Crown Plaza</a>，<a href="http://www.ihg.com/holidayinn/hotels/us/en/chicago/chiwh/hoteldetail">Holiday Inn</a>，和<a href="https://www.marriott.com/hotels/travel/chidm-chicago-marriott-at-medical-district-uic/">Marriott</a>等。</li>
+</ul>
+
+<h4 id="toc_28">学校宿舍</h4>
+
+<p>学校提供的宿舍是位于Damen和Taylor交界处的SSR（Single Student Residence），比较像单身公寓的形式，房租费用是每学期支付一次，详情请见学校的<a href="http://www.housing.uic.edu/">Campus Housing</a>。</p>
+
+<h4 id="toc_29">校外住处</h4>
+
+<p>选择住在校外，除了比较价格外，还需要考虑以下主要因素：</p>
+
+<ul>
+<li><strong>交通便利</strong>：房子是不是在[学校的校车(http://bus.uic.edu/)和城市公交很方便的地方。</li>
+<li><strong>治安良好</strong>：一般来说酒店式公寓比独立屋相对要来得安全。最好问一下有经验的学长学姐，或者找有车的人带你晚上去房子附近看一下是否安全。</li>
+<li><strong>结构大小</strong>：有几个房间几个卫浴，是否需要自己找室友。</li>
+<li><strong>特别要求</strong>：注意房东是否禁止养宠物、禁止开Party，不能有小孩之类的其它要求。</li>
+<li><strong>家具设备</strong>：问清楚是否附家具，检查一下厕所、厨房、冰箱、洗衣机等房子的基本状况。</li>
+<li><strong>租金费用</strong>：租金是否包括水、电、气等常规支出。需要支付多少押金（一般为一到两个月的房租）。</li>
+<li><strong>合约条款</strong>：建议要和房东白纸黑字签定房子的租约，不过签字和缴押金前要仔细阅读条款的内容，特别是任何手写的附加条款。</li>
+</ul>
+
+<h4 id="toc_30">房型介绍</h4>
+
+<ul>
+<li><strong>Studio</strong>：单间带厨房卫生间 </li>
+<li><strong>One-Bedroom</strong>：一卧室+客厅+厨房+卫浴 </li>
+<li><strong>Two-Bedrooms or more</strong>：跟One-Bedroom差不多, 差别在卧室和卫生间数量。有的是一间主卧带卫生间，剩下次卧共享卫生间,  也有是大家都共享卫浴</li>
+</ul>
+
+<p>以下是UIC中国学生比较常选择居住的地区：
+（与人合租的话，私人house一间大约在$400-$700左右不等，管理式Apartment一间大约在$700-$1000不等，客厅出租的适当降价。Studio大约$1000-$1300, 1b1b大约$1200左右）</p>
+
+<ul>
+<li>靠近东校区或西校区附近的房子：一般去中国学生的<a href="https://groups.google.com/forum/#!forum/uic-chinese">mailing list</a>上找房源，也可以在学校附近走走看看有没有贴着For Rent的牌子和电话号码的，可以打过去问。优点：便宜，距离学校近；缺点：费时间。</li>
+<li>Chinatown和Bridgeport附近：买菜比较方便，也需要自己去找房子，各大中国超市外面有很多的post。</li>
+<li>校园附近的公寓式住房：（很多都已经包括了水电气等常规费用，对没有SSN的新生来说会比较方便）
+
+<ul>
+<li><a href="http://www.medicaldistrictapts.com/">Medical District City Apartments (MD)</a>：901 S Ashland Ave</li>
+<li><a href="http://medcenterapts.com/">Medical Center Apartments (MC)</a>：1926 W Harrison St</li>
+<li><a href="http://www.apartments.com/Illinois/Chicago/Circle-Park-Apartments/294668">Circle Park(CP)</a>：1111 S Ashland Ave</li>
+<li><a href="http://www.presidentialtowersapts.com/">Presidential Towers (PT)</a>：555 W Madison St</li>
+<li><a href="http://tailorlofts.info/">Tailor Loft</a>：315 S Peoria St</li>
+<li><a href="http://www.automaticlofts.com/">Automatic Lofts</a>：410 S. Morgan St</li>
+</ul></li>
+</ul>
+
+<p>如果需要自己去开通电气网等服务，以下是一些常用的服务提供商：（开通一般都需要SSN，没有的话一般需要押金）</p>
+
+<ul>
+<li>电：<a href="https://www.comed.com">ComED</a></li>
+<li>气：<a href="http://www.peoplesenergy.com/">People’s Gas</a></li>
+<li>固话、电视和网络：<a href="http://www.att.com/">AT&amp;T</a>或<a href="http://www.comcast.com/">Comcast</a></li>
+</ul>
+
+<h3 id="toc_31">银行</h3>
+
+<h4 id="toc_32">选择银行</h4>
+
+<p>一开始因为还没有SSN，而且主要目的是把带来的现金尽快先存到银行里去，建议先选择学校附近的银行。等拿到SSN后再去找其它的银行开户，有时候能拿到不错的bonus。</p>
+
+<p>在UIC内跟学校比较有合作的银行主要有两个：</p>
+
+<ul>
+<li><a href="http://www.creditunion1.org/">Credit Union 1</a>：在SCE、U Hall和靠近SSR的地方都有银行</li>
+<li><a href="http://www.tcfbank.com/">TCF Bank</a>：在SCE里有银行。校外一般在Jewel里面，比较好的地方是周末也开门。</li>
+</ul>
+
+<p>其它比较大的银行一般对开户要求较高，有的都要求帐户余额在一定数量以上，否则每月需要支付一定费用，主要有：</p>
+
+<ul>
+<li><a href="http://www.citibank.com/">Citi</a>：1200 West Taylor Street，<strong>citi是附近唯一可以给国际学生（无SSN）办信用卡的一家银行</strong>。</li>
+<li><a href="http://www.chase.com/">Chase</a>：1130 West Taylor Street，学生未满24岁可以申请免月费的学生账户。但通常有月费的账户有开户bonus（需要寄到家的coupon）</li>
+<li><a href="http://www.bankofamerica.com/">Bank of America</a>：1212 South Ashland Avenue，BOA的持卡人可以每月第一个周末免费参观<a href="http://museums.bankofamerica.com/pdf/MOU_Participant_Roster.pdf">一些博物馆</a></li>
+</ul>
+
+<h4 id="toc_33">建立帐户</h4>
+
+<p>基本上每个银行都会提供一些基本的个人帐户服务，主要种类有：</p>
+
+<ul>
+<li><strong>支票帐户</strong>（Checking Account）：最主要的帐户，和你的支票本和现金借记卡（Debit Card）直接相连，所以开出的支票和卡上的消费取现都从这个帐户里扣，一般没有利息。使用支票时要当心余额不足跳票，会导致罚金。</li>
+<li><strong>储蓄帐户</strong>（Saving Account）：鉴于目前美国储蓄帐户的利息相当的低，个人感觉其实有没有差别不大。存入saving的钱，每个月只能取最多6次，多了会被扣费或者关掉。</li>
+<li><strong>信用卡帐户</strong>（Credit Card Account）：一般都需要SSN才能申请到比较好的卡，不过如果有Debit Card的话，信用卡暂时没有问题也不大，可以等拿到SSN再慢慢选择申请什么样的卡好。有信用卡的同学建议用信用卡消费，比Debit Card安全。</li>
+</ul>
+
+<h3 id="toc_34">电话手机</h3>
+
+<h4 id="toc_35">手机</h4>
+
+<p>目前手机还是大家主要的联络方式，现在在家里安装座机的已经越来越少了，因为基本上用不着。</p>
+
+<p>其实在芝加哥这种大城市附近，各大公司的手机信号覆盖和通话质量都差得不太多，但如果去到其它小地方的话，还是有很大差别的。</p>
+
+<p>手机按付费上的不同基本上分两种类型：</p>
+
+<ul>
+<li>合同套餐式（Contract）：一般都要签两年的合同，提前解约需要支付一定的罚款。开办一般都需要SSN，否则的话需要先缴一定的押金。一般可以拿到免费或便宜的手机。签约时要注意里面包括的分钟数、短信数、网络流量及免费时段等相关信息。其中又分个人计划（Individual Plan）和家庭计划（Family Plan）两种。一般来说家庭计划比较划算，而且是人越多越划算，所以新生很适合加入已经有SSN老生的家庭计划，既便宜划算，又避免了交押金。</li>
+<li>预付卡式（Prepaid）：一般没有长期的合同，随时可以走人，也不需要SSN。按使用的分钟数、短信数或流量来计费。但每分钟的费率较高，适合电话打得不多的人。</li>
+</ul>
+
+<p>美国主要的大手机运营商有四个：</p>
+
+<ul>
+<li><a href="http://www.verizonwireless.com/">Verizon</a>：最大的运营商，信号最好，但价格最贵，所以很多是公司客户，个人用户较少</li>
+<li><a href="http://www.att.com/">AT&amp;T</a>：排名第二，性价比还行，但客服很烂。 但想签IPHONE合约机，大多还是会选AT&amp;T，用family plan价格会便宜一点</li>
+<li><a href="http://www.sprint.com/">Sprint</a>：排名第三，感觉没啥特点，各方面都表现平平，价格比较便宜，学校附近好像没有门店，所以用的人也很少</li>
+<li><p><a href="http://www.t-mobile.com/">T-Mobile</a>：排名第四，促销花样最多，价格最便宜。IPHONE有全价机可以选，无contract，可以用family plan</p></li>
+<li><p>另外推荐<a href="https://www.cricketwireless.com/">Cricket</a>：小公司，用的是AT&amp;T的网络，GSM，使用预付费（prepaid）机制，所以价格相当便宜，5人family plan只要每人20美金/月。Refer还送25美金，申请请戳<a href="https://mycricket.sparkrefer.com/u/5VemiDH">这里</a></p></li>
+</ul>
+
+<blockquote>
+<p>要注意的是Verizon和Sprint使用的大部分都是CDMA式无SIM卡型手机，如果你想自带手机入网只买SIM卡的话，你的选择基本上只有AT&amp;T，T-Mobile，和Cricket。</p>
+</blockquote>
+
+<h4 id="toc_36">电话卡</h4>
+
+<p>感觉现在网络越来越发达，很多人跟国内的通讯都是通过网络来完成了。如果还是需要用打电话到国内的话，可以去中国城购买电话卡（15刀左右1000分钟，有效期一年），或者去google搜索cheap phone card to china之类的网上商店购买。一般费率都在每分钟两美分以下。另外也推荐<a href="http://yixin.im/">易信</a>，每月可免费打国际长途60分钟，短信无限
+更多关于<a href="http://chinese.livesinus.com/post/41/%E7%BE%8E%E5%9B%BD%E7%94%B5%E8%AF%9D%E5%AE%9D%E5%85%B8%E4%B9%8B%E6%89%8B%E6%9C%BA%EF%BC%881%EF%BC%89%EF%BC%9A%E7%AE%80%E4%BB%8B/">手机和电话</a>的信息可以参考。</p>
+
+<h3 id="toc_37">如何考驾照</h3>
+
+<p>到了美国很多时候,会需要用到一个能证明自己身份的文件,通常除了文件上需要有你的照片外,有些情况也会要求上面必须印有你的出生年月日(比如：购买含酒精成份的饮料),对于国际学生来说,护照可能是个选择(学校ID没印生日),但天天带着护找跑也是压力挺大的,此时考取一张IL的驾照也许是不错的解决方法。</p>
+
+<h4 id="toc_38">考取驾照种类</h4>
+
+<p>Class D
+Temporary Visitors Driving License(TVDL) (无SSN)
+Illinois Driver&#39;s License （有SSN）</p>
+
+<h4 id="toc_39">准备文件</h4>
+
+<ol>
+<li>I-20 </li>
+<li>I-94(须自行上网打印出来 ) </li>
+<li>两份能证明你现在居住地址的文件(*请注意上面需印有你的名字 Ex 租屋合约, 电话账单, 电费账单, 银行账单) </li>
+<li>护照 </li>
+<li>US$30</li>
+<li>考试地点 (唯二提供TVDL驾照考试场地)
+
+<ol>
+<li>北边考场 5401 N. Elston Ave. Chicago, IL 60630 </li>
+<li>西边考场 5301 W. Lexington St. Chicago, IL 60644 </li>
+</ol></li>
+</ol>
+
+<p><strong>西边考场服务比北边差太多了，如果你希望能最顺利以好心情考完，强烈推荐北边考场</strong></p>
+
+<blockquote>
+<p>如果你有SSN，则可以考虑笔试去downtown的两个考场(Chicago Central: 100 W. Randolph, Chicago, IL 60601;  Chicago Loop Express: 69 W. Washington, Chicago, IL 60601)，路考去北边考场。</p>
+</blockquote>
+
+<h4 id="toc_40">考试流程</h4>
+
+<ol>
+<li>美国公务人员效率是出了名慢,请准备一大早就出发去考场 </li>
+<li>考试用车可以使用租来的车(但车子需要有保险 基本保险为Loss-damage waiver+Liability coverage) </li>
+<li>缴交数据,确认数据齐全无误 </li>
+<li>视力测验(其中一部分为问你闪光的位置,请注意你眼角周围的小黄光) </li>
+<li>缴交费用 </li>
+<li>笔试 </li>
+<li>路考 (路考和笔试可以同一天，也可以笔试考完练练车再考路考)</li>
+<li>If Pass, 现场拍照,签名(该签名会印在驾照上) else No idea.. </li>
+<li>如果无SSN，则约过两周，驾照会寄来；有ssn可以当场拿到驾照</li>
+</ol>
+
+<h4 id="toc_41">关于笔试</h4>
+
+<ol>
+<li><a href="http://www.cyberdriveillinois.com/publications/pdf_publications/dsd_a112.pdf">考试指南</a> DMV里可拿到免费的纸本100 W. Randolph Chicago, IL 60601 </li>
+<li>题库须熟记。<a href="https://drive.google.com/file/d/0B9s6QRJcb5HrSm1fRGs2TWtqQWs/view?usp=sharing">题库总结</a></li>
+<li>考试不考过于细节的东西,太琐碎的罚款细则不会考,交通号志掌握题库上的就差不多了,考试指南每个章节后面的练习题要做要搞懂</li>
+</ol>
+
+<h4 id="toc_42">关于路考</h4>
+
+<p>(考试项目看你遇到的考官爱好，以下提供个人经验)</p>
+
+<ol>
+<li>车子基本测试(打灯,喇叭)完毕后，考官上车</li>
+<li>直接开出停车场，到实际马路上，途中会遇到一些转弯，以及路权的问题，基本原则就是转弯要有做出来你确实有向后方看有无来车的动作，路权则是先到先走，车速须低于速限，但不可过低，要不然一样会被扣分，约低个5英里左右即可，最重要的是遇到STOP sign时，车​​子须完全停止再启动，不可直接慢速滑行</li>
+<li>回到停车场，考直线前进再倒退(左右有三角锥不可撞到)，再考车头入车库，再顺着倒出来，有些考官会在路途中问你上下坡或是一般停车时，轮胎该朝哪里(朝路边还是朝外)</li>
+<li>考试结果，考官会直接跟你说</li>
+<li>没有S型, 路边停车，倒车入库</li>
+</ol>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43448447-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>
