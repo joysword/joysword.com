@@ -1,37 +1,35 @@
+"""Transaction model matching YNAB API transaction shape."""
+
 from __future__ import annotations
 
-from datetime import date
-from collections import Counter
-
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 
 class Transaction(BaseModel):
-    date: date
-    amount: float  # Original amount from CSV (positive or negative)
-    payee: str
+    """A transaction ready to POST to the YNAB API."""
+
+    account_id: str
+    date: str  # ISO 8601: YYYY-MM-DD
+    amount: int  # Milliunits: dollars * 1000, negative = outflow
+    payee_name: str = ""
     memo: str = ""
-    account_name: str = ""
-    category: str = ""
+    category_id: str = ""
     import_id: str = ""
+    cleared: str = "cleared"
 
-    def to_ynab_milliunits(self) -> int:
-        """Convert amount to YNAB milliunit format (amount * 1000)."""
-        return int(self.amount * 1000)
-
-    def generate_import_id(self, occurrence: int = 1) -> str:
-        """Generate YNAB import_id: YNAB:{milliunit_amount}:{iso_date}:{occurrence}."""
-        milliunits = self.to_ynab_milliunits()
-        return f"YNAB:{milliunits}:{self.date.isoformat()}:{occurrence}"
-
-
-def assign_import_ids(transactions: list[Transaction]) -> list[Transaction]:
-    """Assign import_ids to transactions, handling same-day/same-amount duplicates."""
-    counter: Counter[str] = Counter()
-    result = []
-    for txn in transactions:
-        key = f"{txn.to_ynab_milliunits()}:{txn.date.isoformat()}"
-        counter[key] += 1
-        txn.import_id = txn.generate_import_id(occurrence=counter[key])
-        result.append(txn)
-    return result
+    def to_api_dict(self) -> dict:
+        """Convert to the dict shape expected by YNAB API."""
+        d: dict = {
+            "account_id": self.account_id,
+            "date": self.date,
+            "amount": self.amount,
+            "payee_name": self.payee_name,
+            "cleared": self.cleared,
+        }
+        if self.memo:
+            d["memo"] = self.memo
+        if self.category_id:
+            d["category_id"] = self.category_id
+        if self.import_id:
+            d["import_id"] = self.import_id
+        return d

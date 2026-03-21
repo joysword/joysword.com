@@ -1,4 +1,4 @@
-"""YNAB API v1 client for creating transactions."""
+"""YNAB API v1 client — exposes tool functions for the agent."""
 
 from __future__ import annotations
 
@@ -8,10 +8,8 @@ from pathlib import Path
 import requests
 import yaml
 
-from .models import Transaction
-
-CONFIG_DIR = Path(__file__).resolve().parent.parent.parent / "config"
 BASE_URL = "https://api.ynab.com/v1"
+CONFIG_DIR = Path(__file__).resolve().parent.parent.parent / "config"
 
 
 def load_settings(settings_path: Path | None = None) -> dict:
@@ -35,83 +33,76 @@ class YNABClient:
         ynab = settings["ynab"]
         return cls(api_token=ynab["api_token"], budget_id=ynab["budget_id"])
 
-    def _get_account_id(self, account_name: str) -> str | None:
-        """Look up YNAB account ID by name."""
+    # ------------------------------------------------------------------
+    # Tool functions the agent can call
+    # ------------------------------------------------------------------
+
+    def list_accounts(self) -> list[dict]:
+        """Fetch all accounts. Returns [{"id": ..., "name": ...}, ...]."""
         url = f"{BASE_URL}/budgets/{self.budget_id}/accounts"
-        resp = self.session.get(url)
+        resp = self._get_with_retry(url)
         resp.raise_for_status()
-        accounts = resp.json()["data"]["accounts"]
-        for acct in accounts:
-            if acct["name"].lower() == account_name.lower():
-                return acct["id"]
-        return None
+        return [
+            {"id": a["id"], "name": a["name"]}
+            for a in resp.json()["data"]["accounts"]
+            if not a.get("closed", False)
+        ]
+
+    def list_categories(self) -> list[dict]:
+        """Fetch all categories. Returns [{"id": ..., "name": ..., "group": ...}, ...]."""
+        url = f"{BASE_URL}/budgets/{self.budget_id}/categories"
+        resp = self._get_with_retry(url)
+        resp.raise_for_status()
+        result = []
+        for group in resp.json()["data"]["category_groups"]:
+            if group.get("hidden", False):
+                continue
+            for cat in group.get("categories", []):
+                if cat.get("hidden", False):
+                    continue
+                result.append({
+                    "id": cat["id"],
+                    "name": cat["name"],
+                    "group": group["name"],
+                })
+        return result
 
     def create_transactions(
         self,
-        transactions: list[Transaction],
+        transactions: list[dict],
         dry_run: bool = False,
     ) -> dict:
-        """Send transactions to YNAB. Returns the API response or dry-run summary."""
+        """Send transactions to YNAB. Each item should be a YNAB API transaction dict."""
         if dry_run:
-            return self._dry_run_summary(transactions)
-
-        # Resolve account names to IDs
-        account_cache: dict[str, str | None] = {}
-        ynab_txns = []
-        for txn in transactions:
-            if txn.account_name and txn.account_name not in account_cache:
-                account_cache[txn.account_name] = self._get_account_id(txn.account_name)
-
-            account_id = account_cache.get(txn.account_name)
-            if not account_id:
-                raise ValueError(
-                    f"Could not find YNAB account '{txn.account_name}'. "
-                    f"Check your mappings config."
-                )
-
-            ynab_txn: dict = {
-                "account_id": account_id,
-                "date": txn.date.isoformat(),
-                "amount": txn.to_ynab_milliunits(),
-                "payee_name": txn.payee,
-                "memo": txn.memo or None,
-                "import_id": txn.import_id,
-                "cleared": "cleared",
+            return {
+                "dry_run": True,
+                "transaction_count": len(transactions),
+                "transactions": transactions,
             }
-            ynab_txns.append(ynab_txn)
 
         url = f"{BASE_URL}/budgets/{self.budget_id}/transactions"
-        resp = self._post_with_retry(url, {"transactions": ynab_txns})
+        resp = self._post_with_retry(url, {"transactions": transactions})
         resp.raise_for_status()
         return resp.json()
 
-    def _post_with_retry(
-        self, url: str, payload: dict, max_retries: int = 3
-    ) -> requests.Response:
-        """POST with exponential backoff for rate limiting."""
+    # ------------------------------------------------------------------
+    # HTTP helpers
+    # ------------------------------------------------------------------
+
+    def _get_with_retry(self, url: str, max_retries: int = 3) -> requests.Response:
+        for attempt in range(max_retries + 1):
+            resp = self.session.get(url)
+            if resp.status_code == 429:
+                time.sleep(2 ** attempt)
+                continue
+            return resp
+        return resp
+
+    def _post_with_retry(self, url: str, payload: dict, max_retries: int = 3) -> requests.Response:
         for attempt in range(max_retries + 1):
             resp = self.session.post(url, json=payload)
             if resp.status_code == 429:
-                wait = 2 ** attempt
-                time.sleep(wait)
+                time.sleep(2 ** attempt)
                 continue
             return resp
-        return resp  # Return last response even if rate limited
-
-    @staticmethod
-    def _dry_run_summary(transactions: list[Transaction]) -> dict:
-        summary = {
-            "dry_run": True,
-            "transaction_count": len(transactions),
-            "transactions": [],
-        }
-        for txn in transactions:
-            summary["transactions"].append({
-                "date": txn.date.isoformat(),
-                "payee": txn.payee,
-                "amount": txn.to_ynab_milliunits(),
-                "account": txn.account_name,
-                "category": txn.category,
-                "import_id": txn.import_id,
-            })
-        return summary
+        return resp

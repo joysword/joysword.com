@@ -3,8 +3,9 @@ ynab:
   api_token: "YOUR_YNAB_API_TOKEN"  # Get from https://app.ynab.com/settings/developer
   budget_id: "YOUR_BUDGET_ID"        # Find in YNAB URL: app.ynab.com/{budget_id}/...
 
-# Default bank to use if not specified via CLI
-default_bank: "auto"
+# LLM configuration
+llm:
+  model: "claude-sonnet-4-20250514"
 
 # Folder watcher settings
 watcher:

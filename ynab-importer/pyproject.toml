@@ -4,10 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ynab-importer"
-version = "0.1.0"
-description = "Import bank CSV transactions into YNAB"
+version = "0.2.0"
+description = "AI agent that imports any bank CSV into YNAB"
 requires-python = ">=3.10"
 dependencies = [
+    "anthropic>=0.39.0",
     "click>=8.0",
     "pydantic>=2.0",
     "pyyaml>=6.0",
