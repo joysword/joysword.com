@@ -9,7 +9,7 @@ from pathlib import Path
 import anthropic
 
 from .models import Transaction
-from .ynab_client import YNABClient, load_settings
+from .ynab_client import BASE_URL, YNABClient, load_settings
 
 logger = logging.getLogger(__name__)
 
@@ -139,12 +139,26 @@ transactions, increment the occurrence counter.
 """
 
 
+def _serialize_content_block(block) -> dict:
+    """Convert an Anthropic content block to a JSON-serializable dict."""
+    if block.type == "text":
+        return {"type": "text", "text": block.text}
+    elif block.type == "tool_use":
+        return {"type": "tool_use", "id": block.id, "name": block.name, "input": block.input}
+    return {"type": block.type}
+
+
 def process_csv(
     csv_path: Path,
     dry_run: bool = False,
     settings_path: Path | None = None,
+    event_log: list | None = None,
 ) -> dict:
-    """Read a CSV file and use the LLM agent to import transactions into YNAB."""
+    """Read a CSV file and use the LLM agent to import transactions into YNAB.
+
+    If event_log is provided (a list), each network call's request and response
+    will be appended as a dict for GUI inspection.
+    """
     settings = load_settings(settings_path)
     ynab_settings = settings["ynab"]
     llm_settings = settings.get("llm", {})
@@ -162,6 +176,28 @@ def process_csv(
     categories = ynab.list_categories()
     logger.info(f"  → {len(accounts)} accounts, {len(categories)} categories")
 
+    if event_log is not None:
+        event_log.append({
+            "label": "Fetch Accounts",
+            "service": "ynab",
+            "request": {
+                "method": "GET",
+                "url": f"{BASE_URL}/budgets/{{budget_id}}/accounts",
+                "headers": {"Authorization": "Bearer ****", "Content-Type": "application/json"},
+            },
+            "response": accounts,
+        })
+        event_log.append({
+            "label": "Fetch Categories",
+            "service": "ynab",
+            "request": {
+                "method": "GET",
+                "url": f"{BASE_URL}/budgets/{{budget_id}}/categories",
+                "headers": {"Authorization": "Bearer ****", "Content-Type": "application/json"},
+            },
+            "response": categories,
+        })
+
     csv_content = csv_path.read_text()
     system_prompt = _build_system_prompt(accounts, categories)
 
@@ -176,8 +212,20 @@ def process_csv(
 
     # Agent loop: run until the LLM stops calling tools
     result = {"transactions_created": 0, "duplicates_skipped": 0, "details": None}
+    turn = 0
 
     while True:
+        turn += 1
+
+        # Capture what we send to Claude
+        claude_request = {
+            "model": model,
+            "max_tokens": 4096,
+            "system": system_prompt,
+            "tools": TOOLS,
+            "messages": _serialize_messages(messages),
+        }
+
         response = llm_client.messages.create(
             model=model,
             max_tokens=4096,
@@ -185,6 +233,26 @@ def process_csv(
             tools=TOOLS,
             messages=messages,
         )
+
+        response_content = [_serialize_content_block(b) for b in response.content]
+        claude_response = {
+            "id": response.id,
+            "model": response.model,
+            "stop_reason": response.stop_reason,
+            "content": response_content,
+            "usage": {
+                "input_tokens": response.usage.input_tokens,
+                "output_tokens": response.usage.output_tokens,
+            },
+        }
+
+        if event_log is not None:
+            event_log.append({
+                "label": f"Claude Turn {turn}",
+                "service": "claude",
+                "request": claude_request,
+                "response": claude_response,
+            })
 
         # Collect text and tool use blocks
         tool_calls = [b for b in response.content if b.type == "tool_use"]
@@ -209,6 +277,7 @@ def process_csv(
                 ynab=ynab,
                 dry_run=dry_run,
                 result=result,
+                event_log=event_log,
             )
             tool_results.append({
                 "type": "tool_result",
@@ -224,12 +293,32 @@ def process_csv(
     return result
 
 
+def _serialize_messages(messages: list) -> list:
+    """Convert messages list to JSON-serializable form for logging."""
+    serialized = []
+    for msg in messages:
+        if isinstance(msg.get("content"), str):
+            serialized.append(msg)
+        elif isinstance(msg.get("content"), list):
+            content = []
+            for item in msg["content"]:
+                if isinstance(item, dict):
+                    content.append(item)
+                else:
+                    content.append(_serialize_content_block(item))
+            serialized.append({"role": msg["role"], "content": content})
+        else:
+            serialized.append({"role": msg["role"], "content": str(msg.get("content", ""))})
+    return serialized
+
+
 def _execute_tool(
     name: str,
     inputs: dict,
     ynab: YNABClient,
     dry_run: bool,
     result: dict,
+    event_log: list | None = None,
 ) -> dict | list:
     """Execute a tool call from the agent and return the result."""
     logger.info(f"Tool call: {name}")
@@ -245,7 +334,23 @@ def _execute_tool(
 
         logger.info(f"  → Creating {len(validated)} transactions (dry_run={dry_run})")
 
+        # Log YNAB request before making it
+        ynab_request = {
+            "method": "POST",
+            "url": f"{BASE_URL}/budgets/{{budget_id}}/transactions",
+            "headers": {"Authorization": "Bearer ****", "Content-Type": "application/json"},
+            "body": {"transactions": validated},
+        }
+
         api_result = ynab.create_transactions(validated, dry_run=dry_run)
+
+        if event_log is not None:
+            event_log.append({
+                "label": "Create Transactions" + (" (dry run)" if dry_run else ""),
+                "service": "ynab",
+                "request": ynab_request,
+                "response": api_result,
+            })
 
         if dry_run:
             result["transactions_created"] = api_result["transaction_count"]

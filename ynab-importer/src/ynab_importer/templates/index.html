@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YNAB Importer</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #232735;
+    --border: #2e3345;
+    --text: #e1e4ed;
+    --text-dim: #8b90a0;
+    --claude: #d4a574;
+    --claude-bg: #2a2218;
+    --claude-border: #4a3a25;
+    --ynab: #85c0ff;
+    --ynab-bg: #172030;
+    --ynab-border: #1e3a5f;
+    --green: #7ee787;
+    --red: #f97583;
+    --radius: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.5; min-height: 100vh;
+  }
+  header {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 16px 24px; display: flex; align-items: center; gap: 12px;
+  }
+  header h1 { font-size: 18px; font-weight: 600; }
+  header .subtitle { color: var(--text-dim); font-size: 13px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 24px; }
+
+  /* Drop zone */
+  .dropzone {
+    border: 2px dashed var(--border); border-radius: var(--radius);
+    padding: 48px 24px; text-align: center; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .dropzone:hover, .dropzone.dragover {
+    border-color: var(--claude); background: var(--claude-bg);
+  }
+  .dropzone .icon { font-size: 36px; margin-bottom: 8px; opacity: 0.5; }
+  .dropzone .label { font-size: 15px; color: var(--text-dim); }
+  .dropzone .filename {
+    margin-top: 8px; font-size: 14px; color: var(--green);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .dropzone input[type=file] { display: none; }
+
+  /* Controls */
+  .controls {
+    display: flex; align-items: center; gap: 16px; margin-top: 16px;
+  }
+  .controls label {
+    display: flex; align-items: center; gap: 6px; font-size: 14px;
+    color: var(--text-dim); cursor: pointer; user-select: none;
+  }
+  .controls input[type=checkbox] { accent-color: var(--claude); }
+  .btn {
+    padding: 8px 20px; border: none; border-radius: var(--radius);
+    font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.15s;
+  }
+  .btn-primary {
+    background: var(--claude); color: #000;
+  }
+  .btn-primary:hover { filter: brightness(1.1); }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* Spinner */
+  .spinner {
+    display: none; margin: 32px auto; text-align: center;
+  }
+  .spinner.active { display: block; }
+  .spinner .dot {
+    display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--claude); margin: 0 4px;
+    animation: bounce 1.2s ease-in-out infinite;
+  }
+  .spinner .dot:nth-child(2) { animation-delay: 0.15s; }
+  .spinner .dot:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes bounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1); opacity: 1; }
+  }
+  .spinner .status { margin-top: 8px; font-size: 13px; color: var(--text-dim); }
+
+  /* Result banner */
+  .result-banner {
+    display: none; margin-top: 24px; padding: 14px 18px;
+    border-radius: var(--radius); font-size: 14px;
+  }
+  .result-banner.success { display: block; background: #122117; border: 1px solid #1e4d2b; color: var(--green); }
+  .result-banner.error { display: block; background: #2d1216; border: 1px solid #5f2329; color: var(--red); }
+
+  /* Event log */
+  #event-log { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+
+  .event-card {
+    border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .event-card.claude { border-color: var(--claude-border); }
+  .event-card.ynab { border-color: var(--ynab-border); }
+
+  .event-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; cursor: pointer; user-select: none;
+    background: var(--surface);
+  }
+  .event-card.claude .event-header { background: var(--claude-bg); }
+  .event-card.ynab .event-header { background: var(--ynab-bg); }
+
+  .event-header .arrow {
+    font-size: 12px; color: var(--text-dim); transition: transform 0.15s;
+    width: 16px; text-align: center;
+  }
+  .event-card.open .event-header .arrow { transform: rotate(90deg); }
+
+  .event-header .step-num {
+    font-size: 12px; font-weight: 600; color: var(--text-dim);
+    min-width: 18px;
+  }
+  .badge {
+    font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .badge.claude { background: var(--claude); color: #000; }
+  .badge.ynab { background: var(--ynab); color: #000; }
+  .event-header .label { font-size: 14px; font-weight: 500; flex: 1; }
+
+  .event-body { display: none; }
+  .event-card.open .event-body { display: block; }
+
+  .payload-section {
+    border-top: 1px solid var(--border);
+  }
+  .payload-section-header {
+    padding: 8px 14px; font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dim);
+    background: var(--surface2); cursor: pointer; user-select: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .payload-section-header .arrow {
+    font-size: 10px; transition: transform 0.15s; color: var(--text-dim);
+  }
+  .payload-section.open .payload-section-header .arrow { transform: rotate(90deg); }
+  .payload-section .payload-content { display: none; }
+  .payload-section.open .payload-content { display: block; }
+
+  .payload-content pre {
+    margin: 0; padding: 12px 14px;
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 12px; line-height: 1.6;
+    max-height: 400px; overflow: auto;
+    background: var(--bg); color: var(--text);
+    white-space: pre-wrap; word-break: break-word;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>YNAB Importer</h1>
+  <span class="subtitle">AI agent &mdash; drop a CSV, see every payload</span>
+</header>
+
+<div class="container">
+  <!-- Drop zone -->
+  <div class="dropzone" id="dropzone">
+    <div class="icon">&#128196;</div>
+    <div class="label">Drop a CSV file here, or click to browse</div>
+    <div class="filename" id="filename"></div>
+    <input type="file" id="file-input" accept=".csv">
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <label>
+      <input type="checkbox" id="dry-run" checked>
+      Dry run
+    </label>
+    <button class="btn btn-primary" id="process-btn" disabled>Process</button>
+  </div>
+
+  <!-- Spinner -->
+  <div class="spinner" id="spinner">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="status">Running agent&hellip;</div>
+  </div>
+
+  <!-- Result banner -->
+  <div class="result-banner" id="result-banner"></div>
+
+  <!-- Event log -->
+  <div id="event-log"></div>
+</div>
+
+<script>
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('file-input');
+const filenameEl = document.getElementById('filename');
+const processBtn = document.getElementById('process-btn');
+const dryRunCb = document.getElementById('dry-run');
+const spinner = document.getElementById('spinner');
+const banner = document.getElementById('result-banner');
+const eventLog = document.getElementById('event-log');
+
+let selectedFile = null;
+
+// --- Drag & drop ---
+dropzone.addEventListener('click', () => fileInput.click());
+dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('dragover'); });
+dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+dropzone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropzone.classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  if (file && file.name.endsWith('.csv')) selectFile(file);
+});
+fileInput.addEventListener('change', () => {
+  if (fileInput.files[0]) selectFile(fileInput.files[0]);
+});
+
+function selectFile(file) {
+  selectedFile = file;
+  filenameEl.textContent = file.name;
+  processBtn.disabled = false;
+}
+
+// --- Process ---
+processBtn.addEventListener('click', async () => {
+  if (!selectedFile) return;
+  processBtn.disabled = true;
+  spinner.classList.add('active');
+  banner.className = 'result-banner';
+  banner.style.display = 'none';
+  eventLog.innerHTML = '';
+
+  const fd = new FormData();
+  fd.append('file', selectedFile);
+  fd.append('dry_run', dryRunCb.checked ? 'true' : 'false');
+
+  try {
+    const resp = await fetch('/process', { method: 'POST', body: fd });
+    const data = await resp.json();
+
+    if (data.error && !data.event_log?.length) {
+      showBanner('error', data.error);
+    } else {
+      if (data.result) {
+        const r = data.result;
+        const dryLabel = dryRunCb.checked ? ' (dry run)' : '';
+        showBanner('success',
+          `${r.transactions_created} transactions created, ${r.duplicates_skipped} duplicates skipped${dryLabel}`
+        );
+      } else if (data.error) {
+        showBanner('error', data.error);
+      }
+      renderEvents(data.event_log || []);
+    }
+  } catch (err) {
+    showBanner('error', 'Request failed: ' + err.message);
+  } finally {
+    spinner.classList.remove('active');
+    processBtn.disabled = false;
+  }
+});
+
+function showBanner(type, msg) {
+  banner.className = 'result-banner ' + type;
+  banner.textContent = msg;
+  banner.style.display = 'block';
+}
+
+// --- Render events ---
+function renderEvents(events) {
+  eventLog.innerHTML = '';
+  events.forEach((evt, i) => {
+    const svc = evt.service; // "claude" or "ynab"
+    const card = document.createElement('div');
+    card.className = `event-card ${svc}`;
+
+    // Header
+    const header = document.createElement('div');
+    header.className = 'event-header';
+    header.innerHTML = `
+      <span class="arrow">&#9654;</span>
+      <span class="step-num">${i + 1}</span>
+      <span class="badge ${svc}">${svc}</span>
+      <span class="label">${esc(evt.label)}</span>
+    `;
+    header.addEventListener('click', () => card.classList.toggle('open'));
+    card.appendChild(header);
+
+    // Body
+    const body = document.createElement('div');
+    body.className = 'event-body';
+
+    if (svc === 'claude') {
+      // Split Claude request into sub-sections
+      const req = evt.request || {};
+      addSubSection(body, 'Model', JSON.stringify({ model: req.model, max_tokens: req.max_tokens }, null, 2));
+      addSubSection(body, 'System Prompt', typeof req.system === 'string' ? req.system : JSON.stringify(req.system, null, 2));
+      addSubSection(body, 'Tools', JSON.stringify(req.tools, null, 2));
+      addSubSection(body, 'Messages', JSON.stringify(req.messages, null, 2));
+      addSubSection(body, 'Response', JSON.stringify(evt.response, null, 2), true);
+    } else {
+      // YNAB: request + response
+      addSubSection(body, 'Request', JSON.stringify(evt.request, null, 2));
+      addSubSection(body, 'Response', JSON.stringify(evt.response, null, 2), true);
+    }
+
+    card.appendChild(body);
+    eventLog.appendChild(card);
+  });
+}
+
+function addSubSection(parent, title, content, openByDefault = false) {
+  const section = document.createElement('div');
+  section.className = 'payload-section' + (openByDefault ? ' open' : '');
+
+  const hdr = document.createElement('div');
+  hdr.className = 'payload-section-header';
+  hdr.innerHTML = `<span class="arrow">&#9654;</span> ${esc(title)}`;
+  hdr.addEventListener('click', () => section.classList.toggle('open'));
+  section.appendChild(hdr);
+
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'payload-content';
+  const pre = document.createElement('pre');
+  pre.textContent = content;
+  contentDiv.appendChild(pre);
+  section.appendChild(contentDiv);
+
+  parent.appendChild(section);
+}
+
+function esc(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+</script>
+</body>
+</html>

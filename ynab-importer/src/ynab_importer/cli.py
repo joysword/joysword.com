@@ -57,5 +57,16 @@ def watch_cmd(folder: str, dry_run: bool):
     watch_folder(folder=Path(folder), dry_run=dry_run)
 
 
+@cli.command("gui")
+@click.option("--host", default="127.0.0.1", help="Host to bind to.")
+@click.option("--port", default=5050, type=int, help="Port to listen on.")
+def gui_cmd(host: str, port: int):
+    """Launch the web GUI for drag-and-drop CSV import."""
+    from .gui import run_gui
+
+    click.echo(f"Starting GUI at http://{host}:{port}")
+    run_gui(host=host, port=port)
+
+
 if __name__ == "__main__":
     cli()
