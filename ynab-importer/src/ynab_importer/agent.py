@@ -15,40 +15,17 @@ logger = logging.getLogger(__name__)
 
 GUIDES_DIR = Path(__file__).resolve().parent.parent.parent / "guides"
 
+# The only tool the LLM needs — the agent executes it locally with credentials.
 TOOLS = [
-    {
-        "name": "list_accounts",
-        "description": (
-            "Fetch all active YNAB accounts in the budget. "
-            "Returns a list of {id, name} objects. "
-            "Call this to discover valid account IDs before creating transactions."
-        ),
-        "input_schema": {
-            "type": "object",
-            "properties": {},
-            "required": [],
-        },
-    },
-    {
-        "name": "list_categories",
-        "description": (
-            "Fetch all YNAB categories in the budget. "
-            "Returns a list of {id, name, group} objects. "
-            "Call this to discover valid category IDs before creating transactions."
-        ),
-        "input_schema": {
-            "type": "object",
-            "properties": {},
-            "required": [],
-        },
-    },
     {
         "name": "create_transactions",
         "description": (
-            "Create transactions in YNAB. Each transaction must have: "
-            "account_id (string), date (YYYY-MM-DD), amount (int, milliunits, negative=outflow), "
-            "payee_name (string). Optional: memo, category_id, import_id, cleared. "
-            "The import_id format for dedup is YNAB:{milliunit_amount}:{iso_date}:{occurrence}."
+            "Create transactions in YNAB. The agent will add authentication and "
+            "send the payload to the YNAB API on your behalf. Each transaction must have: "
+            "account_id (string, from the accounts list provided), date (YYYY-MM-DD), "
+            "amount (int, milliunits, negative=outflow), payee_name (string). "
+            "Optional: memo, category_id (from the categories list provided), "
+            "import_id (for dedup: YNAB:{milliunit_amount}:{iso_date}:{occurrence}), cleared."
         ),
         "input_schema": {
             "type": "object",
@@ -84,34 +61,39 @@ def _load_guide(name: str) -> str:
     return ""
 
 
-def _build_system_prompt() -> str:
+def _build_system_prompt(accounts: list[dict], categories: list[dict]) -> str:
     ynab_api_ref = _load_guide("ynab-api.md")
     mappings = _load_guide("mappings.md")
 
+    accounts_text = json.dumps(accounts, indent=2)
+    categories_text = json.dumps(categories, indent=2)
+
     return f"""You are a YNAB transaction import agent. Your job is to read CSV transaction \
-data, understand its format, and create the corresponding transactions in YNAB via the API.
+data, understand its format, and create the corresponding transactions in YNAB.
+
+The agent (local code) handles all API authentication and HTTP calls. You NEVER see or need \
+API tokens. You just build the transaction payloads and call create_transactions(). The agent \
+will add credentials and send the request to YNAB on your behalf.
 
 ## Your workflow:
-1. First, call list_accounts() and list_categories() to discover valid YNAB account IDs \
-and category IDs in the user's budget.
-2. Read the CSV data provided by the user. Figure out:
+1. Read the CSV data provided. Figure out:
    - What each column means (date, amount, payee, memo, account/card, etc.)
    - The date format used
    - The amount sign convention (negative = charge, or positive = charge)
    - Whether there is a per-row column indicating the card/account used
-3. Consult the user's mapping preferences (below) to:
+2. Consult the user's mapping preferences (below) to:
    - Map raw payee strings to clean YNAB payee names
    - Assign categories based on payee
-   - Map card/account column values to YNAB account IDs
-4. For each CSV row, build a YNAB transaction with:
-   - account_id: resolved from the per-row card column + user mappings + list_accounts() results
+   - Map card/account column values to YNAB account IDs (using the accounts list below)
+3. For each CSV row, build a YNAB transaction with:
+   - account_id: resolved from the per-row card column + user mappings + accounts list below
    - date: converted to YYYY-MM-DD format
    - amount: converted to milliunits (dollars × 1000), negative for outflows
    - payee_name: cleaned up per user preferences
-   - category_id: from user preferences + list_categories() results (omit if unsure)
+   - category_id: from user preferences + categories list below (omit if unsure)
    - import_id: YNAB:{{milliunit_amount}}:{{iso_date}}:{{occurrence}} for dedup
    - cleared: "cleared"
-5. Call create_transactions() with all the transactions.
+4. Call create_transactions() with all the transactions.
 
 ## Determining the amount sign convention:
 Different CSV sources use DIFFERENT sign conventions. You MUST figure out which one \
@@ -143,6 +125,12 @@ transactions, increment the occurrence counter.
 - If you're unsure about a category, omit category_id (leave it uncategorized in YNAB).
 - Process ALL rows from the CSV. Do not skip any.
 
+## YNAB Accounts (from the user's budget):
+{accounts_text}
+
+## YNAB Categories (from the user's budget):
+{categories_text}
+
 ## YNAB API Reference:
 {ynab_api_ref}
 
@@ -162,14 +150,20 @@ def process_csv(
     llm_settings = settings.get("llm", {})
     model = llm_settings.get("model", "claude-sonnet-4-20250514")
 
-    client = anthropic.Anthropic()
+    llm_client = anthropic.Anthropic()
     ynab = YNABClient(
         api_token=ynab_settings["api_token"],
         budget_id=ynab_settings["budget_id"],
     )
 
+    # Fetch accounts and categories locally — LLM never sees credentials
+    logger.info("Fetching YNAB accounts and categories...")
+    accounts = ynab.list_accounts()
+    categories = ynab.list_categories()
+    logger.info(f"  → {len(accounts)} accounts, {len(categories)} categories")
+
     csv_content = csv_path.read_text()
-    system_prompt = _build_system_prompt()
+    system_prompt = _build_system_prompt(accounts, categories)
 
     user_message = (
         f"Here is a CSV file to import into YNAB.\n\n"
@@ -184,7 +178,7 @@ def process_csv(
     result = {"transactions_created": 0, "duplicates_skipped": 0, "details": None}
 
     while True:
-        response = client.messages.create(
+        response = llm_client.messages.create(
             model=model,
             max_tokens=4096,
             system=system_prompt,
@@ -201,7 +195,6 @@ def process_csv(
                 logger.info(f"Agent: {block.text.strip()}")
 
         if not tool_calls:
-            # Agent is done
             break
 
         # Add assistant response to messages
@@ -241,17 +234,7 @@ def _execute_tool(
     """Execute a tool call from the agent and return the result."""
     logger.info(f"Tool call: {name}")
 
-    if name == "list_accounts":
-        accounts = ynab.list_accounts()
-        logger.info(f"  → {len(accounts)} accounts")
-        return accounts
-
-    elif name == "list_categories":
-        categories = ynab.list_categories()
-        logger.info(f"  → {len(categories)} categories")
-        return categories
-
-    elif name == "create_transactions":
+    if name == "create_transactions":
         transactions = inputs.get("transactions", [])
 
         # Validate with Pydantic

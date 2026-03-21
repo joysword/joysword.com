@@ -45,28 +45,25 @@ MOCK_TRANSACTIONS = [
 
 
 def test_build_system_prompt_includes_guides():
-    prompt = _build_system_prompt()
+    prompt = _build_system_prompt(MOCK_ACCOUNTS, MOCK_CATEGORIES)
     assert "YNAB transaction import agent" in prompt
-    assert "list_accounts" in prompt
+    assert "create_transactions" in prompt
     assert "milliunits" in prompt
+    # Accounts and categories should be embedded in prompt
+    assert "acct-chase" in prompt
+    assert "Chase Freedom Unlimited" in prompt
+    assert "cat-groceries" in prompt
+    assert "Groceries" in prompt
 
 
-def test_execute_tool_list_accounts():
-    ynab = MagicMock()
-    ynab.list_accounts.return_value = MOCK_ACCOUNTS
-
-    result = _execute_tool("list_accounts", {}, ynab=ynab, dry_run=False, result={})
-    assert result == MOCK_ACCOUNTS
-    ynab.list_accounts.assert_called_once()
-
-
-def test_execute_tool_list_categories():
-    ynab = MagicMock()
-    ynab.list_categories.return_value = MOCK_CATEGORIES
-
-    result = _execute_tool("list_categories", {}, ynab=ynab, dry_run=False, result={})
-    assert result == MOCK_CATEGORIES
-    ynab.list_categories.assert_called_once()
+def test_build_system_prompt_no_credentials():
+    """Actual credential values must NEVER appear in the LLM prompt."""
+    prompt = _build_system_prompt(MOCK_ACCOUNTS, MOCK_CATEGORIES)
+    # The prompt may reference "Bearer" as API doc, but never actual token values
+    assert "YOUR_YNAB_API_TOKEN" not in prompt
+    assert "sk-ant-" not in prompt
+    # Confirms the agent handles auth locally
+    assert "NEVER see or need" in prompt
 
 
 def test_execute_tool_create_transactions_dry_run():
@@ -119,7 +116,7 @@ def test_execute_tool_unknown():
 
 
 def test_process_csv_agent_loop(tmp_path):
-    """Test the full agent loop with mocked Anthropic client."""
+    """Test the full agent loop with mocked Anthropic client and YNAB client."""
     csv_file = tmp_path / "test.csv"
     csv_file.write_text(
         "Date,Amount,Description\n"
@@ -135,46 +132,28 @@ def test_process_csv_agent_loop(tmp_path):
         '  model: "claude-sonnet-4-20250514"\n'
     )
 
-    # Build a mock Anthropic response that first calls list_accounts, then create_transactions
-    # Response 1: agent calls list_accounts and list_categories
-    tool_use_block_1a = MagicMock()
-    tool_use_block_1a.type = "tool_use"
-    tool_use_block_1a.name = "list_accounts"
-    tool_use_block_1a.input = {}
-    tool_use_block_1a.id = "tu_1a"
-
-    tool_use_block_1b = MagicMock()
-    tool_use_block_1b.type = "tool_use"
-    tool_use_block_1b.name = "list_categories"
-    tool_use_block_1b.input = {}
-    tool_use_block_1b.id = "tu_1b"
+    # Response 1: agent calls create_transactions
+    tool_use_block = MagicMock()
+    tool_use_block.type = "tool_use"
+    tool_use_block.name = "create_transactions"
+    tool_use_block.input = {"transactions": MOCK_TRANSACTIONS}
+    tool_use_block.id = "tu_1"
 
     response_1 = MagicMock()
-    response_1.content = [tool_use_block_1a, tool_use_block_1b]
+    response_1.content = [tool_use_block]
     response_1.stop_reason = "tool_use"
 
-    # Response 2: agent calls create_transactions
-    tool_use_block_2 = MagicMock()
-    tool_use_block_2.type = "tool_use"
-    tool_use_block_2.name = "create_transactions"
-    tool_use_block_2.input = {"transactions": MOCK_TRANSACTIONS}
-    tool_use_block_2.id = "tu_2"
-
-    response_2 = MagicMock()
-    response_2.content = [tool_use_block_2]
-    response_2.stop_reason = "tool_use"
-
-    # Response 3: agent is done (text only)
+    # Response 2: agent is done (text only)
     text_block = MagicMock()
     text_block.type = "text"
     text_block.text = "Done! Imported 2 transactions."
 
-    response_3 = MagicMock()
-    response_3.content = [text_block]
-    response_3.stop_reason = "end_turn"
+    response_2 = MagicMock()
+    response_2.content = [text_block]
+    response_2.stop_reason = "end_turn"
 
     mock_anthropic_client = MagicMock()
-    mock_anthropic_client.messages.create.side_effect = [response_1, response_2, response_3]
+    mock_anthropic_client.messages.create.side_effect = [response_1, response_2]
 
     with patch("ynab_importer.agent.anthropic.Anthropic", return_value=mock_anthropic_client), \
          patch("ynab_importer.agent.YNABClient") as MockYNAB:
@@ -192,4 +171,8 @@ def test_process_csv_agent_loop(tmp_path):
 
     assert result["transactions_created"] == 2
     assert result["duplicates_skipped"] == 0
-    assert mock_anthropic_client.messages.create.call_count == 3
+    # Only 2 LLM calls now (no tool calls for accounts/categories)
+    assert mock_anthropic_client.messages.create.call_count == 2
+    # Accounts and categories fetched locally, not via LLM tools
+    mock_ynab_instance.list_accounts.assert_called_once()
+    mock_ynab_instance.list_categories.assert_called_once()
