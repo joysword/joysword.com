@@ -21,8 +21,18 @@ which card or payment method was used. Map those to my YNAB accounts:
 If the CSV has no per-row account column (e.g., a single-card statement),
 use the file name or header info to determine the account.
 
+## Amount Sign Conventions by Source
+Different sources use different sign conventions for charges vs. income:
+- Chase: negative = charge, positive = payment/refund
+- Amex: positive = charge, negative = refund/credit
+- Apple Pay: check the "Type" or "Transaction Type" column
+- PayPal: has separate "Gross" column; negative = sent, positive = received
+- Bank of America: negative = debit, positive = credit
+
+When in doubt, look for payment or refund rows to calibrate — they should
+be the opposite sign of regular purchases.
+
 ## Notes
-- Charges appear as negative amounts in some CSVs but positive in others
 - If you're unsure about a category, leave it blank
 - A single CSV from Apple Pay or PayPal may contain transactions across
   multiple cards — always check the per-row card/method column

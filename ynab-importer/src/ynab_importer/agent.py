@@ -113,6 +113,25 @@ and category IDs in the user's budget.
    - cleared: "cleared"
 5. Call create_transactions() with all the transactions.
 
+## Determining the amount sign convention:
+Different CSV sources use DIFFERENT sign conventions. You MUST figure out which one \
+before converting amounts. Common patterns:
+- **Negative = spending**: Chase, most US banks. Charges show as -45.67, payments as +500.00.
+- **Positive = spending**: Amex, some international banks. Charges show as 45.67, refunds as -45.67.
+- **Separate columns**: Some CSVs have "Debit" and "Credit" columns instead of a single amount.
+- **Transaction type column**: Some CSVs have a "Type" column (e.g., "Sale", "Payment", "Return") \
+that indicates direction.
+
+How to determine the convention:
+1. Look at column names. "Debit"/"Credit" columns are explicit. A column named "Amount" is ambiguous.
+2. Look for payment/refund rows — these are the OPPOSITE of charges. If a row says "PAYMENT" or \
+"REFUND" and the amount is positive, then positive = inflow and negative = outflow (standard).
+3. Check the user's mapping guide for hints about specific sources.
+4. If you truly cannot determine the convention, state your assumption explicitly.
+
+YNAB convention (output): negative = outflow (spending), positive = inflow (income/refund). \
+Always convert to this convention regardless of the CSV's convention.
+
 ## Important rules:
 - A single CSV may contain transactions across MULTIPLE accounts (e.g., Apple Pay export \
 with Chase, Amex, and Apple Card transactions). Always check for a per-row account column.
@@ -120,7 +139,7 @@ with Chase, Amex, and Apple Card transactions). Always check for a per-row accou
 or any header metadata. If you truly cannot determine the account, say so.
 - Generate import_id for every transaction to enable dedup. For same-day, same-amount \
 transactions, increment the occurrence counter.
-- Convert amounts to milliunits (integer). $45.67 → 45670 or -45670.
+- Convert amounts to milliunits (integer). $45.67 spent → -45670. $100 received → 100000.
 - If you're unsure about a category, omit category_id (leave it uncategorized in YNAB).
 - Process ALL rows from the CSV. Do not skip any.
 
