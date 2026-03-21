@@ -1,0 +1,11 @@
+# YNAB API configuration
+ynab:
+  api_token: "YOUR_YNAB_API_TOKEN"  # Get from https://app.ynab.com/settings/developer
+  budget_id: "YOUR_BUDGET_ID"        # Find in YNAB URL: app.ynab.com/{budget_id}/...
+
+# Default bank to use if not specified via CLI
+default_bank: "auto"
+
+# Folder watcher settings
+watcher:
+  settle_time_seconds: 2  # Wait for file to finish writing before processing

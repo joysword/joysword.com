@@ -1,0 +1,9 @@
+# Generated config
+config/mappings.yaml
+
+# Python
+__pycache__/
+*.egg-info/
+dist/
+build/
+.pytest_cache/

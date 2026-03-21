@@ -1,0 +1,7 @@
+Transaction Date,Post Date,Description,Category,Type,Amount,Memo
+01/15/2025,01/16/2025,TRADER JOE'S #123,Groceries,Sale,-45.67,
+01/15/2025,01/16/2025,SPOTIFY USA,Entertainment,Sale,-9.99,Monthly subscription
+01/16/2025,01/17/2025,AMZN MKTP US*AB1CD2EF,Shopping,Sale,-23.45,
+01/17/2025,01/18/2025,UBER EATS PENDING,Food & Drink,Sale,-18.50,
+01/18/2025,01/19/2025,PAYMENT THANK YOU,,Payment,500.00,
+01/18/2025,01/19/2025,TRADER JOE'S #456,Groceries,Sale,-45.67,

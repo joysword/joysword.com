@@ -1,0 +1,17 @@
+# Bank of America checking/savings CSV format
+name: "Bank of America"
+columns:
+  date: "Date"
+  payee: "Description"
+  amount: "Amount"
+  memo: "Reference Number"
+date_format: "%m/%d/%Y"
+# BofA: negative = debit (outflow), positive = credit (inflow)
+amount_sign: "negative_is_outflow"
+encoding: "utf-8"
+delimiter: ","
+identify_headers:
+  - "Date"
+  - "Description"
+  - "Amount"
+  - "Running Bal."

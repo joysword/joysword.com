@@ -1,0 +1,17 @@
+# American Express credit card CSV format
+name: "American Express"
+columns:
+  date: "Date"
+  payee: "Description"
+  amount: "Amount"
+  memo: "Extended Details"
+date_format: "%m/%d/%Y"
+# Amex: positive = purchase (outflow), negative = payment/refund (inflow)
+amount_sign: "positive_is_outflow"
+encoding: "utf-8"
+delimiter: ","
+identify_headers:
+  - "Date"
+  - "Description"
+  - "Amount"
+  - "Extended Details"
