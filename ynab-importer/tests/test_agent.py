@@ -1,9 +1,10 @@
-"""Tests for the AI agent with mocked Anthropic API."""
+"""Tests for the AI agent with mocked litellm + YNAB client."""
 
 from __future__ import annotations
 
 import json
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -44,12 +45,35 @@ MOCK_TRANSACTIONS = [
 ]
 
 
+def _make_tool_call(name, arguments):
+    """Build a mock litellm tool call object."""
+    return SimpleNamespace(
+        id="call_1",
+        type="function",
+        function=SimpleNamespace(
+            name=name,
+            arguments=json.dumps(arguments),
+        ),
+    )
+
+
+def _make_litellm_response(*, content=None, tool_calls=None, finish_reason="stop"):
+    """Build a mock litellm completion response."""
+    msg = SimpleNamespace(
+        role="assistant",
+        content=content,
+        tool_calls=tool_calls,
+    )
+    choice = SimpleNamespace(message=msg, finish_reason=finish_reason)
+    usage = SimpleNamespace(prompt_tokens=100, completion_tokens=50)
+    return SimpleNamespace(id="resp_1", model="test-model", choices=[choice], usage=usage)
+
+
 def test_build_system_prompt_includes_guides():
     prompt = _build_system_prompt(MOCK_ACCOUNTS, MOCK_CATEGORIES)
     assert "YNAB transaction import agent" in prompt
     assert "create_transactions" in prompt
     assert "milliunits" in prompt
-    # Accounts and categories should be embedded in prompt
     assert "acct-chase" in prompt
     assert "Chase Freedom Unlimited" in prompt
     assert "cat-groceries" in prompt
@@ -59,10 +83,8 @@ def test_build_system_prompt_includes_guides():
 def test_build_system_prompt_no_credentials():
     """Actual credential values must NEVER appear in the LLM prompt."""
     prompt = _build_system_prompt(MOCK_ACCOUNTS, MOCK_CATEGORIES)
-    # The prompt may reference "Bearer" as API doc, but never actual token values
     assert "YOUR_YNAB_API_TOKEN" not in prompt
     assert "sk-ant-" not in prompt
-    # Confirms the agent handles auth locally
     assert "NEVER see or need" in prompt
 
 
@@ -115,8 +137,32 @@ def test_execute_tool_unknown():
     assert "error" in result
 
 
+def test_execute_tool_event_log():
+    """Event log captures the YNAB request/response for create_transactions."""
+    ynab = MagicMock()
+    ynab.create_transactions.return_value = {
+        "dry_run": True,
+        "transaction_count": 1,
+        "transactions": [MOCK_TRANSACTIONS[0]],
+    }
+
+    events: list = []
+    _execute_tool(
+        "create_transactions",
+        {"transactions": [MOCK_TRANSACTIONS[0]]},
+        ynab=ynab,
+        dry_run=True,
+        result={"transactions_created": 0, "duplicates_skipped": 0, "details": None},
+        event_log=events,
+    )
+    assert len(events) == 1
+    assert events[0]["service"] == "ynab"
+    assert events[0]["label"] == "Create Transactions (dry run)"
+    assert "Bearer ****" in events[0]["request"]["headers"]["Authorization"]
+
+
 def test_process_csv_agent_loop(tmp_path):
-    """Test the full agent loop with mocked Anthropic client and YNAB client."""
+    """Full agent loop with mocked litellm and YNAB client."""
     csv_file = tmp_path / "test.csv"
     csv_file.write_text(
         "Date,Amount,Description\n"
@@ -132,47 +178,79 @@ def test_process_csv_agent_loop(tmp_path):
         '  model: "claude-sonnet-4-20250514"\n'
     )
 
-    # Response 1: agent calls create_transactions
-    tool_use_block = MagicMock()
-    tool_use_block.type = "tool_use"
-    tool_use_block.name = "create_transactions"
-    tool_use_block.input = {"transactions": MOCK_TRANSACTIONS}
-    tool_use_block.id = "tu_1"
+    # Response 1: LLM calls create_transactions
+    tc = _make_tool_call("create_transactions", {"transactions": MOCK_TRANSACTIONS})
+    response_1 = _make_litellm_response(tool_calls=[tc], finish_reason="tool_calls")
 
-    response_1 = MagicMock()
-    response_1.content = [tool_use_block]
-    response_1.stop_reason = "tool_use"
+    # Response 2: LLM is done
+    response_2 = _make_litellm_response(content="Done! Imported 2 transactions.")
 
-    # Response 2: agent is done (text only)
-    text_block = MagicMock()
-    text_block.type = "text"
-    text_block.text = "Done! Imported 2 transactions."
-
-    response_2 = MagicMock()
-    response_2.content = [text_block]
-    response_2.stop_reason = "end_turn"
-
-    mock_anthropic_client = MagicMock()
-    mock_anthropic_client.messages.create.side_effect = [response_1, response_2]
-
-    with patch("ynab_importer.agent.anthropic.Anthropic", return_value=mock_anthropic_client), \
+    with patch("ynab_importer.agent.litellm") as mock_litellm, \
          patch("ynab_importer.agent.YNABClient") as MockYNAB:
-        mock_ynab_instance = MockYNAB.return_value
-        mock_ynab_instance.list_accounts.return_value = MOCK_ACCOUNTS
-        mock_ynab_instance.list_categories.return_value = MOCK_CATEGORIES
-        mock_ynab_instance.create_transactions.return_value = {
+        mock_litellm.completion.side_effect = [response_1, response_2]
+
+        mock_ynab = MockYNAB.return_value
+        mock_ynab.list_accounts.return_value = MOCK_ACCOUNTS
+        mock_ynab.list_categories.return_value = MOCK_CATEGORIES
+        mock_ynab.create_transactions.return_value = {
             "data": {
                 "transaction_ids": ["t1", "t2"],
                 "duplicate_import_ids": [],
             }
         }
 
-        result = process_csv(csv_file, dry_run=False, settings_path=settings_file)
+        event_log: list = []
+        result = process_csv(
+            csv_file, dry_run=False, settings_path=settings_file, event_log=event_log,
+        )
 
     assert result["transactions_created"] == 2
     assert result["duplicates_skipped"] == 0
-    # Only 2 LLM calls now (no tool calls for accounts/categories)
-    assert mock_anthropic_client.messages.create.call_count == 2
-    # Accounts and categories fetched locally, not via LLM tools
-    mock_ynab_instance.list_accounts.assert_called_once()
-    mock_ynab_instance.list_categories.assert_called_once()
+    assert mock_litellm.completion.call_count == 2
+    mock_ynab.list_accounts.assert_called_once()
+    mock_ynab.list_categories.assert_called_once()
+
+    # Event log: 2 YNAB fetches + LLM turn 1 + YNAB create + LLM turn 2
+    assert len(event_log) == 5
+    assert event_log[0]["service"] == "ynab"
+    assert event_log[0]["label"] == "Fetch Accounts"
+    assert event_log[1]["service"] == "ynab"
+    assert event_log[1]["label"] == "Fetch Categories"
+    assert event_log[2]["service"] == "llm"
+    assert event_log[2]["label"] == "LLM Turn 1"
+    assert event_log[3]["service"] == "ynab"
+    assert "Create Transactions" in event_log[3]["label"]
+    assert event_log[4]["service"] == "llm"
+    assert event_log[4]["label"] == "LLM Turn 2"
+
+
+def test_process_csv_credentials_from_kwargs(tmp_path):
+    """Credentials passed as kwargs override settings.yaml."""
+    csv_file = tmp_path / "test.csv"
+    csv_file.write_text("Date,Amount\n2025-01-15,-10.00\n")
+
+    response = _make_litellm_response(content="No account found.")
+
+    with patch("ynab_importer.agent.litellm") as mock_litellm, \
+         patch("ynab_importer.agent.YNABClient") as MockYNAB:
+        mock_litellm.completion.return_value = response
+        mock_ynab = MockYNAB.return_value
+        mock_ynab.list_accounts.return_value = MOCK_ACCOUNTS
+        mock_ynab.list_categories.return_value = MOCK_CATEGORIES
+
+        # No settings.yaml needed — pass creds as kwargs
+        process_csv(
+            csv_file,
+            dry_run=True,
+            ynab_api_token="gui-token",
+            ynab_budget_id="gui-budget",
+            llm_api_key="sk-gui-key",
+            llm_model="gpt-4o",
+        )
+
+    # Verify YNAB client was created with GUI creds
+    MockYNAB.assert_called_once_with(api_token="gui-token", budget_id="gui-budget")
+    # Verify litellm was called with the right model and api_key
+    call_kwargs = mock_litellm.completion.call_args
+    assert call_kwargs.kwargs["model"] == "gpt-4o"
+    assert call_kwargs.kwargs["api_key"] == "sk-gui-key"

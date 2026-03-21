@@ -1,4 +1,7 @@
-"""Core AI agent: reads any CSV, uses LLM to understand it, calls YNAB API."""
+"""Core AI agent: reads any CSV, uses LLM to understand it, calls YNAB API.
+
+Uses litellm for multi-provider LLM support (Anthropic, OpenAI, Google, etc.).
+"""
 
 from __future__ import annotations
 
@@ -6,7 +9,7 @@ import json
 import logging
 from pathlib import Path
 
-import anthropic
+import litellm
 
 from .models import Transaction
 from .ynab_client import BASE_URL, YNABClient, load_settings
@@ -15,40 +18,47 @@ logger = logging.getLogger(__name__)
 
 GUIDES_DIR = Path(__file__).resolve().parent.parent.parent / "guides"
 
-# The only tool the LLM needs — the agent executes it locally with credentials.
+# Tool definition in OpenAI function-calling format (litellm normalizes this
+# across all providers).
 TOOLS = [
     {
-        "name": "create_transactions",
-        "description": (
-            "Create transactions in YNAB. The agent will add authentication and "
-            "send the payload to the YNAB API on your behalf. Each transaction must have: "
-            "account_id (string, from the accounts list provided), date (YYYY-MM-DD), "
-            "amount (int, milliunits, negative=outflow), payee_name (string). "
-            "Optional: memo, category_id (from the categories list provided), "
-            "import_id (for dedup: YNAB:{milliunit_amount}:{iso_date}:{occurrence}), cleared."
-        ),
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "transactions": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "account_id": {"type": "string"},
-                            "date": {"type": "string"},
-                            "amount": {"type": "integer"},
-                            "payee_name": {"type": "string"},
-                            "memo": {"type": "string"},
-                            "category_id": {"type": "string"},
-                            "import_id": {"type": "string"},
-                            "cleared": {"type": "string", "enum": ["cleared", "uncleared", "reconciled"]},
+        "type": "function",
+        "function": {
+            "name": "create_transactions",
+            "description": (
+                "Create transactions in YNAB. The agent will add authentication and "
+                "send the payload to the YNAB API on your behalf. Each transaction must have: "
+                "account_id (string, from the accounts list provided), date (YYYY-MM-DD), "
+                "amount (int, milliunits, negative=outflow), payee_name (string). "
+                "Optional: memo, category_id (from the categories list provided), "
+                "import_id (for dedup: YNAB:{milliunit_amount}:{iso_date}:{occurrence}), cleared."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "transactions": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "account_id": {"type": "string"},
+                                "date": {"type": "string"},
+                                "amount": {"type": "integer"},
+                                "payee_name": {"type": "string"},
+                                "memo": {"type": "string"},
+                                "category_id": {"type": "string"},
+                                "import_id": {"type": "string"},
+                                "cleared": {
+                                    "type": "string",
+                                    "enum": ["cleared", "uncleared", "reconciled"],
+                                },
+                            },
+                            "required": ["account_id", "date", "amount", "payee_name"],
                         },
-                        "required": ["account_id", "date", "amount", "payee_name"],
                     },
                 },
+                "required": ["transactions"],
             },
-            "required": ["transactions"],
         },
     },
 ]
@@ -139,13 +149,26 @@ transactions, increment the occurrence counter.
 """
 
 
-def _serialize_content_block(block) -> dict:
-    """Convert an Anthropic content block to a JSON-serializable dict."""
-    if block.type == "text":
-        return {"type": "text", "text": block.text}
-    elif block.type == "tool_use":
-        return {"type": "tool_use", "id": block.id, "name": block.name, "input": block.input}
-    return {"type": block.type}
+def _serialize_tool_call(tc) -> dict:
+    """Convert a litellm tool call object to a JSON-serializable dict."""
+    return {
+        "id": tc.id,
+        "type": "function",
+        "function": {
+            "name": tc.function.name,
+            "arguments": tc.function.arguments,
+        },
+    }
+
+
+def _serialize_message(msg) -> dict:
+    """Convert a litellm message object to a JSON-serializable dict."""
+    d: dict = {"role": msg.role}
+    if msg.content:
+        d["content"] = msg.content
+    if hasattr(msg, "tool_calls") and msg.tool_calls:
+        d["tool_calls"] = [_serialize_tool_call(tc) for tc in msg.tool_calls]
+    return d
 
 
 def process_csv(
@@ -153,22 +176,34 @@ def process_csv(
     dry_run: bool = False,
     settings_path: Path | None = None,
     event_log: list | None = None,
+    *,
+    ynab_api_token: str | None = None,
+    ynab_budget_id: str | None = None,
+    llm_api_key: str | None = None,
+    llm_model: str | None = None,
 ) -> dict:
     """Read a CSV file and use the LLM agent to import transactions into YNAB.
 
-    If event_log is provided (a list), each network call's request and response
-    will be appended as a dict for GUI inspection.
+    Credentials can come from keyword args (GUI) or settings.yaml (CLI).
+    If event_log is provided (a list), every network payload is appended.
     """
-    settings = load_settings(settings_path)
-    ynab_settings = settings["ynab"]
-    llm_settings = settings.get("llm", {})
-    model = llm_settings.get("model", "claude-sonnet-4-20250514")
+    # --- Resolve credentials: kwargs override settings.yaml ---
+    settings: dict = {}
+    try:
+        settings = load_settings(settings_path)
+    except FileNotFoundError:
+        if not (ynab_api_token and ynab_budget_id):
+            raise
 
-    llm_client = anthropic.Anthropic()
-    ynab = YNABClient(
-        api_token=ynab_settings["api_token"],
-        budget_id=ynab_settings["budget_id"],
-    )
+    ynab_token = ynab_api_token or settings.get("ynab", {}).get("api_token")
+    budget_id = ynab_budget_id or settings.get("ynab", {}).get("budget_id")
+    model = llm_model or settings.get("llm", {}).get("model", "claude-sonnet-4-20250514")
+    api_key = llm_api_key  # None is fine — litellm falls back to env vars
+
+    if not ynab_token or not budget_id:
+        raise ValueError("YNAB API token and budget ID are required.")
+
+    ynab = YNABClient(api_token=ynab_token, budget_id=budget_id)
 
     # Fetch accounts and categories locally — LLM never sees credentials
     logger.info("Fetching YNAB accounts and categories...")
@@ -208,7 +243,10 @@ def process_csv(
         f"Please analyze this CSV, figure out the format, and create the transactions in YNAB."
     )
 
-    messages = [{"role": "user", "content": user_message}]
+    messages: list[dict] = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_message},
+    ]
 
     # Agent loop: run until the LLM stops calling tools
     result = {"transactions_created": 0, "duplicates_skipped": 0, "details": None}
@@ -217,99 +255,87 @@ def process_csv(
     while True:
         turn += 1
 
-        # Capture what we send to Claude
-        claude_request = {
+        # Build the completion kwargs — only pass api_key if the caller gave one
+        completion_kwargs: dict = {
             "model": model,
-            "max_tokens": 4096,
-            "system": system_prompt,
+            "messages": messages,
             "tools": TOOLS,
-            "messages": _serialize_messages(messages),
+            "max_tokens": 4096,
         }
+        if api_key:
+            completion_kwargs["api_key"] = api_key
 
-        response = llm_client.messages.create(
-            model=model,
-            max_tokens=4096,
-            system=system_prompt,
-            tools=TOOLS,
-            messages=messages,
-        )
-
-        response_content = [_serialize_content_block(b) for b in response.content]
-        claude_response = {
-            "id": response.id,
-            "model": response.model,
-            "stop_reason": response.stop_reason,
-            "content": response_content,
-            "usage": {
-                "input_tokens": response.usage.input_tokens,
-                "output_tokens": response.usage.output_tokens,
-            },
-        }
-
+        # Snapshot for event log (before the call)
         if event_log is not None:
+            logged_request = {
+                "model": model,
+                "max_tokens": 4096,
+                "messages": _snapshot_messages(messages),
+                "tools": TOOLS,
+            }
+
+        response = litellm.completion(**completion_kwargs)
+
+        msg = response.choices[0].message
+        finish_reason = response.choices[0].finish_reason
+
+        # Build serializable response for event log
+        if event_log is not None:
+            logged_response = {
+                "id": response.id,
+                "model": response.model,
+                "finish_reason": finish_reason,
+                "message": _serialize_message(msg),
+                "usage": {
+                    "prompt_tokens": response.usage.prompt_tokens,
+                    "completion_tokens": response.usage.completion_tokens,
+                },
+            }
             event_log.append({
-                "label": f"Claude Turn {turn}",
-                "service": "claude",
-                "request": claude_request,
-                "response": claude_response,
+                "label": f"LLM Turn {turn}",
+                "service": "llm",
+                "request": logged_request,
+                "response": logged_response,
             })
 
-        # Collect text and tool use blocks
-        tool_calls = [b for b in response.content if b.type == "tool_use"]
-        text_blocks = [b for b in response.content if b.type == "text"]
+        if msg.content:
+            logger.info(f"Agent: {msg.content.strip()}")
 
-        for block in text_blocks:
-            if block.text.strip():
-                logger.info(f"Agent: {block.text.strip()}")
-
-        if not tool_calls:
+        if not msg.tool_calls:
             break
 
-        # Add assistant response to messages
-        messages.append({"role": "assistant", "content": response.content})
+        # Add assistant message (with tool_calls) to conversation
+        messages.append(_serialize_message(msg))
 
-        # Process each tool call
-        tool_results = []
-        for tool_call in tool_calls:
+        # Execute each tool call and feed results back
+        for tc in msg.tool_calls:
+            fn_name = tc.function.name
+            fn_args = json.loads(tc.function.arguments)
+
             tool_result = _execute_tool(
-                tool_call.name,
-                tool_call.input,
+                fn_name,
+                fn_args,
                 ynab=ynab,
                 dry_run=dry_run,
                 result=result,
                 event_log=event_log,
             )
-            tool_results.append({
-                "type": "tool_result",
-                "tool_use_id": tool_call.id,
+
+            messages.append({
+                "role": "tool",
+                "tool_call_id": tc.id,
                 "content": json.dumps(tool_result),
             })
 
-        messages.append({"role": "user", "content": tool_results})
-
-        if response.stop_reason == "end_turn":
+        if finish_reason == "stop":
             break
 
     return result
 
 
-def _serialize_messages(messages: list) -> list:
-    """Convert messages list to JSON-serializable form for logging."""
-    serialized = []
-    for msg in messages:
-        if isinstance(msg.get("content"), str):
-            serialized.append(msg)
-        elif isinstance(msg.get("content"), list):
-            content = []
-            for item in msg["content"]:
-                if isinstance(item, dict):
-                    content.append(item)
-                else:
-                    content.append(_serialize_content_block(item))
-            serialized.append({"role": msg["role"], "content": content})
-        else:
-            serialized.append({"role": msg["role"], "content": str(msg.get("content", ""))})
-    return serialized
+def _snapshot_messages(messages: list[dict]) -> list[dict]:
+    """Deep-copy messages for logging (they're already dicts at this point)."""
+    return json.loads(json.dumps(messages, default=str))
 
 
 def _execute_tool(
@@ -334,7 +360,6 @@ def _execute_tool(
 
         logger.info(f"  → Creating {len(validated)} transactions (dry_run={dry_run})")
 
-        # Log YNAB request before making it
         ynab_request = {
             "method": "POST",
             "url": f"{BASE_URL}/budgets/{{budget_id}}/transactions",

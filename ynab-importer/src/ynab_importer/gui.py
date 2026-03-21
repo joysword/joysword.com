@@ -23,7 +23,7 @@ def index():
 
 @app.route("/process", methods=["POST"])
 def process():
-    """Accept a CSV upload, run the agent, return the event log."""
+    """Accept a CSV upload + credentials, run the agent, return the event log."""
     if "file" not in request.files:
         return jsonify({"error": "No file uploaded"}), 400
 
@@ -33,7 +33,12 @@ def process():
 
     dry_run = request.form.get("dry_run", "false").lower() == "true"
 
-    # Save to temp file preserving original name
+    # Credentials from the form (stay in this process, never reach the LLM)
+    ynab_api_token = request.form.get("ynab_api_token", "").strip() or None
+    ynab_budget_id = request.form.get("ynab_budget_id", "").strip() or None
+    llm_api_key = request.form.get("llm_api_key", "").strip() or None
+    llm_model = request.form.get("llm_model", "").strip() or None
+
     with tempfile.TemporaryDirectory() as tmp:
         csv_path = Path(tmp) / file.filename
         file.save(csv_path)
@@ -44,6 +49,10 @@ def process():
                 csv_path=csv_path,
                 dry_run=dry_run,
                 event_log=event_log,
+                ynab_api_token=ynab_api_token,
+                ynab_budget_id=ynab_budget_id,
+                llm_api_key=llm_api_key,
+                llm_model=llm_model,
             )
         except Exception as e:
             logger.exception("Agent failed")

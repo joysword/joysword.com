@@ -12,9 +12,9 @@
     --border: #2e3345;
     --text: #e1e4ed;
     --text-dim: #8b90a0;
-    --claude: #d4a574;
-    --claude-bg: #2a2218;
-    --claude-border: #4a3a25;
+    --llm: #d4a574;
+    --llm-bg: #2a2218;
+    --llm-border: #4a3a25;
     --ynab: #85c0ff;
     --ynab-bg: #172030;
     --ynab-border: #1e3a5f;
@@ -36,6 +36,41 @@
   header .subtitle { color: var(--text-dim); font-size: 13px; }
   .container { max-width: 960px; margin: 0 auto; padding: 24px; }
 
+  /* Config panel */
+  .config-panel {
+    border: 1px solid var(--border); border-radius: var(--radius);
+    margin-bottom: 20px; overflow: hidden;
+  }
+  .config-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px; cursor: pointer; user-select: none;
+    background: var(--surface); font-size: 14px; font-weight: 500;
+  }
+  .config-header .arrow {
+    font-size: 12px; color: var(--text-dim); transition: transform 0.15s;
+  }
+  .config-panel.open .config-header .arrow { transform: rotate(90deg); }
+  .config-body { display: none; padding: 16px; background: var(--surface2); }
+  .config-panel.open .config-body { display: block; }
+  .config-note {
+    font-size: 12px; color: var(--text-dim); margin-bottom: 14px;
+    padding: 8px 10px; background: var(--bg); border-radius: 4px;
+    border-left: 3px solid var(--green);
+  }
+  .config-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .field { display: flex; flex-direction: column; gap: 4px; }
+  .field label { font-size: 12px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; }
+  .field input, .field select {
+    padding: 8px 10px; border: 1px solid var(--border); border-radius: 4px;
+    background: var(--bg); color: var(--text); font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .field input::placeholder { color: #555; }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--llm); }
+  .field .hint { font-size: 11px; color: var(--text-dim); }
+
   /* Drop zone */
   .dropzone {
     border: 2px dashed var(--border); border-radius: var(--radius);
@@ -43,7 +78,7 @@
     transition: all 0.15s;
   }
   .dropzone:hover, .dropzone.dragover {
-    border-color: var(--claude); background: var(--claude-bg);
+    border-color: var(--llm); background: var(--llm-bg);
   }
   .dropzone .icon { font-size: 36px; margin-bottom: 8px; opacity: 0.5; }
   .dropzone .label { font-size: 15px; color: var(--text-dim); }
@@ -61,25 +96,21 @@
     display: flex; align-items: center; gap: 6px; font-size: 14px;
     color: var(--text-dim); cursor: pointer; user-select: none;
   }
-  .controls input[type=checkbox] { accent-color: var(--claude); }
+  .controls input[type=checkbox] { accent-color: var(--llm); }
   .btn {
     padding: 8px 20px; border: none; border-radius: var(--radius);
     font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.15s;
   }
-  .btn-primary {
-    background: var(--claude); color: #000;
-  }
+  .btn-primary { background: var(--llm); color: #000; }
   .btn-primary:hover { filter: brightness(1.1); }
   .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
 
   /* Spinner */
-  .spinner {
-    display: none; margin: 32px auto; text-align: center;
-  }
+  .spinner { display: none; margin: 32px auto; text-align: center; }
   .spinner.active { display: block; }
   .spinner .dot {
     display: inline-block; width: 10px; height: 10px; border-radius: 50%;
-    background: var(--claude); margin: 0 4px;
+    background: var(--llm); margin: 0 4px;
     animation: bounce 1.2s ease-in-out infinite;
   }
   .spinner .dot:nth-child(2) { animation-delay: 0.15s; }
@@ -105,7 +136,7 @@
     border: 1px solid var(--border); border-radius: var(--radius);
     overflow: hidden;
   }
-  .event-card.claude { border-color: var(--claude-border); }
+  .event-card.llm { border-color: var(--llm-border); }
   .event-card.ynab { border-color: var(--ynab-border); }
 
   .event-header {
@@ -113,7 +144,7 @@
     padding: 10px 14px; cursor: pointer; user-select: none;
     background: var(--surface);
   }
-  .event-card.claude .event-header { background: var(--claude-bg); }
+  .event-card.llm .event-header { background: var(--llm-bg); }
   .event-card.ynab .event-header { background: var(--ynab-bg); }
 
   .event-header .arrow {
@@ -130,16 +161,14 @@
     font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px;
     text-transform: uppercase; letter-spacing: 0.5px;
   }
-  .badge.claude { background: var(--claude); color: #000; }
+  .badge.llm { background: var(--llm); color: #000; }
   .badge.ynab { background: var(--ynab); color: #000; }
   .event-header .label { font-size: 14px; font-weight: 500; flex: 1; }
 
   .event-body { display: none; }
   .event-card.open .event-body { display: block; }
 
-  .payload-section {
-    border-top: 1px solid var(--border);
-  }
+  .payload-section { border-top: 1px solid var(--border); }
   .payload-section-header {
     padding: 8px 14px; font-size: 12px; font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dim);
@@ -162,21 +191,65 @@
     white-space: pre-wrap; word-break: break-word;
   }
 
-  /* Scrollbar styling */
+  /* Scrollbar */
   ::-webkit-scrollbar { width: 8px; height: 8px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+
+  @media (max-width: 640px) {
+    .config-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
 
 <header>
   <h1>YNAB Importer</h1>
-  <span class="subtitle">AI agent &mdash; drop a CSV, see every payload</span>
+  <span class="subtitle">AI agent &mdash; any LLM, any bank CSV</span>
 </header>
 
 <div class="container">
+
+  <!-- Credentials panel -->
+  <div class="config-panel open" id="config-panel">
+    <div class="config-header" onclick="document.getElementById('config-panel').classList.toggle('open')">
+      <span class="arrow">&#9654;</span>
+      Configuration
+    </div>
+    <div class="config-body">
+      <div class="config-note">
+        Credentials stay in your browser and the local agent process.
+        They are NEVER sent to the LLM.
+      </div>
+      <div class="config-grid">
+        <div class="field">
+          <label>LLM Model</label>
+          <input type="text" id="llm-model" placeholder="claude-sonnet-4-20250514" value="claude-sonnet-4-20250514">
+          <span class="hint">
+            Anthropic: claude-sonnet-4-20250514 &middot;
+            OpenAI: gpt-4o &middot;
+            Google: gemini/gemini-2.0-flash
+          </span>
+        </div>
+        <div class="field">
+          <label>LLM API Key</label>
+          <input type="password" id="llm-api-key" placeholder="sk-... or leave blank for env var">
+          <span class="hint">Falls back to ANTHROPIC_API_KEY / OPENAI_API_KEY env vars</span>
+        </div>
+        <div class="field">
+          <label>YNAB API Token</label>
+          <input type="password" id="ynab-token" placeholder="YNAB personal access token">
+        </div>
+        <div class="field">
+          <label>YNAB Budget ID</label>
+          <input type="text" id="ynab-budget" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+          <span class="hint">From YNAB URL: app.ynab.com/{budget_id}/budget</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Drop zone -->
   <div class="dropzone" id="dropzone">
     <div class="icon">&#128196;</div>
@@ -252,6 +325,16 @@ processBtn.addEventListener('click', async () => {
   fd.append('file', selectedFile);
   fd.append('dry_run', dryRunCb.checked ? 'true' : 'false');
 
+  // Attach credentials
+  const llmModel = document.getElementById('llm-model').value.trim();
+  const llmKey = document.getElementById('llm-api-key').value.trim();
+  const ynabToken = document.getElementById('ynab-token').value.trim();
+  const ynabBudget = document.getElementById('ynab-budget').value.trim();
+  if (llmModel) fd.append('llm_model', llmModel);
+  if (llmKey) fd.append('llm_api_key', llmKey);
+  if (ynabToken) fd.append('ynab_api_token', ynabToken);
+  if (ynabBudget) fd.append('ynab_budget_id', ynabBudget);
+
   try {
     const resp = await fetch('/process', { method: 'POST', body: fd });
     const data = await resp.json();
@@ -288,36 +371,40 @@ function showBanner(type, msg) {
 function renderEvents(events) {
   eventLog.innerHTML = '';
   events.forEach((evt, i) => {
-    const svc = evt.service; // "claude" or "ynab"
+    const svc = evt.service; // "llm" or "ynab"
     const card = document.createElement('div');
     card.className = `event-card ${svc}`;
 
-    // Header
     const header = document.createElement('div');
     header.className = 'event-header';
     header.innerHTML = `
       <span class="arrow">&#9654;</span>
       <span class="step-num">${i + 1}</span>
-      <span class="badge ${svc}">${svc}</span>
+      <span class="badge ${svc}">${svc === 'llm' ? 'LLM' : 'YNAB'}</span>
       <span class="label">${esc(evt.label)}</span>
     `;
     header.addEventListener('click', () => card.classList.toggle('open'));
     card.appendChild(header);
 
-    // Body
     const body = document.createElement('div');
     body.className = 'event-body';
 
-    if (svc === 'claude') {
-      // Split Claude request into sub-sections
+    if (svc === 'llm') {
       const req = evt.request || {};
-      addSubSection(body, 'Model', JSON.stringify({ model: req.model, max_tokens: req.max_tokens }, null, 2));
-      addSubSection(body, 'System Prompt', typeof req.system === 'string' ? req.system : JSON.stringify(req.system, null, 2));
+      addSubSection(body, 'Model & Config', JSON.stringify({ model: req.model, max_tokens: req.max_tokens }, null, 2));
+      // System message is messages[0] — show it separately for readability
+      const sysMsg = (req.messages || [])[0];
+      if (sysMsg && sysMsg.role === 'system') {
+        addSubSection(body, 'System Prompt', sysMsg.content);
+      }
+      // Remaining messages (user, assistant, tool results)
+      const otherMsgs = (req.messages || []).filter(m => m.role !== 'system');
+      if (otherMsgs.length) {
+        addSubSection(body, 'Messages', JSON.stringify(otherMsgs, null, 2));
+      }
       addSubSection(body, 'Tools', JSON.stringify(req.tools, null, 2));
-      addSubSection(body, 'Messages', JSON.stringify(req.messages, null, 2));
       addSubSection(body, 'Response', JSON.stringify(evt.response, null, 2), true);
     } else {
-      // YNAB: request + response
       addSubSection(body, 'Request', JSON.stringify(evt.request, null, 2));
       addSubSection(body, 'Response', JSON.stringify(evt.response, null, 2), true);
     }
