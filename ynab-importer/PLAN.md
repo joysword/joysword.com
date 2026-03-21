@@ -1,11 +1,47 @@
-# YNAB CSV Importer — Implementation Plan
+# YNAB CSV Importer — AI Agent Architecture
 
 ## Overview
 
-A Python CLI tool that imports bank transaction CSVs into YNAB, with support for
-multiple bank formats, configurable payee-to-category and source-to-account
-mappings (authored in Markdown, compiled to YAML), and both one-shot and
-folder-watching modes. Deduplication uses YNAB's built-in `import_id`.
+An AI agent that reads **any** bank CSV file, understands its format using an
+LLM, consults local guide files for user preferences (payee mappings, account
+names, categories), and generates + executes YNAB API calls. No bank-specific
+parsers or configs — the LLM _is_ the parser.
+
+---
+
+## How It Works
+
+```
+CSV file (any bank)
+       │
+       ▼
+┌─────────────────────┐
+│  Agent reads CSV     │  ← raw file content (header + rows)
+│  + local guides      │  ← mappings.md, settings.yaml
+│  + YNAB API ref      │  ← bundled API reference doc
+└─────────┬───────────┘
+          │
+          ▼
+┌─────────────────────┐
+│  LLM understands:    │
+│  • column meanings   │  (date, amount, payee, etc.)
+│  • date formats      │
+│  • amount sign conv. │  (negative = charge? positive = charge?)
+│  • payee mapping     │  (from guides)
+│  • account mapping   │  (from guides)
+└─────────┬───────────┘
+          │
+          ▼
+┌─────────────────────┐
+│  Agent builds YNAB   │
+│  API payload and     │
+│  calls the API       │  ← POST /budgets/{id}/transactions
+└─────────────────────┘
+```
+
+**Key insight**: The LLM replaces all bank-specific adapters, regex-based payee
+matchers, and column mapping configs. The user just maintains a simple Markdown
+guide describing their preferences.
 
 ---
 
@@ -14,148 +50,196 @@ folder-watching modes. Deduplication uses YNAB's built-in `import_id`.
 ```
 ynab-importer/
 ├── pyproject.toml
-├── README.md
+├── PLAN.md
+├── guides/
+│   ├── mappings.md          # User's payee→category and account preferences
+│   └── ynab-api.md          # YNAB API reference (transactions endpoint)
 ├── config/
-│   ├── mappings.md          # Human-authored mapping rules (Markdown)
-│   ├── mappings.yaml        # Compiled structured config (generated)
-│   ├── banks/
-│   │   ├── chase.yaml       # Chase CSV column mapping
-│   │   ├── bofa.yaml        # Bank of America CSV column mapping
-│   │   └── amex.yaml        # Amex CSV column mapping
-│   └── settings.yaml        # YNAB budget ID, default account, etc.
+│   └── settings.yaml        # YNAB API token, budget ID, model settings
 ├── src/
 │   └── ynab_importer/
 │       ├── __init__.py
 │       ├── cli.py            # CLI entry point (click)
+│       ├── agent.py          # Core agent: CSV → LLM → YNAB API calls
+│       ├── ynab_client.py    # Thin YNAB API client (agent's tool)
 │       ├── watcher.py        # Folder watcher (watchdog)
-│       ├── parser.py         # CSV parsing with bank-specific adapters
-│       ├── cleaner.py        # Data cleaning & enrichment pipeline
-│       ├── mapper.py         # Payee→category, source→account mapping
-│       ├── ynab_client.py    # YNAB API client (create transactions)
-│       ├── compile_config.py # Markdown → YAML config compiler
-│       └── models.py         # Transaction dataclass / Pydantic models
+│       └── models.py         # Transaction model (for structured output)
 └── tests/
-    ├── test_parser.py
-    ├── test_cleaner.py
-    ├── test_mapper.py
+    ├── test_agent.py
     └── fixtures/
         └── sample_chase.csv
 ```
+
+What's gone vs. the old design:
+- ❌ `config/banks/*.yaml` — no bank-specific configs
+- ❌ `parser.py` — LLM parses the CSV
+- ❌ `cleaner.py` — LLM cleans/normalizes
+- ❌ `mapper.py` — LLM maps payees using guides
+- ❌ `compile_config.py` — no YAML compilation, guides are plain Markdown
+- ❌ `mappings.yaml` — replaced by `guides/mappings.md` read directly
 
 ---
 
 ## Step-by-step Plan
 
-### Step 1: Project scaffolding
-- Create repo with `pyproject.toml` (dependencies: `click`, `pyyaml`,
-  `watchdog`, `requests`, `pydantic`)
-- Set up `src/ynab_importer/` package layout
-- Create `config/settings.yaml` with placeholders for YNAB API token and
-  budget ID
+### Step 1: Restructure project
 
-### Step 2: Transaction model (`models.py`)
-- Pydantic model `Transaction` with fields: `date`, `amount`, `payee`,
-  `memo`, `account_name`, `category`, `import_id`
-- `import_id` generated as YNAB spec: `YNAB:{milliunit_amount}:{date}:{occurrence}`
-  (handles same-day/same-amount dedup)
+- Remove old bank-specific modules (`parser.py`, `cleaner.py`, `mapper.py`,
+  `compile_config.py`, `config/banks/`)
+- Move `config/mappings.md` → `guides/mappings.md` (user's guide, stays Markdown)
+- Create `guides/ynab-api.md` — concise YNAB API reference the agent uses
+- Update `pyproject.toml`: replace `pyyaml` with `anthropic` SDK, keep `click`,
+  `watchdog`, `requests`, `pydantic`
+- Update `config/settings.yaml` to include model/LLM settings
 
-### Step 3: CSV parser with bank adapters (`parser.py`)
-- Bank config YAML files define: column names for date/amount/payee/memo,
-  date format, amount sign convention (negative = outflow vs positive = outflow),
-  CSV dialect options (delimiter, quoting, encoding)
-- `parse_csv(file_path, bank_id) -> list[Transaction]`
-- Auto-detect bank from CSV header row if bank_id not provided
+### Step 2: YNAB API reference guide (`guides/ynab-api.md`)
 
-### Step 4: Markdown-based mapping config (`compile_config.py`)
-- `config/mappings.md` format — human-readable rules in Markdown tables:
+Write a concise reference doc the agent includes in its context:
+- `POST /budgets/{budget_id}/transactions` request/response format
+- Transaction object fields: `account_id`, `date` (ISO), `amount` (milliunits),
+  `payee_name`, `memo`, `category_name`, `import_id`, `cleared`
+- `import_id` format for dedup: `YNAB:{milliunit_amount}:{iso_date}:{occurrence}`
+- Amount convention: negative = outflow, positive = inflow, in milliunits (×1000)
+- Bulk create: `{ "transactions": [...] }`
 
-  ```markdown
-  ## Payee → Category
+### Step 3: Transaction model (`models.py`)
 
-  | Payee pattern (regex) | YNAB Payee     | YNAB Category              |
-  |-----------------------|----------------|-----------------------------|
-  | TRADER JOE.*          | Trader Joe's   | Groceries                   |
-  | SPOTIFY.*             | Spotify        | Subscriptions: Music        |
-  | AMZN.*\|AMAZON.*      | Amazon         | Shopping                    |
+Keep existing Pydantic model, simplified. This is used for structured LLM output:
+- Fields: `date`, `amount` (milliunits), `payee_name`, `memo`,
+  `account_id`, `category_name`, `import_id`, `cleared`
+- The model matches the YNAB API transaction shape directly — the LLM outputs
+  transactions ready to POST.
 
-  ## Source → Account
+### Step 4: Core agent (`agent.py`)
 
-  | Bank / Card name       | YNAB Account Name        |
-  |------------------------|--------------------------|
-  | Chase Freedom          | Chase Freedom Unlimited   |
-  | BofA Checking          | BofA Checking             |
-  ```
+The heart of the system. Uses the Anthropic SDK with tool use:
 
-- Compiler parses markdown tables → writes `mappings.yaml`
-- CLI command: `ynab-importer compile-config`
-- Optionally, an LLM-assisted mode (`--ai`) that takes freeform markdown
-  notes and generates the structured tables (future enhancement, not MVP)
+```python
+def process_csv(csv_path: Path, dry_run: bool = False) -> dict:
+    """Read a CSV, send it to the LLM with guides, get back YNAB transactions."""
+```
 
-### Step 5: Data cleaning & enrichment (`cleaner.py`, `mapper.py`)
-- Pipeline: raw Transaction → cleaned Transaction
-  1. Normalize payee strings (strip whitespace, uppercase for matching)
-  2. Match payee against mapping rules (regex), assign YNAB payee name + category
-  3. Map source/bank to YNAB account name
-  4. Generate `import_id` for YNAB dedup
-  5. Convert amount to YNAB milliunit format (amount × 1000)
-- Unmatched payees: keep original name, leave category blank (YNAB will
-  prompt the user to categorize)
+**Agent prompt construction:**
+1. System prompt: "You are a YNAB transaction import agent..."
+2. Include contents of `guides/ynab-api.md` (API reference)
+3. Include contents of `guides/mappings.md` (user preferences)
+4. Include the user's YNAB account list (fetched from API, so the agent knows
+   valid account IDs and names)
+5. Include the CSV file content (header + all rows)
+6. Ask the LLM to output a JSON array of YNAB transaction objects
 
-### Step 6: YNAB API client (`ynab_client.py`)
-- Thin wrapper around YNAB API v1 (`api.ynab.com/v1`)
-- `POST /budgets/{id}/transactions` with bulk create
-- Uses `import_id` on each transaction for server-side dedup
-- Handles rate limiting (200 requests/hour) with backoff
-- Dry-run mode: print what would be sent without calling API
+**Agent tools (function calling):**
+- `create_transactions(transactions)` — calls YNAB API to create transactions
+- `list_accounts()` — fetches YNAB accounts (for account ID resolution)
+- `list_categories()` — fetches YNAB categories (for category matching)
 
-### Step 7: CLI entry point (`cli.py`)
-- Built with `click`:
-  - `ynab-importer import <file_or_folder> [--bank chase|bofa|amex|auto] [--dry-run]`
-  - `ynab-importer watch <folder> [--bank auto] [--dry-run]`
-  - `ynab-importer compile-config`
-- Import mode: parse → clean → map → send to YNAB, print summary
-- Watch mode: use `watchdog` to monitor folder, process new `.csv` files
+The agent:
+1. Reads the CSV and figures out what each column means
+2. Reads the user's mapping guide for payee/category preferences
+3. Calls `list_accounts()` and `list_categories()` to get valid YNAB IDs
+4. Maps each CSV row to a YNAB transaction, applying the user's preferences
+5. Calls `create_transactions()` to POST them to YNAB
 
-### Step 8: Folder watcher (`watcher.py`)
-- `watchdog.observers.Observer` watches a directory for `*.csv` creation
-- On new file: wait briefly (file may still be writing), then run import pipeline
-- Log results to stdout + optional log file
-- Graceful shutdown on SIGINT/SIGTERM
+### Step 5: YNAB client as agent tools (`ynab_client.py`)
 
-### Step 9: Tests
-- Unit tests for parser (with fixture CSVs), cleaner, mapper
-- Mock YNAB API calls in client tests
-- Test markdown config compilation
+Refactor the existing client into tool functions the agent can call:
+- `list_accounts(budget_id)` → returns list of `{id, name}` pairs
+- `list_categories(budget_id)` → returns list of `{id, name, group}` pairs
+- `create_transactions(budget_id, transactions)` → POSTs to YNAB, returns result
+- Keep retry logic for rate limiting
+- Keep dry-run mode (returns payload without calling API)
+
+### Step 6: CLI (`cli.py`)
+
+Simplify the CLI — no `--bank` flag needed:
+- `ynab-importer import <file_or_folder> [--dry-run]`
+- `ynab-importer watch <folder> [--dry-run]`
+- On import: read CSV → call agent → print summary of created/skipped transactions
+- `--dry-run`: agent still runs but transactions are printed, not POSTed
+
+### Step 7: Folder watcher (`watcher.py`)
+
+Keep mostly as-is:
+- Watch directory for new `*.csv` files
+- On new file: wait for settle, then run agent pipeline
+- Log results
+
+### Step 8: Tests
+
+- Test agent with mocked Anthropic API responses
+- Test YNAB client tools with mocked HTTP
+- Integration test: sample CSV → agent → verify YNAB payload structure
+- Keep sample fixture CSVs
 
 ---
 
 ## Key Design Decisions
 
-1. **Markdown mappings**: Author-friendly format, compiled to YAML for fast
-   runtime. No LLM dependency at runtime — deterministic regex matching.
-2. **Bank adapters as YAML**: Adding a new bank = adding a small YAML file,
-   no code changes needed.
-3. **YNAB import_id for dedup**: Stateless — no local DB needed. YNAB
-   rejects duplicates server-side.
-4. **Pydantic models**: Validation at parse time catches bad data early.
-5. **Dry-run mode**: Safe testing before hitting the real API.
+1. **LLM as the parser**: No bank configs. The LLM reads raw CSV and figures
+   out the format. Works with any bank, any column layout, any date format.
+2. **Guides, not configs**: The user writes plain English/Markdown guides
+   describing their preferences. No regex, no YAML compilation.
+3. **Tool use pattern**: The agent uses tools (list accounts, list categories,
+   create transactions) rather than trying to guess IDs. It fetches real data
+   from YNAB to make informed decisions.
+4. **Structured output**: The LLM returns structured JSON matching the YNAB
+   API shape, validated by Pydantic before POSTing.
+5. **YNAB import_id for dedup**: Still stateless — YNAB handles dedup
+   server-side via `import_id`.
+6. **Dry-run mode**: Agent runs fully but skips the final API call, printing
+   what it would send.
 
 ---
 
 ## Dependencies
 
+- `anthropic` — Claude API SDK (LLM backbone)
 - `click` — CLI framework
-- `pydantic` — data validation
-- `pyyaml` — config parsing
-- `watchdog` — filesystem monitoring
+- `pydantic` — structured output validation
 - `requests` — HTTP client for YNAB API
+- `watchdog` — filesystem monitoring
+- `pyyaml` — settings file parsing
 
 ---
 
-## Out of scope (future)
+## Guides
+
+### `guides/mappings.md` (user-maintained)
+
+Plain Markdown the user edits to express their preferences. No rigid format
+required — the LLM reads it as natural language. Example:
+
+```markdown
+# My Transaction Mapping Preferences
+
+## Payees & Categories
+- Trader Joe's, Whole Foods → category: Groceries
+- Spotify → category: Subscriptions: Music
+- Netflix → category: Subscriptions: Streaming
+- Amazon, AMZN → payee: Amazon, category: Shopping
+- Uber Eats → category: Dining Out
+- Uber trips, Lyft → category: Transportation
+
+## My Accounts
+- Chase credit card statements → account: "Chase Freedom Unlimited"
+- Bank of America checking statements → account: "BofA Checking"
+- Amex statements → account: "Amex Gold"
+
+## Notes
+- Charges appear as negative amounts in Chase CSVs but positive in Amex
+- If you're unsure about a category, leave it blank
+```
+
+### `guides/ynab-api.md` (bundled, not user-edited)
+
+Concise YNAB API reference so the agent knows the exact payload format.
+
+---
+
+## Out of Scope (future)
 
 - Web UI / dashboard
-- LLM-assisted mapping authoring (`--ai` flag)
 - Multi-currency support
 - Historical sync / reconciliation
 - OAuth for YNAB (using personal access token for now)
+- Caching LLM responses for identical CSV formats
