@@ -2,41 +2,48 @@
 
 ## Overview
 
-An AI agent that reads **any** bank CSV file, understands its format using an
-LLM, consults local guide files for user preferences (payee mappings, account
-names, categories), and generates + executes YNAB API calls. No bank-specific
-parsers or configs — the LLM _is_ the parser.
+An AI agent that reads **any** transaction CSV file, understands its format
+using an LLM, consults local guide files for user preferences (payee mappings,
+account names, categories), and generates + executes YNAB API calls. No
+bank-specific parsers or configs — the LLM _is_ the parser.
+
+CSV files typically come from **transaction channels** (Apple Pay, PayPal,
+Venmo, a bank's export) — not necessarily from the account the money belongs
+to. A single CSV may contain transactions across multiple credit cards or bank
+accounts. The agent reads per-row data (e.g., a "Card" or "Payment Method"
+column) to determine the correct YNAB account for each transaction.
 
 ---
 
 ## How It Works
 
 ```
-CSV file (any bank)
+CSV file (any source: Apple Pay, Chase, PayPal, ...)
        │
        ▼
-┌─────────────────────┐
-│  Agent reads CSV     │  ← raw file content (header + rows)
-│  + local guides      │  ← mappings.md, settings.yaml
-│  + YNAB API ref      │  ← bundled API reference doc
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│  LLM understands:    │
-│  • column meanings   │  (date, amount, payee, etc.)
-│  • date formats      │
-│  • amount sign conv. │  (negative = charge? positive = charge?)
-│  • payee mapping     │  (from guides)
-│  • account mapping   │  (from guides)
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│  Agent builds YNAB   │
-│  API payload and     │
-│  calls the API       │  ← POST /budgets/{id}/transactions
-└─────────────────────┘
+┌──────────────────────────┐
+│  Agent reads CSV          │  ← raw file content (header + rows)
+│  + local guides           │  ← mappings.md, settings.yaml
+│  + YNAB API ref           │  ← bundled API reference doc
+└──────────┬───────────────┘
+           │
+           ▼
+┌──────────────────────────┐
+│  LLM understands:         │
+│  • column meanings        │  (date, amount, payee, etc.)
+│  • date formats           │
+│  • amount sign convention │  (negative = charge? positive = charge?)
+│  • payee mapping          │  (from guides)
+│  • per-row account column │  (card/payment method → YNAB account)
+└──────────┬───────────────┘
+           │
+           ▼
+┌──────────────────────────┐
+│  Agent builds YNAB        │
+│  API payload (may span    │
+│  multiple accounts) and   │
+│  calls the API            │  ← POST /budgets/{id}/transactions
+└──────────────────────────┘
 ```
 
 **Key insight**: The LLM replaces all bank-specific adapters, regex-based payee
@@ -135,10 +142,12 @@ def process_csv(csv_path: Path, dry_run: bool = False) -> dict:
 
 The agent:
 1. Reads the CSV and figures out what each column means
-2. Reads the user's mapping guide for payee/category preferences
+2. Reads the user's mapping guide for payee/category/account preferences
 3. Calls `list_accounts()` and `list_categories()` to get valid YNAB IDs
-4. Maps each CSV row to a YNAB transaction, applying the user's preferences
-5. Calls `create_transactions()` to POST them to YNAB
+4. For each row, determines the correct YNAB account from the per-row
+   account/card/payment-method column (one CSV may span multiple accounts)
+5. Maps each CSV row to a YNAB transaction, applying the user's preferences
+6. Calls `create_transactions()` to POST them to YNAB
 
 ### Step 5: YNAB client as agent tools (`ynab_client.py`)
 
@@ -220,14 +229,24 @@ required — the LLM reads it as natural language. Example:
 - Uber Eats → category: Dining Out
 - Uber trips, Lyft → category: Transportation
 
-## My Accounts
-- Chase credit card statements → account: "Chase Freedom Unlimited"
-- Bank of America checking statements → account: "BofA Checking"
-- Amex statements → account: "Amex Gold"
+## Account Mapping
+CSVs come from transaction channels (Apple Pay, bank exports, PayPal, etc.),
+not necessarily from a single account. Each row usually has a column indicating
+which card or payment method was used. Map those to my YNAB accounts:
+
+- "Chase Freedom", "Chase Freedom Unlimited" → account: "Chase Freedom Unlimited"
+- "BofA Checking", "Bank of America" → account: "BofA Checking"
+- "Amex Gold", "American Express Gold" → account: "Amex Gold"
+- "Apple Card" → account: "Apple Card"
+
+If the CSV has no per-row account column (e.g., a single-card statement),
+use the file name or header info to determine the account.
 
 ## Notes
-- Charges appear as negative amounts in Chase CSVs but positive in Amex
+- Charges appear as negative amounts in some CSVs but positive in others
 - If you're unsure about a category, leave it blank
+- A single CSV from Apple Pay or PayPal may contain transactions across
+  multiple cards — always check the per-row card/method column
 ```
 
 ### `guides/ynab-api.md` (bundled, not user-edited)
