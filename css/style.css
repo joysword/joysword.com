@@ -879,6 +879,96 @@ strong {
 }
 
 /* ============================================
+   Projects Page Specific Styles
+   ============================================ */
+
+.projects-page .main-content {
+    padding-top: 20px;
+}
+
+.projects-page .section {
+    padding: 60px 0;
+}
+
+.projects-page .section:first-of-type {
+    padding-top: 40px;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.project-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all var(--transition);
+    display: block;
+    color: var(--color-text);
+}
+
+.project-card:hover {
+    border-color: rgba(59, 130, 246, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.project-card-img {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.project-card-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+}
+
+.project-card-info {
+    padding: 20px;
+}
+
+.project-card-info h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text-heading);
+    margin-bottom: 10px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tag {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.project-tag i {
+    font-size: 10px;
+    color: var(--color-accent);
+}
+
+/* ============================================
    Responsive Design
    ============================================ */
 
@@ -990,6 +1080,10 @@ strong {
     .game-items {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         gap: 12px;
+    }
+
+    .project-list {
+        grid-template-columns: 1fr;
     }
 
     .container {
