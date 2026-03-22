@@ -1,0 +1,117 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Objects in the Rear View Mirror - Visualization Project 3</title>
+	<meta http-equiv="refresh" content="3600">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/content.css">
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33501080-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<style type="text/css">
+body, td, th, caption, input {
+  font-family: "Helvetica";
+  text-align: left;
+}
+table { border-collapse:collapse; border-color: #666666; }
+a:link, a:visited { color: #0033cc; text-decoration: none; }
+.title {
+  color:#000;
+
+}
+.zidingytitle {
+  text-align: center;
+  font-size: 24pt;
+}
+
+#msg_list{width:685px;font-size:13px; margin-left: 6%;}
+.msg_list_con{border: 1px solid #BFDBDE;border-collapse: collapse;margin-bottom: 20px;}
+.msg_list_con_t{height:40px;border: 1px solid #BFDBDE;padding:0px 3px;background:#E3f6fc; line-height:40px; color: #000;}
+.msg_name {font-weight: bold;height: 24px;margin-left: 10px;}
+.msg_list_con_d{height:40px;padding:0px 3px; line-height:40px;border-bottom:2px dotted #CCC;}
+.msg_list_con_c{padding:3px 3px 10px 10px;line-height:24px}
+
+form {margin-left: 6%;}
+</style>
+</head>
+
+<body>
+<!--============================= header area ==============================-->
+<div id="header">
+<h1>Objects in the Rear View Mirror</h1>
+<p>CS 424 Visualization and Visual Analytics Project 3</p>
+</div>
+<!--=========================== end of header area ==========================-->
+
+<!--============================= navigation bar ============================-->
+<div id="nav_ver">
+<p><a href="/projects/cs424p3/index.html">introduction</a></p>
+<p><a href="/projects/cs424p3/demo.html">demonstration</a></p>
+<p><a href="/projects/cs424p3/install.html">installation</a></p>
+<br>
+<p><a href="/projects/cs424p3/function.html">features</a></p>
+<p><a href="/projects/cs424p3/data.html">data source</a></p>
+<p><a href="/projects/cs424p3/findings.html">interesting findings</a></p>
+<p><a href="/projects/cs424p3/role.html">roles</a></p>
+<br>
+<p><a href="/projects/cs424p3/faq.html">FAQ</a></p>
+<br>
+<br>
+<p><a href="/projects/cs424p3/msg/index.php">status update</a></p>
+</div>
+<!--========================  end of navigation bar ========================-->
+
+<!--============================= main area =================================-->
+<div id="main">
+<br><br>
+<h2>Post a New Note</h2>
+<p margin-left: 10em;>
+<form id="form" name="form" method="POST" action="index.php?action=add" style="color: white;">
+  Name:<br />
+  <input type="text" name="user" /><br />
+  <br />
+  Content:<br />
+  <textarea name="content" wrap="hard" style="width:50em; height: 20em"></textarea><br />
+  <input type="submit" name="button" id="button" value="submit" />&nbsp;&nbsp;&nbsp;<a style="color: #909090">html mark enabled</a>
+</form>
+</p>
+
+<h2>Note List</h2>
+<p>
+<div id="msg_list">
+  <br />
+
+  {# foreach item=row key=i from=$content  #}
+  <div class="msg_list_con" style="color: white;">
+    <div class="msg_list_con_d"><span style="float: right; margin-right: 20px;"><strong>Time: </strong>[{# $row.addtime #}]</span><span class="msg_name">Name: {# $row.user #}</span></div>
+    <div class="msg_list_con_c">&nbsp;&nbsp;&nbsp;&nbsp;<span>
+    {# $row.content #}</span>
+    </div>
+  </div>
+  {# /foreach #}
+  {# $pageBar #}
+
+</p>
+</div>
+<!--======================== end of main area ===============================-->
+
+<!--============================== footer ===================================-->
+<div id="footer">
+<p>Group 8 | Edoardo Colombo | Daniele Gallingani | Shi Yin</p>
+</div>
+<!--============================= end of footer =============================-->
+
+
+</body></html>
